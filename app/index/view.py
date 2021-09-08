@@ -2,16 +2,13 @@
 """Public section, including homepage and signup."""
 from flask import (
     Blueprint,
-    current_app,
-    flash,
     redirect,
     render_template,
     request,
-    url_for,
 )
-from extensions import login_manager, db
-from index.forms import AddTaskFrom
-from index.model import Todo
+from app.extensions import db
+from app.index.forms import AddTaskFrom
+from app.index.model import Todo
 
 blueprint = Blueprint("public", __name__, static_folder="../static")
 
