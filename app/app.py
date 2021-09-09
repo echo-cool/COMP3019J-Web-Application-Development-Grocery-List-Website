@@ -5,7 +5,7 @@ import sys
 
 from flask import Flask, render_template
 
-from app import index, commands
+from app import index
 from app.extensions import (
     bcrypt,
     cache,
@@ -27,7 +27,6 @@ def create_app(config_object="app.settings"):
     register_blueprints(app)
     register_errorhandlers(app)
     register_shellcontext(app)
-    register_commands(app)
     configure_logger(app)
     return app
 
@@ -77,12 +76,6 @@ def register_shellcontext(app):
     #     return {"db": db, "User": user.models.User}
     #
     # app.shell_context_processor(shell_context)
-
-
-def register_commands(app):
-    """Register Click commands."""
-    app.cli.add_command(commands.test)
-    app.cli.add_command(commands.lint)
 
 
 def configure_logger(app):
