@@ -1,0 +1,19 @@
+{% extends "/base/base.html" %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Register</h1>
+    <br/>
+    <form id="loginForm" class="form form-login" method="POST" action="" role="form">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.username.label }}
+            {{ form.username(placeholder="Username", class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(placeholder="Password", class_="form-control") }}
+        </div>
+        <p><input class="btn btn-primary" type="submit" value="Login"></p>
+    </form>
+{% endblock %}

@@ -4,9 +4,7 @@ import logging
 import sys
 
 from flask import Flask, render_template
-
-from app import index
-from livereload import Server
+from app import index, login
 from app.extensions import (
     bcrypt,
     cache,
@@ -53,6 +51,7 @@ def register_blueprints(app):
     # app.register_blueprint(public.views.blueprint)
     # app.register_blueprint(user.views.blueprint)
     app.register_blueprint(index.view.blueprint)
+    app.register_blueprint(login.view.blueprint)
     return None
 
 

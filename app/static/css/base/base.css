@@ -56,7 +56,9 @@ h6{
 }
 
 
-.container {
-    margin: 0;
-    padding: 10px;
+#container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }

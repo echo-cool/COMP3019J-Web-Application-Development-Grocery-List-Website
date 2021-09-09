@@ -10,7 +10,7 @@ from app.extensions import db
 from app.index.forms import AddTaskFrom
 from app.index.model import Todo
 
-blueprint = Blueprint("public", __name__, static_folder="../static")
+blueprint = Blueprint("index", __name__, static_folder="../static")
 
 
 @blueprint.route("/", methods=["GET", "POST"])
