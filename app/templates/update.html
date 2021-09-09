@@ -4,14 +4,14 @@
 
 
 {% block content %}
-    <div class="container">
-        <h1>Update</h1>
-        <form action="/update/{{ task.id }}" method="post">
-            {{ form.csrf_token }}
-            <div class="form-inline">
-                <input type="text" class="form-control" name="content" id="content" value="{{ task.content }}">
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
-        </form>
-    </div>
+<div class="container">
+    <h1>Update</h1>
+    <form action="/update/{{ task.id }}" method="post">
+        {{ form.csrf_token }}
+        <div class="form-inline">
+            <input type="text" class="form-control" name="content" id="content" value="{{ task.content }}">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

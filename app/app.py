@@ -6,6 +6,7 @@ import sys
 from flask import Flask, render_template
 
 from app import index
+from livereload import Server
 from app.extensions import (
     bcrypt,
     cache,
@@ -28,6 +29,7 @@ def create_app(config_object="app.settings"):
     register_errorhandlers(app)
     register_shellcontext(app)
     configure_logger(app)
+
     return app
 
 
