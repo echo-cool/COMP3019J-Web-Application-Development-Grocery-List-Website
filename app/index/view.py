@@ -54,3 +54,8 @@ def update(id):
             return "Error"
     else:
         return render_template("update.html", task=task, form=form)
+
+@blueprint.route("/about/")
+def about():
+    """About page."""
+    return render_template("about.html")
