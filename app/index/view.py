@@ -4,11 +4,12 @@ from flask import (
     Blueprint,
     redirect,
     render_template,
-    request,
+    request, flash,
 )
 from app.extensions import db
 from app.index.forms import AddTaskFrom
 from app.index.model import Todo
+from app.utils import flash_errors
 
 blueprint = Blueprint("index", __name__, static_folder="../static")
 
@@ -16,7 +17,7 @@ blueprint = Blueprint("index", __name__, static_folder="../static")
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
     form = AddTaskFrom()
-    if request.method == 'POST':
+    if form.validate_on_submit():
         task_content = form.content.data
         new_task = Todo(content=task_content)
         try:
@@ -26,6 +27,7 @@ def home():
         except:
             return "Error"
     else:
+        flash_errors(form)
         tasks = Todo.query.order_by(Todo.date_created).all()
         return render_template("index.html", tasks=tasks, form=form)
 

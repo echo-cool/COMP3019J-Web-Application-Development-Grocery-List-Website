@@ -53,6 +53,5 @@ def login():
             flash("User not exist", "warning")
             flash_errors(form)
     else:
-        print("Login Failed")
         flash_errors(form)
     return render_template("login/login.html", form=form)
