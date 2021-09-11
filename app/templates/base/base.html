@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/text.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/alert.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/navbar.css') }}">
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
     {% block css %}
     {% endblock %}
     {% block meta %}
@@ -42,13 +44,12 @@
     <main role="main">
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %}
-            <div class="row">
+            <div class="row" >
                 <div class="col-md-12">
                     {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {#            <a class="close" title="Close" href="#" onclick=""#}
-                            {#              >&times;</a>#}
-                            {#            {{ message }}#}
+                        <div class="alert alert-{{ category }}" id="message_content">
+                            <a class="close" title="Close" href="#" onclick="HideMessage()">x</a>
+                                        {{ message }}
                         </div>
                         <!-- end .alert -->
                     {% endfor %}
