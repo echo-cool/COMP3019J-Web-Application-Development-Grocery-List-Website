@@ -1,6 +1,6 @@
 from flask import flash
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 
@@ -8,6 +8,7 @@ class UpdateFrom(FlaskForm):
     content = StringField(
         "content", validators=[DataRequired(), Length(min=1, max=25)]
     )
+    submit = SubmitField("Update Task")
 
     def __init__(self, *args, **kwargs):
         """Create instance."""
@@ -28,6 +29,7 @@ class AddTaskFrom(FlaskForm):
     content = StringField(
         "content", validators=[DataRequired(), Length(min=1, max=25)]
     )
+    submit = SubmitField("Add Task")
 
     def __init__(self, *args, **kwargs):
         """Create instance."""
