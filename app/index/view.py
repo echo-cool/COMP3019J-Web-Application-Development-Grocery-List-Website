@@ -32,6 +32,8 @@ def home():
         return render_template("index.html", tasks=tasks, form=form)
 
 
+
+
 @blueprint.route("/delete/<int:id>")
 def delete(id):
     task_to_delete = Todo.query.get_or_404(id)

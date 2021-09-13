@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial;
+    background-color: pink;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*in the middle*/
+    transform: translate(-50%, -50%);
+    width: 400px;
+    /*padding：内边距会撑开容器*/
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    /*设置的边框和内边距的值是包含在width内的*/
+    box-sizing: border-box;
+    box-shadow: 4px 4px 10px #58f1c1;
+    border-radius: 15px;
+}
+
+.box h1 {
+    margin: 0 0 30px;
+    color: white;
+    text-align: center;
+}
+
+.box .input_area {
+    position: relative;
+}
+
+.box .input_area input {
+    width: 100%;
+    /*上下10，左右0*/
+    /*padding 简写属性后面的值*/
+    /*1值:代表4个方向设置相同的内边距*/
+    /*2值:上下 左右*/
+    /*3值:上 左右 下*/
+    /*4值:上 右 下 左*/
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    /*设置了border: none/0 仍然有边框,这是因为设置了height 和 weight, 去掉即可 */
+    border: 0;
+    border-bottom: 1px solid #58f1c1;
+    outline: none;
+    background: transparent;
+}
+
+.box .input_area label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+    /*设置一个元素的css属性为pointer-events: none。它将不会捕获任何click事件，而是让事件穿过该元素到达下面的元素*/
+    pointer-events: none;
+    transition: .6s;
+}
+
+.box .input_area input:focus ~ label,
+.box .input_area input:valid ~ label {
+    top: -25px;
+    left: 0;
+    color: #58f1c1;
+    font-size: 14px;
+}
+
+.box input[type='submit'], .box input[type='button'] {
+    padding: 10px 20px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    background: #1dcdbe;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.box input[type='submit'] {
+    margin-left: 35px;
+    margin-right: 65px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+}
+
+.active.login_submit {
+    width: 5rem;
+    color: transparent;
+
+
+}
