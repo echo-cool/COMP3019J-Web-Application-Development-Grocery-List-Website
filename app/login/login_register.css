@@ -12,7 +12,7 @@ body {
   position: relative;
 }
 
-.welcome {
+.inner_box {
   background: #f6f6f6;
   width: 650px;
   height: 415px;
@@ -22,7 +22,7 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
-.pinkbox {
+.move_box {
   position: absolute;
   top: -10%;
   left: 5%;
@@ -40,17 +40,17 @@ body {
   transition: all 0.5s ease;
 }
 
-.leftbox, .rightbox {
+.left, .right {
   position: absolute;
   width: 50%;
   transition: 1s all ease;
 }
 
-.leftbox {
+.left {
   left: -2%;
 }
 
-.rightbox {
+.right {
   right: -2%;
 }
 
@@ -76,7 +76,7 @@ h1 {
   margin-top: 20%;
 }
 
-.desc {
+.advertise {
   margin-top: -8px;
 }
 
@@ -115,15 +115,14 @@ span {
 }
 
 button {
-  padding: 12px;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 11px;
-  border-radius: 10px;
-  margin: auto;
+  border-radius: 12px;
   outline: none;
   display: block;
+  padding: 12px 12px 12px 20px;
 }
 
 button:hover {
@@ -137,6 +136,7 @@ button:hover {
   background: #f6f6f6;
   color: #ce7d88;
   border: solid 1px #eac7cc;
+  margin-left: 35%;
 }
 
 /* 表单样式 */
@@ -149,24 +149,24 @@ form {
 
 .more-padding {
   position: absolute;
-  padding-top: 35px;
+  padding-top: 15px;
 }
 
 .more-padding input {
   padding: 12px;
 }
 
-.more-padding .sumbit {
+.more-padding .submit1 {
   margin-top: 45px;
 }
 
-.sumbit {
+.submit1 {
   margin-top: 25px;
   padding: 12px;
   border-color: #ce7d88;
 }
 
-.sumbit:hover {
+.submit1:hover {
   background: #cbc0d3;
   border-color: #bfb1c9;
 }
@@ -209,11 +209,11 @@ label {
 }
 
 .checkbox {
-  display: inline;
+  /*display: inline;*/
   white-space: nowrap;
   position: relative;
-  left: -52px;
-  top: 25px;
+  margin: auto;
+  top: -5px;
 }
 
 input[type=checkbox] {
