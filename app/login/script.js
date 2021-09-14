@@ -1,11 +1,11 @@
 $('#signup').click(function() {
   $('.pinkbox').css('transform', 'translateX(80%)');
-  $('.signin').addClass('nodisplay');
-  $('.signup').removeClass('nodisplay');
+  $('.signin').addClass('hidden');
+  $('.signup').removeClass('hidden');
 });
 
 $('#signin').click(function() {
   $('.pinkbox').css('transform', 'translateX(0%)');
-  $('.signup').addClass('nodisplay');
-  $('.signin').removeClass('nodisplay');
+  $('.signup').addClass('hidden');
+  $('.signin').removeClass('hidden');
 });

@@ -19,7 +19,7 @@ body {
   position: absolute;
   top: 25%;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 .pinkbox {
@@ -35,7 +35,7 @@ body {
   z-index: 2;
 }
 
-.nodisplay {
+.hidden {
   display: none;
   transition: all 0.5s ease;
 }
@@ -148,6 +148,7 @@ form {
 }
 
 .more-padding {
+  position: absolute;
   padding-top: 35px;
 }
 
@@ -175,7 +176,8 @@ input {
   width: 65%;
   color: #ce7d88;
   border: none;
-  border-bottom: 1px solid rgba(246, 246, 246, 0.5);
+  /*border-bottom: 1px solid rgba(246, 246, 246, 0.5);*/
+  /*transition: .5s;*/
   padding: 9px;
   font-weight: 100;
 }
@@ -191,13 +193,13 @@ input:focus {
   color: #ce7d88;
   outline: none;
   border-bottom: 1.2px solid rgba(206, 125, 136, 0.7);
-  font-size: 1.0em;
+  /*font-size: 1.0em;*/
   transition: 0.8s all ease;
 }
 
-input:focus::placeholder {
-  opacity: 0;
-}
+/*input:focus::placeholder {*/
+/*  opacity: 0;*/
+/*}*/
 
 label {
   font-family: "Open Sans", sans-serif;
@@ -222,4 +224,52 @@ input[type=checkbox] {
 .checkbox input[type=checkbox]:checked + label {
   color: #ce7d88;
   transition: 0.5s all ease;
+}
+
+.input_area {
+  position: relative;
+  margin-left: 58px;
+}
+
+.input_area input {
+    width: 100%;
+    /*上下10，左右0*/
+    /*padding 简写属性后面的值*/
+    /*1值:代表4个方向设置相同的内边距*/
+    /*2值:上下 左右*/
+    /*3值:上 左右 下*/
+    /*4值:上 右 下 左*/
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    /*设置了border: none/0 仍然有边框,这是因为设置了height 和 weight, 去掉即可 */
+    border: 0;
+    border-bottom: 1px solid #ce7d88;
+    transition: 0.8s all ease;
+    outline: none;
+    background: transparent;
+}
+
+.input_area label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 6px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+    /*设置一个元素的css属性为pointer-events: none。它将不会捕获任何click事件，而是让事件穿过该元素到达下面的元素*/
+    pointer-events: none;
+    transition: .6s;
+}
+
+.input_area input:focus ~ label,
+.input_area input:valid ~ label {
+    top: -25px;
+    left: 0;
+    color: #cab2dc;
+    font-size: 14px;
 }
