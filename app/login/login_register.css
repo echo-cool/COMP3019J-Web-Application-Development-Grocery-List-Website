@@ -182,13 +182,6 @@ input {
   font-weight: 100;
 }
 
-input::placeholder {
-  color: #f6f6f6;
-  letter-spacing: 2px;
-  font-size: 1.0em;
-  font-weight: 100;
-}
-
 input:focus {
   color: #ce7d88;
   outline: none;
