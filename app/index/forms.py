@@ -19,7 +19,7 @@ class UpdateFrom(FlaskForm):
         """Validate the form."""
         initial_validation = super(UpdateFrom, self).validate()
         if not initial_validation:
-
+        # fdsfsd
             return False
         else:
             return True

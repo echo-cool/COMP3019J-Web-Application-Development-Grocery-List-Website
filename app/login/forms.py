@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """User forms."""
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField
+from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
-from .models import User
+from app.user.models import User
 
 
 class RegisterForm(FlaskForm):
@@ -23,6 +23,7 @@ class RegisterForm(FlaskForm):
         "Verify password",
         [DataRequired(), EqualTo("password", message="Passwords must match")],
     )
+    submit_register = SubmitField("Register")
 
     def __init__(self, *args, **kwargs):
         """Create instance."""
@@ -54,6 +55,7 @@ class LoginForm(FlaskForm):
     password = PasswordField(
         "Password", validators=[DataRequired(), Length(min=1, max=40)]
     )
+    submit_login = SubmitField("Login")
 
     def __init__(self, *args, **kwargs):
         """Create instance."""
