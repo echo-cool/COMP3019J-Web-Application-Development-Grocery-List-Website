@@ -1,0 +1,16 @@
+table {
+    background-image: url("pizza.jpg") ;
+    background-size: 100%;
+}
+
+.topic {
+    font-family: cursive;
+}
+
+label {
+    background-color: #edcd58;
+}
+
+.send:active {
+    color: #8c1818;
+}
