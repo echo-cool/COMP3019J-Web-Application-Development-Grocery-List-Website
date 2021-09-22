@@ -162,8 +162,8 @@ a {
     background-color: white;
 }
 
-/*text-align: center; 水平居中*/
-/*line-height=height 垂直居中*/
+/*text-align: center; center horizontally*/
+/*line-height=height center vertically*/
 .banner .course h2 {
     height: 48px;
     line-height: 48px;
@@ -206,7 +206,7 @@ a {
 }
 
 /*box-shadow: 0 4px 盒子阴影 水平0 垂直4*/
-/*给父亲盒子加上height和line-height，孩子都可以继承过来*/
+/*the parent box is assigned with the height和line-height，the descendent can inherit these features*/
 .recommend {
     height: 60px;
     background-color: white;
@@ -312,11 +312,63 @@ a {
 }
 
 .box .box-bd ul li .info {
-    margin: 0 20px 0 25px;
+    margin: 0 20px 0 20px;
     font-size: 12px;
     color: #999;
 }
 
 .box .box-bd ul li .info span {
     color: #ff7c2d;
+}
+
+.pig_box {
+    width: 330px;
+    height: 450px;
+    margin: 100px auto;
+    background-color: white;
+}
+
+.pig_box img {
+    width: 100%;
+}
+
+.pig_box .review {
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 0 18px;
+    height: 70px;
+    background-color: #fcfffc;
+}
+
+.appraise {
+    font-size: 12px;
+    color: #b0b0b0;
+    padding: 0 18px;
+}
+
+.info {
+    font-size: 14px;
+    margin-top: 5px;
+    padding: 0 28px;
+}
+
+h4 {
+    display: inline-block;
+    font-weight: 400;
+}
+
+.info em {
+    /*margin复合写：顺时针上右下左*/
+    margin: 0 5px 0 5px;
+    font-style: normal;
+    color: #535758;
+}
+
+.info a {
+    color: black;
+    text-decoration: none;
+}
+
+.info a:hover {
+    color: orange;
 }
