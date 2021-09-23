@@ -38,17 +38,17 @@
 
 <header>{% block header %}{% endblock %}</header>
 {% block body %}
-    <nav class="nav navbar-default">
+    <nav class="">
         {% block nav %}{% endblock %}
     </nav>
     <main role="main">
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %}
-            <div class="row" >
-                <div class="col-md-12">
+            <div class="" >
+                <div class="">
                     {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}" id="message_content">
-                            <a class="close" title="Close" href="#" onclick="HideMessage()">x</a>
+                        <div class="alert-{{ category }}" id="message_content">
+                            <a class="" title="Close" href="#" onclick="HideMessage()">x</a>
                                         {{ message }}
                         </div>
                         <!-- end .alert -->
@@ -59,7 +59,7 @@
             <!-- end row -->
         {% endif %} {% endwith %}
     </main>
-    <section id="container">
+    <section class="container">
         {% block content %}
         {% endblock %}
     </section>
