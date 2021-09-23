@@ -16,6 +16,10 @@
 }
 
 .welcome {
+    font-size: 26px;
+    font-weight: bold;
+    font-style: italic;
+    color: deeppink;
     float: left;
 }
 
@@ -23,6 +27,7 @@
     width: auto;
     float: right;
     height: 40px;
+    line-height: 40px;
 }
 
 #title_information li {
@@ -115,10 +120,6 @@ a {
     color: #f28983;
 }
 
-#m1 {
-    visibility: hidden;
-}
-
 .title_box {
     overflow: hidden;
     display: block;
@@ -127,5 +128,179 @@ a {
 
 #title_information div {
     position: absolute;
-	visibility: hidden;
+    visibility: hidden;
+}
+
+.second_upside_middle {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+.second_upside_middle .logo {
+    position: absolute;
+    width: 226px;
+    height: 140px;
+    float: left;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#search {
+    overflow: hidden;
+    display: block;
+    float: right;
+}
+
+.search1 {
+    width: 320px;
+    padding-left: 18px;
+    padding-right: 10px;
+    line-height: 32px !important;
+    font-size: 12px;
+    color: #6f6f6f;
+    display: block;
+    float: left;
+    border: 2px solid plum;
+    box-shadow: 0 2px;
+}
+
+.search_input {
+    display: block;
+    padding-top: 40px;
+    float: left;
+    margin-left: 60px;
+}
+
+#search_form {
+    display: inline;
+    width: 500px;
+    float: left;
+
+}
+
+.search_submit {
+    display: block;
+    float: left;
+    width: 80px;
+    height: 37px;
+    cursor: pointer;
+    background: transparent url(../images/soubg.jpg) no-repeat center center;
+    cursor: pointer;
+}
+
+.search_details {
+    color: #999;
+    float: left;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-left: 60px;
+}
+
+.search_details span {
+    margin: 0 5px;
+}
+
+.search_details a {
+    color: gray;
+}
+
+.contact_info_box {
+    float: left;
+    margin-top: 25px;
+    margin-left: 70px;
+    padding-right: 10px;
+    width: 400px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.phone_desc {
+    font-size: 14px;
+    color: #b8b8b8;
+    line-height: 22px;
+}
+
+.telephone {
+    color: #616060;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.phone {
+    background: url(../images/tel.gif) no-repeat left center;
+    padding: 10px 0 10px 55px;
+    float: left;
+    overflow: hidden;
+    margin-right: 35px;
+}
+
+.contact_info_box .tele_logo {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    float: left;
+}
+
+.contact_info_box .wechat_logo {
+    width: 85px;
+    height: 85px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+/*this is the css for the navigation part*/
+.navigation {
+    clear: both;
+    height: 45px;
+    margin-top: 20px;
+}
+
+.navigation .types {
+    width: 1200px;
+    overflow: visible;
+    margin: 0 auto;
+}
+
+.navigation .types .classify {
+    width: 226px;
+    height: 45px;
+    background: #e01222;
+    position: relative;
+    font-size: 14px;
+    line-height: 45px;
+    color: #737373;
+    float: left;
+}
+
+.ld img {
+    margin-left: 20px;
+}
+
+.ld span {
+    font-size: 16px;
+    color: white;
+    padding-left: 30px;
+}
+
+.nav_box {
+    width: 226px;
+}
+
+.nav_box a {
+    width: 176px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    text-decoration: none;
+    background-color: #535758;
+    color: white;
+    text-indent: 2em;
+    padding-left: 50px;
+}
+
+.nav_box a:hover {
+    background-color: #ff6f00;
 }
