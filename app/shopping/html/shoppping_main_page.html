@@ -4,6 +4,47 @@
     <meta charset="UTF-8">
     <title>Online shopping Site</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript">
+        const timeout = 10;
+        let closeTimer = 0;
+        let oldLayer = 0;
+
+        // open hidden layer
+        function layer_open(id) {
+            // cancel the close timer
+            cancel_close_timer();
+
+            // close the old layer (hidden)
+            if (oldLayer) oldLayer.style.visibility = 'hidden';
+
+            // make new layer visible by displaying it
+            oldLayer = document.getElementById(id);
+            oldLayer.style.visibility = 'visible';
+
+        }
+
+        // close the layer by making it hidden
+        function close_layer() {
+            if (oldLayer) oldLayer.style.visibility = 'hidden';
+        }
+
+        // call the close timer
+        function close_timer() {
+            closeTimer = window.setTimeout(close_layer, timeout);
+        }
+
+        // cancel the close timer
+        function cancel_close_timer() {
+            if (closeTimer) {
+                window.clearTimeout(closeTimer);
+                closeTimer = null;
+            }
+        }
+
+        // close the layer when the mouse moves away
+        document.onclick = close_layer;
+
+    </script>
 </head>
 <body>
 <div class="title">
@@ -11,23 +52,28 @@
         <div class="welcome">
             Welcome to Online Shopping Site
         </div>
-        <ul id="title_information">
-            <li class="follow_us">
-                &nbsp;&nbsp;&nbsp;<a href="#">Follow us</a>
-            </li>
-            <li>|</li>
-            <li class="title_shopping_cart">
-                &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>
-            </li>
-            <li>|</li>
-            <li class="VIP">
-                <a href="#">VIP Area</a>
-            </li>
-            <li>|</li>
-            <li class="contact">
-                <a href="#">Contact us</a>
-            </li>
-        </ul>
+        <div class="title_box">
+            <ul id="title_information">
+                <li class="follow_us">
+                    &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('m1')" onmouseout="close_timer()">Follow us</a>
+                    <div id="m1" onmouseover="cancel_close_timer()" onmouseout="close_timer()">
+                        <img src="../images/wechat_xinxin.png" width="150" height="200">
+                    </div>
+                </li>
+                <li>|</li>
+                <li class="title_shopping_cart">
+                    &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>
+                </li>
+                <li>|</li>
+                <li class="VIP">
+                    <a href="#">VIP Area</a>
+                </li>
+                <li>|</li>
+                <li class="contact">
+                    <a href="#">Contact us</a>
+                </li>
+            </ul>
+        </div>
     </div>
 
 </div>

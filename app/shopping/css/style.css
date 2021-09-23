@@ -20,8 +20,9 @@
 }
 
 #title_information {
+    width: auto;
     float: right;
-    overflow: hidden;
+    height: 40px;
 }
 
 #title_information li {
@@ -112,4 +113,19 @@ a {
 
 #title_information .contact a:visited {
     color: #f28983;
+}
+
+#m1 {
+    visibility: hidden;
+}
+
+.title_box {
+    overflow: hidden;
+    display: block;
+    float: right;
+}
+
+#title_information div {
+    position: absolute;
+	visibility: hidden;
 }
