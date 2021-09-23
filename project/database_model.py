@@ -54,6 +54,7 @@ class PkModel(Model):
     @classmethod
     def get_by_id(cls, record_id):
         """Get record by ID."""
+        basestring = (str, bytes)
         if any(
             (
                 isinstance(record_id, basestring) and record_id.isdigit(),
