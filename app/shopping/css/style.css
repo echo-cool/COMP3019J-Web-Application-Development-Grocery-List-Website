@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.title {
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+.center_title {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.welcome {
+    float: left;
+}
+
+#title_information {
+    float: right;
+    overflow: hidden;
+}
+
+#title_information li {
+    float: left;
+    list-style: none;
+    padding-right: 10px;
+}
+
+.title_shopping_cart {
+    padding-left: 20px;
+    background: url("../images/gwc.png") no-repeat left center;
+    background-size: 24px;
+}
+
+.follow_us {
+    padding-left: 20px;
+    background: url(../images/wei.png) no-repeat left center;
+    background-size: 24px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#title_information .follow_us a:link {
+    color: gray;
+}
+
+#title_information .follow_us a:visited {
+    color: black;
+
+}
+
+#title_information .follow_us a:hover {
+    color: orange;
+}
+
+#title_information .follow_us a:visited {
+    color: #cbb916;
+}
+
+#title_information .title_shopping_cart a:link {
+    color: gray;
+}
+
+#title_information .title_shopping_cart a:visited {
+    color: black;
+
+}
+
+#title_information .title_shopping_cart a:hover {
+    color: orange;
+}
+
+#title_information .title_shopping_cart a:visited {
+    color: #be83f2;
+}
+
+#title_information .VIP a:link {
+    color: gray;
+}
+
+#title_information .VIP a:visited {
+    color: black;
+
+}
+
+#title_information .VIP a:hover {
+    color: orange;
+}
+
+#title_information .VIP a:visited {
+    color: #5cc663;
+}
+
+#title_information .contact a:link {
+    color: gray;
+}
+
+#title_information .contact a:visited {
+    color: black;
+
+}
+
+#title_information .contact a:hover {
+    color: orange;
+}
+
+#title_information .contact a:visited {
+    color: #f28983;
+}
