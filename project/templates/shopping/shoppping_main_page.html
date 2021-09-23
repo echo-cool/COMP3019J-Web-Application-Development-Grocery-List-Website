@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Online shopping Site</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="../css/nav2.css" type="text/css" rel="stylesheet"><!--藏品分类 -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/style.css') }}">
+{#    <link href="../css/nav2.css" type="text/css" rel="stylesheet"><!--藏品分类 -->#}
     <script type="text/javascript">
         const timeout = 10;
         let closeTimer = 0;
@@ -60,7 +60,7 @@
                 <li class="follow_us">
                     &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')" onmouseout="close_timer()">Follow us</a>
                     <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">
-                        <img src="../images/wechat_xinxin.png" width="150" height="200">
+                        <img src="{{ url_for('static',filename='image/shopping/wechat_xinxin.png') }}" width="150" height="200">
                     </div>
                 </li>
                 <li>|</li>
@@ -84,7 +84,7 @@
 <div class="second_upside">
     <div class="second_upside_middle">
         <div class="logo">
-            <img src="../images/img.png" alt="">
+            <img src="{{ url_for('static',filename='image/shopping/img.png') }}" alt="">
         </div>
         <div id="search">
             <form id="search_form" action="#" method="post">
@@ -111,7 +111,7 @@
                         18225658712
                     </p>
                 </div>
-                <img class="wechat_logo" src="../images/img_1.png" alt="">
+                <img class="wechat_logo" src="{{ url_for('static',filename='image/shopping/img_1.png') }}" alt="">
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
     <div class="types">
         <div class="classify">
             <div class="ld">
-                    <img src="../images/flbg.png" width="21" height="15" class="lf"><span>All Categories</span>
+                    <img src="{{ url_for('static',filename='image/shopping/flbg.png') }}" width="21" height="15" class="lf"><span>All Categories</span>
             </div>
             <div class="nav_box">
                 <a href="#">Clothes</a>

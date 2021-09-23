@@ -4,7 +4,7 @@ import logging
 import sys
 
 from flask import Flask, render_template
-from project import index, login
+from project import login, shopping
 from project.extensions import (
     bcrypt,
     cache,
@@ -50,7 +50,7 @@ def register_blueprints(app):
     """Register Flask blueprints."""
     # project.register_blueprint(public.views.blueprint)
     # project.register_blueprint(user.views.blueprint)
-    app.register_blueprint(index.view.blueprint)
+    app.register_blueprint(shopping.view.blueprint)
     app.register_blueprint(login.view.blueprint)
     return None
 
