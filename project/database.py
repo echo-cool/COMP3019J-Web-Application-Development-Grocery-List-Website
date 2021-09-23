@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Database module, including the SQLAlchemy database object and DB-related utilities."""
-from app.compat import basestring
-from app.extensions import db
+from project.compat import basestring
+from project.extensions import db
 
 # Alias common SQLAlchemy names
 Column = db.Column

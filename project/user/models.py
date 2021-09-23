@@ -4,8 +4,8 @@ import datetime as dt
 
 from flask_login import UserMixin
 
-from app.database import Column, PkModel, db, reference_col, relationship
-from app.extensions import bcrypt
+from project.database import Column, PkModel, db, reference_col, relationship
+from project.extensions import bcrypt
 
 
 class Role(PkModel):
@@ -26,7 +26,7 @@ class Role(PkModel):
 
 
 class User(UserMixin, PkModel):
-    """A user of the app."""
+    """A user of the project."""
 
     __tablename__ = "users"
     username = Column(db.String(80), unique=True, nullable=False)

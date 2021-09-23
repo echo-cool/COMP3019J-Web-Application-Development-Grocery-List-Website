@@ -6,10 +6,10 @@ from flask import (
     render_template,
     request, flash,
 )
-from app.extensions import db
-from app.index.forms import AddTaskFrom
-from app.index.model import Todo
-from app.utils import flash_errors
+from project.extensions import db
+from project.index.forms import AddTaskFrom
+from project.index.model import Todo
+from project.utils import flash_errors
 
 blueprint = Blueprint("index", __name__, static_folder="../static")
 

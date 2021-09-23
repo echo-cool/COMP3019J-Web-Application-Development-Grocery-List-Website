@@ -6,30 +6,11 @@ from flask import (
     request,
     url_for,
 )
-from app.login.forms import LoginForm, RegisterForm
-from app.user.models import User
-from app.utils import flash_errors
+from project.login.forms import LoginForm, RegisterForm
+from project.user.models import User
+from project.utils import flash_errors
 
 blueprint = Blueprint("login", __name__, static_folder="../static")
-
-
-# @blueprint.route("/register/", methods=["GET", "POST"])
-# def register():
-#     """Register new user."""
-#     form = RegisterForm(request.form)
-#     print(form.validate_on_submit())
-#     if form.validate_on_submit():
-#         User.create(
-#             username=form.username.data,
-#             email=form.email.data,
-#             password=form.password.data,
-#             active=True,
-#         )
-#         flash("Thank you for registering. You can now log in.", "success")
-#         return redirect(url_for("index.home"))
-#     else:
-#         flash_errors(form)
-#     return render_template("login/register.html", form=form)
 
 
 @blueprint.route("/login/", methods=["GET", "POST"])

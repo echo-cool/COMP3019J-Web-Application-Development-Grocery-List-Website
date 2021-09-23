@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""The app module, containing the app factory function."""
+"""The project module, containing the project factory function."""
 import logging
 import sys
 
 from flask import Flask, render_template
-from app import index, login
-from app.extensions import (
+from project import index, login
+from project.extensions import (
     bcrypt,
     cache,
     csrf_protect,
@@ -15,7 +15,7 @@ from app.extensions import (
     migrate,
 )
 
-def create_app(config_object="app.settings"):
+def create_app(config_object="project.settings"):
     """Create application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
 
     :param config_object: The configuration object to use.
@@ -39,7 +39,7 @@ def register_extensions(app):
     cache.init_app(app)
     db.init_app(app)
     csrf_protect.init_app(app)
-    # login_manager.init_app(app)
+    # login_manager.init_app(project)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     flask_static_digest.init_app(app)
@@ -48,8 +48,8 @@ def register_extensions(app):
 
 def register_blueprints(app):
     """Register Flask blueprints."""
-    # app.register_blueprint(public.views.blueprint)
-    # app.register_blueprint(user.views.blueprint)
+    # project.register_blueprint(public.views.blueprint)
+    # project.register_blueprint(user.views.blueprint)
     app.register_blueprint(index.view.blueprint)
     app.register_blueprint(login.view.blueprint)
     return None
@@ -76,7 +76,7 @@ def register_shellcontext(app):
     #     """Shell context objects."""
     #     return {"db": db, "User": user.models.User}
     #
-    # app.shell_context_processor(shell_context)
+    # project.shell_context_processor(shell_context)
 
 
 def configure_logger(app):
