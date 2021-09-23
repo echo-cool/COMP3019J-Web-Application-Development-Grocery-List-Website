@@ -1,8 +1,8 @@
-from app import app
+from project import app
 
 app = app.create_app()
 app.app_context().push()
-from app.extensions import db
+from project.extensions import db
 
 print("############################################")
 print("Init Finished")

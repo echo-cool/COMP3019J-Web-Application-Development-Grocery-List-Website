@@ -4,8 +4,9 @@ import datetime as dt
 
 from flask_login import UserMixin
 
-from project.database import Column, PkModel, db, reference_col, relationship
-from project.extensions import bcrypt
+import project.shopping.models
+from project.database_model import Column, PkModel, db, reference_col, relationship
+from project import bcrypt
 
 
 class Role(PkModel):
@@ -38,6 +39,7 @@ class User(UserMixin, PkModel):
     last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
     is_admin = Column(db.Boolean(), default=False)
+    # items = db.relationship("item.id", backref='owned_user', lazy=True)
 
     def __init__(self, username, email, password=None, **kwargs):
         """Create instance."""

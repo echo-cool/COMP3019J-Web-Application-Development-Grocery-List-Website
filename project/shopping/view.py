@@ -6,9 +6,6 @@ from flask import (
     request,
     url_for,
 )
-from project.login.forms import LoginForm, RegisterForm
-from project.user.models import User
-from project.utils import flash_errors
 
 blueprint = Blueprint("index", __name__, static_folder="../static")
 
