@@ -4,7 +4,6 @@ import datetime as dt
 
 from flask_login import UserMixin
 
-import project.shopping.models
 from project.database_model import Column, PkModel, db, reference_col, relationship
 from project import bcrypt
 
@@ -64,4 +63,4 @@ class User(UserMixin, PkModel):
 
     def __repr__(self):
         """Represent instance as a unique string."""
-        return f"<User({self.username!r})>"
+        return f"<User(ID:{self.id},Name:{self.username!r})>"
