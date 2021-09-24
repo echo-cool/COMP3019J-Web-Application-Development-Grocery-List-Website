@@ -2,8 +2,8 @@ import os
 
 from project import db
 
-from project.shopping.models import Item
-from project.user.models import User
+from project.models.ItemModel import Item
+from project.models.UserModel import User
 
 db.drop_all()
 db.create_all()

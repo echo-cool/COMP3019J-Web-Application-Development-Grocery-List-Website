@@ -7,7 +7,7 @@ from flask import (
     url_for,
 )
 from project.login.forms import LoginForm, RegisterForm
-from project.user.models import User
+from project.models.UserModel import User
 from project.utils import flash_errors
 
 blueprint = Blueprint("login", __name__, static_folder="../static")

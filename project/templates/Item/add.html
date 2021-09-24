@@ -1,16 +1,54 @@
 {% extends "/base/base.html" %}
 {% block title %}
-    Login and Register
+    Add new Item
 {% endblock %}
+
+
 
 {% block content %}
     <div class="container">
-    <h1>Add a new item</h1>
+        <h1>Add a new item</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div class="input_area">
+                {{ form.userid.label }}
+                {{ form.userid }}
 
-    <form>
+                <br>
+
+                {{ form.item_name.label }}
+                {{ form.item_name }}
+
+                <br>
+
+                {{ form.item_price.label }}
+                {{ form.item_price }}
+
+                <br>
+
+                {{ form.inventory.label }}
+                {{ form.inventory }}
+
+                <br>
+
+                {{ form.description.label }}
+                {{ form.description }}
+
+                <br>
+
+                {{ form.main_image_file.label }}
+                {{ form.main_image_file }}
+
+                <br>
+
+                {{ form.add_button }}
+
+                <br>
 
 
-    </form>
+            </div>
+        </form>
+
 
     </div>
 

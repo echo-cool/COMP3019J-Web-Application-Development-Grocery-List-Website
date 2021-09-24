@@ -7,8 +7,10 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_login import LoginManager
 from flask_caching import Cache
 from flask_bcrypt import Bcrypt
+from flask_admin import Admin, BaseView, expose
 
 app = Flask(__name__)
+app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SECRET_KEY'] = 'ec9439cfc6d796ae3029594d'
 db = SQLAlchemy(app)
@@ -19,6 +21,7 @@ flask_static_digest = FlaskStaticDigest(app)
 cache = Cache(app)
 login_manager = LoginManager()
 bcrypt = Bcrypt(app)
+admin = Admin(app)
 
 from project import init
 

@@ -15,17 +15,19 @@
     {#      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">#}
     {#<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">#}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/base.css') }}">
-{#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/button.css') }}">#}
-{#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/text.css') }}">#}
-{#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/alert.css') }}">#}
-{#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/navbar.css') }}">#}
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/button.css') }}">#}
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/text.css') }}">#}
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/alert.css') }}">#}
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/navbar.css') }}">#}
     <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-{#    <script src="{{ url_for('static',filename='js/index.js') }}"></script>#}
+    {#    <script src="{{ url_for('static',filename='js/index.js') }}"></script>#}
     {% block css %}
     {% endblock %}
     {% block meta %}
     {% endblock %}
     {% block js %}
+    {% endblock %}
+    {% block style %}
     {% endblock %}
 
     <title>
@@ -44,12 +46,12 @@
     <main role="main">
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %}
-            <div class="" >
+            <div class="">
                 <div class="">
                     {% for category, message in messages %}
                         <div class="alert-{{ category }}" id="message_content">
                             <a class="" title="Close" href="#" onclick="HideMessage()">x</a>
-                                        {{ message }}
+                            {{ message }}
                         </div>
                         <!-- end .alert -->
                     {% endfor %}
