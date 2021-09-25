@@ -38,11 +38,14 @@
 </head>
 <body>
 
-<header>{% block header %}{% endblock %}</header>
-{% block body %}
+<header>
     <nav class="navigation-bar">
         {% block nav %}{% endblock %}
     </nav>
+    {% block header %}{% endblock %}
+
+</header>
+{% block body %}
     <main role="main">
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %}
