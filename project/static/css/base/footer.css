@@ -1,0 +1,36 @@
+.footer-bar {
+    width: 100%;
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+}
+
+.footer-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.footer-bar li {
+    float: left;
+}
+
+.footer-bar li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.footer-bar li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.footer-bar li a.active {
+    color: white;
+    background-color: #4CAF50;
+}

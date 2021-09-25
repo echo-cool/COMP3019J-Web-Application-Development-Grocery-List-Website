@@ -9,8 +9,19 @@
             width: 100px;
             height: 100px;
         }
+        table{
+            width: 90%;
+        }
 
     </style>
+{% endblock %}
+{% block nav %}
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="item/add">Add</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="login">Login</a></li>
+    </ul>
 {% endblock %}
 
 {% block content %}
@@ -33,7 +44,8 @@
             {% for item in items %}
                 <tr>
                     <th>{{ item.id }}</th>
-                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}" value="Item Image"></td>
+                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                             value="Item Image"></td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.price }}</td>
                     <td>{{ item.description }}</td>
