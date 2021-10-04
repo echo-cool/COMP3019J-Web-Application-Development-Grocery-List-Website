@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online shopping Site</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="../css/nav2.css" type="text/css" rel="stylesheet"><!--藏品分类 -->
+    <script type="text/javascript">
+        const timeout = 10;
+        let closeTimer = 0;
+        let oldLayer = 0;
+
+        // open hidden layer
+        function layer_open(id) {
+            // cancel the close timer
+            cancel_close_timer();
+
+            // close the old layer (hidden)
+            if (oldLayer) oldLayer.style.visibility = 'hidden';
+
+            // make new layer visible by displaying it
+            oldLayer = document.getElementById(id);
+            oldLayer.style.visibility = 'visible';
+
+        }
+
+        // close the layer by making it hidden
+        function close_layer() {
+            if (oldLayer) oldLayer.style.visibility = 'hidden';
+        }
+
+        // call the close timer
+        function close_timer() {
+            closeTimer = window.setTimeout(close_layer, timeout);
+        }
+
+        // cancel the close timer
+        function cancel_close_timer() {
+            if (closeTimer) {
+                window.clearTimeout(closeTimer);
+                closeTimer = null;
+            }
+        }
+
+        // close the layer when the mouse moves away
+        document.onclick = close_layer;
+
+    </script>
+</head>
+<body>
+
+<!-- this is the most upside area of the main page, containing the welcome and details navigation-->
+<div class="title">
+    <div class="center_title">
+        <div class="welcome">
+            Welcome to Online Shopping Site
+        </div>
+        <div class="title_box">
+            <ul id="title_information">
+                <li class="follow_us">
+                    &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')" onmouseout="close_timer()">Follow
+                    us</a>
+                    <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">
+                        <img src="../images/wechat_xinxin.png" width="150" height="200">
+                    </div>
+                </li>
+                <li>|</li>
+                <li class="title_shopping_cart">
+                    &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>
+                </li>
+                <li>|</li>
+                <li class="VIP">
+                    <a href="#">VIP Area</a>
+                </li>
+                <li>|</li>
+                <li class="contact">
+                    <a href="#">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- this is the second upside area of the main page, containing the search input box and contact information-->
+<div class="second_upside">
+    <div class="second_upside_middle">
+        <div class="logo">
+            <img src="../images/img.png" alt="">
+        </div>
+        <div id="search">
+            <form id="search_form" action="#" method="post">
+                <div class="search_input">
+                    <input class="search1" type="text" name="search" placeholder="Enter the keyword:">
+                    <input type="submit" value="" class="search_submit">
+                </div>
+                <div class="search_details">
+                    <a href="#">Clothes</a><span>|</span>
+                    <a href="#">Electronics</a><span>|</span>
+                    <a href="#">Commodity</a><span>|</span>
+                    <a href="#">Office</a><span>|</span>
+                    <a href="#">Cosmetics</a><span>|</span>
+                    <a href="#">Food</a><span>|</span>
+                    <a href="#">Health</a>
+                </div>
+            </form>
+            <div class="contact_info_box">
+                <div class="phone">
+                    <p class="phone_desc">
+                        Clients Service Telephone
+                    </p>
+                    <p class="telephone">
+                        18225658712
+                    </p>
+                </div>
+                <img class="wechat_logo" src="../images/img_1.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- this is the navigation part -->
+<div class="navigation d" style=" overflow:visible;">
+    <div class="types" style=" overflow:visible;">
+        <div class="classify">
+            <div class="ld">
+                <img src="../images/flbg.png" width="21" height="15" class="lf"><span>All Categories</span>
+            </div>
+            <div class="nav_box">
+                <a href="#">Clothes</a>
+                <a href="#">Electronics</a>
+                <a href="#">Commodity</a>
+                <a href="#">Office</a>
+                <a href="#">Cosmetics</a>
+                <a href="#">Food</a>
+                <a href="#">Health</a>
+            </div>
+        </div>
+        <div class="nav nav_hidden">
+            <a href="#">
+                <div>
+                    <span>Main page</span><span>Main page</span>
+                </div>
+                <b></b>
+            </a>
+            <a href="#">
+                <div>
+                    <span>About us</span><span>About us</span>
+                </div>
+                <b></b>
+            </a>
+            <a href="#">
+                <div>
+                    <span>Seller</span><span>Seller</span>
+                </div>
+                <b></b>
+            </a>
+            <a href="#">
+                <div>
+                    <span>Online shopping</span><span>Online shopping</span>
+                </div>
+                <b></b>
+            </a>
+            <a href="#">
+                <div>
+                    <span>VIP membership</span><span>VIP membership</span>
+                </div>
+                <b></b>
+            </a>
+            <a href="#">
+                <div>
+                    <span>Contact us</span><span>Contact us</span>
+                </div>
+                <b></b>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- this is for the banner -->
+<div style="width:100%; overflow:hidden;">
+    <div class="bank" style="width:1200px; margin:0 auto; overflow:hidden; background:#fff;">
+        <div class="kuai">
+            <div class="J_user user">
+                <div class="user_info user_info_level0 user_info_plusNaN" clstag="h|keycount|2016|09a">
+                    <div class="J_user_info_avatar user_info_avatar">
+                        <img class="J_user_info_avatar_img" src="../images/no_login.jpg"><a class="user_info_avatar_lk"
+                                                                                         href="#" target="_blank"></a>
+                    </div>
+                    <div class="user_info_show">
+                        <p class="user_info_tip">
+                            Hi, welcome!
+                        </p>
+                        <p>
+                            <a class="user_info_login" href="#">Login</a><a class="user_info_reg" href="#">Register</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="user_profit">
+                    <a class="user_profit_lk" href="#" target="_blank">New arrival profits</a><a
+                        class="user_profit_lk" href="#" target="_blank">Membership discounts</a>
+                </div>
+            </div>
+            <div class="kuti">
+                <div class="kuti1">
+                    Annoucements
+                </div>
+                <a class="duo" href="#">More<span>></span></a>
+            </div>
+            <div class="kulb">
+
+                <a href="#">◆&nbsp;&nbsp;hhhhhhhhhhhhhh</a>
+                <a href="#">◆&nbsp;&nbsp;hhhhhhhhhhhhhh</a>
+                <a href="#">◆&nbsp;&nbsp;hhhhhhhhhhhhhh</a>
+                <a href="#">◆&nbsp;&nbsp;hhhhhhhhhhhhhh</a>
+            </div>
+            <div class="kusi">
+                <a href="#"><img height="35" src="../images/bab1.png" width="36"></a>
+                <a href="#"><img height="35" src="../images/bab2.png" width="36"></a>
+                <a href="#"><img height="35" src="../images/bab5.png" width="36"></a>
+                <a href="#"><img height="35" src="../images/bab6.png" width="36"></a>
+                <a href="#"><img height="35" src="../images/bab3.png" width="36"></a>
+                <a href="#"><img height="35" src="../images/bab7.png" width="36"></a>
+                <a href="#"><img height="35" src="../images/bab4.png" width="36"></a>
+                <a href="#"><img height="35" src="../images/bab8.png" width="36"></a>
+            </div>
+        </div>
+        <!--banner -->
+        <div class="main_visual">
+            <div class="main_image">
+                <div class="index_post ption_r" id="slider-wrapper">
+                    <div class="nivoSlider" id="slider">
+
+                        <a href="#" target="_blank">
+                            <img alt=" " src="../images/banner2.jpg"/></a>
+                        <a href="#" target="_blank">
+                            <img alt=" " src="../images/banner3.jpg"/></a>
+                        <a href="#" target="_blank">
+                            <img alt=" " src="../images/banner1.jpg"/></a>
+
+                        <a href="#" target="_blank">
+                            <img alt=" " src="../images/banner5.jpg"/></a>
+                        <a href="#" target="_blank">
+                            <img alt=" " src="../images/banner4.jpg"/></a>
+                    </div>
+                </div>
+{#                <script src="../js/load.js" type="text/javascript"></script>#}
+{#                <script src="../js/jquery.nivo.slider.js" type="text/javascript"></script>#}
+{#                <script type="text/javascript">#}
+{#                    $(window).load(function () {#}
+{#                        $('#slider').nivoSlider({#}
+{#                            controlNav: false,#}
+{#                            effect: 'random',#}
+{#                            animSpeed: 100,#}
+{#                            captionOpacity: 0.9,#}
+{#                            directionNav: true,#}
+{#                            controlNav: true,#}
+{#                            pauseTime: 3000,#}
+{#                            directionNavHide: true,#}
+{#                            pauseOnHover: true#}
+{#                        });#}
+{#                    });#}
+{#                </script>#}
+            </div>
+        </div>
+        <!--end -->
+    </div>
+</div>
+
+</body>
+</html>

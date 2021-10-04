@@ -1,0 +1,68 @@
+{% extends "/base/base.html" %}
+{% block title %}
+    Add new Item
+{% endblock %}
+
+
+{% block nav %}
+    <ul>
+        <li><a  href="/">Home</a></li>
+        <li><a class="active" href="/item/add">Add</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a  href="/login">Login</a></li>
+        {% if current_user.is_authenticated %}
+            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
+            <li><a href="/logout">logout</a></li>
+        {% else %}
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Add a new item</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div class="input_area">
+                {{ form.userid.label }}
+                {{ form.userid }}
+
+                <br>
+
+                {{ form.item_name.label }}
+                {{ form.item_name }}
+
+                <br>
+
+                {{ form.item_price.label }}
+                {{ form.item_price }}
+
+                <br>
+
+                {{ form.inventory.label }}
+                {{ form.inventory }}
+
+                <br>
+
+                {{ form.description.label }}
+                {{ form.description }}
+
+                <br>
+
+                {{ form.main_image_file.label }}
+                {{ form.main_image_file }}
+
+                <br>
+
+                {{ form.add_button }}
+
+                <br>
+
+
+            </div>
+        </form>
+
+
+    </div>
+
+{% endblock %}

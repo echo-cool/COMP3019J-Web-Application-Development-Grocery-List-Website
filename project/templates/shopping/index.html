@@ -1,0 +1,73 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Shopping
+{% endblock %}
+{% block style %}
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        table {
+            width: 90%;
+        }
+
+    </style>
+{% endblock %}
+{% block nav %}
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/item/add">Add</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/login">Login</a></li>
+        {% if current_user.is_authenticated %}
+            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
+            <li><a href="/logout">logout</a></li>
+        {% else %}
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+    <h1>Shopping</h1>
+    <div>
+        <table border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item Image</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+                <th>Description</th>
+                <th>Inventory</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                <tr>
+                    <th>{{ item.id }}</th>
+                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                             value="Item Image"></td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.inventory }}</td>
+                    <td>
+                        <form action="/buy/{{ item.id }}" method="GET">
+                            <input type="submit" value="Buy">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0"/>
+    <meta
+            name="description"
+            content="{% block meta_description %}{% endblock %}"
+    />
+    <meta name="author" content="{% block meta_author %}{% endblock %}"/>
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"#}
+    {#      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">#}
+    {#<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">#}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/base.css') }}">
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/button.css') }}">#}
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/text.css') }}">#}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/navbar.css') }}">
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    {#    <script src="{{ url_for('static',filename='js/index.js') }}"></script>#}
+    {% block css %}
+    {% endblock %}
+    {% block meta %}
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+    {% block style %}
+    {% endblock %}
+
+    <title>
+        {% block title %}
+            no title
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+<header>
+    <nav class="navigation-bar">
+        {% block nav %}{% endblock %}
+    </nav>
+    {% block header %}{% endblock %}
+
+</header>
+{% block body %}
+    <main role="main">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+            <div class="">
+                <div class="">
+                    {% for category, message in messages %}
+                        <div class="alert-{{ category }}" id="message_content">
+                            <a class="" title="Close" href="#" onclick="HideMessage()">x</a>
+                            {{ message }}
+                        </div>
+                        <!-- end .alert -->
+                    {% endfor %}
+                </div>
+                <!-- end col-md -->
+            </div>
+            <!-- end row -->
+        {% endif %} {% endwith %}
+    </main>
+    <section id="container">
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    {% block jsfoot %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include '/base/footer.html' %}
+    {% endblock %}
+
+{% endblock %}
+</body>
+
+</html>
