@@ -6,9 +6,11 @@ from flask import (
     request,
     url_for,
 )
+
 from project.login.forms import LoginForm, RegisterForm
 from project.models.UserModel import User
 from project.utils import flash_errors
+from flask_login import login_user, login_required, current_user, logout_user
 
 blueprint = Blueprint("login", __name__, static_folder="../static")
 
@@ -32,6 +34,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user:
             if user.check_password(password):
+                login_user(user)
                 flash("Login Success", "success")
                 return redirect(url_for("index.home"))
             else:

@@ -5,8 +5,13 @@ import datetime as dt
 from flask_login import UserMixin
 
 from project.database_model import Column, PkModel, db, reference_col, relationship
-from project import bcrypt
+from project import bcrypt, login_manager
 
+
+@login_manager.user_loader
+def load_user(user_id):
+    user = User.query.get(user_id)
+    return user
 
 class Role(PkModel):
     """A role for a user."""

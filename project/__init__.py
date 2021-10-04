@@ -19,7 +19,7 @@ migrate = Migrate(app)
 debug_toolbar = DebugToolbarExtension(app)
 flask_static_digest = FlaskStaticDigest(app)
 cache = Cache(app)
-login_manager = LoginManager()
+login_manager = LoginManager(app)
 bcrypt = Bcrypt(app)
 admin = Admin(app)
 

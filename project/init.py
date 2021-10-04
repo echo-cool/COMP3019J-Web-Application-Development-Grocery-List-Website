@@ -5,7 +5,7 @@ from flask import render_template
 from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.contrib.sqla import ModelView
 
-from project import app, shopping, login, item, admin, db
+from project import app, shopping, login, item, admin, db, userinfo
 from project.models.ItemModel import Item
 from project.models.UserModel import User, Role
 
@@ -13,6 +13,7 @@ from project.models.UserModel import User, Role
 app.register_blueprint(shopping.view.blueprint)
 app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
+app.register_blueprint(userinfo.view.blueprint)
 """Configure loggers."""
 handler = logging.StreamHandler(sys.stdout)
 if not app.logger.handlers:

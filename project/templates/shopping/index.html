@@ -9,7 +9,8 @@
             width: 100px;
             height: 100px;
         }
-        table{
+
+        table {
             width: 90%;
         }
 
@@ -18,9 +19,14 @@
 {% block nav %}
     <ul>
         <li><a class="active" href="/">Home</a></li>
-        <li><a href="item/add">Add</a></li>
-        <li><a href="about">About</a></li>
-        <li><a href="login">Login</a></li>
+        <li><a href="/item/add">Add</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/login">Login</a></li>
+        {% if current_user.is_authenticated %}
+            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
+            <li><a href="/logout">logout</a></li>
+        {% else %}
+        {% endif %}
     </ul>
 {% endblock %}
 

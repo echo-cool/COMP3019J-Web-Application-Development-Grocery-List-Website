@@ -4,6 +4,19 @@
 {% endblock %}
 
 
+{% block nav %}
+    <ul>
+        <li><a  href="/">Home</a></li>
+        <li><a class="active" href="/item/add">Add</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a  href="/login">Login</a></li>
+        {% if current_user.is_authenticated %}
+            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
+            <li><a href="/logout">logout</a></li>
+        {% else %}
+        {% endif %}
+    </ul>
+{% endblock %}
 
 {% block content %}
     <div class="container">

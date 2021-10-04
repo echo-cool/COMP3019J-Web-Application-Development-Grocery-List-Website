@@ -10,7 +10,7 @@ body{
     /*保证footer是相对于container位置绝对定位*/
     position:relative;
     width:100%;
-    min-height:100%;
+    min-height:800px;
     /*设置padding-bottom值大于等于footer的height值，以保证main的内容能够全部显示出来而不被footer遮盖；*/
     padding-bottom: 100px;
     box-sizing: border-box;
