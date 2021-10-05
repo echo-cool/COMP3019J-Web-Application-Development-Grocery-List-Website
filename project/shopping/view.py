@@ -25,9 +25,23 @@ def home():
 def about():
     return render_template("about.html")
 
+
+@blueprint.route("/product_details", methods=["GET", "POST"])
+def details():
+    return render_template("shopping/product_details.html")
+
+
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash('See you later！')
     return redirect(url_for('index.home'))
+
+
+# @app.route('/product_details')
+# @login_required
+# def logout():
+#     logout_user()
+#     flash('View Product Details！')
+#     return render_template("shopping/product_details.html")
