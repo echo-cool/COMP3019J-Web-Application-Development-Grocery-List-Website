@@ -24,11 +24,11 @@
             </div>
             <div class="title_box">
                 <ul id="title_information">
-                    <li class="follow_us">
+                    <li class="follow_us1">
                         &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')" onmouseout="close_timer()">Follow
                         us</a>
                         <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">
-                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150" height="200">
+                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150" height="500">
                         </div>
                     </li>
                     <li>|</li>
@@ -42,6 +42,14 @@
                     <li>|</li>
                     <li class="contact">
                         <a href="#">Contact us</a>
+                    </li>
+                    <li>|</li>
+                    <li class="login">
+                        <a href="#">Login</a>
+                    </li>
+                    <li>|</li>
+                    <li class="register">
+                        <a href="#">Register</a>
                     </li>
                     {% if current_user.is_authenticated %}#}
                         <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
@@ -70,9 +78,7 @@
     <!-- this is the second upside area of the main page, containing the search input box and contact information-->
     <div class="second_upside">
         <div class="second_upside_middle">
-            <div class="logo">
-                <img src="../../static/image/shopping/img.png" alt="">
-            </div>
+            <img src="../../static/image/shopping/img_6.png" alt="">
             <div id="search">
                 <form id="search_form" action="#" method="post">
                     <div class="search_input">
@@ -105,9 +111,9 @@
     </div>
 
     <!--导航 -->
-    <div class="qing dabg" style=" overflow:visible;">
+    <div class="nav2 nav3" style=" overflow:visible;">
         <div style="overflow:visible;">
-            <div class="rf nav">
+            <div class="threeD_nav">
                 <a href="#">
                     <div>
                         <span>Home</span><span>Home</span>
@@ -137,7 +143,7 @@
                     <div>
                         <span>Shopping History</span><span>Shopping History</span>
                     </div>
-                    </a>
+                </a>
             </div>
 
         </div>
@@ -192,5 +198,7 @@
         </table>
 
     </div>
+
+
 
 {% endblock %}
