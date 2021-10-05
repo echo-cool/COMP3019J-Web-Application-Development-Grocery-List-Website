@@ -239,6 +239,7 @@ a {
 	display: block;
 	clear: both;
     margin-left: 400px;
+    margin-top: -80px;
 }
 
 .nav3 {
@@ -305,4 +306,87 @@ a {
 	-webkit-transition: all 0.4s linear;
 	-moz-transition: all 0.4s linear;
 	-o-transition: all 0.4s linear;
+}
+
+.yptu {
+	display: block;
+	margin: 0 auto;
+	width: 230px;
+	height: 230px;
+	overflow: hidden;
+}
+
+.yplb {
+	display: block;
+	padding-left: 1px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.yplb dd {
+	display: block;
+	float: left;
+	width: 239px;
+	border: 1px solid #f1f1f1;
+	margin-top: -1px;
+	margin-left: -1px;
+	padding: 15px;
+}
+
+.yplb dd:hover .yptu img {
+	transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	/* IE 9 */
+	-webkit-transform: scale(1.1);
+	/* Safari 和 Chrome */
+	-o-transform: scale(1.1);
+	/* Opera */
+	-moz-transform: scale(1.1);
+}
+
+.yplb {
+	display: block;
+	padding-left: 1px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.yplb dd {
+	display: block;
+	float: left;
+	width: 239px;
+	border: 1px solid #f1f1f1;
+	margin-top: -1px;
+	margin-left: -1px;
+	padding: 15px;
+}
+
+.mai {
+	display: block;
+	float: right;
+	width: 68px;
+	height: 26px;
+	overflow: hidden;
+	background: #e01222;
+	text-align: center;
+	color: #FFF;
+	font-size: 12px;
+	line-height: 26px;
+}
+
+.mai span {
+	display: block;
+	position: relative;
+	top: 0;
+	color: #FFF;
+}
+
+.mai:hover span {
+	top: -100%;
+}
+
+/*the div which contains the product list*/
+.product_list {
+    width: 1200px;
+    margin: 0 auto;
 }
