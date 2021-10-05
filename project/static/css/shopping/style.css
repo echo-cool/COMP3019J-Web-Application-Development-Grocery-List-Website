@@ -71,14 +71,6 @@ a {
     color: orange;
 }
 
-#title_information .VIP a:link {
-    color: gray;
-}
-
-#title_information .VIP a:hover {
-    color: orange;
-}
-
 #title_information .contact a:link {
     color: gray;
 }
@@ -308,6 +300,17 @@ a {
 	-o-transition: all 0.4s linear;
 }
 
+/*the following is for the product viewing*/
+.product_list_title {
+    width: 1050px;
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 2px 2px #876fd5;
+    margin-left: 185px;
+    padding: 20px;
+    margin-top: -65px;
+    color: #ffffff;
+}
+
 .product_display {
 	display: block;
 	margin: 15px auto;
@@ -382,7 +385,21 @@ a {
 
 /*the div which contains the product list*/
 .product_list {
-
     width: 1150px;
     margin: 0 auto;
+}
+
+.product_list_title_h1 {
+    text-align: center;
+
+}
+
+/*the divider between the product_list_title and the product_list_display*/
+.divider {
+    color: #9bceea;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 1090px;
+    margin-left: 185px;
 }
