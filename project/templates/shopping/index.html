@@ -13,6 +13,7 @@
         table {
             width: 90%;
         }
+
     </style>
 {% endblock %}
 {% block nav %}
@@ -42,10 +43,16 @@
                     <li class="contact">
                         <a href="#">Contact us</a>
                     </li>
+                    {% if current_user.is_authenticated %}#}
+                        <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
+                        <li><a href="/logout">logout</a></li>
+                    {% else %}
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </div>
+
     {#    <ul>#}
     {#        <li><a class="active" href="/">Home</a></li>#}
     {#        <li><a href="/item/add">Add</a></li>#}
@@ -60,8 +67,95 @@
 {% endblock %}
 
 {% block content %}
+    <!-- this is the second upside area of the main page, containing the search input box and contact information-->
+    <div class="second_upside">
+        <div class="second_upside_middle">
+            <div class="logo">
+                <img src="../../static/image/shopping/img.png" alt="">
+            </div>
+            <div id="search">
+                <form id="search_form" action="#" method="post">
+                    <div class="search_input">
+                        <input class="search1" type="text" name="search" placeholder="Enter the keyword:">
+                        <input type="submit" value="" class="search_submit">
+                    </div>
+                    {#                    <div class="search_details">#}
+                    {#                        <a href="#">Clothes</a><span>|</span>#}
+                    {#                        <a href="#">Electronics</a><span>|</span>#}
+                    {#                        <a href="#">Commodity</a><span>|</span>#}
+                    {#                        <a href="#">Office</a><span>|</span>#}
+                    {#                        <a href="#">Cosmetics</a><span>|</span>#}
+                    {#                        <a href="#">Food</a><span>|</span>#}
+                    {#                        <a href="#">Health</a>#}
+                    {#                    </div>#}
+                </form>
+                <div class="contact_info_box">
+                    <div class="phone">
+                        <p class="phone_desc">
+                            Clients Service Telephone
+                        </p>
+                        <p class="telephone">
+                            18225658712
+                        </p>
+                    </div>
+                    <img class="wechat_logo" src="../../static/image/shopping/img_1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--导航 -->
+    <div class="qing dabg" style=" overflow:visible;">
+        <div style="overflow:visible;">
+            <div class="rf nav">
+                <a href="#">
+                    <div>
+                        <span>Home</span><span>Home</span>
+                    </div>
+                    <b></b></a>
+                <a href="#">
+                    <div>
+                        <span>About us</span><span>About us</span>
+                    </div>
+                    <b></b></a>
+                <a href="#">
+                    <div>
+                        <span>Seller</span><span>Seller</span>
+                    </div>
+                    <b></b></a>
+                <a href="#">
+                    <div>
+                        <span>Shopping Cart</span><span>Shopping Cart</span>
+                    </div>
+                    <b></b></a>
+                <a href="#">
+                    <div>
+                        <span>Contact us</span><span>Contact us</span>
+                    </div>
+                    <b></b></a>
+                <a href="#">
+                    <div>
+                        <span>Shopping History</span><span>Shopping History</span>
+                    </div>
+                    </a>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <hr>
+
+    <br>
 
     <h1>Shopping</h1>
+    <br>
     <div>
         <table border="1">
             <thead>

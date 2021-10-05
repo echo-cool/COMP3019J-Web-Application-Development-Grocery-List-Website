@@ -140,8 +140,6 @@ a {
 
 .second_upside_middle .logo {
     position: absolute;
-    width: 226px;
-    height: 140px;
     float: left;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
@@ -251,56 +249,92 @@ a {
     display: inline-block;
 }
 
-/*this is the css for the navigation part*/
-.navigation {
-    clear: both;
-    height: 45px;
-    margin-top: 20px;
+/*the following stylesheet is for the navigation part*/
+/* divider */
+.qing {
+	overflow: hidden;
+	display: block;
+	clear: both;
 }
 
-.navigation .types {
-    width: 1200px;
-    overflow: visible;
-    margin: 0 auto;
+.dabg {
+	background: #fff;
+	overflow: visible;
+	height: 45px;
 }
 
-.navigation .types .classify {
-    width: 226px;
-    height: 45px;
-    background: #e01222;
-    position: relative;
-    font-size: 14px;
-    line-height: 45px;
-    color: #737373;
-    float: left;
+.nav {
+	line-height: 28px;
+	font-size: 16px;
+	color: #fff;
 }
 
-.ld img {
-    margin-left: 20px;
+.nav a {
+	display: block;
+	float: left;
+	padding: 8px 6px 0;
+	position: relative;
 }
 
-.ld span {
-    font-size: 16px;
-    color: white;
-    padding-left: 30px;
+.nav a div {
+	padding: 0 15px;
+	height: 30px;
+	overflow: hidden;
 }
 
-.nav_box {
-    width: 226px;
+.nav a div span {
+	display: block;
+	position: relative;
+	top: 0;
+	color: #333;
+	font-weight: bold;
 }
 
-.nav_box a {
-    width: 176px;
-    height: 40px;
-    line-height: 40px;
-    display: block;
-    text-decoration: none;
-    background-color: #535758;
-    color: white;
-    text-indent: 2em;
-    padding-left: 50px;
+.nav a, .nav a:visited {
+	color: #fff;
 }
 
-.nav_box a:hover {
-    background-color: #ff6f00;
+.nav a.nann div span, .nav a:hover div span {
+	top: -100%;
+}
+
+.nav a b {
+	position: absolute;
+	right: 0;
+	top: 15px;
+	width: 1px;
+	height: 16px;
+	background: #f9e3e3;
+}
+
+.fenl {
+	display: block;
+	width: 216px;
+	height: 45px;
+	background: #e01222;
+	position: relative;
+	overflow: visible;
+	font-size: 14px;
+	line-height: 30px;
+	color: #737373;
+}
+
+.fenl img {
+	margin-left: 24px;
+	margin-right: 10px;
+	margin-top: 17px;
+}
+/**banner**/
+.bank {
+	height: 400px;
+	position: relative;
+	z-index: 1;
+}
+
+/** universal style for 3d effects **/
+.nav a div span, .nav a div {
+	transition: all 0.4s linear;
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
 }

@@ -333,7 +333,16 @@ a {
 	background: #f9e3e3;
 }
 
+.nav {
+    line-height: 28px;
+    font-size: 16px;
+    margin-right: 30px;
+    margin-top: 10px;
+    z-index: 2;
+}
+
 .nav_hidden {
+	color: #1c036c;
     overflow: hidden;
 	display: block;
 	float: right;
