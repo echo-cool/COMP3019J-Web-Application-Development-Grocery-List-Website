@@ -157,111 +157,112 @@
         <dl class="product_container">
 
             {% for item in items %}
-{#                <tr>#}
-{#                    <th>{{ item.id }}</th>#}
-{#                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-{#                             value="Item Image"></td>#}
-{#                    <td>{{ item.name }}</td>#}
-{#                    <td>{{ item.price }}</td>#}
-{#                    <td>{{ item.description }}</td>#}
-{#                    <td>{{ item.inventory }}</td>#}
-{#                    <td>#}
-{#                        <form action="/buy/{{ item.id }}" method="GET">#}
-{#                            <input type="submit" value="Buy">#}
-{#                        </form>#}
-{#                    </td>#}
-{#                </tr>#}
+                {#                <tr>#}
+                {#                    <th>{{ item.id }}</th>#}
+                {#                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
+                {#                             value="Item Image"></td>#}
+                {#                    <td>{{ item.name }}</td>#}
+                {#                    <td>{{ item.price }}</td>#}
+                {#                    <td>{{ item.description }}</td>#}
+                {#                    <td>{{ item.inventory }}</td>#}
+                {#                    <td>#}
+                {#                        <form action="/buy/{{ item.id }}" method="GET">#}
+                {#                            <input type="submit" value="Buy">#}
+                {#                        </form>#}
+                {#                    </td>#}
+                {#                </tr>#}
 
 
-            <dd><a href="product_details.html" class="product_display">
-                <img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                             value="Item Image" width="240" height="230"></a>
-                <div><a href="/details">{{ item.name }}</a></div>
-                <div>
-                    <div>￥{{ item.price }}</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
+                <dd><a href="{{ url_for("index.details", itemID=item.id) }}" class="product_display">
+                    <img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                         value="Item Image" width="240" height="230"></a>
+                    <div><a href="/details">{{ item.name }}</a></div>
+                    <div>
+                        <div>￥{{ item.price }}</div>
+                        <a href="{{ url_for("index.details", itemID=item.id) }}"
+                           class="buy"><span>Buy now</span><span>Buy now</span></a></div>
+                </dd>
 
             {% endfor %}
-
-
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240"  height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
-            <dd><a href="product_details.html" class="product_display">
-                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>
-                <div><a href="product_details.html">Cosmetics</a></div>
-                <div>
-                    <div>￥18.00</div>
-                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-            </dd>
+            {##}
+            {##}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240"  height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
+            {#            <dd><a href="product_details.html" class="product_display">#}
+            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
+            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
+            {#                <div>#}
+            {#                    <div>￥18.00</div>#}
+            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+            {#            </dd>#}
 
 
         </dl>
@@ -274,44 +275,44 @@
 
     <br>
 
-{#    <h1>Shopping</h1>#}
-{#    <br>#}
-{#    <div>#}
-{#        <table border="1">#}
-{#            <thead>#}
-{#            <tr>#}
-{#                <th>ID</th>#}
-{#                <th>Item Image</th>#}
-{#                <th>Item Name</th>#}
-{#                <th>Item Price</th>#}
-{#                <th>Description</th>#}
-{#                <th>Inventory</th>#}
-{#                <th>Actions</th>#}
-{#            </tr>#}
-{#            </thead>#}
-{#            <tbody>#}
-{#            {% for item in items %}#}
-{#                <tr>#}
-{#                    <th>{{ item.id }}</th>#}
-{#                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-{#                             value="Item Image"></td>#}
-{#                    <td>{{ item.name }}</td>#}
-{#                    <td>{{ item.price }}</td>#}
-{#                    <td>{{ item.description }}</td>#}
-{#                    <td>{{ item.inventory }}</td>#}
-{#                    <td>#}
-{#                        <form action="/buy/{{ item.id }}" method="GET">#}
-{#                            <input type="submit" value="Buy">#}
-{#                        </form>#}
-{#                    </td>#}
-{#                </tr>#}
-{#            {% endfor %}#}
-{##}
-{#            </tbody>#}
-{##}
-{#        </table>#}
-{##}
-{#    </div>#}
+    {#    <h1>Shopping</h1>#}
+    {#    <br>#}
+    {#    <div>#}
+    {#        <table border="1">#}
+    {#            <thead>#}
+    {#            <tr>#}
+    {#                <th>ID</th>#}
+    {#                <th>Item Image</th>#}
+    {#                <th>Item Name</th>#}
+    {#                <th>Item Price</th>#}
+    {#                <th>Description</th>#}
+    {#                <th>Inventory</th>#}
+    {#                <th>Actions</th>#}
+    {#            </tr>#}
+    {#            </thead>#}
+    {#            <tbody>#}
+    {#            {% for item in items %}#}
+    {#                <tr>#}
+    {#                    <th>{{ item.id }}</th>#}
+    {#                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
+    {#                             value="Item Image"></td>#}
+    {#                    <td>{{ item.name }}</td>#}
+    {#                    <td>{{ item.price }}</td>#}
+    {#                    <td>{{ item.description }}</td>#}
+    {#                    <td>{{ item.inventory }}</td>#}
+    {#                    <td>#}
+    {#                        <form action="/buy/{{ item.id }}" method="GET">#}
+    {#                            <input type="submit" value="Buy">#}
+    {#                        </form>#}
+    {#                    </td>#}
+    {#                </tr>#}
+    {#            {% endfor %}#}
+    {##}
+    {#            </tbody>#}
+    {##}
+    {#        </table>#}
+    {##}
+    {#    </div>#}
 
 
 
