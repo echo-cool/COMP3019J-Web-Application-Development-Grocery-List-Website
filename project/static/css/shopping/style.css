@@ -359,27 +359,27 @@ a {
 	padding: 15px;
 }
 
-.mai {
+.buy {
 	display: block;
 	float: right;
 	width: 68px;
 	height: 26px;
 	overflow: hidden;
-	background: #e01222;
+	background: #e0127c;
 	text-align: center;
 	color: #FFF;
 	font-size: 12px;
 	line-height: 26px;
 }
 
-.mai span {
+.buy span {
 	display: block;
 	position: relative;
 	top: 0;
 	color: #FFF;
 }
 
-.mai:hover span {
+.buy:hover span {
 	top: -100%;
 }
 
