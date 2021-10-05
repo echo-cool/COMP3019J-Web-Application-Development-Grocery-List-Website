@@ -37,11 +37,11 @@
                     </li>
                     <li>|</li>
                     <li class="login">
-                        <a href="../login/login_register.html">Login</a>
+                        <a href="{{ url_for("login.login") }}">Login</a>
                     </li>
                     <li>|</li>
                     <li class="register">
-                        <a href="../login/login_register.html">Register</a>
+                        <a href="{{ url_for("login.login") }}">Register</a>
                     </li>
                     {% if current_user.is_authenticated %}#}
                         <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
