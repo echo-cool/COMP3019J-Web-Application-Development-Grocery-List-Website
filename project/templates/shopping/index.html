@@ -4,314 +4,193 @@
     Shopping
 {% endblock %}
 {% block style %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
     <style>
-
-        table {
-            width: 90%;
+        .index-item-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-content: flex-start;
         }
 
-    </style>
-{% endblock %}
-{% block nav %}
-    <div class="title">
-        <div class="center_title">
-            <div class="welcome">
-                Welcome to Online Shopping Site
-            </div>
-            <div class="title_box">
-                <ul id="title_information">
-                    <li class="follow_us1">
-                        &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')" onmouseout="close_timer()">Follow
-                        us</a>
-                        <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">
-                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150">
-                        </div>
-                    </li>
-                    <li>|</li>
-                    <li class="title_shopping_cart">
-                        &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>
-                    </li>
-                    <li>|</li>
-                    <li class="contact">
-                        <a href="#">Contact us</a>
-                    </li>
-                    <li>|</li>
-                    <li class="login">
-                        <a href="{{ url_for("login.login") }}">Login</a>
-                    </li>
-                    <li>|</li>
-                    <li class="register">
-                        <a href="{{ url_for("login.login") }}">Register</a>
-                    </li>
-                    {% if current_user.is_authenticated %}#}
-                        <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
-                        <li><a href="/logout">logout</a></li>
-                    {% else %}
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </div>
+        .index-item {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
 
-    {#    <ul>#}
-    {#        <li><a class="active" href="/">Home</a></li>#}
-    {#        <li><a href="/item/add">Add</a></li>#}
-    {#        <li><a href="/about">About</a></li>#}
-    {#        <li><a href="/login">Login</a></li>#}
-    {#        {% if current_user.is_authenticated %}#}
-    {#            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>#}
-    {#            <li><a href="/logout">logout</a></li>#}
-    {#        {% else %}#}
-    {#        {% endif %}#}
-    {#    </ul>#}
+        .index-item-image {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
-    <!-- this is the second upside area of the main page, containing the search input box and contact information-->
-    <div class="second_upside">
-        <div class="second_upside_middle">
-            <img src="../../static/image/shopping/img_4.png" width="200px" height="200px" alt="">
-            <div id="search">
-                <form id="search_form" action="#" method="post">
-                    <div class="search_input">
-                        <input class="search1" type="text" name="search" placeholder="Enter the keyword:">
-                        <input type="submit" value="" class="search_submit">
-                    </div>
-                    {#                    <div class="search_details">#}
-                    {#                        <a href="#">Clothes</a><span>|</span>#}
-                    {#                        <a href="#">Electronics</a><span>|</span>#}
-                    {#                        <a href="#">Commodity</a><span>|</span>#}
-                    {#                        <a href="#">Office</a><span>|</span>#}
-                    {#                        <a href="#">Cosmetics</a><span>|</span>#}
-                    {#                        <a href="#">Food</a><span>|</span>#}
-                    {#                        <a href="#">Health</a>#}
-                    {#                    </div>#}
+    <div class="index-container">
+        <div class="index-upper">
+            <img class="index-logo-img" src="../../static/image/shopping/img_4.png" alt="">
+            <div class="index-search-box">
+                <form action="#" method="post" name="search">
+                    <input class="index-search-text">
+                    <input class="index-search-submit-button" type="submit" value="">
                 </form>
-                <div class="contact_info_box">
-                    <div class="phone">
-                        <p class="phone_desc">
-                            Clients Service Telephone
-                        </p>
-                        <p class="telephone">
-                            18225658712
-                        </p>
-                    </div>
-                    <img class="wechat_logo" src="../../static/image/shopping/img_1.png" alt="">
-                </div>
             </div>
-
-            <div class="nav2 nav3" style=" overflow:visible;">
-                <div style="overflow:visible;">
-                    <div class="threeD_nav">
-                        <a href="#">
-                            <div>
-                                <span>Home</span><span>Home</span>
-                            </div>
-                            <b></b></a>
-                        <a href="#">
-                            <div>
-                                <span>About us</span><span>About us</span>
-                            </div>
-                            <b></b></a>
-                        <a href="#">
-                            <div>
-                                <span>Seller</span><span>Seller</span>
-                            </div>
-                            <b></b></a>
-                        <a href="#">
-                            <div>
-                                <span>Shopping Cart</span><span>Shopping Cart</span>
-                            </div>
-                            <b></b></a>
-                        <a href="#">
-                            <div>
-                                <span>Contact us</span><span>Contact us</span>
-                            </div>
-                            <b></b></a>
-                        <a href="#">
-                            <div>
-                                <span>Shopping History</span><span>Shopping History</span>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
+            <div class="my-basket-box">
+                <a class="index-basket-text" href="/basket">My basket</a>
+                <span class="index-basket-icon">
+                    <i class="fas fa-cart-arrow-down"></i>
+                </span>
             </div>
         </div>
-
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div class="product_list_title">
-        <h1 class="product_list_title_h1">
-            Products Viewing
-        </h1>
-    </div>
-    <hr class="divider">
-    <div class="product_list">
-        <dl class="product_container">
+        <div class="index-item-container">
 
             {% for item in items %}
-                {#                <tr>#}
-                {#                    <th>{{ item.id }}</th>#}
-                {#                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-                {#                             value="Item Image"></td>#}
-                {#                    <td>{{ item.name }}</td>#}
-                {#                    <td>{{ item.price }}</td>#}
-                {#                    <td>{{ item.description }}</td>#}
-                {#                    <td>{{ item.inventory }}</td>#}
-                {#                    <td>#}
-                {#                        <form action="/buy/{{ item.id }}" method="GET">#}
-                {#                            <input type="submit" value="Buy">#}
-                {#                        </form>#}
-                {#                    </td>#}
-                {#                </tr>#}
-
-
-                <dd><a href="{{ url_for("index.details", itemID=item.id) }}" class="product_display">
-                    <img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                         value="Item Image" width="240" height="230"></a>
-                    <div><a href="/details">{{ item.name }}</a></div>
-                    <div>
-                        <div>￥{{ item.price }}</div>
-                        <a href="{{ url_for("index.details", itemID=item.id) }}"
-                           class="buy"><span>Buy now</span><span>Buy now</span></a></div>
-                </dd>
-
+                <div class="index-item">
+                    <img class="index-item-image"
+                         src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                         value="Item Image">
+                    <p>{{ item.name }}</p>
+                    <p>{{ item.price }}</p>
+                    <p>{{ item.description }}</p>
+                    <p>{{ item.inventory }}</p>
+                </div>
             {% endfor %}
-            {##}
-            {##}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240"  height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
-            {#            <dd><a href="product_details.html" class="product_display">#}
-            {#                <img src="../../static/image/shopping/tt4.jpg" width="240" height="230"></a>#}
-            {#                <div><a href="product_details.html">Cosmetics</a></div>#}
-            {#                <div>#}
-            {#                    <div>￥18.00</div>#}
-            {#                    <a href="product_details.html" class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-            {#            </dd>#}
 
 
-        </dl>
+        </div>
+
+
     </div>
 
 
 
-
-    <hr>
-
-    <br>
-
-    {#    <h1>Shopping</h1>#}
+    {#    #}
+    {#    #}
+    {#    #}
+    {#    <!-- this is the second upside area of the main page, containing the search input box and contact information-->#}
+    {#    <div class="second_upside">#}
+    {#        <div class="second_upside_middle">#}
+    {#            <img src="../../static/image/shopping/img_4.png" width="200px" height="200px" alt="">#}
+    {#            <div id="search">#}
+    {#                <form id="search_form" action="#" method="post">#}
+    {#                    <div class="search_input">#}
+    {#                        <input class="search1" type="text" name="search" placeholder="Enter the keyword:">#}
+    {#                        <input type="submit" value="" class="search_submit">#}
+    {#                    </div>#}
+    {#                    <div class="search_details">#}
+    {#                        <a href="#">Clothes</a><span>|</span>#}
+    {#                        <a href="#">Electronics</a><span>|</span>#}
+    {#                        <a href="#">Commodity</a><span>|</span>#}
+    {#                        <a href="#">Office</a><span>|</span>#}
+    {#                        <a href="#">Cosmetics</a><span>|</span>#}
+    {#                        <a href="#">Food</a><span>|</span>#}
+    {#                        <a href="#">Health</a>#}
+    {#                    </div>#}
+    {#                </form>#}
+    {#                <div class="index-my-basket">#}
+    {#                    <a href="chart">My basket</a>#}
+    {#                </div>#}
+    {#                <div class="contact_info_box">#}
+    {#                    <div class="phone">#}
+    {#                        <p class="phone_desc">#}
+    {#                            Clients Service Telephone#}
+    {#                        </p>#}
+    {#                        <p class="telephone">#}
+    {#                            18225658712#}
+    {#                        </p>#}
+    {#                    </div>#}
+    {#                    <img class="wechat_logo" src="../../static/image/shopping/img_1.png" alt="">#}
+    {#                </div>#}
+    {#            </div>#}
+    {##}
+    {#            <div class="nav-nav2 nav-nav3" style=" overflow:visible;">#}
+    {#                <div style="overflow:visible;">#}
+    {#                    <div class="nav-threeD_nav">#}
+    {#                        <a href="#">#}
+    {#                            <div>#}
+    {#                                <span>Home</span><span>Home</span>#}
+    {#                            </div>#}
+    {#                            <b></b></a>#}
+    {#                        <a href="#">#}
+    {#                            <div>#}
+    {#                                <span>About us</span><span>About us</span>#}
+    {#                            </div>#}
+    {#                            <b></b></a>#}
+    {#                        <a href="#">#}
+    {#                            <div>#}
+    {#                                <span>Seller</span><span>Seller</span>#}
+    {#                            </div>#}
+    {#                            <b></b></a>#}
+    {#                        <a href="#">#}
+    {#                            <div>#}
+    {#                                <span>Shopping Cart</span><span>Shopping Cart</span>#}
+    {#                            </div>#}
+    {#                            <b></b></a>#}
+    {#                        <a href="#">#}
+    {#                            <div>#}
+    {#                                <span>Contact us</span><span>Contact us</span>#}
+    {#                            </div>#}
+    {#                            <b></b></a>#}
+    {#                        <a href="#">#}
+    {#                            <div>#}
+    {#                                <span>Shopping History</span><span>Shopping History</span>#}
+    {#                            </div>#}
+    {#                        </a>#}
+    {#                    </div>#}
+    {##}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {##}
+    {#    </div>#}
     {#    <br>#}
-    {#    <div>#}
-    {#        <table border="1">#}
-    {#            <thead>#}
-    {#            <tr>#}
-    {#                <th>ID</th>#}
-    {#                <th>Item Image</th>#}
-    {#                <th>Item Name</th>#}
-    {#                <th>Item Price</th>#}
-    {#                <th>Description</th>#}
-    {#                <th>Inventory</th>#}
-    {#                <th>Actions</th>#}
-    {#            </tr>#}
-    {#            </thead>#}
-    {#            <tbody>#}
+    {#    <br>#}
+    {#    <br>#}
+    {#    <br>#}
+    {#    <br>#}
+    {#    <br>#}
+    {##}
+    {#    <div class="product_list_title">#}
+    {#        <h1 class="product_list_title_h1">#}
+    {#            Products Viewing#}
+    {#        </h1>#}
+    {#    </div>#}
+    {#    <hr class="divider">#}
+    {#    <div class="product_list">#}
+    {#        <dl class="product_container">#}
+    {##}
     {#            {% for item in items %}#}
     {#                <tr>#}
     {#                    <th>{{ item.id }}</th>#}
     {#                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
     {#                             value="Item Image"></td>#}
-    {#                    <td>{{ item.name }}</td>#}
-    {#                    <td>{{ item.price }}</td>#}
-    {#                    <td>{{ item.description }}</td>#}
-    {#                    <td>{{ item.inventory }}</td>#}
+    {#                        <td>{{ item.name }}</td>#}
+    {#                        <td>{{ item.price }}</td>#}
+    {#                        <td>{{ item.description }}</td>#}
+    {#                        <td>{{ item.inventory }}</td>#}
     {#                    <td>#}
     {#                        <form action="/buy/{{ item.id }}" method="GET">#}
     {#                            <input type="submit" value="Buy">#}
     {#                        </form>#}
     {#                    </td>#}
     {#                </tr>#}
+    {#                <dd><a href="{{ url_for("index.details", itemID=item.id) }}" class="product_display">#}
+    {#                    <img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
+    {#                         value="Item Image" width="240" height="230"></a>#}
+    {#                    <div><a href="/details">{{ item.name }}</a></div>#}
+    {#                    <div>#}
+    {#                        <div>￥{{ item.price }}</div>#}
+    {#                        <a href="{{ url_for("index.details", itemID=item.id) }}"#}
+    {#                           class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
+    {#                </dd>#}
+    {##}
     {#            {% endfor %}#}
-    {##}
-    {#            </tbody>#}
-    {##}
-    {#        </table>#}
-    {##}
+    {#        #}
+    {#        </dl>#}
     {#    </div>#}
 
 

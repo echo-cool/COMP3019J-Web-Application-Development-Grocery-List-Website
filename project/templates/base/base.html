@@ -18,11 +18,13 @@
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/button.css') }}">#}
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/text.css') }}">#}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/footer.css') }}">
-    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/navbar.css') }}">#}
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/style.css') }}">
+    {#        <link rel="stylesheet" href="{{ url_for('static',filename='css/base/navbar.css') }}">#}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/new_navbar.css') }}">
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/style.css') }}">#}
     <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
     {#    <script src="{{ url_for('static',filename='js/index.js') }}"></script>#}
     <script src="{{ url_for('static',filename='js/navigation.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/all.js') }}"></script>
 
     {% block css %}
     {% endblock %}
@@ -38,12 +40,95 @@
             no title
         {% endblock %}
     </title>
+    <style>
+    </style>
 </head>
 <body>
 
 <header>
-    <nav class="navigation-bar">
-        {% block nav %}{% endblock %}
+    <nav>
+        {% block nav %}
+            <div class="nav-container-box">
+                <a class="nav-main-text" href="{{ url_for("index.home") }}">Welcome to Online Shopping Site</a>
+                <ul class="nav-right-bar">
+                    <li class="nav-follow_us">
+                        <span style="color:gray; padding-right:5px"><i class="fab fa-weixin"></i></span>
+                        <a href="#" onmouseover="layer_open('follow_us_image')" onmouseout="close_timer()">Follow us</a>
+                        {#                        <div id="follow_us_image" onmouseover="cancel_close_timer()" onmouseout="close_timer()">#}
+                        {#                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150">#}
+                        {#                        </div>#}
+                    </li>
+                    <li>|</li>
+                    <li class="contact">
+                        <a href="#">Contact us</a>
+                    </li>
+                    <li>|</li>
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-title_shopping_cart">
+                            &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>
+                        </li>
+                        <li>|</li>
+                        <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
+                        <li>|</li>
+                        <li><a href="/logout">logout</a></li>
+
+                    {% else %}
+                        <li class="login">
+                            <a href="{{ url_for("login.login") }}">Login</a>
+                        </li>
+                        <li>|</li>
+                        <li class="register">
+                            <a href="{{ url_for("login.login") }}">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+
+
+            {#                        <div class="nav-title">#}
+            {#                            <div class="nav-center_title">#}
+            {#                                <div class="nav-welcome">#}
+            {#                                    <a class="nav-welcome" href="{{ url_for("index.home") }}">Welcome to Online Shopping Site</a>#}
+            {#                                </div>#}
+            {#                                <div class="nav-title_box">#}
+            {#                                    <ul id="nav-title_information">#}
+            {#                                        <li class="nav-follow_us1">#}
+            {#                                            &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')"#}
+            {#                                                                 onmouseout="close_timer()">Follow#}
+            {#                                            us</a>#}
+            {#                                            <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">#}
+            {#                                                <img src="../../static/image/shopping/wechat_xinxin.png" width="150">#}
+            {#                                            </div>#}
+            {#                                        </li>#}
+            {#                                        <li>|</li>#}
+            {#                                        <li class="contact">#}
+            {#                                            <a href="#">Contact us</a>#}
+            {#                                        </li>#}
+            {#                                        <li>|</li>#}
+            {#                                        {% if current_user.is_authenticated %}#}
+            {#                                            <li class="nav-title_shopping_cart">#}
+            {#                                                &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>#}
+            {#                                            </li>#}
+            {#                                            <li>|</li>#}
+            {#                                            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>#}
+            {#                                            <li>|</li>#}
+            {#                                            <li><a href="/logout">logout</a></li>#}
+            {##}
+            {#                                        {% else %}#}
+            {#                                            <li class="login">#}
+            {#                                                <a href="{{ url_for("login.login") }}">Login</a>#}
+            {#                                            </li>#}
+            {#                                            <li>|</li>#}
+            {#                                            <li class="register">#}
+            {#                                                <a href="{{ url_for("login.login") }}">Register</a>#}
+            {#                                            </li>#}
+            {#                                        {% endif %}#}
+            {#                                    </ul>#}
+            {#                                </div>#}
+            {#                            </div>#}
+            {#                        </div>#}
+        {% endblock %}
     </nav>
     {% block header %}{% endblock %}
 

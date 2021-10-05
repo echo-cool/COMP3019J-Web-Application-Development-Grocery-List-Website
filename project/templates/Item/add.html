@@ -4,26 +4,26 @@
 {% endblock %}
 
 
-{% block nav %}
-    <ul>
-        <li><a  href="/">Home</a></li>
-        <li><a class="active" href="/item/add">Add</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a  href="/login">Login</a></li>
-        {% if current_user.is_authenticated %}
-            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
-            <li><a href="/logout">logout</a></li>
-        {% else %}
-        {% endif %}
-    </ul>
-{% endblock %}
+{#{% block nav %}#}
+{#    <ul>#}
+{#        <li><a  href="/">Home</a></li>#}
+{#        <li><a class="active" href="/item/add">Add</a></li>#}
+{#        <li><a href="/about">About</a></li>#}
+{#        <li><a  href="/login">Login</a></li>#}
+{#        {% if current_user.is_authenticated %}#}
+{#            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>#}
+{#            <li><a href="/logout">logout</a></li>#}
+{#        {% else %}#}
+{#        {% endif %}#}
+{#    </ul>#}
+{#{% endblock %}#}
 
 {% block content %}
     <div class="container">
         <h1>Add a new item</h1>
         <form action="" method="POST" enctype="multipart/form-data">
             {{ form.csrf_token }}
-            <div class="input_area">
+            <div class="login-input_area">
                 {{ form.userid.label }}
                 {{ form.userid }}
 

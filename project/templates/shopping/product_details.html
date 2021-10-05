@@ -12,47 +12,47 @@
 
     </style>
 {% endblock %}
-{% block nav %}
-    <div class="title">
-        <div class="center_title">
-            <div class="welcome">
-                Welcome to Online Shopping Site
-            </div>
-            <div class="title_box">
-                <ul id="title_information">
-                    <li class="follow_us1">
-                        &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')" onmouseout="close_timer()">Follow
-                        us</a>
-                        <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">
-                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150">
-                        </div>
-                    </li>
-                    <li>|</li>
-                    <li class="title_shopping_cart">
-                        &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>
-                    </li>
-                    <li>|</li>
-                    <li class="contact">
-                        <a href="#">Contact us</a>
-                    </li>
-                    <li>|</li>
-                    <li class="login">
-                        <a href="{{ url_for("login.login") }}">Login</a>
-                    </li>
-                    <li>|</li>
-                    <li class="register">
-                        <a href="{{ url_for("login.login") }}">Register</a>
-                    </li>
-                    {% if current_user.is_authenticated %}#}
-                        <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
-                        <li><a href="/logout">logout</a></li>
-                    {% else %}
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+{#{% block nav %}#}
+{#    <div class="title">#}
+{#        <div class="center_title">#}
+{#            <div class="welcome">#}
+{#                Welcome to Online Shopping Site#}
+{#            </div>#}
+{#            <div class="title_box">#}
+{#                <ul id="title_information">#}
+{#                    <li class="follow_us1">#}
+{#                        &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')" onmouseout="close_timer()">Follow#}
+{#                        us</a>#}
+{#                        <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">#}
+{#                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150">#}
+{#                        </div>#}
+{#                    </li>#}
+{#                    <li>|</li>#}
+{#                    <li class="title_shopping_cart">#}
+{#                        &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>#}
+{#                    </li>#}
+{#                    <li>|</li>#}
+{#                    <li class="contact">#}
+{#                        <a href="#">Contact us</a>#}
+{#                    </li>#}
+{#                    <li>|</li>#}
+{#                    <li class="login">#}
+{#                        <a href="{{ url_for("login.login") }}">Login</a>#}
+{#                    </li>#}
+{#                    <li>|</li>#}
+{#                    <li class="register">#}
+{#                        <a href="{{ url_for("login.login") }}">Register</a>#}
+{#                    </li>#}
+{#                    {% if current_user.is_authenticated %}#}
+{#                        <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>#}
+{#                        <li><a href="/logout">logout</a></li>#}
+{#                    {% else %}#}
+{#                    {% endif %}#}
+{#                </ul>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
 
 {% block content %}
 

@@ -12,7 +12,7 @@ body {
   position: relative;
 }
 
-.inner_box {
+.login-inner_box {
   background: #f6f6f6;
   width: 650px;
   height: 415px;
@@ -22,7 +22,7 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
-.move_box {
+.login-move_box {
   position: absolute;
   top: -10%;
   left: 5%;
@@ -35,27 +35,27 @@ body {
   z-index: 2;
 }
 
-.hidden {
+.login-hidden {
   display: none;
   transition: all 0.5s ease;
 }
 
-.left, .right {
+.login-left, .login-right {
   position: absolute;
   width: 50%;
   transition: 1s all ease;
 }
 
-.left {
+.login-left {
   left: -2%;
 }
 
-.right {
+.login-right {
   right: -2%;
 }
 
 /* 字体和按钮的样式 */
-h1 {
+.login-inner_box h1 {
   font-family: "Open Sans", sans-serif;
   text-align: center;
   margin-top: 95px;
@@ -65,7 +65,7 @@ h1 {
   letter-spacing: 8px;
 }
 
-.title {
+.login-title {
   font-family: "Lora", serif;
   color: #8e9aaf;
   font-size: 1.8em;
@@ -76,16 +76,16 @@ h1 {
   margin-top: 20%;
 }
 
-.advertise {
+.login-advertise {
   margin-top: -8px;
 }
 
-.account {
+.login-account {
   margin-top: 45%;
   font-size: 10px;
 }
 
-p {
+.login-inner_box p {
   font-family: "Open Sans", sans-serif;
   font-size: 0.7em;
   letter-spacing: 2px;
@@ -93,11 +93,11 @@ p {
   text-align: center;
 }
 
-span {
+.login-inner_box span {
   color: #eac7cc;
 }
 
-.flower {
+.login-inner_box .flower {
   position: absolute;
   width: 150px;
   height: 150px;
@@ -106,7 +106,7 @@ span {
   opacity: 0.8;
 }
 
-.smaller {
+.login-inner_box .smaller {
   width: 130px;
   height: 130px;
   top: 48%;
@@ -114,7 +114,7 @@ span {
   opacity: 0.9;
 }
 
-button {
+.login-inner_box button {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -125,13 +125,13 @@ button {
   padding: 12px 12px 12px 20px;
 }
 
-button:hover {
+.login-inner_box button:hover {
   background: #eac7cc;
   color: #f6f6f6;
   transition: background-color 1s ease-out;
 }
 
-.button {
+.login-inner_box .button {
   margin-top: 3%;
   background: #f6f6f6;
   color: #ce7d88;
@@ -140,38 +140,38 @@ button:hover {
 }
 
 /* 表单样式 */
-form {
+.login-inner_box form {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 7px;
 }
 
-.more-padding {
+.login-more-padding {
   position: absolute;
   padding-top: 15px;
 }
 
-.more-padding input {
+.login-more-padding input {
   padding: 12px;
 }
 
-.more-padding .submit1 {
+.login-more-padding .login-submit1 {
   margin-top: 45px;
 }
 
-.submit1 {
+.login-submit1 {
   margin-top: 25px;
   padding: 12px;
   border-color: #ce7d88;
 }
 
-.submit1:hover {
+.login-submit1:hover {
   background: #cbc0d3;
   border-color: #bfb1c9;
 }
 
-input {
+.login-inner_box input {
   background: #eac7cc;
   width: 65%;
   color: #ce7d88;
@@ -182,7 +182,7 @@ input {
   font-weight: 100;
 }
 
-input:focus {
+.login-inner_box input:focus {
   color: #ce7d88;
   outline: none;
   border-bottom: 1.2px solid rgba(206, 125, 136, 0.7);
@@ -194,14 +194,14 @@ input:focus {
 /*  opacity: 0;*/
 /*}*/
 
-label {
+.login-inner_box label {
   font-family: "Open Sans", sans-serif;
   color: #ce7d88;
   font-size: 0.8em;
   letter-spacing: 1px;
 }
 
-.checkbox {
+.login-inner_box .checkbox {
   /*display: inline;*/
   white-space: nowrap;
   position: relative;
@@ -209,22 +209,22 @@ label {
   top: -5px;
 }
 
-input[type=checkbox] {
+.login-inner_box input[type=checkbox] {
   width: 15px;
   background: #ce7d88;
 }
 
-.checkbox input[type=checkbox]:checked + label {
+.login-inner_box .checkbox input[type=checkbox]:checked + label {
   color: #ce7d88;
   transition: 0.5s all ease;
 }
 
-.input_area {
+.login-input_area {
   position: relative;
   margin-left: 58px;
 }
 
-.input_area input {
+.login-input_area input {
     width: 100%;
     /*上下10，左右0*/
     /*padding 简写属性后面的值*/
@@ -245,7 +245,7 @@ input[type=checkbox] {
     background: transparent;
 }
 
-.input_area label {
+.login-input_area label {
     position: absolute;
     top: 0;
     left: 0;
@@ -259,8 +259,8 @@ input[type=checkbox] {
     transition: .6s;
 }
 
-.input_area input:focus ~ label,
-.input_area input:valid ~ label {
+.login-input_area input:focus ~ label,
+.login-input_area input:valid ~ label {
     top: -25px;
     left: 0;
     color: #cab2dc;
