@@ -44,6 +44,7 @@ class User(UserMixin, PkModel):
     active = Column(db.Boolean(), default=False)
     is_admin = Column(db.Boolean(), default=False)
     items = db.relationship("Item", backref='owned_user', lazy=True)
+    cart = db.relationship("Cart", backref='cart_user', lazy=True)
 
     def __init__(self, username, email, password=None, **kwargs):
         """Create instance."""
