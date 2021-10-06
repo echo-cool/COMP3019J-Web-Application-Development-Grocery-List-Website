@@ -16,6 +16,7 @@ class Item(PkModel):
     created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
     main_image_url = Column(db.VARCHAR(255), nullable=False, default="")
     owner = db.Column(db.Integer, db.ForeignKey("users.id"))
+    cart = db.relationship("Cart", backref='cart_item', lazy=True)
 
     def __init__(self, name, price, description, inventory, main_image_url, owner) -> None:
         self.name = name
