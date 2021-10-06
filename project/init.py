@@ -8,6 +8,7 @@ from flask_admin.contrib.sqla import ModelView
 from project import app, shopping, login, item, admin, db, userinfo
 from project.models.ItemModel import Item
 from project.models.UserModel import User, Role
+from project.models.Cart import Cart
 
 """Register Flask blueprints."""
 app.register_blueprint(shopping.view.blueprint)
@@ -35,5 +36,6 @@ for errcode in [401, 404, 500]:
 admin.add_view(ModelView(User, db.session, name="Users", endpoint="users"))
 admin.add_view(ModelView(Item, db.session, name="items", endpoint="items"))
 admin.add_view(ModelView(Role, db.session, name="roles", endpoint="roles"))
+admin.add_view(ModelView(Cart, db.session, name="Cart", endpoint="Cart"))
 admin.add_view(FileAdmin("."))
 

@@ -1,0 +1,85 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Shopping
+{% endblock %}
+{% block style %}
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="../../static/css/shopping/product_details.css">
+{% endblock %}
+
+{% block content %}
+
+    {#    <p><label>Item name:</label>{{ item.name }}</p>#}
+    {#    <p><label>Item price:</label>{{ item.price }}</p>#}
+    {#    <p><label>Item description:</label>{{ item.description }}</p>#}
+    <div class="product-little-box">
+        <div class="product-image-box">
+            <img class="product-image"
+                 src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                 value="Item Image"/>
+        </div>
+        <div class="product-details">
+            <div class="product-title">
+                {{ item.name }}
+            </div>
+            <div class="time-item">
+            <span class="item-sales">
+                Sales
+            </span>
+            </div>
+            <div class="product-box">
+                <div class="product-number-box">
+                    <b>Price：</b>￥{{ item.price }}
+                </div>
+                <div class="product-information-box">
+                    <div class="product-inner-box">
+                        <div class="product-inner-inner-big-title">S</div>
+                        <div class="product-inner-inner-box"><span>Sales</span></div>
+                    </div>
+                    <div class="product-inner-box">
+                        <div class="product-inner-inner-big-title">R</div>
+                        <div class="product-inner-inner-box">Rank<span></span></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="product-number-box">
+                    <b>Number：<input type="number" width="10px" class="number-input"> </b>
+                </div>
+            </div>
+            <div class="product-box">
+                <div>
+                    <b class="product-des">Inventory ID：</b>
+                    <span id="product-description-box">{{ item.inventory }}</span>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <b class="product-des">Description：</b>
+                    <span id="product-description-box">{{ item.description }}</span>
+                </div>
+            </div>
+            <div class="product-action-buttons">
+                <a href="#" class="shopping-cart">
+                    <span>Add to Shopping Cart</span>
+                    <span>Add to Shopping Cart</span>
+                </a>
+                <a href="#" class="product-details-contact-button">
+                    <span>Contact</span>
+                    <span>Contact</span>
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+{% endblock %}
