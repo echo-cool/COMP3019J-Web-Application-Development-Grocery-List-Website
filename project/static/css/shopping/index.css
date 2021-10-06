@@ -49,6 +49,7 @@
 .index-basket-text {
     text-decoration: none;
     color: green;
+    margin-top: -8px;
 }
 
 .index-basket-icon {
