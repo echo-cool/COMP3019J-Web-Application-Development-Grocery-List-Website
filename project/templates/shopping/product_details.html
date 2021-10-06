@@ -11,54 +11,32 @@
         }
 
     </style>
+    <link rel="stylesheet" href="../../static/css/shopping/product_details.css">
 {% endblock %}
-{#{% block nav %}#}
-{#    <div class="title">#}
-{#        <div class="center_title">#}
-{#            <div class="welcome">#}
-{#                Welcome to Online Shopping Site#}
-{#            </div>#}
-{#            <div class="title_box">#}
-{#                <ul id="title_information">#}
-{#                    <li class="follow_us1">#}
-{#                        &nbsp;&nbsp;&nbsp;<a href="#" onmouseover="layer_open('layer')" onmouseout="close_timer()">Follow#}
-{#                        us</a>#}
-{#                        <div id="layer" onmouseover="cancel_close_timer()" onmouseout="close_timer()">#}
-{#                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150">#}
-{#                        </div>#}
-{#                    </li>#}
-{#                    <li>|</li>#}
-{#                    <li class="title_shopping_cart">#}
-{#                        &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>#}
-{#                    </li>#}
-{#                    <li>|</li>#}
-{#                    <li class="contact">#}
-{#                        <a href="#">Contact us</a>#}
-{#                    </li>#}
-{#                    <li>|</li>#}
-{#                    <li class="login">#}
-{#                        <a href="{{ url_for("login.login") }}">Login</a>#}
-{#                    </li>#}
-{#                    <li>|</li>#}
-{#                    <li class="register">#}
-{#                        <a href="{{ url_for("login.login") }}">Register</a>#}
-{#                    </li>#}
-{#                    {% if current_user.is_authenticated %}#}
-{#                        <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>#}
-{#                        <li><a href="/logout">logout</a></li>#}
-{#                    {% else %}#}
-{#                    {% endif %}#}
-{#                </ul>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock %}#}
 
 {% block content %}
 
     <p><label>Item name:</label>{{ item.name }}</p>
     <p><label>Item price:</label>{{ item.price }}</p>
     <p><label>Item description:</label>{{ item.description }}</p>
+    <div class="product-little-box">
+        <div class="product-image-box">
+            <img width="300" height="300"
+                 src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                 value="Item Image"/>
+        </div>
+        <div class="lf">
+            <div class="pr-ti" style="margin-bottom:15px;">{{ item.name }}</div>
+        </div>
+        <br>
+        <br>
+        <div class="time-item">
+            <span style=" float:left; padding-left:20px; font-size:16px; font-weight:bold;">
+                Sales
+            </span>
+        </div>
+    </div>
+
 
 
 
