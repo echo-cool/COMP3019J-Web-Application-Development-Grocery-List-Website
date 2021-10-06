@@ -45,13 +45,20 @@
     border: 3px solid #33b62a;
     background-color: #f1f1f1;
 }
+.index-basket-group{
+    text-decoration: none;
+}
 
+.index-basket-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: green;
+}
 .index-basket-text {
+    font-size: 16px;
     text-decoration: none;
     color: green;
 }
 
-.index-basket-icon {
-    font-size: 30px;
-    color: green;
-}

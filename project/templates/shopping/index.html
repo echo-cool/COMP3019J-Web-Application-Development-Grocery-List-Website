@@ -11,22 +11,23 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-
         }
 
         .index-item-container {
-            width: 90%;
+            width: 80%;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: flex-start;
             align-content: flex-start;
+            margin: auto;
+            background-color: #f1f1f1;
         }
 
         .index-item {
-            width: 200px;
+            width: 240px;
             margin: 20px;
-            padding: 10px;
+            padding: 5px;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
@@ -39,7 +40,7 @@
         }
 
         .index-item-image {
-            width: 200px;
+            width: 240px;
             height: 200px;
         }
 
@@ -48,7 +49,7 @@
             -ms-transform: scale(1.1);
             /* IE 9 */
             -webkit-transform: scale(1.1);
-            /* Safari 和 Chrome */
+            /* Safari and Chrome */
             -o-transform: scale(1.1);
             /* Opera */
             -moz-transform: scale(1.1);
@@ -58,17 +59,16 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-
         }
 
         .product-view-title-text {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            width: 90%;
+            width: 80%;
             height: 100px;
-            color: white;
             background-color: lightgray;
+            color: white;
         }
 
         .index-item-text * {
@@ -84,13 +84,14 @@
 
         .index-item-name {
             text-decoration: none;
-            color: black;
+            color: orange;
             font-size: 18px;
+            font-weight: bold;
         }
 
         .index-item-name:hover {
-            text-decoration: underline;
-            color: orange;
+            text-decoration: none;
+            color: #d73290;
         }
     </style>
 {% endblock %}
@@ -106,10 +107,14 @@
                 </form>
             </div>
             <div class="my-basket-box">
-                <a class="index-basket-text" href="/basket">My basket</a>
-                <span class="index-basket-icon">
+                <a class="index-basket-group" href="/basket">
+
+                    <span class="index-basket-icon">
+                        <p class="index-basket-text">My Shopping Cart</p>
                     <i class="fas fa-cart-arrow-down"></i>
                 </span>
+                </a>
+
             </div>
         </div>
         <div class="index-product-view-title">
