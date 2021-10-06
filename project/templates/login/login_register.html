@@ -1,0 +1,122 @@
+{% extends "/base/base.html" %}
+{% block title %}
+    Login and Register
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login/login_register.css') }}">
+{% endblock %}
+
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+{% endblock %}
+{#{% block nav %}#}
+{#    <ul>#}
+{#        <li><a  href="/">Home</a></li>#}
+{#        <li><a href="/item/add">Add</a></li>#}
+{#        <li><a href="/about">About</a></li>#}
+{#        <li><a class="active" href="/login">Login</a></li>#}
+{#        {% if current_user.is_authenticated %}#}
+{#            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>#}
+{#            <li><a href="/logout">logout</a></li>#}
+{#        {% else %}#}
+{#        {% endif %}#}
+{#    </ul>#}
+{#{% endblock %}#}
+
+{% block content %}
+    <div class="container">
+        <div class="login-inner_box">
+            <div class="login-move_box">
+                <!-- 注册 -->
+                <div class="sign_up login-hidden">
+                    <h1>Register</h1>
+                    <form class="" autocomplete="off" method="POST" action="">
+                        {{ register_from.csrf_token }}
+                        <div class="login-input_area">
+
+                            {{ register_from.username(placeholder="") }}
+                            {{ register_from.username.label }}
+                            {#                            <input type="text" name="" required>#}
+                            {#                            <label>User Name</label>#}
+                        </div>
+                        <div class="login-input_area">
+
+                            {{ register_from.email(placeholder="") }}
+                            {{ register_from.email.label }}
+                            {#                            <input type="text" name="" required>#}
+                            {#                            <label>User Name</label>#}
+                        </div>
+                        <div class="login-input_area">
+
+                            {{ register_from.password(placeholder="", class_="form-control") }}
+                            {{ register_from.password.label }}
+                            {#                            <input type="password" name="" required>#}
+                            {#                            <label>Password</label>#}
+                        </div>
+                        <div class="login-input_area">
+
+                            {{ register_from.confirm(placeholder="", class_="form-control") }}
+                            {{ register_from.confirm.label }}
+                            {#                            <input type="password" name="" required>#}
+                            {#                            <label>Confirm Password</label>#}
+                        </div>
+                        {#                        <button class="button submit">Create Account</button>#}
+                        {{ register_from.submit_register(class_="button submit") }}
+                    </form>
+                </div>
+
+                <!-- 登录 -->
+                <div class="sign_in">
+                    <h1>Sign In</h1>
+                    <form class="login-more-padding" autocomplete="off" method="POST" action="">
+                        {{ login_form.csrf_token }}
+                        <div class="login-input_area">
+                            {{ login_form.username(placeholder="") }}
+                            {{ login_form.username.label }}
+                            {#                            <input type="text" name="" required>#}
+                            {#                            <label>User Name</label>#}
+                        </div>
+                        <div class="login-input_area">
+                            {{ login_form.password(placeholder="") }}
+                            {{ login_form.password.label }}
+                            {#                                                        <input type="password" name="" required>#}
+                            {#                                                        <label>Password</label>#}
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="remember"/>
+                            <label for="remember">Remember Me</label>
+                        </div>
+                        {#                        <button class="button submit1">Login</button>#}
+                        {{ login_form.submit_login(class_="button submit1") }}
+                    </form>
+                </div>
+            </div>
+
+            <div class="login-left">
+                <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
+                <p class="login-advertise">Choose your favorite <span>Item</span></p>
+                <img class="flower smaller"
+                     src="{{ url_for('static',filename='image/login/webp.webp') }}"/>
+                <p class="login-account">Have an account?</p>
+                <button class="button" id="sign_in">Login</button>
+            </div>
+
+            <div class="login-right">
+                <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
+                <p class="login-advertise">Choose your favorite <span>Item</span></p>
+                <img class="flower"
+                     src="{{ url_for('static',filename='image/login/webp.webp') }}"/>
+                <p class="login-account">Don't have an account?</p>
+                <button class="button" id="sign_up">Sign Up</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
+
+{% block jsfoot %}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="{{ url_for('static',filename='js/login/script.js') }}"></script>
+{% endblock %}

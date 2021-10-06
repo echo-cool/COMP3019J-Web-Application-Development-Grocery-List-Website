@@ -30,11 +30,11 @@ body {
     text-align: center;
 }
 
-.box .input_area {
+.box .login-input_area {
     position: relative;
 }
 
-.box .input_area input {
+.box .login-input_area input {
     width: 100%;
     /*上下10，左右0*/
     /*padding 简写属性后面的值*/
@@ -54,7 +54,7 @@ body {
     background: transparent;
 }
 
-.box .input_area label {
+.box .login-input_area label {
     position: absolute;
     top: 0;
     left: 0;
@@ -68,8 +68,8 @@ body {
     transition: .6s;
 }
 
-.box .input_area input:focus ~ label,
-.box .input_area input:valid ~ label {
+.box .login-input_area input:focus ~ label,
+.box .login-input_area input:valid ~ label {
     top: -25px;
     left: 0;
     color: #58f1c1;
