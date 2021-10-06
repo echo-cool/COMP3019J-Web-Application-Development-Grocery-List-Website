@@ -4,18 +4,18 @@
     font-family: Arial;
 }
 
-.title {
+.nav-title {
     background-color: #f1f1f1;
     padding: 10px;
 }
 
-.center_title {
+.nav-center_title {
     width: 1200px;
     margin: 0 auto;
     overflow: hidden;
 }
 
-.welcome {
+.nav-welcome {
     font-size: 26px;
     font-weight: bold;
     font-style: italic;
@@ -23,20 +23,20 @@
     float: left;
 }
 
-#title_information {
+#nav-title_information {
     width: auto;
     float: right;
     height: 40px;
     line-height: 40px;
 }
 
-#title_information li {
+#nav-title_information li {
     float: left;
     list-style: none;
     padding-right: 10px;
 }
 
-.title_shopping_cart {
+.nav-title_shopping_cart {
     padding-left: 20px;
     background: url("../images/gwc.png") no-repeat left center;
     background-size: 24px;
@@ -52,81 +52,81 @@ a {
     text-decoration: none;
 }
 
-#title_information .follow_us a:link {
+#nav-title_information .follow_us a:link {
     color: gray;
 }
 
-#title_information .follow_us a:visited {
+#nav-title_information .follow_us a:visited {
     color: black;
 
 }
 
-#title_information .follow_us a:hover {
+#nav-title_information .follow_us a:hover {
     color: orange;
 }
 
-#title_information .follow_us a:visited {
+#nav-title_information .follow_us a:visited {
     color: #cbb916;
 }
 
-#title_information .title_shopping_cart a:link {
+#nav-title_information .nav-title_shopping_cart a:link {
     color: gray;
 }
 
-#title_information .title_shopping_cart a:visited {
+#nav-title_information .nav-title_shopping_cart a:visited {
     color: black;
 
 }
 
-#title_information .title_shopping_cart a:hover {
+#nav-title_information .nav-title_shopping_cart a:hover {
     color: orange;
 }
 
-#title_information .title_shopping_cart a:visited {
+#nav-title_information .nav-title_shopping_cart a:visited {
     color: #be83f2;
 }
 
-#title_information .VIP a:link {
+#nav-title_information .VIP a:link {
     color: gray;
 }
 
-#title_information .VIP a:visited {
+#nav-title_information .VIP a:visited {
     color: black;
 
 }
 
-#title_information .VIP a:hover {
+#nav-title_information .VIP a:hover {
     color: orange;
 }
 
-#title_information .VIP a:visited {
+#nav-title_information .VIP a:visited {
     color: #5cc663;
 }
 
-#title_information .contact a:link {
+#nav-title_information .contact a:link {
     color: gray;
 }
 
-#title_information .contact a:visited {
+#nav-title_information .contact a:visited {
     color: black;
 
 }
 
-#title_information .contact a:hover {
+#nav-title_information .contact a:hover {
     color: orange;
 }
 
-#title_information .contact a:visited {
+#nav-title_information .contact a:visited {
     color: #f28983;
 }
 
-.title_box {
+.nav-title_box {
     overflow: hidden;
     display: block;
     float: right;
 }
 
-#title_information div {
+#nav-title_information div {
     position: absolute;
     visibility: hidden;
 }
@@ -333,7 +333,16 @@ a {
 	background: #f9e3e3;
 }
 
+.nav {
+    line-height: 28px;
+    font-size: 16px;
+    margin-right: 30px;
+    margin-top: 10px;
+    z-index: 2;
+}
+
 .nav_hidden {
+	color: #1c036c;
     overflow: hidden;
 	display: block;
 	float: right;
@@ -358,7 +367,7 @@ a {
 
 /*this is the css for the banner*/
 
-.bank {
+.nav-bank {
 	overflow: hidden;
 	display: block;
 	clear: both;

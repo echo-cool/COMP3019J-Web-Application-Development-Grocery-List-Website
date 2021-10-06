@@ -1,0 +1,178 @@
+
+.nav-title {
+    background-color: #f1f1f1;
+    padding: 5px;
+}
+
+.nav-center_title {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.nav-welcome {
+    font-size: 26px;
+    font-weight: bold;
+    font-style: italic;
+    color: deeppink;
+    float: left;
+}
+
+#nav-title_information {
+    width: auto;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    color: #9bceea;
+}
+
+#nav-title_information li {
+    float: left;
+    list-style: none;
+    padding-right: 10px;
+}
+
+.nav-title_shopping_cart {
+    padding-left: 20px;
+    background: url("../../image/shopping/gwc.png") no-repeat left center;
+    background-size: 24px;
+}
+
+.nav-follow_us1 {
+    padding-left: 20px;
+    background: url("../../image/shopping/wei.png") no-repeat left center;
+    background-size: 24px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #c398e3;
+    font-weight: bold;
+}
+
+#nav-title_information .follow_us a:link {
+    color: gray;
+}
+
+#nav-title_information .follow_us a:hover {
+    color: orange;
+}
+
+#nav-title_information .nav-title_shopping_cart a:link {
+    color: gray;
+}
+
+#nav-title_information .nav-title_shopping_cart a:hover {
+    color: orange;
+}
+
+#nav-title_information .contact a:link {
+    color: gray;
+}
+
+#nav-title_information .contact a:hover {
+    color: orange;
+}
+
+#nav-title_information .login a:link {
+    color: gray;
+}
+
+#nav-title_information .login a:hover {
+    color: orange;
+}
+
+#nav-title_information .register a:link {
+    color: gray;
+}
+
+#nav-title_information .register a:hover {
+    color: orange;
+}
+
+.nav-title_box {
+    overflow: hidden;
+    display: block;
+    float: right;
+}
+
+#nav-title_information div {
+    position: absolute;
+    visibility: hidden;
+}
+
+/*the following stylesheet is for the navigation part*/
+/* divider */
+.nav-nav2 {
+	overflow: hidden;
+	display: block;
+	clear: both;
+    margin-left: 400px;
+    margin-top: -80px;
+}
+
+.nav-nav3 {
+	background: #fff;
+	overflow: visible;
+	height: 45px;
+}
+
+.nav-threeD_nav {
+	line-height: 28px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.nav-threeD_nav a {
+	display: block;
+	float: left;
+	padding: 8px 6px 0;
+	position: relative;
+}
+
+.nav-threeD_nav a div {
+	padding: 0 15px;
+	height: 30px;
+	overflow: hidden;
+}
+
+.nav-threeD_nav a div span {
+	display: block;
+	position: relative;
+	top: 0;
+	color: #333;
+	font-weight: bold;
+}
+
+.nav-threeD_nav a, .nav-threeD_nav a:visited {
+	color: #fff;
+}
+
+.nav-threeD_nav a.nann div span, .nav-threeD_nav a:hover div span {
+	top: -100%;
+}
+
+.nav-threeD_nav a b {
+	position: absolute;
+	right: 0;
+	top: 15px;
+	width: 1px;
+	height: 16px;
+	background: #f9e3e3;
+}
+
+
+/**banner**/
+.nav-bank {
+	height: 400px;
+	position: relative;
+	z-index: 1;
+}
+
+/** universal style for 3d effects **/
+.nav-threeD_nav a div span, .nav-threeD_nav a div {
+	transition: all 0.4s linear;
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+}

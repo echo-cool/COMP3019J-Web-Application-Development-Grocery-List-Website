@@ -1,0 +1,57 @@
+.index-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.index-upper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.index-logo-img {
+    width: 200px;
+}
+
+.index-search-submit-button {
+    width: 80px;
+    height: 37px;
+    cursor: pointer;
+    background: transparent url("../../image/shopping/soubg.jpg") no-repeat center center;
+    cursor: pointer;
+}
+
+.index-search-text {
+    width: 320px;
+    padding-left: 18px;
+    padding-right: 10px;
+    line-height: 32px;
+    font-size: 12px;
+    color: #6f6f6f;
+    display: block;
+    float: left;
+    border: 2px solid plum;
+    box-shadow: 0 2px;
+}
+
+.my-basket-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border: 3px solid #33b62a;
+    background-color: #f1f1f1;
+}
+
+.index-basket-text {
+    text-decoration: none;
+    color: green;
+}
+
+.index-basket-icon {
+    font-size: 30px;
+    color: green;
+}
