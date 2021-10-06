@@ -1,3 +1,3 @@
 function HideMessage() {
-    $("#message_content").hide()
+    $(".base-message-box").hide()
 }

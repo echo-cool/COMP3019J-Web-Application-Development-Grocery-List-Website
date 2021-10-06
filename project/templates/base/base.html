@@ -22,10 +22,10 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/new_navbar.css') }}">
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/style.css') }}">#}
     <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-    {#    <script src="{{ url_for('static',filename='js/index.js') }}"></script>#}
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
     <script src="{{ url_for('static',filename='js/navigation.js') }}"></script>
     <script src="{{ url_for('static',filename='js/all.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/shopping_cart.js') }}"></script>
+{#    <script src="{{ url_for('static',filename='js/shopping_cart.js') }}"></script>#}
 
     {% block css %}
     {% endblock %}
@@ -47,6 +47,21 @@
 <body>
 
 <header>
+    <main role="main">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+                <div class="base-message-box">
+                    {% for category, message in messages %}
+                        <div class="alert-{{ category }}" id="message_content">
+                            <a class="base-message-close-icon" title="Close" href="#" onclick="HideMessage()">X</a>
+                            {{ message }}
+                        </div>
+                        <!-- end .alert -->
+                    {% endfor %}
+                </div>
+            <!-- end row -->
+        {% endif %} {% endwith %}
+    </main>
     <nav>
         {% block nav %}
             <div class="nav-container-box">
@@ -139,24 +154,7 @@
 
 </header>
 {% block body %}
-    <main role="main">
-        {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %}
-            <div class="">
-                <div class="">
-                    {% for category, message in messages %}
-                        <div class="alert-{{ category }}" id="message_content">
-                            <a class="" title="Close" href="#" onclick="HideMessage()">x</a>
-                            {{ message }}
-                        </div>
-                        <!-- end .alert -->
-                    {% endfor %}
-                </div>
-                <!-- end col-md -->
-            </div>
-            <!-- end row -->
-        {% endif %} {% endwith %}
-    </main>
+
     <section id="container">
         {% block content %}
         {% endblock %}
