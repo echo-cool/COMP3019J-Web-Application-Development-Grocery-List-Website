@@ -1,0 +1,22 @@
+.shopping-cart-product-image {
+    width: 150px;
+    height: 150px;
+}
+
+.cart table {
+    display: flex;
+    justify-content: center;
+    border-collapse: collapse;
+}
+
+.cart table td, .cart table th {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}

@@ -4,39 +4,147 @@
     Shopping
 {% endblock %}
 {% block js %}
-    <script src="{{ url_for('static',filename='js/shopping_cart.js') }}"></script>
+    <script type="javascript">
+        // add container
+        var datas = {
+            p001: {pname: 'dd', price:7999,src:''}
+        }
+        // click event
+        $('.buy').click(function() {
+            var pid = $(this).attr('data-pid')
+            // get the item that you add to the shopping cart
+            var info = datas[pid]
+            var isExist = false // default: do not exist
+            // loop through
+            var index = 0; // receive the index that matches the index
+            $('tbody>tr').each(function(idx,ele){
+                if(pid == $(ele).attr('data-pid')) {
+                    isExist = true // if duplicate, set it to true
+                    index = idx;
+                }
+            })
+            // trigger the add function
+            if (isExist) {
+                $('tbody>tr').eq(index).find('.add').trigger('click') // trigger the add click event
+            }
+            else {
+
+            }
+        })
+
+    </script>
 {% endblock %}
+
+
 
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
 {% endblock %}
 
 {% block content %}
-    <table id="cartTable">
-        <thead>
-        <tr>
-            <th><label><input class="check-all check" type="checkbox" style="display:none"/>Select All</label></th>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Number</th>
-            <th>Total</th>
-            <th>Operation</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="checkbox"><label class="checkbox"><input class="check-one check"
-                                                                type="checkbox"/><i> </i></label></td>
-            <td class="goods"><img src="images/p1.jpg" alt=""/><span> {{ item.name }} <br><h5
-                    style="color:#e05b5b ">{{ item.inventory }}</h5></span></td>
-            <td class="price">{{ item.price }}</td>
-            <td class="count"><span class="reduce">-</span><input class="count-input" type="text" value="1"/><span
-                    class="add">+</span></td>
-            <td class="subtotal">{{ item.price }}</td>
-            <td class="operation"><span class="delete">Cancel</span></td>
-        </tr>
-        </tbody>
-    </table>
+    {#    <table id="cartTable">#}
+    {#        <thead>#}
+    {#        <tr>#}
+    {#            <th><label><input class="check-all check" type="checkbox" style="display:none"/>Select All</label></th>#}
+    {#            <th>Item</th>#}
+    {#            <th>Price</th>#}
+    {#            <th>Number</th>#}
+    {#            <th>Total</th>#}
+    {#            <th>Operation</th>#}
+    {#        </tr>#}
+    {#        </thead>#}
+    {#        <tbody>#}
+    {#        <tr>#}
+    {#            <td class="checkbox"><label class="checkbox"><input class="check-one check"#}
+    {#                                                                type="checkbox"/><i> </i></label></td>#}
+    {#            <td class="goods"><img src="images/p1.jpg" alt=""/><span> {{ item.name }} <br><h5#}
+    {#                    style="color:#e05b5b ">{{ item.inventory }}</h5></span></td>#}
+    {#            <td class="price">{{ item.price }}</td>#}
+    {#            <td class="count"><span class="reduce">-</span><input class="count-input" type="text" value="1"/><span#}
+    {#                    class="add">+</span></td>#}
+    {#            <td class="subtotal">{{ item.price }}</td>#}
+    {#            <td class="operation"><span class="delete">Cancel</span></td>#}
+    {#        </tr>#}
+    {#        </tbody>#}
+    {#    </table>#}
 
+    <div class="cart">
+        <h3>
+            My Shopping Cart
+        </h3>
+        <table>
+            <tr>
+                <th>
+                    <span class="ischecked checked glyphicon glyphicon-check"></span>
+                    <span class="ischecked unchecked glyphicon glyphicon-unchecked"></span>
+                    <input type="checkbox" id="selAll" checked="checked">Select All
+                </th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Number</th>
+                <th>Total</th>
+                <th>Operation</th>
+            </tr>
+            <tr data-pid="p001">
+                <td>
+                    <span class="ischecked checked glyphicon glyphicon-check"></span>
+                    <span class="ischecked unchecked glyphicon glyphicon-unchecked"></span>
+                    <input type="checkbox" id="pid" checked="checked">
+                </td>
+                <td>
+                    <img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                         class="shopping-cart-product-image">
+                </td>
+                <td class="price">
+                    ${{ item.price }}
+                </td>
+                <td>
+                    <button class="sub">
+                        -
+                    </button>
+                    <input type="text" class="number" value="1">
+                    <button class="add">
+                        +
+                    </button>
+                </td>
+                <td class="count">
+                    {{ item.price }}*number
+                </td>
+                <td>
+                    <a href="javascript:void(0)" class="del">
+                        Cancel
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="orders-total">
+            <p>
+                Total
+                <span class="total">
+                    number
+                </span>
+                items
+                <span class="total_money">
+                    {{ item.price }}*number
+                </span>
+            </p>
+            <div class="checkout">
+                Please checkout before the time limits.
+                <a href="javascript:void(0)" id="to-checkout">
+                    Checkout Now
+                    <span class="minutes">
+                        19
+                    </span>:
+                    <span class="seconds">
+                        59
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
