@@ -12,3 +12,11 @@ body{
     height:1200px;
     flex-direction:column;
 }
+
+/** universal style for 3d effects **/
+* {
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+}

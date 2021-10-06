@@ -16,6 +16,9 @@
     color: deeppink;
     float: left;
 }
+.nav-main-text:hover{
+    transform: rotateX(360deg);
+}
 
 .nav-right-bar {
     display: flex;
@@ -35,9 +38,11 @@
     font-weight: bold;
 }
 
-.nav-right-bar li a:hover {
+.nav-right-bar li:hover {
     color: orange;
+    transform: rotateX(360deg);
 }
+
 
 .nav-right-bar li a:link {
     color: gray;
