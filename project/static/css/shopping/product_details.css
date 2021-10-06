@@ -173,10 +173,8 @@
 .shopping-cart {
     height: 44px;
     padding: 5px;
-    overflow: hidden;
     margin-right: 15px;
     background: 90% url("../../image/shopping/bbg1.jpg") repeat;
-    line-height: 44px;
     font-size: 18px;
     color: #FFF;
     text-decoration: none;
