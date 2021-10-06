@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="product-action-buttons">
-                <a href="#" class="shopping-cart">
+                <a href="{{ url_for("index.shopping_cart", itemID=item.id) }}" class="shopping-cart">
                     <span>Add to Shopping Cart</span>
                     <span>Add to Shopping Cart</span>
                 </a>

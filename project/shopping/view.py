@@ -27,11 +27,16 @@ def about():
     return render_template("about.html")
 
 
+@blueprint.route("/shopping_cart/<int:itemID>", methods=["GET", "POST"])
+def shopping_cart(itemID):
+    item = Item.get_by_id(itemID)
+    return render_template("shopping/shopping_cart.html", item=item)
+
+
 @blueprint.route("/product_details/<int:itemID>", methods=["GET", "POST"])
 def details(itemID):
-
     item = Item.get_by_id(itemID)
-    return render_template("shopping/product_details.html", item = item)
+    return render_template("shopping/product_details.html", item=item)
 
 
 @app.route('/logout')

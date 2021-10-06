@@ -1,0 +1,42 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Shopping
+{% endblock %}
+{% block js %}
+    <script src="{{ url_for('static',filename='js/shopping_cart.js') }}"></script>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+{% endblock %}
+
+{% block content %}
+    <table id="cartTable">
+        <thead>
+        <tr>
+            <th><label><input class="check-all check" type="checkbox" style="display:none"/>Select All</label></th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Number</th>
+            <th>Total</th>
+            <th>Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="checkbox"><label class="checkbox"><input class="check-one check"
+                                                                type="checkbox"/><i> </i></label></td>
+            <td class="goods"><img src="images/p1.jpg" alt=""/><span> {{ item.name }} <br><h5
+                    style="color:#e05b5b ">{{ item.inventory }}</h5></span></td>
+            <td class="price">{{ item.price }}</td>
+            <td class="count"><span class="reduce">-</span><input class="count-input" type="text" value="1"/><span
+                    class="add">+</span></td>
+            <td class="subtotal">{{ item.price }}</td>
+            <td class="operation"><span class="delete">Cancel</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}
