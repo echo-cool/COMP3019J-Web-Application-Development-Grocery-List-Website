@@ -1,24 +1,35 @@
 #add-item-box {
-    background-color: #f1f1f1;
-    width: 750px;
-    padding: 40px;
-    margin: 0 auto;
+    background-color: #efefef;
     border-left: 30px solid deepskyblue;
     border-right: 1px solid #ddd;
     -moz-box-shadow: 0px 0px 16px #aaa;
+    border-radius: 12px;
+    padding: 75px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+}
+
+.add-item-big-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .add-item-box-head {
+    display: flex;
     font-family: Helvetica, Arial, Serif;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
     font-style: normal;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: #888;
     border-bottom: 3px solid #f0f0f0;
-    padding-bottom: 10px;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .add-item-box-head a:hover {
@@ -26,6 +37,8 @@
 }
 
 #add-item-box h1 {
+    display: flex;
+    align-items: flex-start;
     font-family: "Trebuchet MS", sans-serif;
     color: deepskyblue;
     font-weight: normal;
@@ -35,6 +48,7 @@
 }
 
 #add-item-box h2 {
+    display: flex;
     font-family: "Trebuchet MS", sans-serif;
     font-size: 34px;
     font-style: normal;
@@ -48,28 +62,35 @@
     text-shadow: 1px 1px 1px #fff;
 }
 
-table .add-item-box-table {
+.add-item-box-table {
     font-family: "Trebuchet MS", sans-serif;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.4em;
     font-style: normal;
     border-collapse: separate;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.add-item-box-table thead th {
+.add-item-box-table tr {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.add-item-box-table th {
+    display: flex;
+    align-items: center;
     padding: 16px;
     color: #fff;
     text-shadow: 1px 1px 1px #568F23;
-    border: 1px solid #93CE37;
     border-bottom: 3px solid #9ED929;
-    background: #9DD929;
     border-radius: 5px;
-}
-
-.add-item-box-table th {
+    min-width: 28%;
     background: transparent;
-    border: none;
+    margin: 2px;
 }
 
 /*add gradient color effects*/
@@ -115,6 +136,7 @@ table .add-item-box-table {
 }
 
 .add-item-box-table tbody td {
+    min-width: 70%;
     padding: 10px;
     text-align: center;
     background-color: #DEF3CA;
@@ -122,12 +144,19 @@ table .add-item-box-table {
     border-radius: 3px;
     color: #616060;
     text-shadow: 1px 1px 1px #fff;
+    display: flex;
+    justify-content: center;
 }
 
 /*.add-item-box-table tbody span.check::before {*/
 /*    content: url(../images/check0.png)*/
 /*}*/
 
-tbody td {
-    width: 80%;
+/*tbody td {*/
+/*    width: 80%;*/
+/*}*/
+
+#add-item-box .add_button {
+    margin-top: 20px;
+    padding: 20px;
 }
