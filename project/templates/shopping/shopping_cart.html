@@ -7,18 +7,18 @@
     <script type="javascript">
         // add container
         var datas = {
-            p001: {pname: 'dd', price:7999,src:''}
+            p001: {pname: 'dd', price: 7999, src: ''}
         }
         // click event
-        $('.buy').click(function() {
+        $('.buy').click(function () {
             var pid = $(this).attr('data-pid')
             // get the item that you add to the shopping cart
             var info = datas[pid]
             var isExist = false // default: do not exist
             // loop through
             var index = 0; // receive the index that matches the index
-            $('tbody>tr').each(function(idx,ele){
-                if(pid == $(ele).attr('data-pid')) {
+            $('tbody>tr').each(function (idx, ele) {
+                if (pid == $(ele).attr('data-pid')) {
                     isExist = true // if duplicate, set it to true
                     index = idx;
                 }
@@ -26,8 +26,7 @@
             // trigger the add function
             if (isExist) {
                 $('tbody>tr').eq(index).find('.add').trigger('click') // trigger the add click event
-            }
-            else {
+            } else {
 
             }
         })
@@ -116,6 +115,25 @@
                     </a>
                 </td>
             </tr>
+
+
+{#            {% for i in item %}#}
+{#                <div class="index-item">#}
+{#                    <a href="{{ url_for("index.details", itemID=i.id) }}"> <img class="index-item-image"#}
+{#                                                                                   src="{{ url_for('static', filename='uploaded_files/'+i.main_image_url) }}"#}
+{#                                                                                   value="Item Image"></a>#}
+{#                    <div class="index-item-text">#}
+{#                        <p class="index-item-price">$ {{ i.price }}</p>#}
+{#                        <a class="index-item-name"#}
+{#                           href="{{ url_for("index.details", itemID=i.id) }}">{{ i.name }}</a>#}
+{#                        <p class="index-item-inventory">{{ i.inventory }} in warehouse</p>#}
+{#                        <p class="index-item-description">{{ i.description }}</p>#}
+{#                    </div>#}
+{##}
+{##}
+{#                </div>#}
+{#            {% endfor %}#}
+
         </table>
         <br>
         <br>
@@ -146,5 +164,29 @@
             </div>
         </div>
     </div>
+
+    <br>
+    <hr>
+    <br>
+
+        {% for i in cart %}
+            {{ i.item_id }}
+            <br>
+        {% endfor %}
+
+    <br>
+    <hr>
+    <br>
+
+    {% for i in shopping_cart_items %}
+            {{ i.price }}
+            <br>
+        {% endfor %}
+
+    <br>
+    <hr>
+    <br>
+
+    {{ item }}
 
 {% endblock %}

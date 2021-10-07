@@ -45,7 +45,7 @@ def add_to_cart():
     if cart_entry:
         current_count = cart_entry.count
         cart_entry.update(
-            count= int(current_count) + int(itemCount)
+            count=int(current_count) + int(itemCount)
         )
     else:
         Cart.create(
@@ -65,16 +65,22 @@ def shopping_cart():
     cart = Cart.query.filter_by(user_id=user.id).all()
     print(cart)
     res = {}
+    shopping_cart_items = []
     for i in cart:
         shop_user_id = i.get_shop_userID()
+        id = i.item_id
+        # print("id", id)
+        item1 = Item.query.filter_by(id=id).first()
+        shopping_cart_items.append(item1)
         if shop_user_id in res.keys():
             res[shop_user_id].append(i)
         else:
             res[shop_user_id] = [i]
-    print(res)
+    # print(res)
 
     item = Item.get_by_id(2)
-    return render_template("shopping/shopping_cart.html", item=item)
+    print(item)
+    return render_template("shopping/shopping_cart.html", shopping_cart_items=shopping_cart_items, item=item)
 
 
 @blueprint.route('/logout')
