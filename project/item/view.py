@@ -23,12 +23,11 @@ def addNewItem():
         inventory = form.inventory.data
         main_image_file = form.main_image_file.data
         print(main_image_file)
-        filename = str(os.urandom(30).hex()) +"." +main_image_file.filename.split(".")[-1];
+        filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1];
 
         main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
         # main_image_url = url_for('static', filename='uploaded_files/'+filename)
         main_image_url = filename
-
 
         new_item = Item(name=item_name,
                         price=item_price,
@@ -39,9 +38,9 @@ def addNewItem():
 
         try:
             new_item.save()
-            flash("Save Success")
+            flash("Save " + item_name + " Successfully to database !")
         except Exception as e:
-            flash("Save Failed")
+            flash("Save Failed, Check your input !")
             print(e.message)
             db.session.rollback()
 
