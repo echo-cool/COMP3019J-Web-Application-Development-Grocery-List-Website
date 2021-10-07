@@ -45,7 +45,8 @@
     border: 3px solid #33b62a;
     background-color: #f1f1f1;
 }
-.index-basket-group{
+
+.index-basket-group {
     text-decoration: none;
 }
 
@@ -56,6 +57,7 @@
     font-size: 25px;
     color: green;
 }
+
 .index-basket-text {
     font-size: 16px;
     text-decoration: none;
