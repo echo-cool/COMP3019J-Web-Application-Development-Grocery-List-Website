@@ -24,6 +24,8 @@ def addNewItem():
         main_image_file = form.main_image_file.data
         print(main_image_file)
         filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1];
+        if filename == "" or len(filename) <= 1:
+            filename="none"
 
         main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
         # main_image_url = url_for('static', filename='uploaded_files/'+filename)
