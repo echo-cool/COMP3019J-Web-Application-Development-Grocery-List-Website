@@ -63,7 +63,7 @@ def add_to_cart():
 def shopping_cart():
     user = current_user
     cart = Cart.query.filter_by(user_id=user.id).all()
-    print(cart)
+    # print(cart)
     res = {}
     shopping_cart_items = []
     for i in cart:
@@ -77,7 +77,6 @@ def shopping_cart():
         else:
             res[shop_user_id] = [i]
     # print(res)
-
     item = Item.get_by_id(2)
     print(item)
     return render_template("shopping/shopping_cart.html", shopping_cart_items=shopping_cart_items, item=item)

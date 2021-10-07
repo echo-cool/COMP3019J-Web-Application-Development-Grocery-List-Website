@@ -117,22 +117,22 @@
             </tr>
 
 
-{#            {% for i in item %}#}
-{#                <div class="index-item">#}
-{#                    <a href="{{ url_for("index.details", itemID=i.id) }}"> <img class="index-item-image"#}
-{#                                                                                   src="{{ url_for('static', filename='uploaded_files/'+i.main_image_url) }}"#}
-{#                                                                                   value="Item Image"></a>#}
-{#                    <div class="index-item-text">#}
-{#                        <p class="index-item-price">$ {{ i.price }}</p>#}
-{#                        <a class="index-item-name"#}
-{#                           href="{{ url_for("index.details", itemID=i.id) }}">{{ i.name }}</a>#}
-{#                        <p class="index-item-inventory">{{ i.inventory }} in warehouse</p>#}
-{#                        <p class="index-item-description">{{ i.description }}</p>#}
-{#                    </div>#}
-{##}
-{##}
-{#                </div>#}
-{#            {% endfor %}#}
+            {#            {% for i in item %}#}
+            {#                <div class="index-item">#}
+            {#                    <a href="{{ url_for("index.details", itemID=i.id) }}"> <img class="index-item-image"#}
+            {#                                                                                   src="{{ url_for('static', filename='uploaded_files/'+i.main_image_url) }}"#}
+            {#                                                                                   value="Item Image"></a>#}
+            {#                    <div class="index-item-text">#}
+            {#                        <p class="index-item-price">$ {{ i.price }}</p>#}
+            {#                        <a class="index-item-name"#}
+            {#                           href="{{ url_for("index.details", itemID=i.id) }}">{{ i.name }}</a>#}
+            {#                        <p class="index-item-inventory">{{ i.inventory }} in warehouse</p>#}
+            {#                        <p class="index-item-description">{{ i.description }}</p>#}
+            {#                    </div>#}
+            {##}
+            {##}
+            {#                </div>#}
+            {#            {% endfor %}#}
 
         </table>
         <br>
@@ -169,24 +169,136 @@
     <hr>
     <br>
 
-        {% for i in cart %}
-            {{ i.item_id }}
-            <br>
-        {% endfor %}
+    {% for i in cart %}
+        {{ i.item_id }}
+        <br>
+    {% endfor %}
 
     <br>
     <hr>
     <br>
 
     {% for i in shopping_cart_items %}
-            {{ i.price }}
-            <br>
-        {% endfor %}
+        {{ i.price }}
+        <br>
+    {% endfor %}
 
     <br>
     <hr>
     <br>
 
     {{ item }}
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="add-item-big-box">
+        <div id="add-item-box">
+            <p class="add-item-box-head"> Customer </p>
+            <h1>My Shopping Cart</h1>
+            <br>
+            <br>
+            <table class="add-item-box-table">
+                {#    <tfoot>#}
+                {#      <tr>#}
+                {#        <th scope="row">This is the foot area</th>#}
+                {#        <td>dddd</td>#}
+                {#      </tr>#}
+                {#    </tfoot>#}
+                <thead>
+                <tr>
+                    <th class="cancel-column">Select All</th>
+                    <th class="index-item-image-box">Image</th>
+                    <th>Price</th>
+                    <th class="number-margin">Number</th>
+                    <th>Total</th>
+                    <th class="cancel-column">Cancel</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in shopping_cart_items %}
+                    <tr>
+                        <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+                        <td class="index-item-image-box"><img class="index-item-image"
+                                                              src="{{ url_for('static', filename='uploaded_files/'+i.main_image_url) }}"
+                                                              value="Item Image"></td>
+                        <td>{{ i.price }}</td>
+                        <td class="sub-add-button">
+                            <button class="sub">
+                                -
+                            </button>
+                            <input type="text" class="number" value="1">
+                            <button class="add">
+                                +
+                            </button>
+                        </td>
+                        <td>{{ i.price }}</td>
+
+                        <td class="cancel-column"><span class="status incorrect"></span></td>
+                    </tr>
+                {% endfor %}
+                {#                <tr>#}
+                {#                    <th>ss</th>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td class="cancel-column">ss</td>#}
+                {#                </tr>#}
+                {#                <tr>#}
+                {#                    <th>ss</th>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td class="cancel-column">ss</td>#}
+                {#                </tr>#}
+                {#                <tr>#}
+                {#                    <th>ss</th>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td class="cancel-column">ss</td>#}
+                {#                </tr>#}
+                {#                <tr>#}
+                {#                    <th>ss</th>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td class="cancel-column">ss</td>#}
+                {#                </tr>#}
+                {#                <tr>#}
+                {#                    <th>ss</th>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td class="cancel-column">ss</td>#}
+                {#                </tr>#}
+                {#                <tr>#}
+                {#                    <th>ss</th>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td>ss</td>#}
+                {#                    <td class="cancel-column">ss</td>#}
+                {#                </tr>#}
+                {#                    <tr>#}
+                {#                        <td colspan="2">#}
+                {#                            <div class="add_button">#}
+                {#                                {{ form.add_button }}#}
+                {#                            </div>#}
+                {#                        </td>#}
+                {#                    </tr>#}
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
 
 {% endblock %}

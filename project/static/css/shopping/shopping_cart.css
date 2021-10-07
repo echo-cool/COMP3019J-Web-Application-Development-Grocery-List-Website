@@ -20,3 +20,212 @@ h3 {
     justify-content: center;
     padding: 30px;
 }
+
+#add-item-box {
+    background-color: #efefef;
+    border-left: 30px solid #f4e139;
+    border-right: 1px solid #ddd;
+    -moz-box-shadow: 0px 0px 16px #aaa;
+    border-radius: 12px;
+    padding: 75px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 70%;
+}
+
+.add-item-big-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-item-box-head {
+    display: flex;
+    font-family: Helvetica, Arial, Serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 4px;
+    color: #888;
+    border-bottom: 3px solid #f0f0f0;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.add-item-box-head a:hover {
+    color: #f0f0f0;
+}
+
+#add-item-box h1 {
+    display: flex;
+    align-items: flex-start;
+    font-family: "Trebuchet MS", sans-serif;
+    color: #f4e139;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 56px;
+    text-shadow: 1px 1px 1px #aaa;
+}
+
+#add-item-box h2 {
+    display: flex;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    background-color: #f0f0f0;
+    margin: 40px 0px 30px -40px;
+    padding: 0px 40px;
+    clear: both;
+    float: left;
+    width: 100%;
+    color: #aaa;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.add-item-box-table {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4em;
+    font-style: normal;
+    border-collapse: separate;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.add-item-box-table tr {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.add-item-box-table th {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #568F23;
+    border-bottom: 3px solid #9ED929;
+    border-radius: 5px;
+    min-width: 15%;
+    background: transparent;
+    margin: 2px;
+}
+
+/*add gradient color effects*/
+.add-item-box-table th {
+    color: #fff;
+    text-shadow: 1px 1px 1px #568F23;
+    background-color: #9DD929;
+    border: 1px solid #93CE37;
+    border-right: 3px solid #9ED929;
+    padding: 0px 10px;
+    background: -webkit-gradient(
+            linear,
+            left bottom,
+            right top,
+            color-stop(0.02, rgb(158, 217, 41)),
+            color-stop(0.51, rgb(139, 198, 66)),
+            color-stop(0.87, rgb(123, 192, 67))
+    );
+    background: -moz-linear-gradient(
+            left bottom,
+            rgb(158, 217, 41) 2%,
+            rgb(139, 198, 66) 51%,
+            rgb(123, 192, 67) 87%
+    );
+    border-radius: 5px;
+}
+
+/*table foot effects*/
+/*.add-item-box-table tfoot td {*/
+/*    color: #9CD009;*/
+/*    font-size: 32px;*/
+/*    text-align: center;*/
+/*    padding: 10px 0px;*/
+/*    text-shadow: 1px 1px 1px #444;*/
+/*}*/
+
+/*.add-item-box-table tfoot th {*/
+/*    color: #666;*/
+/*}*/
+
+.add-item-box-table td {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    min-width: 16%;
+    max-width: 17%;
+    padding: 8px;
+    margin-left: 3px;
+    background-color: #DEF3CA;
+    border: 2px solid #e9f1e3;
+    border-radius: 3px;
+    color: #616060;
+    text-shadow: 1px 1px 1px #fff;
+    display: flex;
+    justify-content: center;
+}
+
+/*.add-item-box-table tbody span.check::before {*/
+/*    content: url(../images/check0.png)*/
+/*}*/
+
+/*tbody td {*/
+/*    width: 80%;*/
+/*}*/
+
+#add-item-box .add_button {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.add-item-big-box .add-item-box-table .cancel-column {
+    min-width: 8%;
+    padding: 2px;
+}
+
+/*the image style*/
+.index-item-image {
+    width: 240px;
+    height: 200px;
+}
+
+/*the image style*/
+.index-item-image:hover {
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari and Chrome */
+    -o-transform: scale(1.1);
+    /* Opera */
+    -moz-transform: scale(1.1);
+}
+
+/*the style for the image in the td of table*/
+.add-item-big-box .add-item-box-table .index-item-image-box {
+    min-width: 22%;
+}
+
+/*the style for changing number values*/
+.number {
+    max-width: 30%;
+    padding: 2px;
+}
+
+.add-item-big-box .add-item-box-table .sub-add-button {
+    max-width: 5%;
+}
+
+.add-item-big-box .add-item-box-table .number-margin {
+    min-width: 16%;
+    margin-right: 6px;
+}
