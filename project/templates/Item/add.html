@@ -3,20 +3,9 @@
     Add new Item
 {% endblock %}
 
-
-{#{% block nav %}#}
-{#    <ul>#}
-{#        <li><a  href="/">Home</a></li>#}
-{#        <li><a class="active" href="/item/add">Add</a></li>#}
-{#        <li><a href="/about">About</a></li>#}
-{#        <li><a  href="/login">Login</a></li>#}
-{#        {% if current_user.is_authenticated %}#}
-{#            <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>#}
-{#            <li><a href="/logout">logout</a></li>#}
-{#        {% else %}#}
-{#        {% endif %}#}
-{#    </ul>#}
-{#{% endblock %}#}
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/item/add.css">
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -62,6 +51,46 @@
             </div>
         </form>
 
+
+    </div>
+    <div id="add-item-box">
+        <p class="add-item-box-head"> Seller </p>
+        <h1>Add Items</h1>
+        <br>
+        <table class="add-item-box-table">
+            {#    <tfoot>#}
+            {#      <tr>#}
+            {#        <th scope="row">This is the foot area</th>#}
+            {#        <td>dddd</td>#}
+            {#      </tr>#}
+            {#    </tfoot>#}
+            <tbody>
+            <tr>
+                <th>User ID</th>
+                <td>dddd</td>
+            </tr>
+            <tr>
+                <th>Item Name</th>
+                <td>dddd</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>Unlimited</td>
+            </tr>
+            <tr>
+                <th>Inventory</th>
+                <td>ddddd</td>
+            </tr>
+            <tr>
+                <th>Item Description</th>
+                <td>Unlimited</td>
+            </tr>
+            <tr>
+                <th>Upload Image</th>
+                <td>Unlimited</td>
+            </tr>
+            </tbody>
+        </table>
 
     </div>
 
