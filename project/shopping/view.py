@@ -71,15 +71,22 @@ def shopping_cart():
         id = i.item_id
         # print("id", id)
         item1 = Item.query.filter_by(id=id).first()
+        # print("inventory: ",item1.inventory)
+        # print("name: ", item1.name)
         shopping_cart_items.append(item1)
         if shop_user_id in res.keys():
-            res[shop_user_id].append(i)
+            res[shop_user_id].append(Item.query.filter_by(id=id).first())
+            print("shop_user_id: ", shop_user_id)
+            print("i: ", i)
         else:
-            res[shop_user_id] = [i]
+            res[shop_user_id] = [Item.query.filter_by(id=id).first()]
     # print(res)
-    item = Item.get_by_id(2)
-    print(item)
-    return render_template("shopping/shopping_cart.html", shopping_cart_items=shopping_cart_items, item=item)
+    # item = Item.get_by_id(2)
+    # print(item)
+    for r in res:
+        print("key: ", r)
+        print("value: ", res[r])
+    return render_template("shopping/shopping_cart.html", shopping_cart_items=shopping_cart_items, res=res)
 
 
 @blueprint.route('/logout')

@@ -236,3 +236,29 @@ h3 {
     content: '\2716';
     color: #b20610;
 }
+
+/*style for different sellers*/
+.add-item-big-box .add-item-box-table #shopping-cart-seller th {
+    display: flex;
+    min-width: 94%;
+    text-shadow: 1px 1px 1px #568F23;
+    background-color: #f3db0d;
+    border: 1px solid #f4e139;
+    border-right: 3px solid #ece499;
+    padding: 0px 10px;
+    background: -webkit-gradient(
+            linear,
+            left bottom,
+            right top,
+            color-stop(0.02, rgb(232, 210, 15)),
+            color-stop(0.51, rgb(244, 225, 57)),
+            color-stop(0.87, rgb(252, 240, 146))
+    );
+    background: -moz-linear-gradient(
+            left bottom,
+            rgb(232, 210, 15) 2%,
+            rgb(244, 225, 57) 51%,
+            rgb(252, 240, 146) 87%
+    );
+    margin-top: 10px;
+}
