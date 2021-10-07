@@ -39,6 +39,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 60px;
 }
 
 .add-item-box-head {
@@ -228,4 +229,10 @@ h3 {
 .add-item-big-box .add-item-box-table .number-margin {
     min-width: 16%;
     margin-right: 6px;
+}
+
+/*cancel button style*/
+.incorrect:before {
+    content: '\2716';
+    color: #b20610;
 }
