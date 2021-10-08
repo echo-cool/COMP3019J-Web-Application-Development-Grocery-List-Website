@@ -11,6 +11,18 @@ from project.models.ItemModel import Item
 blueprint = Blueprint("item", __name__, static_folder="../static")
 
 
+@blueprint.route("/item/manage", methods=["POST", "GET"])
+@login_required
+def ManageItem():
+    user = current_user
+    items = Item.query.filter_by(
+        owner=user.id,
+    ).all()
+    
+    return render_template("item/manage.html", items = items)
+
+
+
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
 @login_required
 def ModifyNewItem(item_id):
