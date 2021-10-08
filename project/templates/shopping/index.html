@@ -13,93 +13,7 @@
 {#    <script src="assets/js/amazeui.min.js"></script>#}
     {#    <script src="js/load.js" type="text/javascript"></script>#}
     {#    <script src="js/jquery.nivo.slider.js" type="text/javascript"></script>#}
-    <script>
-        let left = document.querySelector(".index-banner-button-left")
-        let right = document.querySelector(".index-banner-button-right")
-        let min = document.querySelectorAll(".index-banner-min-image")
-        let images = document.querySelector(".index-banner-images-box")
-        // 先设置一个index用来计算和控制图片的位置，再设置一个time作为定时器
-        let index = 0
-        let time
 
-        // 在这里先创建一个position为复用函数，作用就是结合index来定义当前图片的位置的
-        function position() {
-            images.style.top = (index * -100) + "%"
-        }
-
-        // 然后创建一个复用函数add为加函数，如果当前图片的位置值index大于等于当前图片数量的话，就说明超出了计算范围，所以得清零，如若不然index就加一
-        function add() {
-            if (index >= min.length - 1) {
-                index = 0
-            } else {
-                index++
-            }
-        }
-
-        // 反之desc为减函数，如果当前图片的位置值index小于1了，那么他的值就反弹到最顶端，也就是轮播图的最后面，如若不然index就减一
-        function desc() {
-            if (index < 1) {
-                index = min.length - 1
-            } else {
-                index--
-            }
-        }
-
-        // 创建一个timer来当做复用时间的函数，，每隔3秒钟index就加一，然后加入增加add函数和desc函数来判断一下，再加入定位函数
-        function timer() {
-            time = setInterval(() => {
-                index++
-                desc()
-                add()
-                position()
-            }, 3000)
-        }
-
-        // 设置按钮，left为左边的按钮，因为点击时图片会反方向倒退，所以套入desc减函数进去，定位一下
-        left.addEventListener("click", () => {
-            desc()
-            position()
-            clearInterval(time)
-            timer()
-        })
-        // 右边的按钮和左边也是差不多
-        right.addEventListener("click", () => {
-            add()
-            position()
-            clearInterval(time)
-            timer()
-        })
-        // 在弄好左右两个按钮的时候，还需要生效下面的小图片按钮，
-        // 先遍历一遍，然后获取当前点击的那个小图片按钮的值并赋值给index，随之跳转
-        for (let i = 0; i < min.length; i++) {
-            min[i].addEventListener("click", () => {
-                index = i
-                position()
-                clearInterval(time)
-                timer()
-            })
-        }
-        // 将定时器开起来
-        timer()
-        {#$('#your-slider').flexslider({#}
-        {#    playAfterPaused: 8000,#}
-        {#    before: function (slider) {#}
-        {#        if (slider._pausedTimer) {#}
-        {#            window.clearTimeout(slider._pausedTimer);#}
-        {#            slider._pausedTimer = null;#}
-        {#        }#}
-        {#    },#}
-        {#    after: function (slider) {#}
-        {#        var pauseTime = slider.vars.playAfterPaused;#}
-        {#        if (pauseTime && !isNaN(pauseTime) && !slider.playing) {#}
-        {#            if (!slider.manualPause && !slider.manualPlay && !slider.stopped) {#}
-        {#                slider._pausedTimer = window.setTimeout(function () {#}
-        {#                    slider.play();#}
-        {#                }, pauseTime);#}
-        {#            }#}
-        {#        }#}
-        {#    }#}
-    </script>
     {#    <script type="text/javascript">#}
     {#        $(window).load(function () {#}
     {#            $('#slider').nivoSlider({#}
@@ -500,6 +414,97 @@
     {#        #}
     {#        </dl>#}
     {#    </div>#}
+
+{% block jsfoot %}
+    <script>
+        let left = document.querySelector(".index-banner-button-left")
+        let right = document.querySelector(".index-banner-button-right")
+        let min = document.querySelectorAll(".index-banner-min-image")
+        let images = document.querySelector(".index-banner-images-box")
+        // 先设置一个index用来计算和控制图片的位置，再设置一个time作为定时器
+        let index = 0
+        let time
+
+        // 在这里先创建一个position为复用函数，作用就是结合index来定义当前图片的位置的
+        function position() {
+            images.style.top = (index * -100) + "%"
+        }
+
+        // 然后创建一个复用函数add为加函数，如果当前图片的位置值index大于等于当前图片数量的话，就说明超出了计算范围，所以得清零，如若不然index就加一
+        function add() {
+            if (index >= min.length - 1) {
+                index = 0
+            } else {
+                index++
+            }
+        }
+
+        // 反之desc为减函数，如果当前图片的位置值index小于1了，那么他的值就反弹到最顶端，也就是轮播图的最后面，如若不然index就减一
+        function desc() {
+            if (index < 1) {
+                index = min.length - 1
+            } else {
+                index--
+            }
+        }
+
+        // 创建一个timer来当做复用时间的函数，，每隔3秒钟index就加一，然后加入增加add函数和desc函数来判断一下，再加入定位函数
+        function timer() {
+            time = setInterval(() => {
+                index++
+                desc()
+                add()
+                position()
+            }, 3000)
+        }
+
+        // 设置按钮，left为左边的按钮，因为点击时图片会反方向倒退，所以套入desc减函数进去，定位一下
+        left.addEventListener("click", () => {
+            desc()
+            position()
+            clearInterval(time)
+            timer()
+        })
+        // 右边的按钮和左边也是差不多
+        right.addEventListener("click", () => {
+            add()
+            position()
+            clearInterval(time)
+            timer()
+        })
+        // 在弄好左右两个按钮的时候，还需要生效下面的小图片按钮，
+        // 先遍历一遍，然后获取当前点击的那个小图片按钮的值并赋值给index，随之跳转
+        for (let i = 0; i < min.length; i++) {
+            min[i].addEventListener("click", () => {
+                index = i
+                position()
+                clearInterval(time)
+                timer()
+            })
+        }
+        // 将定时器开起来
+        timer()
+        {#$('#your-slider').flexslider({#}
+        {#    playAfterPaused: 8000,#}
+        {#    before: function (slider) {#}
+        {#        if (slider._pausedTimer) {#}
+        {#            window.clearTimeout(slider._pausedTimer);#}
+        {#            slider._pausedTimer = null;#}
+        {#        }#}
+        {#    },#}
+        {#    after: function (slider) {#}
+        {#        var pauseTime = slider.vars.playAfterPaused;#}
+        {#        if (pauseTime && !isNaN(pauseTime) && !slider.playing) {#}
+        {#            if (!slider.manualPause && !slider.manualPlay && !slider.stopped) {#}
+        {#                slider._pausedTimer = window.setTimeout(function () {#}
+        {#                    slider.play();#}
+        {#                }, pauseTime);#}
+        {#            }#}
+        {#        }#}
+        {#    }#}
+    </script>
+
+{% endblock %}
 
 
 
