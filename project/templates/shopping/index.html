@@ -15,10 +15,10 @@
     {#    <script src="js/load.js" type="text/javascript"></script>#}
     {#    <script src="js/jquery.nivo.slider.js" type="text/javascript"></script>#}
     <script>
-        let left = document.querySelector(".button-left")
-        let right = document.querySelector(".button-right")
-        let min = document.querySelectorAll(".min")
-        let images = document.querySelector(".images")
+        let left = document.querySelector(".index-banner-button-left")
+        let right = document.querySelector(".index-banner-button-right")
+        let min = document.querySelectorAll(".index-banner-min-image")
+        let images = document.querySelector(".index-banner-images-box")
         // 先设置一个index用来计算和控制图片的位置，再设置一个time作为定时器
         let index = 0
         let time
@@ -325,19 +325,19 @@
             <div class="index-item-container">
 
                 <div class="shell">
-                    <ui class="images">
-                        <li class="img"></li>
-                        <li class="img"></li>
-                        <li class="img"></li>
+                    <ui class="index-banner-images-box">
+                        <li class="index-banner-image"></li>
+                        <li class="index-banner-image"></li>
+                        <li class="index-banner-image"></li>
                     </ui>
-                    <ui class="min-images">
-                        <li class="min"></li>
-                        <li class="min"></li>
-                        <li class="min"></li>
+                    <ui class="index-banner-min-images-box">
+                        <li class="index-banner-min-image"></li>
+                        <li class="index-banner-min-image"></li>
+                        <li class="index-banner-min-image"></li>
                     </ui>
-                    <div class="button">
-                        <div class="button-left"><</div>
-                        <div class="button-right">></div>
+                    <div class="index-banner-button">
+                        <div class="index-banner-button-left"><</div>
+                        <div class="index-banner-button-right">></div>
                     </div>
                 </div>
             </div>
