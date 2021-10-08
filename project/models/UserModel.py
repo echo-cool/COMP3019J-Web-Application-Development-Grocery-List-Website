@@ -42,7 +42,7 @@ class User(UserMixin, PkModel):
     first_name = Column(db.String(30), nullable=True)
     last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
-    is_admin = Column(db.Boolean(), default=False)
+    is_shopper = Column(db.Boolean(), default=False)
     items = db.relationship("Item", backref='owned_user', lazy=True)
     cart = db.relationship("Cart", backref='cart_user', lazy=True)
 
