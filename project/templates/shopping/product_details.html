@@ -15,7 +15,7 @@
     {#    <p><label>Item name:</label>{{ item.name }}</p>#}
     {#    <p><label>Item price:</label>{{ item.price }}</p>#}
     {#    <p><label>Item description:</label>{{ item.description }}</p>#}
-    <form action="{{ url_for("index.add_to_cart") }}" method="post">
+    <form action="{{ url_for("cart.add_to_cart") }}" method="post">
         <div class="product-little-box">
             <div class="product-image-box">
                 <img class="product-image"
@@ -70,7 +70,7 @@
                     <input type="hidden" name="itemID" value="{{ item.id }}">
                     <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit">
 
-                    {#                <a href="{{ url_for("index.shopping_cart", itemID=item.id) }}" class="shopping-cart">#}
+                    {#                <a href="{{ url_for("cart.shopping_cart", itemID=item.id) }}" class="shopping-cart">#}
                     {#                    <span>Add to Shopping Cart</span>#}
                     {#                    <span>Add to Shopping Cart</span>#}
                     {#                </a>#}

@@ -1,6 +1,7 @@
 import os
 
 from flask import Blueprint, render_template, flash, current_app, url_for
+from flask_login import current_user, login_required
 from werkzeug.utils import secure_filename
 
 from project import db
@@ -11,12 +12,13 @@ blueprint = Blueprint("item", __name__, static_folder="../static")
 
 
 @blueprint.route("/item/add", methods=["POST", "GET"])
+@login_required
 def addNewItem():
     form = AddNewItem()
     # print(form.data)
     print(form.validate_on_submit())
     if form.validate_on_submit():
-        userid = form.userid.data
+        userid = current_user.id
         item_name = form.item_name.data
         item_price = form.item_price.data
         description = form.description.data

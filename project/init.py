@@ -12,6 +12,8 @@ from project.models.Cart import Cart
 
 """Register Flask blueprints."""
 app.register_blueprint(shopping.view.blueprint)
+app.register_blueprint(shopping.cart.blueprint)
+app.register_blueprint(shopping.product_details.blueprint)
 app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
 app.register_blueprint(userinfo.view.blueprint)

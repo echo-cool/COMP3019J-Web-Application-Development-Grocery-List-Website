@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired
 
 
 class AddNewItem(FlaskForm):
-    userid = StringField("User ID", validators=[DataRequired(), ])
+    # userid = StringField("User ID", validators=[DataRequired(), ])
     item_name = StringField("Item Name", validators=[DataRequired(), ], default="")
     item_price = FloatField("Price", validators=[], default=0.0)
     description = StringField("Description", validators=[], default="")
