@@ -2,7 +2,7 @@ import os
 
 from flask import Blueprint, render_template, flash, current_app, url_for
 from flask_login import current_user, login_required
-from werkzeug.utils import secure_filename
+from werkzeug.utils import secure_filename, redirect
 
 from project import db
 from project.item.forms import AddNewItem, UpdateItem
@@ -18,9 +18,17 @@ def ManageItem():
     items = Item.query.filter_by(
         owner=user.id,
     ).all()
-    
-    return render_template("item/manage.html", items = items)
 
+    return render_template("item/manage.html", items=items)
+
+
+@blueprint.route("/item/remove/<int:item_id>", methods=["POST", "GET"])
+@login_required
+def ModifyNewItem(item_id):
+    item = Item.get_by_id(item_id)
+    item.delete()
+    flash("Delete Success")
+    return redirect(url_for("item.ManageItem"))
 
 
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
@@ -48,11 +56,7 @@ def ModifyNewItem(item_id):
             item.main_image_url = filename
         item.update()
         flash("Update Success")
-    return render_template("item/update.html", item = item, form = form)
-
-
-
-
+    return render_template("item/update.html", item=item, form=form)
 
 
 @blueprint.route("/item/add", methods=["POST", "GET"])
@@ -69,7 +73,7 @@ def addNewItem():
         inventory = form.inventory.data
         main_image_file = form.main_image_file.data
         print(main_image_file)
-        main_image_url=""
+        main_image_url = ""
         if main_image_file.filename != "":
             filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1];
             main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
