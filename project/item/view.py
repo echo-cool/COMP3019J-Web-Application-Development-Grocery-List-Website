@@ -22,9 +22,9 @@ def ManageItem():
     return render_template("item/manage.html", items=items)
 
 
-@blueprint.route("/item/remove/<int:item_id>", methods=["POST", "GET"])
+@blueprint.route("/item/delete/<int:item_id>", methods=["POST", "GET"])
 @login_required
-def ModifyNewItem(item_id):
+def DeleteItem(item_id):
     item = Item.get_by_id(item_id)
     item.delete()
     flash("Delete Success")
