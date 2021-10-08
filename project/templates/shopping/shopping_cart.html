@@ -201,13 +201,13 @@
 {#        <hr>#}
 {#    {% endfor %}#}
 
-    <div class="add-item-big-box">
-        <div id="add-item-box">
-            <p class="add-item-box-head"> Customer </p>
+    <div class="shopping-cart-big-box">
+        <div id="shopping-cart-box">
+            <p class="shopping-cart-box-head"> Customer </p>
             <h1>My Shopping Cart</h1>
             <br>
             <br>
-            <table class="add-item-box-table">
+            <table class="shopping-cart-box-table">
                 {#    <tfoot>#}
                 {#      <tr>#}
                 {#        <th scope="row">This is the foot area</th>#}
@@ -225,29 +225,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for r in res %}
+                {% for shop in cart_dict %}
+
                     <tr id="shopping-cart-seller">
-                        <th>Shop {{ r }}</th>
+                        <th colspan="6">{{ shop.username }}</th>
                     </tr>
-                    {% for i in res[r] %}
+                    {% for item in cart_dict[shop] %}
                     <tr>
                         <th class="cancel-column"><input type="checkbox" checked="checked"></th>
-                        <td class="index-item-image-box"><a href="{{ url_for("product_details.details", itemID=i.id) }}"><img
+                        <td class="index-item-image-box"><a href="{{ url_for("product_details.details", itemID=item.id) }}"><img
                                 class="index-item-image"
-                                src="{{ url_for('static', filename='uploaded_files/'+i.main_image_url) }}"
+                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                 value="Item Image"></a>
                         </td>
-                        <td>{{ i.price }}</td>
+                        <td>{{ item.price }}</td>
                         <td class="sub-add-button">
                             <button class="sub">
                                 -
                             </button>
-                            <input type="text" class="number" value="1">
+                            <input type="text" class="number" value="{{ item.count }}">
                             <button class="add">
                                 +
                             </button>
                         </td>
-                        <td>{{ i.price }}</td>
+                        <td>{{ item.price * item.count}}</td>
 
                         <td class="cancel-column">
                             <button class="incorrect"></button>
@@ -258,7 +259,7 @@
 {#                        {{ res[r] }}#}
 {#                        <br>#}
 {#                    {% endfor %}#}
-                    <hr>
+{#                    <hr>#}
                 {% endfor %}
 {#                {% for i in shopping_cart_items %}#}
 {#                    <tr>#}

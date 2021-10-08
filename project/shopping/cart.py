@@ -15,8 +15,18 @@ from project.models.Cart import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
 
-
 blueprint = Blueprint("cart", __name__, static_folder="../static")
+
+
+@blueprint.route("/cart/remove", methods=["POST"])
+@login_required
+def remove_from_cart():
+    itemID = request.form.get('itemID')
+    user = current_user
+    cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+    if cart_entry:
+        cart_entry.delete()
+    flash("Removed Successfully")
 
 
 @blueprint.route("/cart/add", methods=["POST"])
@@ -53,22 +63,14 @@ def shopping_cart():
     shopping_cart_items = []
     for i in cart:
         shop_user_id = i.get_shop_userID()
-        id = i.item_id
-        # print("id", id)
-        item1 = Item.query.filter_by(id=id).first()
-        # print("inventory: ",item1.inventory)
-        # print("name: ", item1.name)
-        shopping_cart_items.append(item1)
-        if shop_user_id in res.keys():
-            res[shop_user_id].append(Item.query.filter_by(id=id).first())
-            print("shop_user_id: ", shop_user_id)
-            print("i: ", i)
+        item_id = i.item_id
+        item = Item.get_by_id(item_id)
+        shopper = User.get_by_id(shop_user_id)
+        item.count = i.count
+
+        if shopper in res.keys():
+            res[shopper].append(item)
         else:
-            res[shop_user_id] = [Item.query.filter_by(id=id).first()]
-    # print(res)
-    # item = Item.get_by_id(2)
-    # print(item)
-    for r in res:
-        print("key: ", r)
-        print("value: ", res[r])
-    return render_template("shopping/shopping_cart.html", shopping_cart_items=shopping_cart_items, res=res)
+            res[shopper] = [item]
+
+    return render_template("shopping/shopping_cart.html", cart_dict=res)
