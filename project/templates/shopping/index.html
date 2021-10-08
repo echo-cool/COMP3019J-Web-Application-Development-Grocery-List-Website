@@ -3,8 +3,58 @@
 {% block title %}
     Shopping
 {% endblock %}
+{% block script %}
+    <script src="assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="assets/ie8/jquery.min.js"></script>
+    <script src="assets/ie8/modernizr.js"></script>
+    <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script src="assets/js/amazeui.min.js"></script>
+{#    <script src="js/load.js" type="text/javascript"></script>#}
+{#    <script src="js/jquery.nivo.slider.js" type="text/javascript"></script>#}
+    <script>
+        $('#your-slider').flexslider({
+            playAfterPaused: 8000,
+            before: function (slider) {
+                if (slider._pausedTimer) {
+                    window.clearTimeout(slider._pausedTimer);
+                    slider._pausedTimer = null;
+                }
+            },
+            after: function (slider) {
+                var pauseTime = slider.vars.playAfterPaused;
+                if (pauseTime && !isNaN(pauseTime) && !slider.playing) {
+                    if (!slider.manualPause && !slider.manualPlay && !slider.stopped) {
+                        slider._pausedTimer = window.setTimeout(function () {
+                            slider.play();
+                        }, pauseTime);
+                    }
+                }
+            }
+        });
+    </script>
+{#    <script type="text/javascript">#}
+{#        $(window).load(function () {#}
+{#            $('#slider').nivoSlider({#}
+{#                controlNav: false,#}
+{#                effect: 'random',#}
+{#                animSpeed: 100,#}
+{#                captionOpacity: 0.9,#}
+{#                directionNav: true,#}
+{#                controlNav: true,#}
+{#                pauseTime: 3000,#}
+{#                directionNavHide: true,#}
+{#                pauseOnHover: true#}
+{#            });#}
+{#        });#}
+{#    </script>#}
+{% endblock %}
 {% block style %}
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/amazeui.min.css') }}">#}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
+
     <style>
         .index-item-container-box {
             display: flex;
@@ -18,20 +68,20 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-content: flex-start;
             margin: auto;
             background-color: #f1f1f1;
         }
 
         .index-item {
-            width: 240px;
+            width: 270px;
             margin: 20px;
             padding: 5px;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            align-items: flex-start;
+            align-items: center;
             border: 3px solid lightgray;
         }
 
@@ -126,6 +176,7 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="index-container">
         <div class="index-upper">
             <img class="index-logo-img" src="../../static/image/shopping/img_4.png" alt="">
@@ -151,48 +202,83 @@
         <div class="index-product-recommendation-title">
             <h1 class="product-recommendation-title-text">Recommendation</h1>
         </div>
-        <div class="index-item-container-box">
-            <div class="index-item-container">
+        <br>
+        <hr>
+        <br>
 
+{#        <div class="am-slider am-slider-default recommendation-div" data-am-flexslider="{playAfterPaused: 8000}">#}
+{#            <ul class="am-slides">#}
+{#                <li class="img"><img src="../../static/image/shopping/1.jpg" style="width: 500px; margin: auto"/></li>#}
+{#                <li class="img"><img src="../../static/image/shopping/1.jpg" style="width: 500px; margin: auto"/></li>#}
+{#                <li class="img"><img src="../../static/image/shopping/1.jpg" style="width: 500px; margin: auto"/></li>#}
+{#                <li class="img"><img src="../../static/image/shopping/1.jpg" style="width: 500px; margin: auto"/></li>#}
+{#            </ul>#}
+{#        </div>#}
 
-
-
-            </div>
-
-        </div>
-
-
-        {#        product viewing area#}
-        <div class="index-product-view-title">
-            <h1 class="product-view-title-text">Product Viewing</h1>
-        </div>
-        <div class="index-item-container-box">
-            <div class="index-item-container">
-
-                {% for item in items %}
-                    <div class="index-item">
-                        <a href="{{ url_for("index.details", itemID=item.id) }}"> <img class="index-item-image"
-                                                                                       src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                                                       value="Item Image"></a>
-                        <div class="index-item-text">
-                            <p class="index-item-price">$ {{ item.price }}</p>
-                            <a class="index-item-name"
-                               href="{{ url_for("index.details", itemID=item.id) }}">{{ item.name }}</a>
-                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                            <p class="index-item-description">{{ item.description }}</p>
-                        </div>
-
-
-                    </div>
-                {% endfor %}
-
-
-            </div>
-
-        </div>
+        <br>
+        <hr>
+        <br>
+        {#        <div class="index-item-container-box">#}
+        {#            <div class="index-item-container">#}
+        {#                <!--banner -->#}
+        {#                <div class="main_visual">#}
+        {#                    <div class="main_image" style="width:790px;margin-left: 225px;margin-top:8px;">#}
+        {#                        <div id="slider-wrapper">#}
+        {#                            <div class="nivoSlider" id="slider">#}
+        {##}
+        {#                                <a href="#" target="_blank">#}
+        {#                                    <img alt=" " src="../../static/image/shopping/banner2.jpg"/></a>#}
+        {#                                <a href="#" target="_blank">#}
+        {#                                    <img alt=" " src="../../static/image/shopping/banner3.jpg"/></a>#}
+        {#                                <a href="#" target="_blank">#}
+        {#                                    <img alt=" " src="../../static/image/shopping/banner1.jpg"/></a>#}
+        {##}
+        {#                                <a href="#" target="_blank">#}
+        {#                                    <img alt=" " src="../../static/image/shopping/banner5.jpg"/></a>#}
+        {#                                <a href="#" target="_blank">#}
+        {#                                    <img alt=" " src="../../static/image/shopping/banner4.jpg"/></a>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {##}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <!--end -->#}
+        {#            </div>#}
+        {#        </div>#}
 
 
     </div>
+
+
+    {#        product viewing area#}
+    <div class="index-product-view-title">
+        <h1 class="product-view-title-text">Product Viewing</h1>
+    </div>
+    <div class="index-item-container-box">
+        <div class="index-item-container">
+
+            {% for item in items %}
+                <div class="index-item">
+                    <a href="{{ url_for("index.details", itemID=item.id) }}"> <img class="index-item-image"
+                                                                                   src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                                                   value="Item Image"></a>
+                    <div class="index-item-text">
+                        <p class="index-item-price">$ {{ item.price }}</p>
+                        <a class="index-item-name"
+                           href="{{ url_for("index.details", itemID=item.id) }}">{{ item.name }}</a>
+                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                        <p class="index-item-description">{{ item.description }}</p>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
 
 
 
