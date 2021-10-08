@@ -12,6 +12,7 @@
     background-color: #f1f1f1;
     align-items: center;
     justify-content: center;
+    border-radius: 12px
 }
 
 .box {
@@ -102,6 +103,7 @@
     border: 1px solid #dadada;
     margin-bottom: 15px;
     padding: 15px 25px;
+
 }
 
 .product-number-box {
@@ -157,10 +159,6 @@
     color: #e01222;
 }
 
-.number-input:hover {
-    color: orange;
-    border: orange;
-}
 
 .product-action-buttons {
     display: flex;

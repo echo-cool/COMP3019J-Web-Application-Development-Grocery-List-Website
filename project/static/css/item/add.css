@@ -75,14 +75,11 @@
 }
 
 .add-item-box-table tr {
-    display: flex;
-    flex-direction: row;
 }
 
 
 .add-item-box-table th {
-    display: flex;
-    align-items: center;
+
     padding: 16px;
     color: #fff;
     text-shadow: 1px 1px 1px #568F23;
@@ -136,7 +133,6 @@
 }
 
 .add-item-box-table tbody td {
-    min-width: 70%;
     padding: 10px;
     text-align: center;
     background-color: #DEF3CA;
@@ -144,8 +140,6 @@
     border-radius: 3px;
     color: #616060;
     text-shadow: 1px 1px 1px #fff;
-    display: flex;
-    justify-content: center;
 }
 
 /*.add-item-box-table tbody span.check::before {*/
@@ -156,7 +150,11 @@
 /*    width: 80%;*/
 /*}*/
 
-#add-item-box .add_button {
-    margin-top: 20px;
+#add-item-box{
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.add_button{
     padding: 20px;
 }
