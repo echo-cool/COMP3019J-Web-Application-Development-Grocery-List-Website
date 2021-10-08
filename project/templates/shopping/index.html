@@ -4,7 +4,6 @@
     Shopping
 {% endblock %}
 {% block script %}
-    <script src="assets/js/jquery.min.js"></script>
     <!--<![endif]-->
     <!--[if lte IE 8 ]>
 {#    <script src="assets/ie8/jquery.min.js"></script>#}
@@ -25,7 +24,7 @@
 
         // 在这里先创建一个position为复用函数，作用就是结合index来定义当前图片的位置的
         function position() {
-            images.style.left = (index * -100) + "%"
+            images.style.top = (index * -100) + "%"
         }
 
         // 然后创建一个复用函数add为加函数，如果当前图片的位置值index大于等于当前图片数量的话，就说明超出了计算范围，所以得清零，如若不然index就加一
@@ -127,6 +126,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
+
         }
 
         .index-item-container {

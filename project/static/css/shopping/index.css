@@ -162,7 +162,9 @@
 
 
 .shell {
-    width: 900px;
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    width: 100%;
     height: 500px;
     position: relative;
     overflow-x: hidden;
@@ -172,8 +174,9 @@
 }
 
 .index-banner-images-box {
-    width: 300%;
+    width: 100%;
     height: 100%;
+    display: block;
     /*display: flex;*/
     position: absolute;
     left: 0;
@@ -182,6 +185,9 @@
 
 .index-banner-image {
     width: 100%;
+    height: 100%;
+    top: 0;
+    /*position: absolute;*/
     background-size: cover;
 }
 
