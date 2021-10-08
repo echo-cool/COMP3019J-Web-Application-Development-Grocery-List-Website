@@ -1,4 +1,6 @@
 #add-item-box {
+    margin-top: 100px;
+    padding: 20px;
     background-color: #efefef;
     border-left: 30px solid deepskyblue;
     border-right: 1px solid #ddd;
@@ -150,11 +152,9 @@
 /*    width: 80%;*/
 /*}*/
 
-#add-item-box{
-    margin-top: 100px;
-    padding: 20px;
-}
-
-.add_button{
-    padding: 20px;
+.add_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
 }
