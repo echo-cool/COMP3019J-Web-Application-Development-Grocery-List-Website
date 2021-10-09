@@ -29,9 +29,3 @@ def about():
 
 
 
-@blueprint.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    flash('See you later！')
-    return redirect(url_for('index.home'))
