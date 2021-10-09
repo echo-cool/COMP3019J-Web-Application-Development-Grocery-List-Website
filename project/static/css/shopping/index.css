@@ -8,7 +8,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .index-logo-img {
@@ -45,7 +44,8 @@
     border: 3px solid #33b62a;
     background-color: #f1f1f1;
 }
-.index-basket-group{
+
+.index-basket-group {
     text-decoration: none;
 }
 
@@ -56,9 +56,104 @@
     font-size: 25px;
     color: green;
 }
+
 .index-basket-text {
     font-size: 16px;
     text-decoration: none;
     color: green;
 }
 
+.shell {
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    width: 43%;
+    height: 550px;
+    position: relative;
+    overflow-x: hidden;
+    border-radius: 5px;
+    border: 10px #fff;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    margin: auto;
+}
+
+.index-banner-images-box {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*display: flex;*/
+    position: absolute;
+    left: 0;
+    transition: .2s;
+}
+
+.index-banner-image {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    /*position: absolute;*/
+    background-size: cover;
+}
+
+.index-banner-image:nth-child(1) {
+    background-image: url("../../image/shopping/1.jpg");
+    width: 100%;
+    height: 100%;
+}
+
+.index-banner-image:nth-child(2) {
+    background-image: url("../../image/shopping/2.jpg");
+}
+
+.index-banner-image:nth-child(3) {
+    background-image: url("../../image/shopping/3.jpg");
+}
+
+.index-banner-min-images-box {
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 20px;
+    width: 40%;
+    z-index: 999;
+    right: 10%;
+}
+
+.index-banner-min-image {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-size: cover;
+    border: solid rgba(255, 255, 255, 0.5) 5px;
+    background-position: -20px 0;
+}
+
+.index-banner-min-image:nth-child(1) {
+    background-image: url("../../image/shopping/1.jpg");
+}
+
+.index-banner-min-image:nth-child(2) {
+    background-image: url("../../image/shopping/2.jpg");
+}
+
+.index-banner-min-image:nth-child(3) {
+    background-image: url("../../image/shopping/3.jpg");
+}
+
+.index-banner-button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.index-banner-button-left,
+.index-banner-button-right {
+    font-size: 50px;
+    background-color: rgba(191, 201, 220, 0.7);
+    padding: 2px;
+    cursor: pointer;
+    line-height: 500px;
+}

@@ -20,6 +20,7 @@ debug_toolbar = DebugToolbarExtension(app)
 flask_static_digest = FlaskStaticDigest(app)
 cache = Cache(app)
 login_manager = LoginManager(app)
+login_manager.login_view="login.login"
 bcrypt = Bcrypt(app)
 admin = Admin(app)
 

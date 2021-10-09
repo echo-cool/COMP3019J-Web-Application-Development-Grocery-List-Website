@@ -1,6 +1,6 @@
 {% extends "/base/base.html" %}
 {% block title %}
-    Add new Item
+    Update Item
 {% endblock %}
 
 {% block style %}
@@ -8,52 +8,10 @@
 {% endblock %}
 
 {% block content %}
-    {#    <div class="container">#}
-    {#        <h1>Add a new item</h1>#}
-    {#        <form action="" method="POST" enctype="multipart/form-data">#}
-    {#            {{ form.csrf_token }}#}
-    {#            <div class="login-input_area">#}
-    {#                {{ form.userid.label }}#}
-    {#                {{ form.userid }}#}
-    {#                <br>#}
-    {##}
-    {#                {{ form.item_name.label }}#}
-    {#                {{ form.item_name }}#}
-    {##}
-    {#                <br>#}
-    {##}
-    {#                {{ form.item_price.label }}#}
-    {#                {{ form.item_price }}#}
-    {##}
-    {#                <br>#}
-    {##}
-    {#                {{ form.inventory.label }}#}
-    {#                {{ form.inventory }}#}
-    {##}
-    {#                <br>#}
-    {##}
-    {#                {{ form.description.label }}#}
-    {#                {{ form.description }}#}
-    {##}
-    {#                <br>#}
-    {##}
-    {#                {{ form.main_image_file.label }}#}
-    {#                {{ form.main_image_file }}#}
-    {##}
-    {#                <br>#}
-    {##}
-    {#                {{ form.add_button }}#}
-    {##}
-    {#                <br>#}
-    {##}
-    {##}
-    {#            </div>#}
-    {#        </form>#}
-    {#    </div>#}
     <div class="add-item-big-box">
         <div id="add-item-box">
             <p class="add-item-box-head"> Seller </p>
-            <h1>Add Items</h1>
+            <h1>Modify Items</h1>
             <br>
             <form action="" method="POST" enctype="multipart/form-data">
                 {{ form.csrf_token }}
@@ -71,19 +29,19 @@
 {#                    </tr>#}
                     <tr>
                         <th>{{ form.item_name.label }}</th>
-                        <td>{{ form.item_name }}</td>
+                        <td>{{ form.item_name(value=item.name) }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.item_price.label }}</th>
-                        <td>{{ form.item_price }}</td>
+                        <td>{{ form.item_price(value=item.price) }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.description.label }}</th>
-                        <td>{{ form.description }}</td>
+                        <td>{{ form.description(value=item.description) }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.inventory.label }}</th>
-                        <td>{{ form.inventory }}</td>
+                        <td>{{ form.inventory(value=item.inventory) }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.main_image_file.label }}</th>

@@ -3,14 +3,18 @@
 {% block title %}
     Shopping
 {% endblock %}
+{% block script %}
+{% endblock %}
 {% block style %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
+
     <style>
         .index-item-container-box {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+
         }
 
         .index-item-container {
@@ -25,13 +29,13 @@
         }
 
         .index-item {
-            width: 240px;
+            width: 270px;
             margin: 20px;
             padding: 5px;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            align-items: flex-start;
+            align-items: center;
             border: 3px solid lightgray;
         }
 
@@ -71,6 +75,10 @@
             color: white;
         }
 
+        .index-item-text {
+            width: 100%;
+        }
+
         .index-item-text * {
             padding: 10px;
         }
@@ -93,10 +101,40 @@
             text-decoration: none;
             color: #d73290;
         }
+
+        .index-product-recommendation-title {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .product-recommendation-title-text {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+            height: 100px;
+            background: -webkit-gradient(
+                    linear,
+                    left bottom,
+                    right top,
+                    color-stop(0.02, rgb(232, 210, 15)),
+                    color-stop(0.51, rgb(244, 225, 57)),
+                    color-stop(0.87, rgb(252, 240, 146))
+            );
+            background: -moz-linear-gradient(
+                    left bottom,
+                    rgb(232, 210, 15) 2%,
+                    rgb(244, 225, 57) 51%,
+                    rgb(252, 240, 146) 87%
+            );
+            color: white;
+        }
     </style>
 {% endblock %}
 
 {% block content %}
+
     <div class="index-container">
         <div class="index-upper">
             <img class="index-logo-img" src="../../static/image/shopping/img_4.png" alt="">
@@ -107,7 +145,7 @@
                 </form>
             </div>
             <div class="my-basket-box">
-                <a class="index-basket-group" href="/basket">
+                <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
 
                     <span class="index-basket-icon">
                         <p class="index-basket-text">My Shopping Cart</p>
@@ -117,162 +155,142 @@
 
             </div>
         </div>
-        <div class="index-product-view-title">
-            <h1 class="product-view-title-text">Product Viewing</h1>
+
+        {#        hot items recommendation#}
+        <div class="index-product-recommendation-title">
+            <h1 class="product-recommendation-title-text">Recommendation</h1>
         </div>
         <div class="index-item-container-box">
             <div class="index-item-container">
 
-                {% for item in items %}
-                    <div class="index-item">
-                        <a href="{{ url_for("index.details", itemID=item.id) }}"> <img class="index-item-image"
-                                         src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                         value="Item Image"></a>
-                        <div class="index-item-text">
-                            <p class="index-item-price">$ {{ item.price }}</p>
-                            <a class="index-item-name" href="{{ url_for("index.details", itemID=item.id) }}">{{ item.name }}</a>
-                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                            <p class="index-item-description">{{ item.description }}</p>
-                        </div>
-
-
+                <div class="shell">
+                    <ui class="index-banner-images-box">
+                        <li class="index-banner-image"></li>
+                        <li class="index-banner-image"></li>
+                        <li class="index-banner-image"></li>
+                    </ui>
+                    <ui class="index-banner-min-images-box">
+                        <li class="index-banner-min-image"></li>
+                        <li class="index-banner-min-image"></li>
+                        <li class="index-banner-min-image"></li>
+                    </ui>
+                    <div class="index-banner-button">
+                        <div class="index-banner-button-left"><</div>
+                        <div class="index-banner-button-right">></div>
                     </div>
-                {% endfor %}
-
-
+                </div>
             </div>
-
         </div>
 
 
     </div>
 
 
+    <br>
+    <br>
 
-    {#    #}
-    {#    #}
-    {#    #}
-    {#    <!-- this is the second upside area of the main page, containing the search input box and contact information-->#}
-    {#    <div class="second_upside">#}
-    {#        <div class="second_upside_middle">#}
-    {#            <img src="../../static/image/shopping/img_4.png" width="200px" height="200px" alt="">#}
-    {#            <div id="search">#}
-    {#                <form id="search_form" action="#" method="post">#}
-    {#                    <div class="search_input">#}
-    {#                        <input class="search1" type="text" name="search" placeholder="Enter the keyword:">#}
-    {#                        <input type="submit" value="" class="search_submit">#}
-    {#                    </div>#}
-    {#                    <div class="search_details">#}
-    {#                        <a href="#">Clothes</a><span>|</span>#}
-    {#                        <a href="#">Electronics</a><span>|</span>#}
-    {#                        <a href="#">Commodity</a><span>|</span>#}
-    {#                        <a href="#">Office</a><span>|</span>#}
-    {#                        <a href="#">Cosmetics</a><span>|</span>#}
-    {#                        <a href="#">Food</a><span>|</span>#}
-    {#                        <a href="#">Health</a>#}
-    {#                    </div>#}
-    {#                </form>#}
-    {#                <div class="index-my-basket">#}
-    {#                    <a href="chart">My basket</a>#}
-    {#                </div>#}
-    {#                <div class="contact_info_box">#}
-    {#                    <div class="phone">#}
-    {#                        <p class="phone_desc">#}
-    {#                            Clients Service Telephone#}
-    {#                        </p>#}
-    {#                        <p class="telephone">#}
-    {#                            18225658712#}
-    {#                        </p>#}
-    {#                    </div>#}
-    {#                    <img class="wechat_logo" src="../../static/image/shopping/img_1.png" alt="">#}
-    {#                </div>#}
-    {#            </div>#}
-    {##}
-    {#            <div class="nav-nav2 nav-nav3" style=" overflow:visible;">#}
-    {#                <div style="overflow:visible;">#}
-    {#                    <div class="nav-threeD_nav">#}
-    {#                        <a href="#">#}
-    {#                            <div>#}
-    {#                                <span>Home</span><span>Home</span>#}
-    {#                            </div>#}
-    {#                            <b></b></a>#}
-    {#                        <a href="#">#}
-    {#                            <div>#}
-    {#                                <span>About us</span><span>About us</span>#}
-    {#                            </div>#}
-    {#                            <b></b></a>#}
-    {#                        <a href="#">#}
-    {#                            <div>#}
-    {#                                <span>Seller</span><span>Seller</span>#}
-    {#                            </div>#}
-    {#                            <b></b></a>#}
-    {#                        <a href="#">#}
-    {#                            <div>#}
-    {#                                <span>Shopping Cart</span><span>Shopping Cart</span>#}
-    {#                            </div>#}
-    {#                            <b></b></a>#}
-    {#                        <a href="#">#}
-    {#                            <div>#}
-    {#                                <span>Contact us</span><span>Contact us</span>#}
-    {#                            </div>#}
-    {#                            <b></b></a>#}
-    {#                        <a href="#">#}
-    {#                            <div>#}
-    {#                                <span>Shopping History</span><span>Shopping History</span>#}
-    {#                            </div>#}
-    {#                        </a>#}
-    {#                    </div>#}
-    {##}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-    {##}
-    {#    </div>#}
-    {#    <br>#}
-    {#    <br>#}
-    {#    <br>#}
-    {#    <br>#}
-    {#    <br>#}
-    {#    <br>#}
-    {##}
-    {#    <div class="product_list_title">#}
-    {#        <h1 class="product_list_title_h1">#}
-    {#            Products Viewing#}
-    {#        </h1>#}
-    {#    </div>#}
-    {#    <hr class="divider">#}
-    {#    <div class="product_list">#}
-    {#        <dl class="product_container">#}
-    {##}
-    {#            {% for item in items %}#}
-    {#                <tr>#}
-    {#                    <th>{{ item.id }}</th>#}
-    {#                    <td><img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-    {#                             value="Item Image"></td>#}
-    {#                        <td>{{ item.name }}</td>#}
-    {#                        <td>{{ item.price }}</td>#}
-    {#                        <td>{{ item.description }}</td>#}
-    {#                        <td>{{ item.inventory }}</td>#}
-    {#                    <td>#}
-    {#                        <form action="/buy/{{ item.id }}" method="GET">#}
-    {#                            <input type="submit" value="Buy">#}
-    {#                        </form>#}
-    {#                    </td>#}
-    {#                </tr>#}
-    {#                <dd><a href="{{ url_for("index.details", itemID=item.id) }}" class="product_display">#}
-    {#                    <img src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-    {#                         value="Item Image" width="240" height="230"></a>#}
-    {#                    <div><a href="/details">{{ item.name }}</a></div>#}
-    {#                    <div>#}
-    {#                        <div>￥{{ item.price }}</div>#}
-    {#                        <a href="{{ url_for("index.details", itemID=item.id) }}"#}
-    {#                           class="buy"><span>Buy now</span><span>Buy now</span></a></div>#}
-    {#                </dd>#}
-    {##}
-    {#            {% endfor %}#}
-    {#        #}
-    {#        </dl>#}
-    {#    </div>#}
+
+    {#        product viewing area#}
+    <div class="index-product-view-title">
+        <h1 class="product-view-title-text">Product Viewing</h1>
+    </div>
+    <div class="index-item-container-box">
+        <div class="index-item-container">
+
+            {% for item in items %}
+                <div class="index-item">
+                    <a href="{{ url_for("product_details.details", itemID=item.id) }}"> <img class="index-item-image"
+                                                                                   src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                                                   value="Item Image"></a>
+                    <div class="index-item-text">
+                        <p class="index-item-price">$ {{ item.price }}</p>
+                        <a class="index-item-name"
+                           href="{{ url_for("product_details.details", itemID=item.id) }}">{{ item.name }}</a>
+                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                        <p class="index-item-description">{{ item.description }}</p>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+    {% block jsfoot %}
+        <script>
+            let left = document.querySelector(".index-banner-button-left")
+            let right = document.querySelector(".index-banner-button-right")
+            let min = document.querySelectorAll(".index-banner-min-image")
+            let images = document.querySelector(".index-banner-images-box")
+            // 先设置一个index用来计算和控制图片的位置，再设置一个time作为定时器
+            let index = 0
+            let time
+
+            // 在这里先创建一个position为复用函数，作用就是结合index来定义当前图片的位置的
+            function position() {
+                images.style.top = (index * -100) + "%"
+            }
+
+            // 然后创建一个复用函数add为加函数，如果当前图片的位置值index大于等于当前图片数量的话，就说明超出了计算范围，所以得清零，如若不然index就加一
+            function add() {
+                if (index >= min.length - 1) {
+                    index = 0
+                } else {
+                    index++
+                }
+            }
+
+            // 反之desc为减函数，如果当前图片的位置值index小于1了，那么他的值就反弹到最顶端，也就是轮播图的最后面，如若不然index就减一
+            function desc() {
+                if (index < 1) {
+                    index = min.length - 1
+                } else {
+                    index--
+                }
+            }
+
+            // 创建一个timer来当做复用时间的函数，，每隔3秒钟index就加一，然后加入增加add函数和desc函数来判断一下，再加入定位函数
+            function timer() {
+                time = setInterval(() => {
+                    index++
+                    desc()
+                    add()
+                    position()
+                }, 2000)
+            }
+
+            // 设置按钮，left为左边的按钮，因为点击时图片会反方向倒退，所以套入desc减函数进去，定位一下
+            left.addEventListener("click", () => {
+                desc()
+                position()
+                clearInterval(time)
+                timer()
+            })
+            // 右边的按钮和左边也是差不多
+            right.addEventListener("click", () => {
+                add()
+                position()
+                clearInterval(time)
+                timer()
+            })
+            // 在弄好左右两个按钮的时候，还需要生效下面的小图片按钮，
+            // 先遍历一遍，然后获取当前点击的那个小图片按钮的值并赋值给index，随之跳转
+            for (let i = 0; i < min.length; i++) {
+                min[i].addEventListener("click", () => {
+                    index = i
+                    position()
+                    clearInterval(time)
+                    timer()
+                })
+            }
+            // 将定时器开起来
+            timer()
+        </script>
+
+    {% endblock %}
 
 
 

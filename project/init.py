@@ -1,7 +1,7 @@
 import logging
 import sys
 
-from flask import render_template
+from flask import render_template, url_for
 from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.contrib.sqla import ModelView
 
@@ -12,6 +12,8 @@ from project.models.Cart import Cart
 
 """Register Flask blueprints."""
 app.register_blueprint(shopping.view.blueprint)
+app.register_blueprint(shopping.cart.blueprint)
+app.register_blueprint(shopping.product_details.blueprint)
 app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
 app.register_blueprint(userinfo.view.blueprint)
@@ -39,3 +41,7 @@ admin.add_view(ModelView(Role, db.session, name="roles", endpoint="roles"))
 admin.add_view(ModelView(Cart, db.session, name="Cart", endpoint="Cart"))
 admin.add_view(FileAdmin("."))
 
+
+# @app.route('/css/<file>')
+# def css(file):
+#     return url_for("static", filename="css/" + file)

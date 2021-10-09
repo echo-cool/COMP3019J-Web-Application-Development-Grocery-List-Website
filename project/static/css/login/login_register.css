@@ -133,7 +133,7 @@ body {
   transition: background-color 1s ease-out;
 }
 
-.login-inner_box .button {
+.login-inner_box .index-banner-button {
   margin-top: 3%;
   background: #f6f6f6;
   color: #ce7d88;

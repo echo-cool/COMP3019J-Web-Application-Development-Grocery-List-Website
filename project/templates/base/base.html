@@ -10,11 +10,11 @@
     <meta name="author" content="{% block meta_author %}{% endblock %}"/>
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width"/>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"#}
     {#      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">#}
     {#<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">#}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/base.css') }}">
+    {#    <link rel="stylesheet" href="assets/css/amazeui.min.css">#}
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/button.css') }}">#}
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/text.css') }}">#}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/footer.css') }}">
@@ -22,11 +22,12 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/new_navbar.css') }}">
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/style.css') }}">#}
     <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-    {#    <script src="{{ url_for('static',filename='js/index.js') }}"></script>#}
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
     <script src="{{ url_for('static',filename='js/navigation.js') }}"></script>
     <script src="{{ url_for('static',filename='js/all.js') }}"></script>
 
-
+    {% block script %}
+    {% endblock %}
     {% block css %}
     {% endblock %}
     {% block meta %}
@@ -47,33 +48,55 @@
 <body>
 
 <header>
+    <main role="main">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+            <div class="base-message-box">
+                {% for category, message in messages %}
+                    <div class="alert-{{ category }}" id="message_content">
+                        <a class="base-message-close-icon" title="Close" href="#" onclick="HideMessage()">X</a>
+                        {{ message }}
+                    </div>
+                    <!-- end .alert -->
+                {% endfor %}
+            </div>
+            <!-- end row -->
+        {% endif %} {% endwith %}
+    </main>
     <nav>
         {% block nav %}
             <div class="nav-container-box">
                 <a class="nav-main-text" href="{{ url_for("index.home") }}">Welcome to Online Shopping Site</a>
                 <ul class="nav-right-bar">
-                    <li class="home">
-                        <a href="{{ url_for("index.home") }}">Home</a>
-                    </li>
-                    <li>|</li>
-                    <li class="nav-follow_us">
-                        <span style="color:gray; padding-right:5px"><i class="fab fa-weixin"></i></span>
-                        <a href="#" onmouseover="layer_open('follow_us_image')" onmouseout="close_timer()">Follow us</a>
-                        {#                        <div id="follow_us_image" onmouseover="cancel_close_timer()" onmouseout="close_timer()">#}
-                        {#                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150">#}
-                        {#                        </div>#}
-                    </li>
-                    <li>|</li>
-                    <li class="contact">
-                        <a href="#">Contact us</a>
-                    </li>
-                    <li>|</li>
+                    {#                    <li class="home">#}
+                    {#                        <a href="{{ url_for("index.home") }}">Home</a>#}
+                    {#                    </li>#}
+                    {#                    <li>|</li>#}
+                    {#                    <li class="nav-follow_us">#}
+                    {#                        <span style="color:gray; padding-right:5px"><i class="fab fa-weixin"></i></span>#}
+                    {#                        <a href="#" onmouseover="layer_open('follow_us_image')" onmouseout="close_timer()">Follow us</a>#}
+                    {#                        <div id="follow_us_image" onmouseover="cancel_close_timer()" onmouseout="close_timer()">#}
+                    {#                            <img src="../../static/image/shopping/wechat_xinxin.png" width="150">#}
+                    {#                        </div>#}
+                    {#                    </li>#}
+                    {#                    <li>|</li>#}
+                    {#                    <li class="contact">#}
+                    {#                        <a href="#">Contact us</a>#}
+                    {#                    </li>#}
+                    {#                    <li>|</li>#}
                     {% if current_user.is_authenticated %}
                         <li class="nav-title_shopping_cart">
-                            &nbsp;&nbsp;&nbsp;<a href="#">Shopping Cart</a>
+                            &nbsp;&nbsp;&nbsp;<a href="{{ url_for("cart.shopping_cart") }}">Shopping Cart</a>
                         </li>
                         <li>|</li>
                         <li><a href="/userinfo">Hello, {{ current_user.username }}</a></li>
+                        {% if current_user.is_shopper %}
+                            <li>|</li>
+                            <li><a href="/item/add">Add Item</a></li>
+                        {% endif %}
+
+
+
                         <li>|</li>
                         <li><a href="/logout">logout</a></li>
 
@@ -139,24 +162,7 @@
 
 </header>
 {% block body %}
-    <main role="main">
-        {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %}
-            <div class="">
-                <div class="">
-                    {% for category, message in messages %}
-                        <div class="alert-{{ category }}" id="message_content">
-                            <a class="" title="Close" href="#" onclick="HideMessage()">x</a>
-                            {{ message }}
-                        </div>
-                        <!-- end .alert -->
-                    {% endfor %}
-                </div>
-                <!-- end col-md -->
-            </div>
-            <!-- end row -->
-        {% endif %} {% endwith %}
-    </main>
+
     <section id="container">
         {% block content %}
         {% endblock %}
