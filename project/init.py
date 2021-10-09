@@ -9,11 +9,12 @@ from project import app, shopping, login, item, admin, db, user
 from project.models.ItemModel import Item
 from project.models.UserModel import User, Role
 from project.models.Cart import Cart
+from project.shopping import shop
 
 """Register Flask blueprints."""
 app.register_blueprint(shopping.view.blueprint)
 app.register_blueprint(shopping.cart.blueprint)
-app.register_blueprint(shopping.product_details.blueprint)
+app.register_blueprint(shopping.shop.blueprint)
 app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
 app.register_blueprint(user.view.blueprint)

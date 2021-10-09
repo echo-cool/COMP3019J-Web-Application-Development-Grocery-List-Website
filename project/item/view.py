@@ -7,8 +7,16 @@ from werkzeug.utils import secure_filename, redirect
 from project import db
 from project.item.forms import AddNewItem, UpdateItem
 from project.models.ItemModel import Item
+from project.models.UserModel import User
 
 blueprint = Blueprint("item", __name__, static_folder="../static")
+
+
+@blueprint.route("/item/<int:itemID>", methods=["GET", "POST"])
+def details(itemID):
+    item = Item.get_by_id(itemID)
+    owner = User.get_by_id(item.owner);
+    return render_template("shopping/product_details.html", item=item, shop=owner)
 
 
 @blueprint.route("/item/manage", methods=["POST", "GET"])

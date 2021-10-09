@@ -28,7 +28,7 @@
                 </div>
                 <div class="time-item">
             <span class="item-sales">
-                Sales
+                On Sales
             </span>
                 </div>
                 <div class="product-box">
@@ -37,12 +37,12 @@
                     </div>
                     <div class="product-information-box">
                         <div class="product-inner-box">
-                            <div class="product-inner-inner-big-title">S</div>
-                            <div class="product-inner-inner-box"><span>Sales</span></div>
+                            <div class="product-inner-inner-big-title">C</div>
+                            <div class="product-inner-inner-box"><span>Sold: {{ item.sold_count }}</span></div>
                         </div>
                         <div class="product-inner-box">
-                            <div class="product-inner-inner-big-title">R</div>
-                            <div class="product-inner-inner-box">Rank<span></span></div>
+                            <div class="product-inner-inner-big-title">S</div>
+                            <div class="product-inner-inner-box">Shop: {{ shop.username }}<span></span></div>
                         </div>
 
                     </div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="product-box">
                     <div>
-                        <b class="product-des">Inventory ID：</b>
+                        <b class="product-des">Inventory：</b>
                         <span id="product-description-box">{{ item.inventory }}</span>
                     </div>
                     <br>
