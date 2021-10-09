@@ -119,13 +119,13 @@
 
     {#            {% for i in item %}#}
     {#                <div class="index-item">#}
-    {#                    <a href="{{ url_for("product_details.details", itemID=i.id) }}"> <img class="index-item-image"#}
+    {#                    <a href="{{ url_for("item.details", itemID=i.id) }}"> <img class="index-item-image"#}
     {#                                                                                   src="{{ url_for('static', filename='uploaded_files/'+i.main_image_url) }}"#}
     {#                                                                                   value="Item Image"></a>#}
     {#                    <div class="index-item-text">#}
     {#                        <p class="index-item-price">$ {{ i.price }}</p>#}
     {#                        <a class="index-item-name"#}
-    {#                           href="{{ url_for("product_details.details", itemID=i.id) }}">{{ i.name }}</a>#}
+    {#                           href="{{ url_for("item.details", itemID=i.id) }}">{{ i.name }}</a>#}
     {#                        <p class="index-item-inventory">{{ i.inventory }} in warehouse</p>#}
     {#                        <p class="index-item-description">{{ i.description }}</p>#}
     {#                    </div>#}
@@ -233,7 +233,7 @@
                     {% for item in cart_dict[shop] %}
                     <tr>
                         <th class="cancel-column"><input type="checkbox" checked="checked"></th>
-                        <td class="index-item-image-box"><a href="{{ url_for("product_details.details", itemID=item.id) }}"><img
+                        <td class="index-item-image-box"><a href="{{ url_for("item.details", itemID=item.id) }}"><img
                                 class="index-item-image"
                                 src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                 value="Item Image"></a>
@@ -264,7 +264,7 @@
 {#                {% for i in shopping_cart_items %}#}
 {#                    <tr>#}
 {#                        <th class="cancel-column"><input type="checkbox" checked="checked"></th>#}
-{#                        <td class="index-item-image-box"><a href="{{ url_for("product_details.details", itemID=i.id) }}"><img#}
+{#                        <td class="index-item-image-box"><a href="{{ url_for("item.details", itemID=i.id) }}"><img#}
 {#                                class="index-item-image"#}
 {#                                src="{{ url_for('static', filename='uploaded_files/'+i.main_image_url) }}"#}
 {#                                value="Item Image"></a>#}

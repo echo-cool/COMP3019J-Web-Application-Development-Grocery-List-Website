@@ -50,7 +50,7 @@ def add_to_cart():
         )
 
     flash("Successfully added " + str(itemCount) + " " + str(item.name) + " to your cart !")
-    return redirect(url_for('product_details.details', itemID=itemID))
+    return redirect(url_for('item.details', itemID=itemID))
 
 
 @blueprint.route("/cart", methods=["GET", "POST"])
