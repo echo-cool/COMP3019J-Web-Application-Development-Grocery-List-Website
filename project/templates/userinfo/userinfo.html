@@ -19,29 +19,56 @@
 
 
 {% block content %}
-<div class="container">
-    <h1 class="">Userinfo</h1>
-    <div class="">
-        <table>
-            <tr>
-                <th>Username:</th>
-                <td>{{ current_user.username }}</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>{{ current_user.email }}</td>
-            </tr>
-        </table>
+    <div class="container">
+        <h1 class="">Userinfo</h1>
+        <div class="">
+            <table>
+                <tr>
+                    <th>Username:</th>
+                    <td>{{ current_user.username }}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>{{ current_user.email }}</td>
+                </tr>
+            </table>
 
+        </div>
     </div>
-</div>
 
     <div class="add-item-big-box">
         <div id="add-item-box">
             <p class="add-item-box-head"> Seller or Customer</p>
             <h1>Personal Information</h1>
-            <br>
+            <br><br>
 
+            <div class="user-info-default">
+                <div id="default_avatar">
+                    <img src="../../static/image/user_infor/default_avatar.jpg" alt="">
+                </div>
+                <div id="empty">
+                </div>
+                <div id="default-info">
+                    <table class="add-item-box-table">
+                    <tbody>
+                    <tr>
+                        <th>User Name</th>
+                        <td>{{ current_user.username }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ current_user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Identity</th>
+                        <td>Customer or Seller</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+                </div>
+
+            </div>
 
 
         </div>

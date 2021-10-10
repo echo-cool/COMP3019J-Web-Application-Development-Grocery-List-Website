@@ -158,3 +158,28 @@
     align-items: center;
     padding-top: 40px;
 }
+
+.user-info-default {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#default_avatar img {
+    width: 160px;
+    height: 160px;
+    border-radius: 150px;
+}
+
+#default-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    text-space: 1px;
+}
+
+#empty {
+    width: 80px;
+    height: 100px;
+}
