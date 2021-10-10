@@ -183,3 +183,35 @@
     width: 80px;
     height: 100px;
 }
+
+.user-info-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.add-user-info {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #efefef;
+    border-top: 10px solid lightgoldenrodyellow;
+    border-right: 1px solid #ddd;
+    -moz-box-shadow: 0px 0px 16px #aaa;
+    border-radius: 12px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 60%;
+}
+
+.set-avatar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#phone-number {
+    padding: 5px 20px;
+}

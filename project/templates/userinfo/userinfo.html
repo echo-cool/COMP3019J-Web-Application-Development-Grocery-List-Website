@@ -50,22 +50,62 @@
                 </div>
                 <div id="default-info">
                     <table class="add-item-box-table">
-                    <tbody>
-                    <tr>
-                        <th>User Name</th>
-                        <td>{{ current_user.username }}</td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td>{{ current_user.email }}</td>
-                    </tr>
-                    <tr>
-                        <th>Identity</th>
-                        <td>Customer or Seller</td>
-                    </tr>
-                    </tbody>
+                        <tbody>
+                        <tr>
+                            <th>User Name</th>
+                            <td>{{ current_user.username }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ current_user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Identity</th>
+                            <td>
+                                {% if current_user.is_shopper %}
+                                Seller
+                                {% else %}
+                                Customer
+                                {% endif %}
+                            </td>
+                        </tr>
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
+
+            </div>
+            <div class="user-info-detail">
+                <div class="add-user-info">
+                    <div class="set-avatar">
+                        <form action="">
+                            <table class="add-item-box-table">
+                                <tbody>
+                                <tr>
+                                    <th>Current Avatar</th>
+                                    <td><img src="../../static/image/user_infor/default_avatar.jpg" alt="">
+                                        <input type="file" value="Select File">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Phone Number</th>
+                                    <td><input id="phone-number" type="number" placeholder="Please enter your phone number"></td>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+                                    <td><input type="radio"><label value="male">Male</label>
+                                    &nbsp; &nbsp; &nbsp; <input type="radio"><label value="female">Female</label> </td>
+                                </tr>
+                                <tr>
+                                    <th>Shopping Cart</th>
+                                    <td><a href=""></a></td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </form>
+
+                    </div>
                 </div>
 
             </div>
