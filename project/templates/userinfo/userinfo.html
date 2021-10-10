@@ -3,38 +3,9 @@
 {% block style %}
     <link rel="stylesheet" href="../../static/css/user_infor/user_infor.css">
 {% endblock %}
-{#{% block nav %}#}
-{#    <ul>#}
-{#        <li><a  href="/">Home</a></li>#}
-{#        <li><a  href="/item/add">Add</a></li>#}
-{#        <li><a href="/about">About</a></li>#}
-{#        <li><a  href="/login">Login</a></li>#}
-{#        {% if current_user.is_authenticated %}#}
-{#            <li><a class="active" href="/user">Hello, {{ current_user.username }}</a></li>#}
-{#            <li><a href="/logout">logout</a></li>#}
-{#        {% else %}#}
-{#        {% endif %}#}
-{#    </ul>#}
-{#{% endblock %}#}
 
 
 {% block content %}
-    <div class="container">
-        <h1 class="">Userinfo</h1>
-        <div class="">
-            <table>
-                <tr>
-                    <th>Username:</th>
-                    <td>{{ current_user.username }}</td>
-                </tr>
-                <tr>
-                    <th>Email:</th>
-                    <td>{{ current_user.email }}</td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
 
     <div class="add-item-big-box">
         <div id="add-item-box">
@@ -63,9 +34,9 @@
                             <th>Identity</th>
                             <td>
                                 {% if current_user.is_shopper %}
-                                Seller
+                                    Seller
                                 {% else %}
-                                Customer
+                                    Customer
                                 {% endif %}
                             </td>
                         </tr>
@@ -89,20 +60,27 @@
                                 </tr>
                                 <tr>
                                     <th>Phone Number</th>
-                                    <td><input id="phone-number" type="number" placeholder="Please enter your phone number"></td>
+                                    <td><input id="phone-number" type="text"
+                                               placeholder="Enter your phone number"></td>
                                 </tr>
                                 <tr>
                                     <th>Gender</th>
-                                    <td><input type="radio"><label value="male">Male</label>
-                                    &nbsp; &nbsp; &nbsp; <input type="radio"><label value="female">Female</label> </td>
+                                    <td><input type="radio"><label value="male">&nbsp;Male</label>
+                                        &nbsp; &nbsp; &nbsp; <input type="radio"><label
+                                                value="female">&nbsp;Female</label></td>
                                 </tr>
                                 <tr>
                                     <th>Shopping Cart</th>
-                                    <td><a href=""></a></td>
+                                    <td><a class="user-shopping-cart" href="{{ url_for("cart.shopping_cart") }}">
+                                        &nbsp; &nbsp;Click here to enter your shopping cart
+                                    </a></td>
                                 </tr>
                                 </tbody>
 
                             </table>
+                            <div class="add_button">
+                                <input type="submit" value="Submit">
+                            </div>
                         </form>
 
                     </div>
