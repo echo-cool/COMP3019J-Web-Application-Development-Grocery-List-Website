@@ -6,20 +6,18 @@ body {
 
 /* 容器的样式 */
 .container {
-  margin: auto;
-  width: 650px;
-  height: 550px;
-  position: relative;
-  margin: auto;
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-inner_box {
-  background: #f6f6f6;
+  display: flex;
   width: 650px;
   height: 415px;
   position: absolute;
   top: 25%;
+  background: #f6f6f6;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
@@ -173,7 +171,7 @@ body {
   border-color: #bfb1c9;
 }
 
-.login-inner_box input {
+.login-input-text{
   background: #eac7cc;
   width: 65%;
   color: #ce7d88;
@@ -184,7 +182,7 @@ body {
   font-weight: 100;
 }
 
-.login-inner_box input:focus {
+.login-input-text:focus {
   color: #ce7d88;
   outline: none;
   border-bottom: 1.2px solid rgba(206, 125, 136, 0.7);
@@ -211,12 +209,12 @@ body {
   top: -5px;
 }
 
-.login-inner_box input[type=checkbox] {
+.login-input-text[type=checkbox] {
   width: 15px;
   background: #ce7d88;
 }
 
-.login-inner_box .checkbox input[type=checkbox]:checked + label {
+.login-input-text[type=checkbox]:checked + label {
   color: #ce7d88;
   transition: 0.5s all ease;
 }
@@ -226,7 +224,7 @@ body {
   margin-left: 58px;
 }
 
-.login-input_area input {
+.login-input-text {
     width: 100%;
     /*上下10，左右0*/
     /*padding 简写属性后面的值*/
@@ -261,10 +259,28 @@ body {
     transition: .6s;
 }
 
-.login-input_area input:focus ~ label,
-.login-input_area input:valid ~ label {
+.login-input-text:focus ~ label,
+.login-input-text:valid ~ label {
     top: -25px;
     left: 0;
     color: #cab2dc;
     font-size: 14px;
+}
+
+
+.login-submit-button{
+    font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  border-radius: 12px;
+  outline: none;
+  display: block;
+  padding: 12px 12px 12px 20px;
+  margin-top: 3%;
+  background: #f6f6f6;
+  color: #ce7d88;
+  border: solid 1px #eac7cc;
+  margin-left: 35%;
+
 }
