@@ -5,7 +5,60 @@
     <title>Manage</title>
 </head>
 <body>
-{{ items }}
+{% for item in items %}
+    {{ item }}
+{% endfor %}
+
+<div class="shopping-cart-big-box">
+    <div id="shopping-cart-box">
+        <p class="shopping-cart-box-head"> Customer </p>
+        <h1>My Shopping Cart</h1>
+        <br>
+        <br>
+        <table class="shopping-cart-box-table">
+            <thead>
+            <tr>
+                <th class="cancel-column">Select All</th>
+                <th class="index-item-image-box">Image</th>
+                <th>Price</th>
+                <th class="number-margin">Number</th>
+                <th>Total</th>
+                <th class="cancel-column">Cancel</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                    <tr>
+                        <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+                        <td class="index-item-image-box"><a href="{{ url_for("item.details", itemID=item.id) }}"><img
+                                class="index-item-image"
+                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                value="Item Image"></a>
+                        </td>
+                        <td>{{ item.price }}</td>
+                        <td class="sub-add-button">
+                            <button class="sub">
+                                -
+                            </button>
+                            <input type="text" class="number" value="{{ item.price }}">
+                            <button class="add">
+                                +
+                            </button>
+                        </td>
+                        <td>{{ item.price }}</td>
+
+                        <td class="cancel-column">
+                            <button class="incorrect"></button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+
+    </div>
+</div>
 
 </body>
 </html>
