@@ -157,3 +157,53 @@
     cursor: pointer;
     line-height: 500px;
 }
+
+.index-item {
+    padding: 10px;
+    margin: 20px;
+    width: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px lightgrey solid;
+}
+
+.index-shoes-container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    margin: auto;
+    background-color: #f1f1f1;
+}
+
+.index-shoes-box {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.left-big-img {
+    width: 360px;
+    border: 1px #ddd solid;
+    height: 430px;
+    margin: 20px;
+}
+
+.right-img-area {
+    overflow: hidden;
+    width: 558px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.right-small-img {
+    width: 600px;
+    margin: -10px 0 0 -20px
+}
