@@ -23,29 +23,41 @@
                     {#      </tr>#}
                     {#    </tfoot>#}
                     <tbody>
-{#                    <tr>#}
-{#                        <th>{{ form.userid.label }}</th>#}
-{#                        <td>{{ form.userid }}</td>#}
-{#                    </tr>#}
+                    {#                    <tr>#}
+                    {#                        <th>{{ form.userid.label }}</th>#}
+                    {#                        <td>{{ form.userid }}</td>#}
+                    {#                    </tr>#}
                     <tr>
-                        <th>{{ form.item_name.label }}</th>
-                        <td>{{ form.item_name(value=item.name) }}</td>
+                        <th></th>
+                        <th class="th-hover">Previous</th>
+                        <th>Update</th>
                     </tr>
                     <tr>
-                        <th>{{ form.item_price.label }}</th>
-                        <td>{{ form.item_price(value=item.price) }}</td>
+                        <th class="th-hover">{{ form.item_name.label }}</th>
+                        <td class="td-hover">{{ item.name }}</td>
+                        <td class="td-hover">{{ form.item_name(value=item.name) }}</td>
                     </tr>
                     <tr>
-                        <th>{{ form.description.label }}</th>
-                        <td>{{ form.description(value=item.description) }}</td>
+                        <th class="th-hover">{{ form.item_price.label }}</th>
+                        <td class="td-hover">{{ item.price }}</td>
+                        <td class="td-hover">{{ form.item_price(value=item.price) }}</td>
                     </tr>
                     <tr>
-                        <th>{{ form.inventory.label }}</th>
-                        <td>{{ form.inventory(value=item.inventory) }}</td>
+                        <th class="th-hover">{{ form.description.label }}</th>
+                        <td class="td-hover">{{ item.description }}</td>
+                        <td class="td-hover">{{ form.description(value=item.description) }}</td>
                     </tr>
                     <tr>
-                        <th>{{ form.main_image_file.label }}</th>
-                        <td>{{ form.main_image_file }}</td>
+                        <th class="th-hover">{{ form.inventory.label }}</th>
+                        <td class="td-hover">{{ item.inventory }}</td>
+                        <td class="td-hover">{{ form.inventory(value=item.inventory) }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-hover">{{ form.main_image_file.label }}</th>
+                        <td class="td-hover"><img class="product-image"
+                                 src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                 value="Item Image"/></td>
+                        <td class="td-hover">{{ form.main_image_file }}</td>
                     </tr>
                     {#                    <tr>#}
                     {#                        <td colspan="2">#}

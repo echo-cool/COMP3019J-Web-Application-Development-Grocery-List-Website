@@ -82,12 +82,12 @@
 
 .add-item-box-table th {
 
-    padding: 16px;
+    padding: 10px;
     color: #fff;
     text-shadow: 1px 1px 1px #568F23;
     border-bottom: 3px solid #9ED929;
     border-radius: 5px;
-    min-width: 28%;
+    min-width: 18%;
     background: transparent;
     margin: 2px;
 }
@@ -157,4 +157,38 @@
     justify-content: center;
     align-items: center;
     padding-top: 40px;
+}
+
+/*style for the previous image for this product*/
+.product-image {
+    min-width: 20%;
+    max-width: 30%;
+    height: 30%;
+}
+
+.product-image:hover {
+    transform: scale(1.07);
+    -ms-transform: scale(1.07);
+    /* IE 9 */
+    -webkit-transform: scale(1.07);
+    /* Safari and Chrome */
+    -o-transform: scale(1.07);
+    /* Opera */
+    -moz-transform: scale(1.07);
+
+}
+
+.product-details {
+    display: flex;
+    min-width: 40%;
+    flex-direction: column;
+}
+
+.td-hover:hover {
+    border-color: orange;
+}
+
+.th-hover:hover {
+    color: #ffc641;
+    border-color: orange;
 }
