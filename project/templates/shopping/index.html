@@ -161,6 +161,10 @@
 
 {% block content %}
 
+    {% for shop in shop_sellers %}
+        {{ shop }}
+    {% endfor %}
+
     <div class="index-container">
         <div class="index-upper">
             <img class="index-logo-img" src="../../static/image/shopping/img_4.png" alt="">
@@ -184,7 +188,7 @@
 
         {#        hot items recommendation#}
         <div class="index-product-recommendation-title">
-            <h1 class="product-recommendation-title-text">Recommendation</h1>
+            <h1 class="product-recommendation-title-text">Welcome</h1>
         </div>
         <div class="index-item-container-box">
             <div class="index-item-container">
@@ -218,7 +222,7 @@
 
     {#        product viewing area#}
     <div class="index-product-view-title">
-        <h1 class="product-view-title-text">Product Viewing</h1>
+        <h1 class="product-view-title-text">Recommendation</h1>
     </div>
     <div class="index-item-container-box">
         <div class="index-item-container">
@@ -248,9 +252,9 @@
     <br>
     <br>
 
-    {#    shoes area#}
+    {# Shops area#}
     <div class="index-product-view-title">
-        <h1 class="product-view-title-text">Shoes Zone</h1>
+        <h1 class="product-view-title-text">Shops Zone</h1>
     </div>
     <div class="index-item-container-box">
         <div class="index-shoes-container">
@@ -288,16 +292,18 @@
             let right = document.querySelector(".index-banner-button-right")
             let min = document.querySelectorAll(".index-banner-min-image")
             let images = document.querySelector(".index-banner-images-box")
-            // 先设置一个index用来计算和控制图片的位置，再设置一个time作为定时器
+            // First set an index to calculate and control the position of the image, and then set a time as a timer
             let index = 0
             let time
 
-            // 在这里先创建一个position为复用函数，作用就是结合index来定义当前图片的位置的
+            // Here first create a position as a reuse function, the role is to combine index to define the current image position
             function position() {
                 images.style.top = (index * -100) + "%"
             }
 
-            // 然后创建一个复用函数add为加函数，如果当前图片的位置值index大于等于当前图片数量的话，就说明超出了计算范围，所以得清零，如若不然index就加一
+            // Then create a reuse function add as an add function, if the current image position value index is
+            // greater than or equal to the current number of images,
+            // it means that the calculation range is exceeded, so we have to clear zero, if not index will be added one
             function add() {
                 if (index >= min.length - 1) {
                     index = 0
@@ -306,7 +312,8 @@
                 }
             }
 
-            // 反之desc为减函数，如果当前图片的位置值index小于1了，那么他的值就反弹到最顶端，也就是轮播图的最后面，如若不然index就减一
+            // Conversely desc is a minus function, if the current image position value index is less than 1,
+            // then his value will bounce to the top, that is, the last of the rotation map, if not index will be minus one
             function desc() {
                 if (index < 1) {
                     index = min.length - 1
@@ -315,7 +322,8 @@
                 }
             }
 
-            // 创建一个timer来当做复用时间的函数，，每隔3秒钟index就加一，然后加入增加add函数和desc函数来判断一下，再加入定位函数
+            // Create a timer to be used as a function of reuse time,, index every 3 seconds to add one,
+            // and then add add add function and desc function to determine a bit, and then add the positioning function
             function timer() {
                 time = setInterval(() => {
                     index++
@@ -325,22 +333,23 @@
                 }, 2000)
             }
 
-            // 设置按钮，left为左边的按钮，因为点击时图片会反方向倒退，所以套入desc减函数进去，定位一下
+            // Set the button, left for the left button, because when you click the picture will be backwards in the opposite direction,
+            // so set into the desc minus function into, positioning
             left.addEventListener("click", () => {
                 desc()
                 position()
                 clearInterval(time)
                 timer()
             })
-            // 右边的按钮和左边也是差不多
+            // similar for the right button
             right.addEventListener("click", () => {
                 add()
                 position()
                 clearInterval(time)
                 timer()
             })
-            // 在弄好左右两个按钮的时候，还需要生效下面的小图片按钮，
-            // 先遍历一遍，然后获取当前点击的那个小图片按钮的值并赋值给index，随之跳转
+            // When you get the left and right buttons, you also need to take effect the small picture button below.
+            // First iterate through it, then get the value of the currently clicked small image button and assign it to index, then jump
             for (let i = 0; i < min.length; i++) {
                 min[i].addEventListener("click", () => {
                     index = i
@@ -349,7 +358,7 @@
                     timer()
                 })
             }
-            // 将定时器开起来
+            // Turn the timer on
             timer()
         </script>
 

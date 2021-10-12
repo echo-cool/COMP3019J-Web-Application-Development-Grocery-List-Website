@@ -19,6 +19,9 @@ def details(itemID):
     return render_template("shopping/product_details.html", item=item, shop=owner)
 
 
+
+
+
 @blueprint.route("/item/manage", methods=["POST", "GET"])
 @login_required
 def ManageItem():
