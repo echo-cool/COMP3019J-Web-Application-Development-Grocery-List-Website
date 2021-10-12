@@ -23,71 +23,79 @@
                 <th class="number-margin">Number</th>
                 <th>Total</th>
                 <th class="cancel-column">Cancel</th>
+                <th class="cancel-column">Modify</th>
+                <th class="cancel-column">Delete</th>
             </tr>
             </thead>
             <tbody>
             {% for item in items %}
-                    <tr>
-                        <th class="cancel-column"><input type="checkbox" checked="checked"></th>
-                        <td class="index-item-image-box"><a href="{{ url_for("item.details", itemID=item.id) }}"><img
-                                class="index-item-image"
-                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                value="Item Image"></a>
-                        </td>
-                        <td>{{ item.price }}</td>
-                        <td class="sub-add-button">
-                            <button class="sub">
-                                -
-                            </button>
-                            <input type="text" class="number" value="{{ item.price }}">
-                            <button class="add">
-                                +
-                            </button>
-                        </td>
-                        <td>{{ item.price }}</td>
+                <tr>
+                    <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+                    <td class="index-item-image-box"><a href="{{ url_for("item.details", itemID=item.id) }}"><img
+                            class="index-item-image"
+                            src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                            value="Item Image"></a>
+                    </td>
+                    <td>{{ item.price }}</td>
+                    <td class="sub-add-button">
+                        <button class="sub">
+                            -
+                        </button>
+                        <input type="text" class="number" value="{{ item.price }}">
+                        <button class="add">
+                            +
+                        </button>
+                    </td>
+                    <td>{{ item.price }}</td>
 
-                        <td class="cancel-column">
-                            <button class="incorrect"></button>
-                        </td>
-                    </tr>
-                {% endfor %}
+                    <td class="cancel-column">
+                        <button class="incorrect"></button>
+                    </td>
+                    <td>
+                        <button></button>
+                    </td>
+                    <td>
+                        <button></button>
+                    </td>
+                </tr>
+            {% endfor %}
             </tbody>
 
         </table>
 
         <h1 class="h2">Add Items</h1>
-            <br>
-            <form action="" method="POST" enctype="multipart/form-data">
-                {{ form.csrf_token }}
-                <table class="add-item-box-table">
-                    <tbody>
-                    <tr>
-                        <th>{{ form.item_name.label }}</th>
-                        <td>{{ form.item_name }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ form.item_price.label }}</th>
-                        <td>{{ form.item_price }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ form.description.label }}</th>
-                        <td>{{ form.description }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ form.inventory.label }}</th>
-                        <td>{{ form.inventory }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ form.main_image_file.label }}</th>
-                        <td>{{ form.main_image_file }}</td>
-                    </tr>
-                    </tbody>
+        <br>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <table class="add-item-box-table">
+                <tbody>
+                <tr>
+                    <th>{{ form.item_name.label }}</th>
+                    <td>{{ form.item_name }}</td>
+                </tr>
+                <tr>
+                    <th>{{ form.item_price.label }}</th>
+                    <td>{{ form.item_price }}</td>
+                </tr>
+                <tr>
+                    <th>{{ form.description.label }}</th>
+                    <td>{{ form.description }}</td>
+                </tr>
+                <tr>
+                    <th>{{ form.inventory.label }}</th>
+                    <td>{{ form.inventory }}</td>
+                </tr>
+                <tr>
+                    <th>{{ form.main_image_file.label }}</th>
+                    <td>{{ form.main_image_file }}</td>
+                </tr>
+                </tbody>
 
-                </table>
-                <div class="add_button">
-                    {{ form.add_button(class="button-default") }}
-                </div>
-            </form>
+            </table>
+            <div class="add_button">
+                {{ form.add_button(class="button-default") }}
+            </div>
+        </form>
 
 
     </div>

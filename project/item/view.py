@@ -30,6 +30,7 @@ def ManageItem():
     # print(form.data)
     print(form.validate_on_submit())
     if form.validate_on_submit():
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         userid = current_user.id
         item_name = form.item_name.data
         item_price = form.item_price.data
