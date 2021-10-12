@@ -66,14 +66,14 @@
 .shell {
     /*margin-top: 20px;*/
     /*margin-bottom: 20px;*/
-    width: 43%;
-    height: 550px;
+    width: 85%;
+    height: 600px;
     position: relative;
     overflow-x: hidden;
     border-radius: 5px;
     border: 10px #fff;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-    margin: auto;
+    /*margin: auto;*/
 }
 
 .index-banner-images-box {
@@ -95,17 +95,17 @@
 }
 
 .index-banner-image:nth-child(1) {
-    background-image: url("../../image/shopping/1.jpg");
+    background-image: url("../../image/shopping/shopping_menu1.png");
     width: 100%;
     height: 100%;
 }
 
 .index-banner-image:nth-child(2) {
-    background-image: url("../../image/shopping/2.jpg");
+    background-image: url("../../image/shopping/shopping_menu2.png");
 }
 
 .index-banner-image:nth-child(3) {
-    background-image: url("../../image/shopping/3.jpg");
+    background-image: url("../../image/shopping/shopping_menu3.png");
 }
 
 .index-banner-min-images-box {
@@ -129,15 +129,15 @@
 }
 
 .index-banner-min-image:nth-child(1) {
-    background-image: url("../../image/shopping/1.jpg");
+    background-image: url("../../image/shopping/shopping_menu1.png");
 }
 
 .index-banner-min-image:nth-child(2) {
-    background-image: url("../../image/shopping/2.jpg");
+    background-image: url("../../image/shopping/shopping_menu2.png");
 }
 
 .index-banner-min-image:nth-child(3) {
-    background-image: url("../../image/shopping/3.jpg");
+    background-image: url("../../image/shopping/shopping_menu3.png");
 }
 
 .index-banner-button {
@@ -152,7 +152,7 @@
 .index-banner-button-left,
 .index-banner-button-right {
     font-size: 50px;
-    background-color: rgba(191, 201, 220, 0.7);
+    background-color: rgba(249, 240, 248, 0.7);
     padding: 2px;
     cursor: pointer;
     line-height: 500px;
