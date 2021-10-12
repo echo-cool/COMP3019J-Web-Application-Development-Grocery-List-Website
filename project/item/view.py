@@ -30,7 +30,6 @@ def ManageItem():
     # print(form.data)
     print(form.validate_on_submit())
     if form.validate_on_submit():
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         userid = current_user.id
         item_name = form.item_name.data
         item_price = form.item_price.data
@@ -40,7 +39,7 @@ def ManageItem():
         print(main_image_file)
         main_image_url = ""
         if main_image_file.filename != "":
-            filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1];
+            filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1]
             main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
             main_image_url = filename
 
@@ -83,9 +82,9 @@ def ModifyNewItem(item_id):
         description = form.description.data
         inventory = form.inventory.data
         main_image_file = form.main_image_file.data
-        print()
+        # print()
         if main_image_file.filename != "":
-            filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1];
+            filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1]
             main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
 
         item.name = item_name
@@ -115,7 +114,7 @@ def addNewItem():
         print(main_image_file)
         main_image_url = ""
         if main_image_file.filename != "":
-            filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1];
+            filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1]
             main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
             main_image_url = filename
 

@@ -58,9 +58,7 @@ def add_to_cart():
 def shopping_cart():
     user = current_user
     cart = Cart.query.filter_by(user_id=user.id).all()
-    # print(cart)
     res = {}
-    shopping_cart_items = []
     for i in cart:
         shop_user_id = i.get_shop_userID()
         item_id = i.item_id

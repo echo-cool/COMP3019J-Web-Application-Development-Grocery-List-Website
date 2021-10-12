@@ -411,3 +411,19 @@ h3 {
     align-items: center;
     padding-top: 40px;
 }
+
+.manage-items-modify {
+    padding: 5px;
+    background-color: #efefef;
+    color: #616060;
+}
+
+.manage-items-modify:hover {
+    color: orange;
+    border-color: #eddf4d;
+}
+
+a {
+    text-decoration: none;
+}
+

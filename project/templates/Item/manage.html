@@ -52,10 +52,18 @@
                         <button class="incorrect"></button>
                     </td>
                     <td>
-                        <button></button>
+                        <a class="manage-items-link" href="{{ url_for("item.ModifyNewItem",item_id=item.id) }}">
+                            <div class="manage-items-modify">
+                                Modify
+                            </div>
+                        </a>
                     </td>
                     <td>
-                        <button></button>
+                        <a class="manage-items-link" href="{{ url_for("item.DeleteItem",item_id=item.id) }}">
+                            <div class="manage-items-modify">
+                                Delete
+                            </div>
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
