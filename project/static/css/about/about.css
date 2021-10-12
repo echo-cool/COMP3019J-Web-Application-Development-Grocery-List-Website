@@ -35,51 +35,51 @@ body {
     The second value is the delay of one second to execute the animation */
     transition: .3s .8s;
     opacity: 0;
-    color: rgb(30, 210, 200);
+    color: #1ED2C8FF;
 }
 
 .about-card-box-description span {
     transition: .5s 1s;
-    color: #fff;
-    font: 500 15px '';
+    color: lightgoldenrodyellow;
+    font-weight: bold;
     position: absolute;
     top: 70px;
 }
 
 .about-card-box-decoration {
     position: absolute;
-    top: -130px;
-    right: -240px;
+    top: -120px;
+    right: -250px;
 }
 
 .about-card-box-decoration-column, .about-card-box-decoration-column1 {
     position: absolute;
     right: calc(var(--i) * 100px);
-    width: calc(var(--w) * 40px);
-    height: 500px;
+    width: calc(var(--w) * 50px);
+    height: 450px;
     overflow: hidden;
-    border-radius: 100px;
-    transform: rotateZ(220deg) translate(0, 0);
-    background: rgb(240, 220, 150);
+    border-radius: 111px;
+    transform: rotateZ(219deg) translate(0, 0);
+    background: #F0DC96FF;
     transition: .3s .3s;
 }
 
 .about-card-box-decoration-column:nth-child(2) {
-    background: rgb(240, 190, 230);
+    background: #F0BEE6FF
 }
 
 .about-card-box-decoration-column1 {
     left: -470px;
     top: -140px;
     width: 70px;
-    background-color: rgb(90, 220, 150);
+    background-color: #5ADC96FF;
 }
 
 .about-card-box:hover .about-card-box-decoration div {
     /* set the delay animation */
     transition: .5s calc(var(--i) * .1s);
     /* the trajectory of motion */
-    transform: rotateZ(220deg) translate(-200px, 400px);
+    transform: rotateZ(210deg) translate(-211px, 411px);
 }
 
 .about-card-box:hover .about-card-box-description {
@@ -89,7 +89,7 @@ body {
 
 .about-card-box:hover .about-card-box-description span {
     transition: .8s .3s;
-    top: 105px;
+    top: 106px;
 }
 
 .about-card-box:hover .about-card-box-description h2 {
@@ -98,12 +98,12 @@ body {
 }
 
 .about-card-box-decoration-image {
-    width: 250px;
-    height: 250px;
+    width: 248px;
+    height: 248px;
     position: absolute;
     background-image: url("../../image/shopping/1x.png");
     background-size: cover;
-    margin: 70px;
+    margin: 68px;
     opacity: 0;
     transition: .5s;
 }
@@ -117,66 +117,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.add-item-box-head {
-    display: flex;
-    font-family: Helvetica, Arial, Serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 12px;
-    font-style: normal;
-    letter-spacing: 4px;
-    color: #888;
-    border-bottom: 3px solid #f0f0f0;
-    margin-bottom: 10px;
-    padding: 10px;
-}
-
-.add-item-box-head a:hover {
-    color: #f0f0f0;
-}
-
-#add-item-box h1 {
-    display: flex;
-    align-items: flex-start;
-    font-family: "Trebuchet MS", sans-serif;
-    color: deepskyblue;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 56px;
-    text-shadow: 1px 1px 1px #aaa;
-}
-
-#add-item-box h2 {
-    display: flex;
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 34px;
-    font-style: normal;
-    background-color: #f0f0f0;
-    margin: 40px 0px 30px -40px;
-    padding: 0px 40px;
-    clear: both;
-    float: left;
-    width: 100%;
-    color: #aaa;
-    text-shadow: 1px 1px 1px #fff;
-}
-
-#add-item-box {
-    margin-top: 100px;
-    padding: 20px;
-    background-color: #efefef;
-    border-left: 30px solid deepskyblue;
-    border-right: 1px solid #ddd;
-    -moz-box-shadow: 0px 0px 16px #aaa;
-    border-radius: 12px;
-    padding: 75px 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 50%;
 }
 
 .add-item-big-box {
