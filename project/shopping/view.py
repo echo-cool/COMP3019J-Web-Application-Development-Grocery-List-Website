@@ -25,7 +25,7 @@ def home():
 
 @blueprint.route("/about", methods=["GET", "POST"])
 def about():
-    return render_template("about.html")
+    return render_template("about/about.html")
 
 
 

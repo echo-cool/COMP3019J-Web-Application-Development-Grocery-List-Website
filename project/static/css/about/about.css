@@ -1,0 +1,186 @@
+body {
+    background-color: #CCD4E6FF;
+    display: flex;
+    justify-content: center;
+}
+
+.about-card-box {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    border: #fff 10px solid;
+    background-color: #d979c5;
+    top: 120px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.about-card-box-description {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    left: 0;
+    margin: 75px 50px;
+    transition: .8s;
+}
+
+.about-card-box-description a {
+    text-decoration: none;
+    color: #fff;
+    font: 900 28px '';
+}
+
+.about-card-box-description h2 {
+    /* The animation when the mouse is released, the first value is the transition time of the animation
+    The second value is the delay of one second to execute the animation */
+    transition: .3s .8s;
+    opacity: 0;
+    color: rgb(30, 210, 200);
+}
+
+.about-card-box-description span {
+    transition: .5s 1s;
+    color: #fff;
+    font: 500 15px '';
+    position: absolute;
+    top: 70px;
+}
+
+.about-card-box-decoration {
+    position: absolute;
+    top: -130px;
+    right: -240px;
+}
+
+.about-card-box-decoration-column, .about-card-box-decoration-column1 {
+    position: absolute;
+    right: calc(var(--i) * 100px);
+    width: calc(var(--w) * 40px);
+    height: 500px;
+    overflow: hidden;
+    border-radius: 100px;
+    transform: rotateZ(220deg) translate(0, 0);
+    background: rgb(240, 220, 150);
+    transition: .3s .3s;
+}
+
+.about-card-box-decoration-column:nth-child(2) {
+    background: rgb(240, 190, 230);
+}
+
+.about-card-box-decoration-column1 {
+    left: -470px;
+    top: -140px;
+    width: 70px;
+    background-color: rgb(90, 220, 150);
+}
+
+.about-card-box:hover .about-card-box-decoration div {
+    /* set the delay animation */
+    transition: .5s calc(var(--i) * .1s);
+    /* the trajectory of motion */
+    transform: rotateZ(220deg) translate(-200px, 400px);
+}
+
+.about-card-box:hover .about-card-box-description {
+    transition: .8s .3s;
+    left: 370px;
+}
+
+.about-card-box:hover .about-card-box-description span {
+    transition: .8s .3s;
+    top: 105px;
+}
+
+.about-card-box:hover .about-card-box-description h2 {
+    transition: .8s .3s;
+    opacity: 1;
+}
+
+.about-card-box-decoration-image {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    background-image: url("../../image/shopping/1x.png");
+    background-size: cover;
+    margin: 70px;
+    opacity: 0;
+    transition: .5s;
+}
+
+.about-card-box:hover .about-card-box-decoration-image {
+    transition: 0.5s .7s;
+    opacity: 1;
+}
+
+.add-item-big-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-item-box-head {
+    display: flex;
+    font-family: Helvetica, Arial, Serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 4px;
+    color: #888;
+    border-bottom: 3px solid #f0f0f0;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.add-item-box-head a:hover {
+    color: #f0f0f0;
+}
+
+#add-item-box h1 {
+    display: flex;
+    align-items: flex-start;
+    font-family: "Trebuchet MS", sans-serif;
+    color: deepskyblue;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 56px;
+    text-shadow: 1px 1px 1px #aaa;
+}
+
+#add-item-box h2 {
+    display: flex;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    background-color: #f0f0f0;
+    margin: 40px 0px 30px -40px;
+    padding: 0px 40px;
+    clear: both;
+    float: left;
+    width: 100%;
+    color: #aaa;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+#add-item-box {
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #efefef;
+    border-left: 30px solid deepskyblue;
+    border-right: 1px solid #ddd;
+    -moz-box-shadow: 0px 0px 16px #aaa;
+    border-radius: 12px;
+    padding: 75px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+}
+
+.add-item-big-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
