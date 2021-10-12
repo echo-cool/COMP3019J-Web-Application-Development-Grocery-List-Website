@@ -205,5 +205,25 @@
 
 .right-small-img {
     width: 600px;
-    margin: -10px 0 0 -20px
+    margin: -10px 0 0 -20px;
+    border-color: orange;
+    padding: 10px;
+}
+
+#right-small-image {
+    width: 250px;
+    height: 270px;
+    margin: 10px;
+
+}
+
+#right-small-image:hover {
+    transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    /* IE 9 */
+    -webkit-transform: scale(1.06);
+    /* Safari and Chrome */
+    -o-transform: scale(1.06);
+    /* Opera */
+    -moz-transform: scale(1.06);
 }

@@ -161,10 +161,6 @@
 
 {% block content %}
 
-    {% for shop in shop_sellers %}
-        {{ shop }}
-    {% endfor %}
-
     <div class="index-container">
         <div class="index-upper">
             <img class="index-logo-img" src="../../static/image/shopping/img_4.png" alt="">
@@ -222,7 +218,7 @@
 
     {#        product viewing area#}
     <div class="index-product-view-title">
-        <h1 class="product-view-title-text">Recommendation</h1>
+        <h1 class="product-view-title-text">Recommended</h1>
     </div>
     <div class="index-item-container-box">
         <div class="index-item-container">
@@ -253,6 +249,46 @@
     <br>
 
     {# Shops area#}
+    {% for shop in shop_sellers %}
+        <div class="index-product-view-title">
+            <h1 class="product-view-title-text">
+                Shop Name: {{ shop.username }}
+            </h1>
+        </div>
+        <div class="index-item-container-box">
+            <div class="index-shoes-container">
+                <div class="index-shoes-box">
+                    <div class="left-big-img">
+                        <a href="#" target="_blank">
+                            <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>
+                    </div>
+                    <div class="right-img-area">
+                        <div class="right-small-img">
+                            {% for item in shop_sellers[shop] %}
+                                <a href="#" target="_blank">
+                                <img id="right-small-image" src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"></a>
+                            {% endfor %}
+
+                            {#                        <a href="#" target="_blank">#}
+                            {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+                            {#                        <a href="#" target="_blank">#}
+                            {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+                            {#                        <a href="#" target="_blank">#}
+                            {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+                            {#                        <a href="#" target="_blank">#}
+                            {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+                            {#                        <a href="#" target="_blank">#}
+                            {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
     <div class="index-product-view-title">
         <h1 class="product-view-title-text">Shops Zone</h1>
     </div>
