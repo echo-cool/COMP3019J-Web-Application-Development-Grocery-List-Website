@@ -174,22 +174,22 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: flex-start;
-    margin: auto;
     background-color: #f1f1f1;
 }
 
 .index-shoes-box {
     display: flex;
     justify-content: flex-start;
-
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .left-big-img {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-items: center;
     align-items: center;
     min-width: 25%;
@@ -210,9 +210,9 @@
 
 .right-small-img {
     min-width: 20%;
-    margin: 2px;
+    margin: 1px;
     border: 1px solid orange;
-    padding: 20px;
+    padding: 10px;
 }
 
 #right-small-image {
@@ -253,8 +253,8 @@
 
 .index-item {
     width: 270px;
-    margin: 20px;
-    padding: 5px;
+    margin: 12px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

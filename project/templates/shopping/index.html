@@ -113,8 +113,7 @@
                         <br>
                         <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> <span class="button-default">Click here to view more in this shop</span></a>
                     </div>
-                    <div class="right-img-area">
-
+{#                    <div class="right-img-area">#}
                         {% for item in shop_sellers[shop][:3] %}
                             <div class="index-item">
                                 <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
@@ -129,9 +128,7 @@
                                 </div>
                             </div>
                         {% endfor %}
-
-                    </div>
-
+{#                    </div>#}
                 </div>
             </div>
         </div>
