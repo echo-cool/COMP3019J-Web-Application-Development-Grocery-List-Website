@@ -149,5 +149,5 @@ def show_all_items(userid):
     user = User.query.filter_by(id=userid).first()
     username = user.username
     items = Item.query.filter_by(owner=userid).all()
-    print(items)
+    # print(items)
     return render_template("shopping/shopper_all_items.html", items=items, username=username)
