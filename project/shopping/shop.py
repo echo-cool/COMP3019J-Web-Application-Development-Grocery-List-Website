@@ -22,3 +22,4 @@ blueprint = Blueprint("shop", __name__, static_folder="../static")
 def shop(userID):
     items = Item.query.filter_by(owner=userID).all()
     return str(len(items))
+

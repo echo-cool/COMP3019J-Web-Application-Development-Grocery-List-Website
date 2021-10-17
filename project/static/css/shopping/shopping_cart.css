@@ -1,5 +1,3 @@
-
-
 .cart table td, .cart table th {
     border: 1px solid black;
     padding: 10px;
@@ -231,4 +229,64 @@ h3 {
             rgb(252, 240, 146) 87%
     );
     margin-top: 10px;
+}
+
+/*the style for removing items from the shopping*/
+.incorrect:before {
+    content: '\2716';
+    color: #b20610;
+}
+
+
+.manage-items-modify {
+    padding: 5px;
+    background-color: #efefef;
+    color: #616060;
+}
+
+.manage-items-modify:hover {
+    color: orange;
+    border-color: #eddf4d;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*the style for items removal*/
+.removal-items-cart {
+    height: 44px;
+    padding: 5px;
+    margin-right: 15px;
+    /*background: 90% url("../../image/shopping/bbg1.jpg") repeat;*/
+    /*gradient color*/
+    background-image: linear-gradient(to right, #ddeb3b, #03a9f4, #f441a5, #e7cecc);
+    border-radius: 5px;
+    background-size: 390%;
+    font-size: 18px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.removal-items-cart:hover {
+    animation: anim 8s infinite;
+}
+
+.removal-items-cart span {
+    display: block;
+    position: relative;
+    top: 0;
+    color: #FFF;
+}
+
+@keyframes anim {
+    /*100% background position*/
+    100% {
+        background-position: -390% 0;
+    }
+}
+
+.removal-items-cart:hover span {
+    top: -100%;
 }

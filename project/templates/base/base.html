@@ -85,29 +85,40 @@
                     {#                    </li>#}
                     {#                    <li>|</li>#}
                     {% if current_user.is_authenticated %}
-                        <li class="nav-title_shopping_cart">
-                            &nbsp;&nbsp;&nbsp;<a href="{{ url_for("cart.shopping_cart") }}">Shopping Cart</a>
-                        </li>
-                        <li>|</li>
                         <li><a href="{{ url_for("user.info") }}">Hello, {{ current_user.username }}</a></li>
-                        {% if current_user.is_shopper %}
-                            <li>|</li>
-                            <li><a href="/item/add">Add Item</a></li>
-                        {% endif %}
-
-
-
                         <li>|</li>
-                        <li><a href="{{ url_for("user.logout") }}">logout</a></li>
+
+                        {% if current_user.is_shopper %}
+
+                            <li class="nav-title_shopping_cart">
+                                &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}">Manage Items</a>
+                            </li>
+                            <li>|</li>
+                            <li class="nav-title_shopping_cart">
+                                {#                            &nbsp;&nbsp;&nbsp;#}
+                                <a href="{{ url_for("cart.shopping_cart") }}">
+                                    Shopping Cart</a>
+                            </li>
+                        {% else %}
+
+
+                            <li class="nav-title_shopping_cart">
+                                {#                            &nbsp;&nbsp;&nbsp;#}
+                                <a href="{{ url_for("cart.shopping_cart") }}">
+                                    Shopping Cart</a>
+                            </li>
+                        {% endif %}
+                        <li>|</li>
+                        <li><a href="{{ url_for("user.logout") }}">Logout</a></li>
 
                     {% else %}
                         <li class="login">
                             <a href="{{ url_for("login.login") }}">Login</a>
                         </li>
-                        <li>|</li>
-                        <li class="register">
-                            <a href="{{ url_for("login.login") }}">Register</a>
-                        </li>
+                        {#                        <li>|</li>#}
+                        {#                        <li class="register">#}
+                        {#                            <a href="{{ url_for("login.login") }}">Register</a>#}
+                        {#                        </li>#}
                     {% endif %}
                 </ul>
             </div>

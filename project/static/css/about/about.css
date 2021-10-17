@@ -1,0 +1,126 @@
+body {
+    background-color: #CCD4E6FF;
+    display: flex;
+    justify-content: center;
+}
+
+.about-card-box {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    border: #fff 10px solid;
+    background-color: #d979c5;
+    top: 120px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.about-card-box-description {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    left: 0;
+    margin: 75px 50px;
+    transition: .8s;
+}
+
+.about-card-box-description a {
+    text-decoration: none;
+    color: #fff;
+    font: 900 28px '';
+}
+
+.about-card-box-description h2 {
+    /* The animation when the mouse is released, the first value is the transition time of the animation
+    The second value is the delay of one second to execute the animation */
+    transition: .3s .8s;
+    opacity: 0;
+    color: #1ED2C8FF;
+}
+
+.about-card-box-description span {
+    transition: .5s 1s;
+    color: lightgoldenrodyellow;
+    font-weight: bold;
+    position: absolute;
+    top: 70px;
+}
+
+.about-card-box-decoration {
+    position: absolute;
+    top: -120px;
+    right: -250px;
+}
+
+.about-card-box-decoration-column, .about-card-box-decoration-column1 {
+    position: absolute;
+    right: calc(var(--i) * 100px);
+    width: calc(var(--w) * 50px);
+    height: 450px;
+    overflow: hidden;
+    border-radius: 111px;
+    transform: rotateZ(219deg) translate(0, 0);
+    background: #F0DC96FF;
+    transition: .3s .3s;
+}
+
+.about-card-box-decoration-column:nth-child(2) {
+    background: #F0BEE6FF
+}
+
+.about-card-box-decoration-column1 {
+    left: -470px;
+    top: -140px;
+    width: 70px;
+    background-color: #5ADC96FF;
+}
+
+.about-card-box:hover .about-card-box-decoration div {
+    /* set the delay animation */
+    transition: .5s calc(var(--i) * .1s);
+    /* the trajectory of motion */
+    transform: rotateZ(210deg) translate(-211px, 411px);
+}
+
+.about-card-box:hover .about-card-box-description {
+    transition: .8s .3s;
+    left: 370px;
+}
+
+.about-card-box:hover .about-card-box-description span {
+    transition: .8s .3s;
+    top: 106px;
+}
+
+.about-card-box:hover .about-card-box-description h2 {
+    transition: .8s .3s;
+    opacity: 1;
+}
+
+.about-card-box-decoration-image {
+    width: 248px;
+    height: 248px;
+    position: absolute;
+    background-image: url("../../image/shopping/1x.png");
+    background-size: cover;
+    margin: 68px;
+    opacity: 0;
+    transition: .5s;
+}
+
+.about-card-box:hover .about-card-box-decoration-image {
+    transition: 0.5s .7s;
+    opacity: 1;
+}
+
+.add-item-big-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-item-big-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

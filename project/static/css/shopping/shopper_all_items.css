@@ -1,0 +1,305 @@
+.index-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.index-upper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.index-logo-img {
+    width: 200px;
+}
+
+.index-search-submit-button {
+    width: 80px;
+    height: 37px;
+    cursor: pointer;
+    background: transparent url("../../image/shopping/soubg.jpg") no-repeat center center;
+    cursor: pointer;
+}
+
+.index-search-text {
+    width: 320px;
+    padding-left: 18px;
+    padding-right: 10px;
+    line-height: 32px;
+    font-size: 12px;
+    color: #6f6f6f;
+    display: block;
+    float: left;
+    border: 2px solid plum;
+    box-shadow: 0 2px;
+}
+
+.my-basket-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border: 3px solid #33b62a;
+    background-color: #f1f1f1;
+}
+
+.index-basket-group {
+    text-decoration: none;
+}
+
+.index-basket-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: green;
+}
+
+.index-basket-text {
+    font-size: 16px;
+    text-decoration: none;
+    color: green;
+}
+
+.shell {
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    width: 99%;
+    height: 600px;
+    position: relative;
+    overflow-x: hidden;
+    border-radius: 5px;
+    border: 10px #fff;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    /*margin: auto;*/
+}
+
+.index-banner-images-box {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*display: flex;*/
+    position: absolute;
+    left: 0;
+    transition: .2s;
+}
+
+.index-banner-image {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    /*position: absolute;*/
+    background-size: cover;
+}
+
+.index-banner-image:nth-child(1) {
+    background-image: url("../../image/shopping/shopping_menu1.png");
+    width: 100%;
+    height: 100%;
+}
+
+.index-banner-image:nth-child(2) {
+    background-image: url("../../image/shopping/shopping_menu2.png");
+}
+
+.index-banner-image:nth-child(3) {
+    background-image: url("../../image/shopping/shopping_menu3.png");
+}
+
+.index-banner-min-images-box {
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 20px;
+    width: 40%;
+    z-index: 999;
+    right: 10%;
+}
+
+.index-banner-min-image {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-size: cover;
+    border: solid rgba(255, 255, 255, 0.5) 5px;
+    background-position: -20px 0;
+}
+
+.index-banner-min-image:nth-child(1) {
+    background-image: url("../../image/shopping/shopping_menu1.png");
+}
+
+.index-banner-min-image:nth-child(2) {
+    background-image: url("../../image/shopping/shopping_menu2.png");
+}
+
+.index-banner-min-image:nth-child(3) {
+    background-image: url("../../image/shopping/shopping_menu3.png");
+}
+
+.index-banner-button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.index-banner-button-left,
+.index-banner-button-right {
+    font-size: 50px;
+    background-color: rgba(249, 240, 248, 0.7);
+    padding: 2px;
+    cursor: pointer;
+    line-height: 500px;
+}
+
+.index-item {
+    padding: 10px;
+    margin: 20px;
+    width: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px lightgrey solid;
+}
+
+.index-item-container-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-item-container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: auto;
+    background-color: #f1f1f1;
+}
+
+
+.index-item {
+    width: 270px;
+    margin: 20px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 3px solid lightgray;
+}
+
+.index-item:hover {
+    border: 3px solid orange;
+}
+
+.index-item-image {
+    width: 240px;
+    height: 250px;
+}
+
+.index-item-image:hover {
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari and Chrome */
+    -o-transform: scale(1.1);
+    /* Opera */
+    -moz-transform: scale(1.1);
+}
+
+.index-product-view-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.product-view-title-text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 100px;
+    color: #ff1393;
+    background: -webkit-gradient(
+            linear,
+            left bottom,
+            right top,
+            color-stop(0.02, rgb(249, 188, 201)),
+            color-stop(0.51, rgb(243, 255, 76)),
+            color-stop(0.87, rgb(252, 207, 227))
+    );
+    background: -moz-linear-gradient(
+            left bottom,
+            rgb(249, 188, 201) 2%,
+            rgb(255, 228, 76) 51%,
+            rgb(252, 207, 227) 87%
+    );
+}
+
+.index-item-text {
+    width: 100%;
+}
+
+.index-item-text * {
+    padding: 10px;
+}
+
+.index-item-price {
+    color: mediumpurple;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.index-item-name {
+    text-decoration: none;
+    color: orange;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.index-item-name:hover {
+    text-decoration: none;
+    color: #d73290;
+}
+
+.index-product-recommendation-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.product-recommendation-title-text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 100px;
+    color: #ff1393;
+    background: -webkit-gradient(
+            linear,
+            left bottom,
+            right top,
+            color-stop(0.02, rgb(249, 188, 201)),
+            color-stop(0.51, rgb(243, 255, 76)),
+            color-stop(0.87, rgb(252, 207, 227))
+    );
+    background: -moz-linear-gradient(
+            left bottom,
+            rgb(249, 188, 201) 2%,
+            rgb(255, 228, 76) 51%,
+            rgb(252, 207, 227) 87%
+    );
+}

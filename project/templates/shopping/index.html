@@ -7,130 +7,6 @@
 {% endblock %}
 {% block style %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
-
-    <style>
-        .index-item-container-box {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .index-item-container {
-            width: 80%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-content: flex-start;
-            margin: auto;
-            background-color: #f1f1f1;
-        }
-
-        .index-item {
-            width: 270px;
-            margin: 20px;
-            padding: 5px;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-items: center;
-            border: 3px solid lightgray;
-        }
-
-        .index-item:hover {
-            border: 3px solid orange;
-        }
-
-        .index-item-image {
-            width: 240px;
-            height: 200px;
-        }
-
-        .index-item-image:hover {
-            transform: scale(1.1);
-            -ms-transform: scale(1.1);
-            /* IE 9 */
-            -webkit-transform: scale(1.1);
-            /* Safari and Chrome */
-            -o-transform: scale(1.1);
-            /* Opera */
-            -moz-transform: scale(1.1);
-        }
-
-        .index-product-view-title {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .product-view-title-text {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 80%;
-            height: 100px;
-            background-color: lightgray;
-            color: white;
-        }
-
-        .index-item-text {
-            width: 100%;
-        }
-
-        .index-item-text * {
-            padding: 10px;
-        }
-
-        .index-item-price {
-            color: mediumpurple;
-            font-weight: bold;
-            font-size: 20px;
-
-        }
-
-        .index-item-name {
-            text-decoration: none;
-            color: orange;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .index-item-name:hover {
-            text-decoration: none;
-            color: #d73290;
-        }
-
-        .index-product-recommendation-title {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .product-recommendation-title-text {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 80%;
-            height: 100px;
-            background: -webkit-gradient(
-                    linear,
-                    left bottom,
-                    right top,
-                    color-stop(0.02, rgb(232, 210, 15)),
-                    color-stop(0.51, rgb(244, 225, 57)),
-                    color-stop(0.87, rgb(252, 240, 146))
-            );
-            background: -moz-linear-gradient(
-                    left bottom,
-                    rgb(232, 210, 15) 2%,
-                    rgb(244, 225, 57) 51%,
-                    rgb(252, 240, 146) 87%
-            );
-            color: white;
-        }
-    </style>
 {% endblock %}
 
 {% block content %}
@@ -158,7 +34,7 @@
 
         {#        hot items recommendation#}
         <div class="index-product-recommendation-title">
-            <h1 class="product-recommendation-title-text">Recommendation</h1>
+            <h1 class="product-recommendation-title-text">Welcome to Online Shopping</h1>
         </div>
         <div class="index-item-container-box">
             <div class="index-item-container">
@@ -175,8 +51,8 @@
                         <li class="index-banner-min-image"></li>
                     </ui>
                     <div class="index-banner-button">
-                        <div class="index-banner-button-left"><</div>
-                        <div class="index-banner-button-right">></div>
+                        <div class="index-banner-button-left"></div>
+                        <div class="index-banner-button-right"></div>
                     </div>
                 </div>
             </div>
@@ -190,9 +66,9 @@
     <br>
 
 
-    {#        product viewing area#}
+    {# Product viewing area#}
     <div class="index-product-view-title">
-        <h1 class="product-view-title-text">Product Viewing</h1>
+        <h1 class="product-view-title-text">Recommended</h1>
     </div>
     <div class="index-item-container-box">
         <div class="index-item-container">
@@ -200,8 +76,8 @@
             {% for item in items %}
                 <div class="index-item">
                     <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
-                                                                                   src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                                                   value="Item Image"></a>
+                                                                                  src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                                                  value="Item Image"></a>
                     <div class="index-item-text">
                         <p class="index-item-price">$ {{ item.price }}</p>
                         <a class="index-item-name"
@@ -209,15 +85,89 @@
                         <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
                         <p class="index-item-description">{{ item.description }}</p>
                     </div>
-
-
                 </div>
             {% endfor %}
+        </div>
+    </div>
 
+    <br>
+    <br>
 
+    {# Shops area#}
+    {# Separate shops based on their sellers#}
+    {% for shop in shop_sellers %}
+        <div class="index-product-view-title">
+            <h1 class="product-view-title-text">
+                <a href="{{ url_for("item.show_all_items", userid=shop.id) }}">
+                    Shop Name: {{ shop.username }}
+                </a>
+            </h1>
+        </div>
+        <div class="index-item-container-box">
+            <div class="index-shoes-container">
+                <div class="index-shoes-box">
+                    <div class="left-big-img">
+                        <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
+                            <img width="330" height="400" src="../../static/image/shopping/sales.png">
+                        </a>
+                        <br>
+                        <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> <span class="button-default">Click here to view more in this shop</span></a>
+                    </div>
+{#                    <div class="right-img-area">#}
+                        {% for item in shop_sellers[shop][:3] %}
+                            <div class="index-item">
+                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
+                                                                                              src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                                                              value="Item Image"></a>
+                                <div class="index-item-text">
+                                    <p class="index-item-price">$ {{ item.price }}</p>
+                                    <a class="index-item-name"
+                                       href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                    <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                    <p class="index-item-description">{{ item.description }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+{#                    </div>#}
+                </div>
+            </div>
         </div>
 
-    </div>
+    {% endfor %}
+
+
+    {#    <div class="index-product-view-title">#}
+    {#        <h1 class="product-view-title-text">Shops Zone</h1>#}
+    {#    </div>#}
+    {#    <div class="index-item-container-box">#}
+    {#        <div class="index-shoes-container">#}
+    {#            <div class="index-shoes-box">#}
+    {#                <div class="left-big-img">#}
+    {#                    <a href="#" target="_blank">#}
+    {#                        <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>#}
+    {#                </div>#}
+    {#                <div class="right-img-area">#}
+    {#                    <div class="right-small-img">#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+
+
 
     {% block jsfoot %}
         <script>
@@ -225,17 +175,19 @@
             let right = document.querySelector(".index-banner-button-right")
             let min = document.querySelectorAll(".index-banner-min-image")
             let images = document.querySelector(".index-banner-images-box")
-            // 先设置一个index用来计算和控制图片的位置，再设置一个time作为定时器
+            // First set an index to calculate and control the position of the image, and then set a time as a timer
             let index = 0
             let time
 
-            // 在这里先创建一个position为复用函数，作用就是结合index来定义当前图片的位置的
-            function position() {
+            // Here first create a position as a reuse function, the role is to combine index to define the current image position
+            function getPosition() {
                 images.style.top = (index * -100) + "%"
             }
 
-            // 然后创建一个复用函数add为加函数，如果当前图片的位置值index大于等于当前图片数量的话，就说明超出了计算范围，所以得清零，如若不然index就加一
-            function add() {
+            // Then create a reuse function add as an add function, if the current image position value index is
+            // greater than or equal to the current number of images,
+            // it means that the calculation range is exceeded, so we have to clear zero, if not index will be added one
+            function increaseTime() {
                 if (index >= min.length - 1) {
                     index = 0
                 } else {
@@ -243,8 +195,9 @@
                 }
             }
 
-            // 反之desc为减函数，如果当前图片的位置值index小于1了，那么他的值就反弹到最顶端，也就是轮播图的最后面，如若不然index就减一
-            function desc() {
+            // Conversely desc is a minus function, if the current image position value index is less than 1,
+            // then his value will bounce to the top, that is, the last of the rotation map, if not index will be minus one
+            function decreaseTime() {
                 if (index < 1) {
                     index = min.length - 1
                 } else {
@@ -252,42 +205,44 @@
                 }
             }
 
-            // 创建一个timer来当做复用时间的函数，，每隔3秒钟index就加一，然后加入增加add函数和desc函数来判断一下，再加入定位函数
-            function timer() {
+            // Create a timer to be used as a function of reuse time,, index every 3 seconds to add one,
+            // and then add add add function and desc function to determine a bit, and then add the positioning function
+            function timeCalc() {
                 time = setInterval(() => {
                     index++
-                    desc()
-                    add()
-                    position()
-                }, 2000)
+                    decreaseTime()
+                    increaseTime()
+                    getPosition()
+                }, 1200)
             }
 
-            // 设置按钮，left为左边的按钮，因为点击时图片会反方向倒退，所以套入desc减函数进去，定位一下
+            // Set the button, left for the left button, because when you click the picture will be backwards in the opposite direction,
+            // so set into the desc minus function into, positioning
             left.addEventListener("click", () => {
-                desc()
-                position()
+                decreaseTime()
+                getPosition()
                 clearInterval(time)
-                timer()
+                timeCalc()
             })
-            // 右边的按钮和左边也是差不多
+            // similar for the right button
             right.addEventListener("click", () => {
-                add()
-                position()
+                increaseTime()
+                getPosition()
                 clearInterval(time)
-                timer()
+                timeCalc()
             })
-            // 在弄好左右两个按钮的时候，还需要生效下面的小图片按钮，
-            // 先遍历一遍，然后获取当前点击的那个小图片按钮的值并赋值给index，随之跳转
+            // When you get the left and right buttons, you also need to take effect the small picture button below.
+            // First iterate through it, then get the value of the currently clicked small image button and assign it to index, then jump
             for (let i = 0; i < min.length; i++) {
                 min[i].addEventListener("click", () => {
                     index = i
-                    position()
+                    getPosition()
                     clearInterval(time)
-                    timer()
+                    timeCalc()
                 })
             }
-            // 将定时器开起来
-            timer()
+            // Turn the timer on
+            timeCalc()
         </script>
 
     {% endblock %}

@@ -1,36 +1,113 @@
 {% extends "/base/base.html" %}
 
-
-{#{% block nav %}#}
-{#    <ul>#}
-{#        <li><a  href="/">Home</a></li>#}
-{#        <li><a  href="/item/add">Add</a></li>#}
-{#        <li><a href="/about">About</a></li>#}
-{#        <li><a  href="/login">Login</a></li>#}
-{#        {% if current_user.is_authenticated %}#}
-{#            <li><a class="active" href="/user">Hello, {{ current_user.username }}</a></li>#}
-{#            <li><a href="/logout">logout</a></li>#}
-{#        {% else %}#}
-{#        {% endif %}#}
-{#    </ul>#}
-{#{% endblock %}#}
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/user_infor/user_infor.css">
+{% endblock %}
 
 
 {% block content %}
-<div class="container">
-    <h1 class="">Userinfo</h1>
-    <div class="">
-        <table>
-            <tr>
-                <th>Username:</th>
-                <td>{{ current_user.username }}</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>{{ current_user.email }}</td>
-            </tr>
-        </table>
 
+    <div class="add-item-big-box">
+        <div id="add-item-box">
+            <p class="add-item-box-head"> Seller or Customer</p>
+            <h1>Personal Information</h1>
+            <br><br>
+
+            <div class="user-info-default">
+                <div id="default_avatar">
+                    <img src="../../{{ current_user.main_image_url }}" alt="">
+                </div>
+                <div id="empty">
+                </div>
+                <div id="default-info">
+                    <table class="add-item-box-table">
+                        <tbody>
+                        <tr>
+                            <th>User Name</th>
+                            <td>{{ current_user.username }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ current_user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Identity</th>
+                            <td>
+                                {% if current_user.is_shopper %}
+                                    Seller
+                                {% else %}
+                                    Customer
+                                {% endif %}
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+            <div class="user-info-detail">
+                <div class="add-user-info">
+                    <div class="set-avatar">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {{ form.csrf_token }}
+                            <table class="add-item-box-table">
+                                <tbody>
+                                <tr>
+                                    <th>Current Avatar</th>
+                                    <td><img width="200px" height="200px" src="../../{{ current_user.main_image_url }}"
+                                             alt="">
+                                        {{ form.image_file }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Username</th>
+                                    <td>
+                                        {#                                        <input id="email-address-new" type="text" value="{{ current_user.username }}">#}
+                                        {{ form.username(id="email-address-new", value=current_user.username) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Password</th>
+                                    <td>
+                                        {#                                        <input id="email-address-new" type="text" value="">#}
+                                        {{ form.password(id="email-address-new", value="") }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>
+                                        {{ form.email(id="email-address-new", value=current_user.email) }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Shopping Cart</th>
+                                    <td><a class="add_button" href="{{ url_for("cart.shopping_cart") }}">
+                                        <img id="shopping-cart-logo" src="../../static/image/shopping/gwc.png" alt="">
+                                        &nbsp; &nbsp;Click here to enter your shopping cart
+                                    </a></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div>
+                                            {{ form.submit_button(class="button-default") }}
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                            <br>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
     </div>
-</div>
 {% endblock %}

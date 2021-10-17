@@ -87,12 +87,17 @@
     justify-content: flex-start;
     margin-bottom: 15px;
     margin-top: 15px;
-    background: #e84440 url("../../image/shopping/red_banner.png") no-repeat left center;
+    background-image: linear-gradient(to right, #ddeb3b, #03a9f4, #f441a5, #e7cecc);
+    border-radius: 5px;
     color: #fff;
     line-height: 35px;
     text-align: right;
     font-size: 14px;
+}
 
+
+.time-item:hover {
+    animation: anim 8s infinite;
 }
 
 .product-box {
@@ -170,10 +175,19 @@
     height: 44px;
     padding: 5px;
     margin-right: 15px;
-    background: 90% url("../../image/shopping/bbg1.jpg") repeat;
+    /*background: 90% url("../../image/shopping/bbg1.jpg") repeat;*/
+    /*gradient color*/
+    background-image: linear-gradient(to right, #ddeb3b, #03a9f4, #f441a5, #e7cecc);
+    border-radius: 5px;
+    background-size: 390%;
     font-size: 18px;
     color: #FFF;
     text-decoration: none;
+    font-weight: bold;
+}
+
+.shopping-cart:hover {
+    animation: anim 8s infinite;
 }
 
 .shopping-cart span {
@@ -181,6 +195,13 @@
     position: relative;
     top: 0;
     color: #FFF;
+}
+
+@keyframes anim {
+    /*100% background position*/
+    100% {
+        background-position: -390% 0;
+    }
 }
 
 .shopping-cart:hover span {
@@ -216,6 +237,7 @@
     padding-left: 20px;
     font-size: 16px;
     font-weight: bold;
+
 }
 
 #product-description-box {

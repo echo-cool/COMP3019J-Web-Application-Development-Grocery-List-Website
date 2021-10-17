@@ -35,6 +35,7 @@ class User(UserMixin, PkModel):
 
     __tablename__ = "users"
     username = Column(db.String(80), unique=True, nullable=False)
+    main_image_url = Column(db.VARCHAR(255), nullable=True, default="static/image/user_info/default_avatar.jpg")
     email = Column(db.String(80), unique=True, nullable=False)
     #: The hashed password
     password = Column(db.String(128), nullable=True)
