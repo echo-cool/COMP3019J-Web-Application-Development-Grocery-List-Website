@@ -217,6 +217,11 @@
     padding: 5px 10px;
 }
 
+#shopping-cart-logo {
+    width: 40px;
+    height: 40px;
+}
+
 .user-shopping-cart {
     background: url("../../image/shopping/gwc.png") no-repeat left center;
     background-size: 24px;
@@ -234,4 +239,42 @@
     justify-content: center;
     align-items: center;
     padding-top: 40px;
+}
+
+/*the style for updating user information*/
+.add_button {
+    height: 44px;
+    padding: 5px;
+    margin-right: 15px;
+    /*background: 90% url("../../image/shopping/bbg1.jpg") repeat;*/
+    /*gradient color*/
+    background-image: linear-gradient(to right, #ddeb3b, #03a9f4, #f441a5, #e7cecc);
+    border-radius: 5px;
+    background-size: 390%;
+    font-size: 18px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.add_button:hover {
+    animation: anim 8s infinite;
+}
+
+.add_button span {
+    display: block;
+    position: relative;
+    top: 0;
+    color: #FFF;
+}
+
+@keyframes anim {
+    /*100% background position*/
+    100% {
+        background-position: -390% 0;
+    }
+}
+
+.add_button:hover span {
+    top: -100%;
 }
