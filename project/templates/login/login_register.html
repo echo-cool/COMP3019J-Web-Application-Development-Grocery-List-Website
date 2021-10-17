@@ -35,34 +35,34 @@
                         {{ register_from.csrf_token }}
                         <div class="login-input_area">
 
-                            {{ register_from.username(placeholder="") }}
+                            {{ register_from.username(class="login-input-text",placeholder="") }}
                             {{ register_from.username.label }}
                             {#                            <input type="text" name="" required>#}
                             {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
 
-                            {{ register_from.email(placeholder="") }}
+                            {{ register_from.email(class="login-input-text",placeholder="") }}
                             {{ register_from.email.label }}
                             {#                            <input type="text" name="" required>#}
                             {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
 
-                            {{ register_from.password(placeholder="", class_="form-control") }}
+                            {{ register_from.password(class="login-input-text",placeholder="") }}
                             {{ register_from.password.label }}
                             {#                            <input type="password" name="" required>#}
                             {#                            <label>Password</label>#}
                         </div>
                         <div class="login-input_area">
 
-                            {{ register_from.confirm(placeholder="", class_="form-control") }}
+                            {{ register_from.confirm(class="login-input-text",placeholder="") }}
                             {{ register_from.confirm.label }}
                             {#                            <input type="password" name="" required>#}
                             {#                            <label>Confirm Password</label>#}
                         </div>
                         {#                        <button class="button submit">Create Account</button>#}
-                        {{ register_from.submit_register(class_="button submit") }}
+                        {{ register_from.submit_register(class="login-input-text") }}
                     </form>
                 </div>
 
@@ -72,23 +72,23 @@
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ login_form.csrf_token }}
                         <div class="login-input_area">
-                            {{ login_form.username(placeholder="") }}
+                            {{ login_form.username(class="login-input-text",placeholder="") }}
                             {{ login_form.username.label }}
                             {#                            <input type="text" name="" required>#}
                             {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
-                            {{ login_form.password(placeholder="") }}
+                            {{ login_form.password(class="login-input-text",placeholder="") }}
                             {{ login_form.password.label }}
                             {#                                                        <input type="password" name="" required>#}
                             {#                                                        <label>Password</label>#}
                         </div>
                         <div class="checkbox">
-                            <input type="checkbox" id="remember"/>
+                            <input class = "login-input-text" type="checkbox" id="remember"/>
                             <label for="remember">Remember Me</label>
                         </div>
-                        {#                        <button class="button submit1">Login</button>#}
-                        {{ login_form.submit_login(class_="button submit1") }}
+{#                        <button class="button submit1">Login</button>#}
+                        {{ login_form.submit_login(class_="login-submit-button") }}
                     </form>
                 </div>
             </div>
