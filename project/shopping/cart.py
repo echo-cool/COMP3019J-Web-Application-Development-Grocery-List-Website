@@ -25,9 +25,12 @@ def remove_from_cart():
     print(itemID)
     user = current_user
     cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+
     if cart_entry:
         cart_entry.delete()
+
     flash("Removed Successfully")
+    return redirect(url_for('cart.shopping_cart'))
 
 
 @blueprint.route("/cart/add", methods=["POST"])
