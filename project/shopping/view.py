@@ -43,6 +43,8 @@ def home():
             shop_sellers[shopper].append(item)
         else:
             shop_sellers[shopper] = [item]
+
+    all_items.sort(key=lambda i: i.sold_count, reverse=True)
     return render_template("shopping/index.html", items=all_items, current_user=current_user, shop_sellers=shop_sellers)
 
 

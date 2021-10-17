@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Helper utilities and decorators."""
-from flask import flash
+from functools import wraps
+
+from flask import flash, redirect, url_for
+from flask_login import current_user
 
 
 def flash_errors(form, category="warning"):
@@ -8,3 +11,15 @@ def flash_errors(form, category="warning"):
     for field, errors in form.errors.items():
         for error in errors:
             flash(f"{getattr(form, field).label.text} - {error}", category)
+
+
+def seller_required(func):
+    @wraps(func)
+    def decorated_view(*args, **kwargs):
+        if current_user.is_authenticated and current_user.is_shopper:
+            return func(*args, **kwargs)
+        else:
+            flash("You must be seller to access this page !")
+            return redirect(url_for("index.home"))
+
+    return decorated_view

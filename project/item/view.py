@@ -8,6 +8,7 @@ from project import db
 from project.item.forms import AddNewItem, UpdateItem
 from project.models.ItemModel import Item
 from project.models.UserModel import User
+from project.utils import seller_required
 
 blueprint = Blueprint("item", __name__, static_folder="../static")
 
@@ -21,6 +22,7 @@ def details(itemID):
 
 @blueprint.route("/item/manage", methods=["POST", "GET"])
 @login_required
+@seller_required
 def ManageItem():
     user = current_user
     items = Item.query.filter_by(
@@ -63,6 +65,7 @@ def ManageItem():
 
 @blueprint.route("/item/delete/<int:item_id>", methods=["POST", "GET"])
 @login_required
+@seller_required
 def DeleteItem(item_id):
     item = Item.get_by_id(item_id)
     item.delete()
@@ -72,6 +75,7 @@ def DeleteItem(item_id):
 
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
 @login_required
+@seller_required
 def ModifyNewItem(item_id):
     item = Item.get_by_id(item_id)
     form = UpdateItem()
@@ -100,6 +104,7 @@ def ModifyNewItem(item_id):
 
 @blueprint.route("/item/add", methods=["POST", "GET"])
 @login_required
+@seller_required
 def addNewItem():
     form = AddNewItem()
     # print(form.data)

@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SECRET_KEY'] = 'ec9439cfc6d796ae3029594d'
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 db = SQLAlchemy(app)
 csrf_protect = CSRFProtect(app)
 migrate = Migrate(app, db)
