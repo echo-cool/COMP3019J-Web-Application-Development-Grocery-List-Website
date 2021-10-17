@@ -92,16 +92,18 @@ def shopping_cart():
     user = current_user
     cart = Cart.query.filter_by(user_id=user.id).all()
     res = {}
+    total_price = 0
     for i in cart:
         shop_user_id = i.get_shop_userID()
         item_id = i.item_id
         item = Item.get_by_id(item_id)
         shopper = User.get_by_id(shop_user_id)
         item.count = i.count
+        total_price += item.price * i.count
 
         if shopper in res.keys():
             res[shopper].append(item)
         else:
             res[shopper] = [item]
 
-    return render_template("shopping/shopping_cart.html", cart_dict=res)
+    return render_template("shopping/shopping_cart.html", cart_dict=res, total_price = total_price)
