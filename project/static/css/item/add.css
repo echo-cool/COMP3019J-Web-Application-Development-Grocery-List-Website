@@ -71,8 +71,8 @@
     line-height: 1.4em;
     font-style: normal;
     border-collapse: separate;
-    display: flex;
-    flex-direction: column;
+    /*display: flex;*/
+    /*flex-direction: column;*/
     width: 100%;
 }
 
@@ -87,7 +87,7 @@
     text-shadow: 1px 1px 1px #568F23;
     border-bottom: 3px solid #9ED929;
     border-radius: 5px;
-    min-width: 18%;
+    /*min-width: 18%;*/
     background: transparent;
     margin: 2px;
 }
@@ -161,9 +161,10 @@
 
 /*style for the previous image for this product*/
 .product-image {
-    min-width: 20%;
-    max-width: 30%;
-    height: 30%;
+    max-width: 200px;
+    max-height: 200px;
+    width: 100%;
+    height: 100%;
 }
 
 .product-image:hover {
