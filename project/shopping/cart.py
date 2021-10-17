@@ -71,4 +71,4 @@ def shopping_cart():
         else:
             res[shopper] = [item]
 
-        return render_template("shopping/shopping_cart.html", cart_dict=res)
+    return render_template("shopping/shopping_cart.html", cart_dict=res)

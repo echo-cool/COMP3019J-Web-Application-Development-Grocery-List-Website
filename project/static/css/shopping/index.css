@@ -190,31 +190,30 @@
     width: 360px;
     border: 1px #ddd solid;
     height: 430px;
-    margin: 20px;
+    margin: 10px 10px 10px 20px;
 }
 
 .right-img-area {
     overflow: hidden;
-    width: 558px;
+    min-width: 80%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 20px;
+    margin: 10px;
 }
 
 .right-small-img {
-    width: 600px;
-    margin: -10px 0 0 -20px;
-    border-color: orange;
-    padding: 10px;
+    min-width: 20%;
+    margin: 2px;
+    border: 1px solid orange;
+    padding: 20px;
 }
 
 #right-small-image {
-    width: 250px;
-    height: 270px;
-    margin: 10px;
-
+    width: 190px;
+    height: 210px;
+    margin: 5px;
 }
 
 #right-small-image:hover {
@@ -264,7 +263,7 @@
 
 .index-item-image {
     width: 240px;
-    height: 200px;
+    height: 250px;
 }
 
 .index-item-image:hover {
