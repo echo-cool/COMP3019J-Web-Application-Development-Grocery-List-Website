@@ -98,14 +98,16 @@
     {% for shop in shop_sellers %}
         <div class="index-product-view-title">
             <h1 class="product-view-title-text">
-                Shop Name: {{ shop.username }}
+                <a href="{{ url_for("item.show_all_items", userid=shop.id) }}">
+                    Shop Name: {{ shop.username }}
+                </a>
             </h1>
         </div>
         <div class="index-item-container-box">
             <div class="index-shoes-container">
                 <div class="index-shoes-box">
                     <div class="left-big-img">
-                        <a href="#" target="_blank">
+                        <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
                             <img width="330" height="400" src="../../static/image/shopping/sales.png">
                         </a>
                         <br>
