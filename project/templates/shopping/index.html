@@ -85,21 +85,16 @@
                         <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
                         <p class="index-item-description">{{ item.description }}</p>
                     </div>
-
-
                 </div>
             {% endfor %}
-
-
         </div>
-
     </div>
 
     <br>
     <br>
 
     {# Shops area#}
-    {#    Separate shops based on their sellers#}
+    {# Separate shops based on their sellers#}
     {% for shop in shop_sellers %}
         <div class="index-product-view-title">
             <h1 class="product-view-title-text">
@@ -114,7 +109,7 @@
                             <img width="330" height="400" src="../../static/image/shopping/sales.png">
                         </a>
                         <br>
-                        <a href=""><span class="button-default">Click here to view more in this shop</span></a>
+                        <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> <span class="button-default">Click here to view more in this shop</span></a>
                     </div>
                     <div class="right-img-area">
 
@@ -142,36 +137,36 @@
     {% endfor %}
 
 
-{#    <div class="index-product-view-title">#}
-{#        <h1 class="product-view-title-text">Shops Zone</h1>#}
-{#    </div>#}
-{#    <div class="index-item-container-box">#}
-{#        <div class="index-shoes-container">#}
-{#            <div class="index-shoes-box">#}
-{#                <div class="left-big-img">#}
-{#                    <a href="#" target="_blank">#}
-{#                        <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>#}
-{#                </div>#}
-{#                <div class="right-img-area">#}
-{#                    <div class="right-small-img">#}
-{#                        <a href="#" target="_blank">#}
-{#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-{#                        <a href="#" target="_blank">#}
-{#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-{#                        <a href="#" target="_blank">#}
-{#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-{#                        <a href="#" target="_blank">#}
-{#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-{#                        <a href="#" target="_blank">#}
-{#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-{#                        <a href="#" target="_blank">#}
-{#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    {#    <div class="index-product-view-title">#}
+    {#        <h1 class="product-view-title-text">Shops Zone</h1>#}
+    {#    </div>#}
+    {#    <div class="index-item-container-box">#}
+    {#        <div class="index-shoes-container">#}
+    {#            <div class="index-shoes-box">#}
+    {#                <div class="left-big-img">#}
+    {#                    <a href="#" target="_blank">#}
+    {#                        <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>#}
+    {#                </div>#}
+    {#                <div class="right-img-area">#}
+    {#                    <div class="right-small-img">#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+    {#                        <a href="#" target="_blank">#}
+    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
 
 
 
