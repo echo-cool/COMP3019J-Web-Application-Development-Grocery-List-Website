@@ -230,3 +230,25 @@ h3 {
     );
     margin-top: 10px;
 }
+
+/*the style for removing items from the shopping*/
+.incorrect:before {
+    content: '\2716';
+    color: #b20610;
+}
+
+
+.manage-items-modify {
+    padding: 5px;
+    background-color: #efefef;
+    color: #616060;
+}
+
+.manage-items-modify:hover {
+    color: orange;
+    border-color: #eddf4d;
+}
+
+a {
+    text-decoration: none;
+}

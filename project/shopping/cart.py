@@ -18,10 +18,11 @@ from project.models.UserModel import User
 blueprint = Blueprint("cart", __name__, static_folder="../static")
 
 
-@blueprint.route("/cart/remove", methods=["POST"])
+@blueprint.route("/cart/remove", methods=["GET", "POST"])
 @login_required
 def remove_from_cart():
     itemID = request.form.get('itemID')
+    print(itemID)
     user = current_user
     cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
     if cart_entry:

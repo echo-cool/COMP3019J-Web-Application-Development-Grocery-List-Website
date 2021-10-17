@@ -1,40 +1,8 @@
 {% extends "/base/base.html" %}
 
 {% block title %}
-    Shopping
+    Shopping Cart
 {% endblock %}
-{% block js %}
-    <script type="javascript">
-        // add container
-        var datas = {
-            p001: {pname: 'dd', price: 7999, src: ''}
-        }
-        // click event
-        $('.buy').click(function () {
-            var pid = $(this).attr('data-pid')
-            // get the item that you add to the shopping cart
-            var info = datas[pid]
-            var isExist = false // default: do not exist
-            // loop through
-            var index = 0; // receive the index that matches the index
-            $('tbody>tr').each(function (idx, ele) {
-                if (pid == $(ele).attr('data-pid')) {
-                    isExist = true // if duplicate, set it to true
-                    index = idx;
-                }
-            })
-            // trigger the add function
-            if (isExist) {
-                $('tbody>tr').eq(index).find('.add').trigger('click') // trigger the add click event
-            } else {
-
-            }
-        })
-
-    </script>
-{% endblock %}
-
-
 
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
@@ -49,12 +17,6 @@
             <br>
             <br>
             <table class="shopping-cart-box-table">
-                {#    <tfoot>#}
-                {#      <tr>#}
-                {#        <th scope="row">This is the foot area</th>#}
-                {#        <td>dddd</td>#}
-                {#      </tr>#}
-                {#    </tfoot>#}
                 <thead>
                 <tr>
                     <th class="cancel-column">Select All</th>
@@ -91,16 +53,15 @@
                         </td>
                         <td>{{ item.price * item.count}}</td>
 
-                        <td class="cancel-column">
-                            <button class="incorrect"></button>
+                        <td>
+                            <a href="{{ url_for("cart.remove_from_cart",itemID=item.id) }}">
+                                <div class="manage-items-modify incorrect">
+                                Remove
+                            </div>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
-{#                    {% for value in res[r] %}#}
-{#                        {{ res[r] }}#}
-{#                        <br>#}
-{#                    {% endfor %}#}
-{#                    <hr>#}
                 {% endfor %}
 {#                {% for i in shopping_cart_items %}#}
 {#                    <tr>#}
