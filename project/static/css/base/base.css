@@ -127,3 +127,7 @@ body {
 .button-default:hover span {
     top: -100%;
 }
+
+a {
+    text-decoration: none;
+}

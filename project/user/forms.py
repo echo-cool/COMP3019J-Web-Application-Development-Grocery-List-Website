@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired
 
 class UpdateUser(FlaskForm):
     username = StringField("Username", validators=[DataRequired(), ])
-    email = StringField("Email", validators=[DataRequired(),])
+    email = StringField("Email", validators=[DataRequired(), ])
     password = StringField("Username", validators=[])
     image_file = FileField("Upload Image", validators=[
         FileAllowed(['png', 'jpg', 'jpeg'], 'Only allow png, jpg')

@@ -187,10 +187,15 @@
 }
 
 .left-big-img {
-    width: 360px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+    min-width: 25%;
     border: 1px #ddd solid;
-    height: 430px;
-    margin: 10px 10px 10px 20px;
+    height: 450px;
+    margin: 15px 15px;
 }
 
 .right-img-area {

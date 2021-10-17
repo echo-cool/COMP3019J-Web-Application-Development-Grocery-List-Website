@@ -111,40 +111,27 @@
                 <div class="index-shoes-box">
                     <div class="left-big-img">
                         <a href="#" target="_blank">
-                            <img width="330" height="400" src="../../static/image/shopping/1x.png"></a>
+                            <img width="330" height="400" src="../../static/image/shopping/sales.png">
+                        </a>
+                        <br>
+                        <a href=""><span class="button-default">Click here to view more in this shop</span></a>
                     </div>
                     <div class="right-img-area">
 
-                            {% for item in shop_sellers[shop] %}
-{#                                <div class="right-small-img">#}
-{#                                 <a href="{{ url_for("item.details", itemID=item.id) }}"> <img id="right-small-image"#}
-{#                                                                                  src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-{#                                                                                  value="Item Image"></a>#}
-{#                                <img id="right-small-image"#}
-{#                                     src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"></a>#}
-{#                                    <div class="index-item-text">#}
-{#                        <p class="index-item-price">$ {{ item.price }}</p>#}
-{#                        <a class="index-item-name"#}
-{#                           href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>#}
-{#                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>#}
-{#                        <p class="index-item-description">{{ item.description }}</p>#}
-{#                    </div>#}
-{#                                </div>#}
-                                <div class="index-item">
-                    <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
-                                                                                  src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                                                  value="Item Image"></a>
-                    <div class="index-item-text">
-                        <p class="index-item-price">$ {{ item.price }}</p>
-                        <a class="index-item-name"
-                           href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
-                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                        <p class="index-item-description">{{ item.description }}</p>
-                    </div>
-
-
-                </div>
-                            {% endfor %}
+                        {% for item in shop_sellers[shop][:3] %}
+                            <div class="index-item">
+                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
+                                                                                              src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                                                              value="Item Image"></a>
+                                <div class="index-item-text">
+                                    <p class="index-item-price">$ {{ item.price }}</p>
+                                    <a class="index-item-name"
+                                       href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                    <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                    <p class="index-item-description">{{ item.description }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
 
                     </div>
 
@@ -155,36 +142,36 @@
     {% endfor %}
 
 
-    <div class="index-product-view-title">
-        <h1 class="product-view-title-text">Shops Zone</h1>
-    </div>
-    <div class="index-item-container-box">
-        <div class="index-shoes-container">
-            <div class="index-shoes-box">
-                <div class="left-big-img">
-                    <a href="#" target="_blank">
-                        <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>
-                </div>
-                <div class="right-img-area">
-                    <div class="right-small-img">
-                        <a href="#" target="_blank">
-                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>
-                        <a href="#" target="_blank">
-                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>
-                        <a href="#" target="_blank">
-                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>
-                        <a href="#" target="_blank">
-                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>
-                        <a href="#" target="_blank">
-                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>
-                        <a href="#" target="_blank">
-                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+{#    <div class="index-product-view-title">#}
+{#        <h1 class="product-view-title-text">Shops Zone</h1>#}
+{#    </div>#}
+{#    <div class="index-item-container-box">#}
+{#        <div class="index-shoes-container">#}
+{#            <div class="index-shoes-box">#}
+{#                <div class="left-big-img">#}
+{#                    <a href="#" target="_blank">#}
+{#                        <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>#}
+{#                </div>#}
+{#                <div class="right-img-area">#}
+{#                    <div class="right-small-img">#}
+{#                        <a href="#" target="_blank">#}
+{#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+{#                        <a href="#" target="_blank">#}
+{#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+{#                        <a href="#" target="_blank">#}
+{#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
+{#                        <a href="#" target="_blank">#}
+{#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+{#                        <a href="#" target="_blank">#}
+{#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+{#                        <a href="#" target="_blank">#}
+{#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 
 
 
@@ -232,7 +219,7 @@
                     decreaseTime()
                     increaseTime()
                     getPosition()
-                }, 2000)
+                }, 1200)
             }
 
             // Set the button, left for the left button, because when you click the picture will be backwards in the opposite direction,

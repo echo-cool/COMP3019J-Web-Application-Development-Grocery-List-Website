@@ -134,3 +134,13 @@ def addNewItem():
             db.session.rollback()
 
     return render_template("item/add.html", form=form)
+
+
+@blueprint.route("/item/show/<int:userid>", methods=["POST", "GET"])
+@login_required
+def show_all_items(userid):
+    # user = User.query.filter_by(username=username).first()
+    # print(user)
+    items = Item.query.filter_by(owner=userid).all()
+    print(items)
+    return render_template("shopping/shopper_all_items.html", items=items)

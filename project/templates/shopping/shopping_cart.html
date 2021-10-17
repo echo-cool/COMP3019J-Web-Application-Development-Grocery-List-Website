@@ -20,6 +20,7 @@
                     <thead>
                     <tr>
                         <th class="cancel-column">Select All</th>
+                        <th class="index-item-image-box">Name</th>
                         <th class="index-item-image-box">Image</th>
                         <th>Price</th>
                         <th class="number-margin">Number</th>
@@ -31,11 +32,14 @@
                     {% for shop in cart_dict %}
 
                         <tr id="shopping-cart-seller">
-                            <th colspan="6">Shop Name: {{ shop.username }}</th>
+                            <th colspan="7">Shop Name: {{ shop.username }}</th>
                         </tr>
                         {% for item in cart_dict[shop] %}
                             <tr>
                                 <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+                                <td>
+                                    {{ item.name }}
+                                </td>
                                 <td class="index-item-image-box"><a
                                         href="{{ url_for("item.details", itemID=item.id) }}"><img
                                         class="index-item-image"
