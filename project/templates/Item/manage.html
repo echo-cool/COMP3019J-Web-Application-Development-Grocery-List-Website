@@ -18,7 +18,7 @@
             <h1>Manage My Items</h1>
             <br>
             <br>
-            <h1 class="h2">Display My Items</h1>
+            <h1 class="h2">Display & Remove & Modify & Add</h1>
             <br>
             <br>
             <table class="manage-items-box-table">
@@ -67,7 +67,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ url_for("item.DeleteItem",itemID=item.id) }}">
+                            <a href="{{ url_for("item.DeleteItem",item_id=item.id) }}">
                                 <div class="manage-items-modify incorrect">
                                     Delete
                                 </div>

@@ -88,11 +88,7 @@
                         <li><a href="{{ url_for("user.info") }}">Hello, {{ current_user.username }}</a></li>
                         <li>|</li>
                         <li class="nav-title_shopping_cart">
-                            &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}">Display My Items</a>
-                        </li>
-                        <li>|</li>
-                        <li class="nav-title_shopping_cart">
-                            &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}">Manage My Items</a>
+                            &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}">My Items</a>
                         </li>
                         <li>|</li>
                         <li class="nav-title_shopping_cart">
@@ -105,7 +101,7 @@
                             <li><a href="/item/add">Add Item</a></li>
                         {% endif %}
 
-                        <li><a href="{{ url_for("user.logout") }}">logout</a></li>
+                        <li><a href="{{ url_for("user.logout") }}">Logout</a></li>
 
                     {% else %}
                         <li class="login">
