@@ -29,7 +29,7 @@
                     <th>Price</th>
                     <th class="number-margin">Number</th>
                     <th>Total</th>
-                    <th class="cancel-column">Cancel</th>
+{#                    <th class="cancel-column">Cancel</th>#}
                     <th class="cancel-column">Modify</th>
                     <th class="cancel-column">Delete</th>
                 </tr>
@@ -55,9 +55,9 @@
                         </td>
                         <td>{{ item.price }}</td>
 
-                        <td class="cancel-column">
-                            <button class="incorrect"></button>
-                        </td>
+{#                        <td class="cancel-column">#}
+{#                            <button class="incorrect"></button>#}
+{#                        </td>#}
                         <td>
                             <a class="manage-items-link" href="{{ url_for("item.ModifyNewItem",item_id=item.id) }}">
                                 <div class="manage-items-modify">
@@ -67,7 +67,7 @@
                         </td>
                         <td>
                             <a class="manage-items-link" href="{{ url_for("item.DeleteItem",item_id=item.id) }}">
-                                <div class="manage-items-modify">
+                                <div class="manage-items-modify incorrect">
                                     Delete
                                 </div>
                             </a>

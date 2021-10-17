@@ -427,3 +427,14 @@ a {
     text-decoration: none;
 }
 
+
+.delete-items-modify {
+    padding: 5px;
+    background-color: #efefef;
+    color: #616060;
+}
+
+.delete-items-modify:hover {
+    color: orange;
+    border-color: #eddf4d;
+}
