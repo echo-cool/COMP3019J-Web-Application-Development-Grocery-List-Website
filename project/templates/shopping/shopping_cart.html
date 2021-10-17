@@ -69,7 +69,7 @@
                 {% for shop in cart_dict %}
 
                     <tr id="shopping-cart-seller">
-                        <th colspan="6">{{ shop.username }}</th>
+                        <th colspan="6">Shop Name: {{ shop.username }}</th>
                     </tr>
                     {% for item in cart_dict[shop] %}
                     <tr>
