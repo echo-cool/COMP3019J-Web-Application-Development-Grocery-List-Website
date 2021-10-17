@@ -56,6 +56,35 @@ def add_to_cart():
     flash("Successfully added " + str(itemCount) + " " + str(item.name) + " to your cart !")
     return redirect(url_for('item.details', itemID=itemID))
 
+@blueprint.route("/cart/set", methods=["POST"])
+@login_required
+def set_to_cart():
+    itemID = request.form.get('itemID')
+    itemCount = request.form.get('itemCount')
+    user = current_user
+    item = Item.get_by_id(itemID)
+    cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+    if cart_entry:
+        current_count = cart_entry.count
+        if(int(itemCount) <= 0):
+            cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+            if cart_entry:
+                cart_entry.delete()
+            flash("Removed Successfully")
+            return redirect(url_for('cart.shopping_cart', itemID=itemID))
+        cart_entry.update(
+            count= int(itemCount)
+        )
+    else:
+        Cart.create(
+            item_id=itemID,
+            user_id=user.id,
+            count=itemCount
+        )
+
+    return redirect(url_for('cart.shopping_cart', itemID=itemID))
+
+
 
 @blueprint.route("/cart", methods=["GET", "POST"])
 @login_required
