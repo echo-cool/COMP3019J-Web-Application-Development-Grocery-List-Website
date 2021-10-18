@@ -8,7 +8,7 @@ from flask import (
 )
 from flask_login import login_user, login_required, current_user, logout_user
 
-from project import app, db
+from project import app, db, cache
 from project.models import ItemModel
 from project.models.Cart import Cart
 from project.models.ItemModel import Item
@@ -33,6 +33,7 @@ blueprint = Blueprint("index", __name__, static_folder="../static")
 #     return render_template("shopping/shopping_cart.html", cart_dict=res)
 
 @blueprint.route("/", methods=["GET", "POST"])
+@cache.cached(timeout=50)
 def home() -> str:
     all_items = Item.query.all()
     shop_sellers = {}

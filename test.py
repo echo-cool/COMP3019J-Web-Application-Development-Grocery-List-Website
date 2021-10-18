@@ -21,7 +21,7 @@ print(app.blueprints)
 print(app.config)
 print(app.view_functions)
 
-
+print(app.app_context())
 print(Item.query.all())
 print(User.query.all())
 print(Cart.query.all())

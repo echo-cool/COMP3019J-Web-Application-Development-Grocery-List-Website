@@ -14,16 +14,17 @@ app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SECRET_KEY'] = 'ec9439cfc6d796ae3029594d'
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 csrf_protect = CSRFProtect(app)
 migrate = Migrate(app, db)
 debug_toolbar = DebugToolbarExtension(app)
 flask_static_digest = FlaskStaticDigest(app)
-cache = Cache(app)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 login_manager = LoginManager(app)
-login_manager.login_view="login.login"
+login_manager.login_view = "login.login"
 bcrypt = Bcrypt(app)
 admin = Admin(app)
 
 from project import init
-
