@@ -1,0 +1,50 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Orders
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/shopping/order.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="shopping-cart-big-box">
+        <div id="shopping-cart-box">
+            {% if isshopper %}
+                <p class="shopping-cart-box-head"> Seller </p>
+                <h1>Orders from your shop</h1>
+                <br>
+                <br>
+                {% for order_id in orders %}
+                    {{ order_id }}
+                    {% for order in orders[order_id] %}
+                        {{ order }}
+                    {% endfor %}
+                    <br>
+                    <br>
+
+                {% endfor %}
+            {% else %}
+                <p class="shopping-cart-box-head"> Customer </p>
+                <h1>Check your orders</h1>
+                <br>
+                <br>
+                {% for order_id in orders %}
+                    {{ order_id }}
+                    {% for order in orders[order_id] %}
+                        {{ order }}
+                    {% endfor %}
+                    <br>
+                    <br>
+
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -10,6 +10,7 @@ from flask_login import current_user
 from project import app, shopping, login, item, admin, db, user
 from project.models.CategoryModel import Category
 from project.models.ItemModel import Item
+from project.models.OrderModel import Order
 from project.models.UserModel import User, Role
 from project.models.Cart import Cart
 from project.shopping import shop
@@ -19,6 +20,7 @@ app.register_blueprint(shopping.view.blueprint)
 app.register_blueprint(shopping.cart.blueprint)
 app.register_blueprint(shopping.shop.blueprint)
 app.register_blueprint(shopping.checkout.blueprint)
+app.register_blueprint(shopping.order.blueprint)
 app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
 app.register_blueprint(user.view.blueprint)
@@ -45,6 +47,7 @@ admin.add_view(ModelView(Item, db.session, name="items", endpoint="items"))
 admin.add_view(ModelView(Role, db.session, name="roles", endpoint="roles"))
 admin.add_view(ModelView(Cart, db.session, name="Cart", endpoint="Cart"))
 admin.add_view(ModelView(Category, db.session, name="Category", endpoint="Category"))
+admin.add_view(ModelView(Order, db.session, name="Order", endpoint="Order"))
 admin.add_view(FileAdmin("."))
 
 

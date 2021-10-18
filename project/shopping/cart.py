@@ -14,12 +14,14 @@ from project.models import ItemModel
 from project.models.Cart import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
+from project.utils import buyer_required
 
 blueprint = Blueprint("cart", __name__, static_folder="../static")
 
 
 @blueprint.route("/cart/remove", methods=["GET", "POST"])
 @login_required
+@buyer_required
 def remove_from_cart() -> Response:
     itemID: int = request.form.get('itemID')
     user: User = current_user
@@ -34,6 +36,7 @@ def remove_from_cart() -> Response:
 
 @blueprint.route("/cart/add", methods=["POST"])
 @login_required
+@buyer_required
 def add_to_cart() -> Response:
     itemID: int = request.form.get('itemID')
     itemCount: int = request.form.get('itemCount')
@@ -58,6 +61,7 @@ def add_to_cart() -> Response:
 
 @blueprint.route("/cart/set", methods=["POST"])
 @login_required
+@buyer_required
 def set_to_cart() -> Response:
     itemID: int = request.form.get('itemID')
     itemCount: int = request.form.get('itemCount')
@@ -86,6 +90,7 @@ def set_to_cart() -> Response:
 
 @blueprint.route("/cart", methods=["GET", "POST"])
 @login_required
+@buyer_required
 def shopping_cart() -> str:
     user: User = current_user
     cart: Cart = Cart.query.filter_by(user_id=user.id).all()

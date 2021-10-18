@@ -24,3 +24,15 @@ def seller_required(func):
             return redirect(url_for("index.home"))
 
     return decorated_view
+
+
+def buyer_required(func):
+    @wraps(func)
+    def decorated_view(*args, **kwargs):
+        if current_user.is_authenticated and not current_user.is_shopper:
+            return func(*args, **kwargs)
+        else:
+            flash("You must be buyer to access this page !")
+            return redirect(url_for("index.home"))
+
+    return decorated_view

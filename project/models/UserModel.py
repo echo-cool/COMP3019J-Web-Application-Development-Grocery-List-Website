@@ -46,6 +46,8 @@ class User(UserMixin, PkModel):
     is_shopper = Column(db.Boolean(), default=False)
     items = db.relationship("Item", backref='owned_user', lazy=True)
     cart = db.relationship("Cart", backref='cart_user', lazy=True)
+    order = db.relationship("Order", backref='order_user', lazy=True)
+    # order_shopper = db.relationship("Order", backref='order_shopper_user', lazy=True)
 
     def __init__(self, username: str, email:str, password=None, **kwargs):
         """Create instance."""

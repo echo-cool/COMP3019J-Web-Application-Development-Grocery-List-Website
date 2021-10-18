@@ -56,7 +56,8 @@ def login():
         return redirect(url_for("index.home"))
 
     else:
-        flash("Error", "error")
+        pass
+        # flash("Error", "error")
         # flash_errors(login_form)
         # flash_errors(register_from)
 
