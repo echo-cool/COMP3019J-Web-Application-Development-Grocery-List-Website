@@ -1,6 +1,7 @@
 import os
 
-from project import app
+from project import app, db
+from project.models.Cart import Cart
 
 from project.models.ItemModel import Item
 from project.models.UserModel import User
@@ -19,3 +20,8 @@ from project.models.UserModel import User
 print(app.blueprints)
 print(app.config)
 print(app.view_functions)
+
+
+print(Item.query.all())
+print(User.query.all())
+print(Cart.query.all())
