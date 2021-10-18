@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, Response
 from flask import (
     Blueprint,
     flash,
@@ -20,11 +20,10 @@ blueprint = Blueprint("cart", __name__, static_folder="../static")
 
 @blueprint.route("/cart/remove", methods=["GET", "POST"])
 @login_required
-def remove_from_cart():
-    itemID = request.form.get('itemID')
-    print(itemID)
-    user = current_user
-    cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+def remove_from_cart() -> Response:
+    itemID: int = request.form.get('itemID')
+    user: User = current_user
+    cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
 
     if cart_entry:
         cart_entry.delete()
@@ -35,14 +34,14 @@ def remove_from_cart():
 
 @blueprint.route("/cart/add", methods=["POST"])
 @login_required
-def add_to_cart():
-    itemID = request.form.get('itemID')
-    itemCount = request.form.get('itemCount')
-    user = current_user
-    item = Item.get_by_id(itemID)
-    cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+def add_to_cart() -> Response:
+    itemID: int = request.form.get('itemID')
+    itemCount: int = request.form.get('itemCount')
+    user: User = current_user
+    item: Item = Item.get_by_id(itemID)
+    cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
     if cart_entry:
-        current_count = cart_entry.count
+        current_count: int = cart_entry.count
         cart_entry.update(
             count=int(current_count) + int(itemCount)
         )
@@ -56,24 +55,24 @@ def add_to_cart():
     flash("Successfully added " + str(itemCount) + " " + str(item.name) + " to your cart !")
     return redirect(url_for('item.details', itemID=itemID))
 
+
 @blueprint.route("/cart/set", methods=["POST"])
 @login_required
-def set_to_cart():
-    itemID = request.form.get('itemID')
-    itemCount = request.form.get('itemCount')
-    user = current_user
-    item = Item.get_by_id(itemID)
-    cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+def set_to_cart() -> Response:
+    itemID: int = request.form.get('itemID')
+    itemCount: int = request.form.get('itemCount')
+    user: User = current_user
+    item: Item = Item.get_by_id(itemID)
+    cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
     if cart_entry:
-        current_count = cart_entry.count
-        if(int(itemCount) <= 0):
-            cart_entry = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+        if int(itemCount) <= 0:
+            cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
             if cart_entry:
                 cart_entry.delete()
             flash("Removed Successfully")
             return redirect(url_for('cart.shopping_cart', itemID=itemID))
         cart_entry.update(
-            count= int(itemCount)
+            count=int(itemCount)
         )
     else:
         Cart.create(
@@ -85,19 +84,18 @@ def set_to_cart():
     return redirect(url_for('cart.shopping_cart', itemID=itemID))
 
 
-
 @blueprint.route("/cart", methods=["GET", "POST"])
 @login_required
-def shopping_cart():
-    user = current_user
-    cart = Cart.query.filter_by(user_id=user.id).all()
-    res = {}
-    total_price = 0
+def shopping_cart() -> str:
+    user: User = current_user
+    cart: Cart = Cart.query.filter_by(user_id=user.id).all()
+    res: dict = {}
+    total_price: int = 0
     for i in cart:
-        shop_user_id = i.get_shop_userID()
-        item_id = i.item_id
-        item = Item.get_by_id(item_id)
-        shopper = User.get_by_id(shop_user_id)
+        shop_user_id: int = i.get_shop_userID()
+        item_id: int = i.item_id
+        item: Item = Item.get_by_id(item_id)
+        shopper: User = User.get_by_id(shop_user_id)
         item.count = i.count
         total_price += item.price * i.count
 
@@ -106,4 +104,4 @@ def shopping_cart():
         else:
             res[shopper] = [item]
 
-    return render_template("shopping/shopping_cart.html", cart_dict=res, total_price = total_price)
+    return render_template("shopping/shopping_cart.html", cart_dict=res, total_price=total_price)

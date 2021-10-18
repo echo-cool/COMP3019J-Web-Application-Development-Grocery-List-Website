@@ -33,7 +33,7 @@ blueprint = Blueprint("index", __name__, static_folder="../static")
 #     return render_template("shopping/shopping_cart.html", cart_dict=res)
 
 @blueprint.route("/", methods=["GET", "POST"])
-def home():
+def home() -> str:
     all_items = Item.query.all()
     shop_sellers = {}
     for item in all_items:
@@ -49,5 +49,5 @@ def home():
 
 
 @blueprint.route("/about", methods=["GET", "POST"])
-def about():
+def about() -> str:
     return render_template("about/about.html")

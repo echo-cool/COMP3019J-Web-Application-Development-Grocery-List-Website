@@ -4,9 +4,10 @@ from functools import wraps
 
 from flask import flash, redirect, url_for
 from flask_login import current_user
+from flask_wtf import FlaskForm
 
 
-def flash_errors(form, category="warning"):
+def flash_errors(form: FlaskForm, category="warning"):
     """Flash all errors for a form."""
     for field, errors in form.errors.items():
         for error in errors:

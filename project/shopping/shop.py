@@ -19,7 +19,7 @@ blueprint = Blueprint("shop", __name__, static_folder="../static")
 
 
 @blueprint.route("/shop/<int:userID>", methods=["POST", "GET"])
-def shop(userID):
+def shop(userID: int) -> str:
     items = Item.query.filter_by(owner=userID).all()
     return str(len(items))
 

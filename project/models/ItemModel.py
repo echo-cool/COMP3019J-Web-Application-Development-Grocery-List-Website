@@ -28,6 +28,6 @@ class Item(PkModel):
         self.owner = owner
         super().__init__()
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'<Item:{self.name},price:{self.price},description:{self.description},inventory:{self.inventory},' \
                f'main_image_url:{self.main_image_url},owner:{self.owner}> '

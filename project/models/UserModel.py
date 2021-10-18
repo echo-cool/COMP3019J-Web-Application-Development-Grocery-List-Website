@@ -47,7 +47,7 @@ class User(UserMixin, PkModel):
     items = db.relationship("Item", backref='owned_user', lazy=True)
     cart = db.relationship("Cart", backref='cart_user', lazy=True)
 
-    def __init__(self, username, email, password=None, **kwargs):
+    def __init__(self, username: str, email:str, password=None, **kwargs):
         """Create instance."""
         super().__init__(username=username, email=email, **kwargs)
         if password:
@@ -55,19 +55,19 @@ class User(UserMixin, PkModel):
         else:
             self.password = None
 
-    def set_password(self, password):
+    def set_password(self, password:str):
         """Set password."""
         self.password = bcrypt.generate_password_hash(password)
 
-    def check_password(self, value):
+    def check_password(self, value:str) -> bool:
         """Check password."""
         return bcrypt.check_password_hash(self.password, value)
 
     @property
-    def full_name(self):
+    def full_name(self) -> str:
         """Full user name."""
         return f"{self.first_name} {self.last_name}"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Represent instance as a unique string."""
         return f"<User(ID:{self.id},Name:{self.username!r})>"

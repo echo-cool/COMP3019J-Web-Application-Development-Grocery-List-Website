@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, flash, current_app, url_for
+from flask import Blueprint, render_template, flash, current_app, url_for, Response
 from flask_login import current_user, login_required
 from werkzeug.utils import secure_filename, redirect
 
@@ -14,7 +14,7 @@ blueprint = Blueprint("item", __name__, static_folder="../static")
 
 
 @blueprint.route("/item/<int:itemID>", methods=["GET", "POST"])
-def details(itemID):
+def details(itemID: int) -> str:
     item = Item.get_by_id(itemID)
     owner = User.get_by_id(item.owner);
     return render_template("shopping/product_details.html", item=item, shop=owner)
@@ -23,7 +23,7 @@ def details(itemID):
 @blueprint.route("/item/manage", methods=["POST", "GET"])
 @login_required
 @seller_required
-def ManageItem():
+def ManageItem() -> str:
     user = current_user
     items = Item.query.filter_by(
         owner=user.id,
@@ -66,7 +66,7 @@ def ManageItem():
 @blueprint.route("/item/delete/<int:item_id>", methods=["POST", "GET"])
 @login_required
 @seller_required
-def DeleteItem(item_id):
+def DeleteItem(item_id: int) -> Response:
     item = Item.get_by_id(item_id)
     item.delete()
     flash("Delete Success")
@@ -76,7 +76,7 @@ def DeleteItem(item_id):
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
 @login_required
 @seller_required
-def ModifyNewItem(item_id):
+def ModifyNewItem(item_id: int) -> str:
     item = Item.get_by_id(item_id)
     form = UpdateItem()
     print(form.validate_on_submit())
@@ -105,7 +105,7 @@ def ModifyNewItem(item_id):
 @blueprint.route("/item/add", methods=["POST", "GET"])
 @login_required
 @seller_required
-def addNewItem():
+def addNewItem() -> str:
     form = AddNewItem()
     # print(form.data)
     print(form.validate_on_submit())
@@ -143,7 +143,7 @@ def addNewItem():
 
 @blueprint.route("/item/show/<int:userid>", methods=["POST", "GET"])
 @login_required
-def show_all_items(userid):
+def show_all_items(userid: int) -> str:
     # user = User.query.filter_by(username=username).first()
     # print(user)
     user = User.query.filter_by(id=userid).first()
