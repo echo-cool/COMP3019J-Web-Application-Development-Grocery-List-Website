@@ -34,7 +34,7 @@ test:
 
 run:
   script:
-    - python run.py
+    - python test.py
   timeout: 0h 1m
     # an alternative approach is to install and run:
     # - pip install dist/*
