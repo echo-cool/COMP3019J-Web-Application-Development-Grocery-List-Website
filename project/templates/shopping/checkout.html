@@ -1,11 +1,11 @@
 {% extends "/base/base.html" %}
 
 {% block title %}
-    Shopping Cart
+    Confirm You Order
 {% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+    <link rel="stylesheet" href="../../static/css/shopping/checkout.css">
 {% endblock %}
 
 {% block content %}
@@ -13,20 +13,19 @@
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Customer </p>
-            <h1>My Shopping Cart</h1>
+            <h1>Confirm You Order</h1>
             <br>
             <br>
-            Total Price: {{ total_price }}
             <table class="shopping-cart-box-table">
                 <thead>
                 <tr>
-                    <th class="cancel-column">Select All</th>
+{#                    <th class="cancel-column">Select All</th>#}
                     <th class="index-item-image-box">Name</th>
                     <th class="index-item-image-box">Image</th>
                     <th>Price</th>
                     <th class="number-margin">Number</th>
                     <th>Total</th>
-                    <th class="cancel-column">Cancel</th>
+{#                    <th class="cancel-column">Cancel</th>#}
                 </tr>
                 </thead>
                 <tbody>
@@ -37,7 +36,7 @@
                     </tr>
                     {% for item in cart_dict[shop] %}
                         <tr>
-                            <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+{#                            <th class="cancel-column"><input type="checkbox" checked="checked"></th>#}
                             <td>
                                 {{ item.name }}
                             </td>
@@ -49,40 +48,40 @@
                             </td>
                             <td>{{ item.price }}</td>
                             <td class="sub-add-button">
-                                <form action="{{ url_for("cart.set_to_cart") }}" method="post">
-                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                    <input type="hidden" name="itemID" value="{{ item.id }}">
-                                    <input type="hidden" name="itemCount" value="{{ item.count - 1 }}">
-                                    <input type="submit" value="-">
-                                </form>
-                                <input type="text" class="number" value="{{ item.count }}">
-                                <form action="{{ url_for("cart.set_to_cart") }}" method="post">
-                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                    <input type="hidden" name="itemID" value="{{ item.id }}">
-                                    <input type="hidden" name="itemCount" value="{{ item.count + 1 }}">
-                                    <input type="submit" value="+">
-                                </form>
+{#                                <form action="{{ url_for("cart.set_to_cart") }}" method="post">#}
+{#                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>#}
+{#                                    <input type="hidden" name="itemID" value="{{ item.id }}">#}
+{#                                    <input type="hidden" name="itemCount" value="{{ item.count - 1 }}">#}
+{#                                    <input type="submit" value="-">#}
+{#                                </form>#}
+                                <input disabled="disabled" type="text" class="number" value="{{ item.count }}">
+{#                                <form action="{{ url_for("cart.set_to_cart") }}" method="post">#}
+{#                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>#}
+{#                                    <input type="hidden" name="itemID" value="{{ item.id }}">#}
+{#                                    <input type="hidden" name="itemCount" value="{{ item.count + 1 }}">#}
+{#                                    <input type="submit" value="+">#}
+{#                                </form>#}
                             </td>
                             <td>{{ item.price * item.count }}</td>
 
-                            <td>
-                                <div class="product-action-buttons">
-                                    <form action="{{ url_for("cart.remove_from_cart") }}" method="post">
-                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                        <input type="hidden" name="itemID" value="{{ item.id }}">
-                                        <input class="removal-items-cart" type="submit"
-                                               value="Remove from Shopping Cart"
-                                               name="submit">
-                                    </form>
-                                </div>
-                            </td>
+{#                            <td>#}
+{#                                <div class="product-action-buttons">#}
+{#                                    <form action="{{ url_for("cart.remove_from_cart") }}" method="post">#}
+{#                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>#}
+{#                                        <input type="hidden" name="itemID" value="{{ item.id }}">#}
+{#                                        <input class="removal-items-cart" type="submit"#}
+{#                                               value="Remove from Shopping Cart"#}
+{#                                               name="submit">#}
+{#                                    </form>#}
+{#                                </div>#}
+{#                            </td>#}
                         </tr>
                     {% endfor %}
                 {% endfor %}
+                Total Price: {{ total_price }}
                 </tbody>
             </table>
-
-        <button class="button-default"><a href="{{ url_for("checkout.checkout_confirm") }}">Check Out</a></button>
+        <button class="button-default"> <a href="{{ url_for("checkout.checkout_pay") }}">Check out And Pay</a></button>
 
 
 

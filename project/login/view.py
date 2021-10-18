@@ -41,7 +41,7 @@ def login():
                 flash("Wrong password", "warning")
         else:
             flash("User not exist", "warning")
-            flash_errors(login_form)
+            # flash_errors(login_form)
 
     elif register_from.submit_register.data and register_from.validate_on_submit():
         print("Register")
@@ -56,7 +56,9 @@ def login():
         return redirect(url_for("index.home"))
 
     else:
-        flash_errors(login_form)
-        flash_errors(register_from)
+        pass
+        # flash("Error", "error")
+        # flash_errors(login_form)
+        # flash_errors(register_from)
 
     return render_template("login/login_register.html", login_form=login_form, register_from=register_from)

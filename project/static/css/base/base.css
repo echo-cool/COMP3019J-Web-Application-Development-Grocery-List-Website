@@ -42,6 +42,10 @@ body {
     font-size: 20px;
     padding: 10px;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 
 /*.content-container-box{*/
 /*    background-color: #efefef;*/

@@ -1,0 +1,52 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Pay
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/shopping/pay.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="shopping-cart-big-box">
+        <div id="shopping-cart-box">
+            <p class="shopping-cart-box-head"> Customer </p>
+            {% if pay_status %}
+                <h1>Pay Success</h1>
+                <br>
+                <br>
+
+                <h2>Thanks for ordering. We will deliver to you ASAP.</h2>
+                <br>
+                <br>
+                <a href="{{ url_for("index.home") }}">
+                    <button class="button-default">
+                        Go Home
+                    </button>
+                </a>
+
+            {% else %}
+                <h1>Pay</h1>
+                <br>
+                <br>
+
+                <h2>You Need to Pay: {{ total_price }}</h2>
+                <br>
+                <br>
+                <form action="" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input type="hidden" name="pay_now" value="{{ True }}">
+                    <button class="button-default">
+                        Confirm & Pay
+                    </button>
+                </form>
+
+            {% endif %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

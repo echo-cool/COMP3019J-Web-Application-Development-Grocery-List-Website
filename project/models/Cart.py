@@ -18,8 +18,8 @@ class Cart(PkModel):
         self.count = count;
         super().__init__()
 
-    def get_shop_userID(self):
+    def get_shop_userID(self) -> int:
         return Item.get_by_id(self.item_id).owner
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'<Item:{self.item_id},user:{self.user_id},count:{self.count},shop:{self.get_shop_userID()}>'

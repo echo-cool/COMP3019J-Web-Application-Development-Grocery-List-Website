@@ -17,6 +17,7 @@ class Item(PkModel):
     main_image_url = Column(db.VARCHAR(255), nullable=False, default="")
     owner = db.Column(db.Integer, db.ForeignKey("users.id"))
     cart = db.relationship("Cart", backref='cart_item', lazy=True)
+    order = db.relationship("Order", backref='order_item', lazy=True)
     category = Column(db.Integer, db.ForeignKey("category.id"), nullable=True, default=db.null)
 
     def __init__(self, name, price, description, inventory, main_image_url, owner) -> None:
@@ -28,6 +29,6 @@ class Item(PkModel):
         self.owner = owner
         super().__init__()
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'<Item:{self.name},price:{self.price},description:{self.description},inventory:{self.inventory},' \
                f'main_image_url:{self.main_image_url},owner:{self.owner}> '
