@@ -18,6 +18,7 @@ from project.shopping import shop
 app.register_blueprint(shopping.view.blueprint)
 app.register_blueprint(shopping.cart.blueprint)
 app.register_blueprint(shopping.shop.blueprint)
+app.register_blueprint(shopping.checkout.blueprint)
 app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
 app.register_blueprint(user.view.blueprint)
