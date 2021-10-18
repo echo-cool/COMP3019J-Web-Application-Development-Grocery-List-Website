@@ -27,4 +27,6 @@ login_manager.login_view = "login.login"
 bcrypt = Bcrypt(app)
 admin = Admin(app)
 
+migrate = Migrate(app, db, render_as_batch=True)
+
 from project import init
