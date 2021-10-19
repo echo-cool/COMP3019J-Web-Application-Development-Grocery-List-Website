@@ -28,11 +28,11 @@ class Order(PkModel):
         return f'<Item:{self.item_id},user:{self.user_id},count:{self.count},shop:{self.get_shop_userID()}>'
 
 
-def get_order_items_by_id(order_id) -> list[Order]:
+def get_order_items_by_id(order_id) -> list:
     return Order.query.filter_by(order_id=order_id).all()
 
 
-def get_orders_by_userid(user_id) -> dict[str:Item]:
+def get_orders_by_userid(user_id) -> dict:
     items: list[Order] = Order.query.filter_by(user_id=user_id).all()
     res: dict[str: Order] = {}
     for i in items:
@@ -44,7 +44,7 @@ def get_orders_by_userid(user_id) -> dict[str:Item]:
     return res
 
 
-def get_orders_by_shopper(shopper_id) -> dict[str:Item]:
+def get_orders_by_shopper(shopper_id) -> dict:
     items: list[Order] = Order.query.filter_by(shopper_id=shopper_id).all()
     res: dict[str: Order] = {}
     for i in items:

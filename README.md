@@ -19,7 +19,7 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 ### Run this project
 
 #### Set up environment
-1. Install Python3.8
+1. Install Python3.9
 2. Using the following code to set up environment
 ```shell
 python -V  # Print out python version for debugging
