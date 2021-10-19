@@ -135,3 +135,15 @@
     width: 80px;
     height: 100px;
 }
+
+.user-info-default {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#default_avatar img {
+    width: 160px;
+    height: 160px;
+    border-radius: 150px;
+}
