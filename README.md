@@ -51,13 +51,39 @@ flask run
    4. Can't view his cart
    5. Can't make orders
    
-### Functionality
+### Buyer's Functionality
 * Navigation bar
   * Automatically Change for different role
   * Auto hide & display flash message
 * Index Page
   * Allowing user to view top-selling products
   * Allowing user to view products grouped by shops
+* Shopping Cart
+  * User's can add product to their shopping cart
+  * Item's in the cart can be removed or change quantity
+  * Item's can be correctly count if user add the product multiple times from detail page
+* Ordering
+  * User can make order from shopping cart
+  * After paying, user can view the order in the order page
+* User profile
+  * User can change their avatar in the profile page
+  * User can change their email in the profile page
+  * User can change their password in the profile page
+
+### Seller's Functionality
+* Navigation bar
+  * Automatically Change for different role
+  * Auto hide & display flash message
+* Index Page
+  * Allowing user to view top-selling products
+  * Allowing user to view products grouped by shops
+* Product Management
+  * User can add product to the system
+  * User can modify product to the system
+  * User can remove product to the system
+* Order Management
+  * User can view the order in his shop 
+
 
 ### Characteristic
 
@@ -70,3 +96,17 @@ flask run
 
 
 ### TODO
+* Navigation bar
+  * 
+* Index Page
+  * 
+* Shopping Cart
+  * 
+* Ordering
+  * 
+* User profile
+  * 
+* Product Management
+  * 
+* Order Management
+  * 
