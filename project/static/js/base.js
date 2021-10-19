@@ -1,9 +1,8 @@
 $(window).scroll(function () {
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    var window_height = $(window).height()
+    var window_height = $(window).height();
     var index_images = $(".scroll-fade-in");
     for (let i = 0; i < index_images.size(); i++) {
-
         if (index_images[i].offsetTop < scrollTop + window_height) {
             if (index_images[i] != null) {
                 index_images[i].style.animation = "blurFadeIn 0.5s ease-in 0s backwards";
@@ -18,6 +17,26 @@ $(window).scroll(function () {
             }
         }
     }
-
-
 });
+var counters = $(".anim-counter");
+var orgi_number = new Array();
+for (let i = 0; i < counters.size(); i++) {
+    var number = Number(counters[i].innerText);
+    orgi_number[i] = number;
+    counters[i].innerText=0;
+}
+
+var timer = setInterval(() => {
+        var counters = $(".anim-counter");
+        for (let i = 0; i < counters.size(); i++) {
+            var number = Number(counters[i].innerText);
+            if(number < orgi_number[i]){
+                counters[i].innerText = number + parseInt(orgi_number[i]/100);
+            }
+            if(number > orgi_number[i]){
+                 counters[i].innerText = orgi_number[i];
+            }
+        }
+    },
+    10
+);

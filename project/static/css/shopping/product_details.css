@@ -115,6 +115,15 @@
     font-size: 30px;
     color: #e01222;
 }
+.product-price-text{
+        display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+    line-height: 40px;
+    font-size: 30px;
+    color: #e01222;
+}
 
 .product-information-box {
     display: flex;

@@ -173,6 +173,9 @@ body {
     -moz-transition: all 1s linear;
     -o-transition: all 1s linear;
 }
+.anim-counter{
+
+}
 
 
 @keyframes FadeIn {
