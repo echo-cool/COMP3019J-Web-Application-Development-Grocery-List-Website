@@ -1,19 +1,17 @@
 import logging
 import sys
-from functools import wraps
-
 from flask import render_template, url_for, flash, redirect
-from flask_admin.contrib.fileadmin import FileAdmin
-from flask_admin.contrib.sqla import ModelView
-from flask_login import current_user
+# from flask_admin.contrib.fileadmin import FileAdmin
+# from flask_admin.contrib.sqla import ModelView
+# from flask_login import current_user
 
-from project import app, shopping, login, item, admin, db, user
-from project.models.CategoryModel import Category
-from project.models.ItemModel import Item
-from project.models.OrderModel import Order
-from project.models.UserModel import User, Role
-from project.models.Cart import Cart
-from project.shopping import shop
+from project import app, shopping, login, item, db, user
+# from project.models.CategoryModel import Category
+# from project.models.ItemModel import Item
+# from project.models.OrderModel import Order
+# from project.models.UserModel import User, Role
+# from project.models.Cart import Cart
+# from project.shopping import shop
 
 """Register Flask blueprints."""
 app.register_blueprint(shopping.view.blueprint)
@@ -41,14 +39,14 @@ for errcode in [401, 404, 500]:
     app.errorhandler(errcode)(render_error)
 
 
-"""Init Admin"""
-admin.add_view(ModelView(User, db.session, name="Users", endpoint="users"))
-admin.add_view(ModelView(Item, db.session, name="items", endpoint="items"))
-admin.add_view(ModelView(Role, db.session, name="roles", endpoint="roles"))
-admin.add_view(ModelView(Cart, db.session, name="Cart", endpoint="Cart"))
-admin.add_view(ModelView(Category, db.session, name="Category", endpoint="Category"))
-admin.add_view(ModelView(Order, db.session, name="Order", endpoint="Order"))
-admin.add_view(FileAdmin("."))
+# """Init Admin"""
+# admin.add_view(ModelView(User, db.session, name="Users", endpoint="users"))
+# admin.add_view(ModelView(Item, db.session, name="items", endpoint="items"))
+# admin.add_view(ModelView(Role, db.session, name="roles", endpoint="roles"))
+# admin.add_view(ModelView(Cart, db.session, name="Cart", endpoint="Cart"))
+# admin.add_view(ModelView(Category, db.session, name="Category", endpoint="Category"))
+# admin.add_view(ModelView(Order, db.session, name="Order", endpoint="Order"))
+# admin.add_view(FileAdmin("."))
 
 
 # @app.route('/css/<file>')

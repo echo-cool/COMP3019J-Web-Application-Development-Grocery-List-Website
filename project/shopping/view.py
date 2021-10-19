@@ -8,7 +8,7 @@ from flask import (
 )
 from flask_login import login_user, login_required, current_user, logout_user
 
-from project import app, db, cache
+from project import app, db
 from project.models import ItemModel
 from project.models.Cart import Cart
 from project.models.ItemModel import Item

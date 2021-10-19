@@ -1,4 +1,3 @@
-from flask_admin.form import FileUploadField
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileRequired, FileAllowed
 from wtforms import StringField, IntegerField, FloatField, SubmitField, FileField
