@@ -47,7 +47,7 @@
             <hr>
             <br>
 
-{#            present the user information#}
+            {#            present the user information#}
             <div class="user-info-default">
                 <div id="default_avatar">
                     <img src="../../{{ current_user.main_image_url }}" alt="">
@@ -87,84 +87,84 @@
             <table class="shopping-cart-box-table">
                 <thead>
                 <tr>
-                    <th class="cancel-column">Select All</th>
+                    <th class="cancel-column">Item Image</th>
                     <th class="index-item-image-box">Name</th>
-                    <th class="index-item-image-box">Image</th>
+                    <th class="index-item-image-box">Description</th>
                     <th>Price</th>
-                    <th class="number-margin">Number</th>
-                    <th>Total</th>
-                    <th class="cancel-column">Cancel</th>
+                    <th>Count</th>
+                    <th>Order State</th>
+                    <th class="cancel-column">Confirm Receipt</th>
                 </tr>
                 </thead>
                 <tbody>
 
+{#                {% for order_id in order_dict %}#}
+{#                    {{ order_id.username }} <br>#}
+{#                    {% for order in order_dict[order_id] %}#}
+{#                        {{ order.name }}#}
+{#                        {{ order.price }}#}
+{#                        {{ order.description }}#}
+{#                        <img#}
+{#                                class="index-item-image"#}
+{#                                src="{{ url_for('static', filename='uploaded_files/'+order.main_image_url) }}"#}
+{#                                value="Item Image">#}
+                        {#                        {{ order.item_id }}#}
+{#                        <hr>#}
+{#                    {% endfor %}#}
+{#                    <br>#}
+{#                    <hr>#}
+{#                {% endfor %}#}
+
+
                 {% for order_id in order_dict %}
-                    {{ order_id.username }} <br>
-                    {% for order in order_dict[order_id] %}
-                        {{ order.description }}
-                        {{ order.name }}
-{#                        {{ order.item_id }}#}
-                        <hr>
-                    {% endfor %}
-                    <br>
-                    <hr>
-                {% endfor %}
-
-
-                {% for order_id in s %}
 
                     <tr class="shopping-cart-seller">
-                        <th colspan="7">Shop Name: {{ shop.username }}</th>
+                        <th colspan="7">Shop Name: {{ order_id.username }}</th>
                     </tr>
                     {% for order in order_dict[order_id] %}
                         <tr>
-                            <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+                            <td class="index-item-image-box">
+                                <a
+                                        href="{{ url_for("item.details", itemID=order.id) }}"><img
+                                        class="index-item-image"
+                                        src="{{ url_for('static', filename='uploaded_files/'+order.main_image_url) }}"
+                                        value="Item Image"></a>
+                            </td>
                             <td>
-                                {{ item.name }}
+                                {{ order.name }}
                             </td>
-                            <td class="index-item-image-box"><a
-                                    href="{{ url_for("item.details", itemID=item.id) }}"><img
-                                    class="index-item-image"
-                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                    value="Item Image"></a>
-                            </td>
-                            <td>{{ item.price }}</td>
-                            <td class="sub-add-button">
-                                <form action="{{ url_for("cart.set_to_cart") }}" method="post">
-                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                    <input type="hidden" name="itemID" value="{{ item.id }}">
-                                    <input type="hidden" name="itemCount" value="{{ item.count - 1 }}">
-                                    <input type="submit" value="-">
-                                </form>
-                                <input type="text" class="number" value="{{ item.count }}">
-                                <form action="{{ url_for("cart.set_to_cart") }}" method="post">
-                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                    <input type="hidden" name="itemID" value="{{ item.id }}">
-                                    <input type="hidden" name="itemCount" value="{{ item.count + 1 }}">
-                                    <input type="submit" value="+">
-                                </form>
-                            </td>
-                            <td>{{ item.price * item.count }}</td>
-
                             <td>
-                                <div class="product-action-buttons">
-                                    <form action="{{ url_for("cart.remove_from_cart") }}" method="post">
-                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                        <input type="hidden" name="itemID" value="{{ item.id }}">
-                                        <input class="removal-items-cart" type="submit"
-                                               value="Remove from Shopping Cart"
-                                               name="submit">
-                                    </form>
-                                </div>
+                                {{ order.description }}
+                            </td>
+                            <td>
+                                {{ order.price }}
+                            </td>
+                            <td>
+                                {% for i in orders %}
+                                    {{ orders[i] }}
+                                {% endfor %}
+                                COUNT
+                            </td>
+                            <td>
+                                Not Confirm Receipt
+                            </td>
+                            <td>
+                                    <button class="button-default">
+                                        Confirm
+                                    </button>
                             </td>
                         </tr>
                     {% endfor %}
                 {% endfor %}
-                <tr class="shopping-cart-seller">
-                    <th colspan="7" class="checkout-total-payment">Total Price: {{ total_price }}</th>
-                </tr>
+
                 </tbody>
             </table>
+            <br>
+            <button class="button-default">
+                <a href="{{ url_for("index.home") }}">
+                    Go Home
+                </a>
+            </button>
 
 
         </div>

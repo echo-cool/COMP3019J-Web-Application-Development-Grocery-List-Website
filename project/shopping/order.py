@@ -45,4 +45,4 @@ def view_order():
             else:
                 order_dict[shopper] = [item]
 
-    return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper)
+    return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper, orders=orders)
