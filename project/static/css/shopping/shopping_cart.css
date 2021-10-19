@@ -208,7 +208,7 @@ h3 {
 }
 
 /*style for different sellers*/
-.shopping-cart-big-box .shopping-cart-box-table #shopping-cart-seller th {
+.shopping-cart-big-box .shopping-cart-box-table .shopping-cart-seller th {
     text-shadow: 1px 1px 1px #568F23;
     background-color: #f3db0d;
     border: 1px solid #f4e139;
@@ -289,4 +289,9 @@ a {
 
 .removal-items-cart:hover span {
     top: -100%;
+}
+
+.shopping-cart-big-box .shopping-cart-box-table .checkout-total-payment {
+    padding: 10px;
+    font-size: 18px;
 }
