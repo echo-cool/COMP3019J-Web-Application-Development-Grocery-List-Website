@@ -24,7 +24,7 @@
                     <th class="cancel-column">Select All</th>
                     <th class="index-item-image-box">Image</th>
                     <th>Price</th>
-                    <th class="number-margin">Number</th>
+                    <th class="number-margin">Inventory</th>
                     <th>Total</th>
                     {#                    <th class="cancel-column">Cancel</th>#}
                     <th class="cancel-column">Modify</th>
@@ -43,13 +43,14 @@
                         </td>
                         <td>{{ item.price }}</td>
                         <td class="sub-add-button">
-                            <button class="sub">
-                                -
-                            </button>
-                            <input type="text" class="number" value="{{ item.price }}">
-                            <button class="add">
-                                +
-                            </button>
+                            {{ item.price }}
+{#                            <button class="sub">#}
+{#                                -#}
+{#                            </button>#}
+{#                            <input type="text" class="number" value="{{ item.price }}">#}
+{#                            <button class="add">#}
+{#                                +#}
+{#                            </button>#}
                         </td>
                         <td>{{ item.price }}</td>
 
