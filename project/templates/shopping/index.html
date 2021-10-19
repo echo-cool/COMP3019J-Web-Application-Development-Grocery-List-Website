@@ -75,7 +75,7 @@
         <div class="index-item-container">
 
             {% for item in items %}
-                <div class="index-item">
+                <div class="index-item scroll-fade-in">
                     <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
                                                                                   src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                                                   value="Item Image"></a>
@@ -99,7 +99,7 @@
     {% for shop in shop_sellers %}
         <div class="index-product-view-title">
             <h1 class="product-view-title-text">
-                <a href="{{ url_for("item.show_all_items", userid=shop.id) }}">
+                <a class="index-shop-name-text scroll-fade-in" href="{{ url_for("item.show_all_items", userid=shop.id) }}">
                     Shop Name: {{ shop.username }}
                 </a>
             </h1>
@@ -109,14 +109,14 @@
                 <div class="index-shoes-box">
                     <div class="left-big-img">
                         <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
-                            <img width="330" height="400" src="../../static/image/shopping/sales.png">
+                            <img class="scroll-fade-in" width="330" height="400" src="../../static/image/shopping/sales.png">
                         </a>
                         <br>
                         <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> <span class="button-default">Click here to view more in this shop</span></a>
                     </div>
                     {#                    <div class="right-img-area">#}
                     {% for item in shop_sellers[shop][:3] %}
-                        <div class="index-item">
+                        <div class="index-item scroll-fade-in">
                             <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
                                                                                           src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                                                           value="Item Image"></a>

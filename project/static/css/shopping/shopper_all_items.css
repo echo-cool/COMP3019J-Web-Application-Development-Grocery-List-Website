@@ -287,7 +287,9 @@
     align-items: center;
     width: 80%;
     height: 100px;
-    color: #ff1393;
+    color: purple;
+    font-size: 25px;
+    font-weight: 800;
     background: -webkit-gradient(
             linear,
             left bottom,
