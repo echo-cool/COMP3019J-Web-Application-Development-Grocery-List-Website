@@ -1,3 +1,5 @@
+from sqlalchemy import or_
+
 from project.database_model import PkModel, Column
 from project import db
 import datetime as dt

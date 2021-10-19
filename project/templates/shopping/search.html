@@ -1,0 +1,22 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/shopping/search.css">
+{% endblock %}
+
+{% block content %}
+
+    {% if not have_res %}
+        <div>No Result !</div>
+    {% else %}
+        {% for item in items %}
+            <div>{{ item }}</div>
+        {% endfor %}
+    {% endif %}
+
+
+{% endblock %}
