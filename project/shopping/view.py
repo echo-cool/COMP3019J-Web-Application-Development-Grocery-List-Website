@@ -33,7 +33,6 @@ blueprint = Blueprint("index", __name__, static_folder="../static")
 #     return render_template("shopping/shopping_cart.html", cart_dict=res)
 
 @blueprint.route("/", methods=["GET", "POST"])
-@cache.cached(timeout=50)
 def home() -> str:
     all_items = Item.query.all()
     shop_sellers = {}
