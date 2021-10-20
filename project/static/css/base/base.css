@@ -23,6 +23,7 @@
     -webkit-transition: all 0.4s linear;
     -moz-transition: all 0.4s linear;
     -o-transition: all 0.4s linear;
+    transition-timing-function: cubic-bezier(0.59, -0.26, 0.33, 1.42);
 }
 
 body {
@@ -176,7 +177,29 @@ body {
 .anim-counter{
 
 }
-
+@keyframes wiggle {
+      0%, 7% {
+        transform: rotateZ(0);
+      }
+      15% {
+        transform: rotateZ(-15deg);
+      }
+      20% {
+        transform: rotateZ(10deg);
+      }
+      25% {
+        transform: rotateZ(-10deg);
+      }
+      30% {
+        transform: rotateZ(6deg);
+      }
+      35% {
+        transform: rotateZ(-4deg);
+      }
+      40%, 100% {
+        transform: rotateZ(0);
+      }
+    }
 
 @keyframes FadeIn {
     0% {
