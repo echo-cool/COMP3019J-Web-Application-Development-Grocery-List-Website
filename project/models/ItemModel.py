@@ -20,7 +20,7 @@ class Item(PkModel):
     owner = db.Column(db.Integer, db.ForeignKey("users.id"))
     cart = db.relationship("Cart", backref='cart_item', lazy=True)
     order = db.relationship("Order", backref='order_item', lazy=True)
-    category = Column(db.Integer, db.ForeignKey("category.id"), nullable=True, default=db.null)
+    #category_id = Column(db.Integer, db.ForeignKey("category.id"), nullable=True, default=db.null)
 
     def __init__(self, name, price, description, inventory, main_image_url, owner) -> None:
         self.name = name

@@ -43,6 +43,9 @@ def add_to_cart() -> Response:
     user: User = current_user
     item: Item = Item.get_by_id(itemID)
     cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
+
+    if itemCount == "":
+        itemCount = 1
     if cart_entry:
         current_count: int = cart_entry.count
         cart_entry.update(

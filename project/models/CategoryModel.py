@@ -1,9 +1,5 @@
-import datetime as dt
 
-from flask_login import UserMixin
-
-from project.database_model import Column, PkModel, db, reference_col, relationship
-from project import bcrypt, login_manager
+from project.database_model import Column, PkModel, db
 
 
 class Category(PkModel):
