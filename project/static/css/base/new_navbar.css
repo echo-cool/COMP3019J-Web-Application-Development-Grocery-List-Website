@@ -17,7 +17,7 @@
     float: left;
 }
 .nav-main-text:hover{
-    transform: rotateX(360deg);
+    transform: scale(1.1);
 }
 
 .nav-right-bar {
@@ -38,9 +38,9 @@
     font-weight: bold;
 }
 
-.nav-right-bar li:hover {
+.nav-right-bar li a:hover {
     color: orange;
-    transform: rotateX(360deg);
+    /*transform: rotateX(360deg);*/
 }
 
 

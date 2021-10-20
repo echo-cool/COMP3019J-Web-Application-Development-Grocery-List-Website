@@ -18,7 +18,7 @@
     <form action="{{ url_for("cart.add_to_cart") }}" method="post">
         <div class="product-little-box">
             <div class="product-image-box">
-                <img class="product-image"
+                <img class="product-image keep-wiggle-image"
                      src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                      value="Item Image"/>
             </div>

@@ -164,10 +164,21 @@ a {
 
 img {
     animation: FadeIn 0.5s ease-in 0s backwards;
-    border-radius:25px;
-}
-.wiggle-image{
     animation: wiggle 1.5s ease-in 0s backwards;
+    border-radius: 25px;
+}
+
+.wiggle-image {
+    animation: wiggle 1.5s ease-in 0s backwards;
+}
+
+.keep-wiggle-image {
+    animation: wiggle 1.5s ease-in 0s backwards;
+    animation-iteration-count: 3;
+}
+
+.no-anim-image {
+    animation: none;
 }
 
 body {
@@ -183,32 +194,34 @@ body {
     -o-transition: all 1s linear;
     margin-bottom: 5px;
 }
-.anim-counter{
+
+.anim-counter {
 
 }
+
 @keyframes wiggle {
-      0%, 7% {
+    0%, 7% {
         transform: rotateZ(0);
-      }
-      15% {
-        transform: rotateZ(-15deg);
-      }
-      20% {
-        transform: rotateZ(10deg);
-      }
-      25% {
-        transform: rotateZ(-10deg);
-      }
-      30% {
-        transform: rotateZ(6deg);
-      }
-      35% {
-        transform: rotateZ(-4deg);
-      }
-      40%, 100% {
-        transform: rotateZ(0);
-      }
     }
+    15% {
+        transform: rotateZ(-15deg);
+    }
+    20% {
+        transform: rotateZ(10deg);
+    }
+    25% {
+        transform: rotateZ(-10deg);
+    }
+    30% {
+        transform: rotateZ(6deg);
+    }
+    35% {
+        transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+        transform: rotateZ(0);
+    }
+}
 
 @keyframes FadeIn {
     0% {
@@ -219,6 +232,17 @@ body {
     }
     100% {
         opacity: 1;
+    }
+}
+@keyframes Fadeout {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -254,4 +278,12 @@ body {
 
 .to-animate {
     opacity: 0;
+}
+
+.fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    pointer-events: none;
 }

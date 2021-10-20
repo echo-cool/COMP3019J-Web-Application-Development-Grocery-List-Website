@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/new_navbar.css') }}">
 
     <script type="application/javascript" src="{{ url_for('static',filename='js/jquery-3.6.0.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
     <script src="{{ url_for('static',filename='js/navigation.js') }}"></script>
 
     {% block script %}
@@ -121,6 +120,7 @@
 {% block body %}
 
 <div class="background-image"></div>
+<canvas class="fireworks" width="839" height="393" style="width: 839px; height: 393px;"></canvas>
     <section id="container">
         {% block content %}
         {% endblock %}
@@ -130,6 +130,7 @@
     {% block jsfoot %}
     {% endblock %}
     <script src="{{ url_for('static',filename='js/base.js') }}"></script>
+    <script type="application/javascript" src="{{ url_for('static',filename='js/fireworks.js') }}"></script>
 
 
     {% block footer %}

@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-around;
     border-radius: 12px;
-    border: 5px solid #ddd;
+    /*border: 5px solid #ddd;*/
 }
 
 .box {
@@ -101,7 +101,7 @@
     flex-direction: column;
     justify-content: center;
     background: #f6f6f6;
-    border: 1px solid #dadada;
+    /*border: 1px solid #dadada;*/
     margin-bottom: 15px;
     padding: 15px 25px;
 
