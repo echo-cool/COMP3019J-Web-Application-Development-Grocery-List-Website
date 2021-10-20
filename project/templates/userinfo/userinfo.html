@@ -46,16 +46,17 @@
                 </div>
 
             </div>
-            <div class="user-info-detail">
+{#            <div class="user-info-detail">#}
                 <div class="add-user-info">
                     <div class="set-avatar">
                         <form action="" method="POST" enctype="multipart/form-data">
                             {{ form.csrf_token }}
                             <table class="add-item-box-table">
+                            <table class="add-item-box-table">
                                 <tbody>
                                 <tr>
                                     <th>Current Avatar</th>
-                                    <td><img width="200px" height="200px" src="../../{{ current_user.main_image_url }}"
+                                    <td id="flexLayout"><img width="200px" height="200px" src="../../{{ current_user.main_image_url }}"
                                              alt="">
                                         {{ form.image_file }}
                                     </td>
@@ -81,13 +82,13 @@
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <th>Shopping Cart</th>
-                                    <td><a class="add_button" href="{{ url_for("cart.shopping_cart") }}">
-                                        <img id="shopping-cart-logo" src="../../static/image/shopping/gwc.png" alt="">
-                                        &nbsp; &nbsp;Click here to enter your shopping cart
-                                    </a></td>
-                                </tr>
+{#                                <tr>#}
+{#                                    <th>Shopping Cart</th>#}
+{#                                    <td><a class="add_button" href="{{ url_for("cart.shopping_cart") }}">#}
+{#                                        <img id="shopping-cart-logo" src="../../static/image/shopping/gwc.png" alt="">#}
+{#                                        &nbsp; &nbsp;Click here to enter your shopping cart#}
+{#                                    </a></td>#}
+{#                                </tr>#}
                                 <tr>
                                     <td colspan="2">
                                         <div>
@@ -105,7 +106,7 @@
                     </div>
                 </div>
 
-            </div>
+{#            </div>#}
 
 
         </div>

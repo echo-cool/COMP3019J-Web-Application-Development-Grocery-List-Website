@@ -11,27 +11,36 @@
 
 {% block content %}
 
+    <br>
+    <br>
+
     <div class="index-container">
-        <div class="index-upper">
-            <img class="index-logo-img" src="../../static/image/shopping/img_4.png" alt="">
-            <div class="index-search-box">
-                <form action="{{ url_for("index.search") }}" method="GET" name="search">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input class="index-search-text" name="keyword" value="">
-                    <input class="index-search-submit-button" type="submit" value="">
-                </form>
-            </div>
-            <div class="my-basket-box">
-                <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
+        <div id="auto">
+            <div class="index-upper">
+                <img class="index-logo-img" src="../../static/image/shopping/img_4.png" alt="">
+                <div class="index-search-box">
+                    <form action="{{ url_for("index.search") }}" method="GET" name="search">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                        <input class="index-search-text" name="keyword" value="">
+                        <input class="index-search-submit-button" type="submit" value="">
+                    </form>
+                </div>
+                <div class="my-basket-box">
+                    <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
 
                     <span class="index-basket-icon">
                         <p class="index-basket-text">My Shopping Cart</p>
                     <i class="fas fa-cart-arrow-down"></i>
                 </span>
-                </a>
+                    </a>
 
+                </div>
             </div>
         </div>
+
+        <br>
+        <br>
+
 
         {#        hot items recommendation#}
         <div class="index-product-recommendation-title">
@@ -99,7 +108,8 @@
     {% for shop in shop_sellers %}
         <div class="index-product-view-title">
             <h1 class="product-view-title-text">
-                <a class="index-shop-name-text scroll-fade-in" href="{{ url_for("item.show_all_items", userid=shop.id) }}">
+                <a class="index-shop-name-text scroll-fade-in"
+                   href="{{ url_for("item.show_all_items", userid=shop.id) }}">
                     Shop Name: {{ shop.username }}
                 </a>
             </h1>
@@ -109,10 +119,14 @@
                 <div class="index-shoes-box">
                     <div class="left-big-img">
                         <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
-                            <img class="scroll-fade-in" width="330" height="400" src="../../static/image/shopping/sales.png">
+                            <img class="scroll-fade-in larger" width="300" height="400"
+                                 src="../../static/image/shopping/sales.png">
                         </a>
-                        <br>
-                        <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> <span class="button-default">Click here to view more in this shop</span></a>
+                        <div>
+                            <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> &nbsp;&nbsp;&nbsp;<span
+                                    class="button-default">
+                                Click to view more in this shop</span></a>
+                        </div>
                     </div>
                     {#                    <div class="right-img-area">#}
                     {% for item in shop_sellers[shop][:3] %}
@@ -129,44 +143,11 @@
                             </div>
                         </div>
                     {% endfor %}
-                    {#                    </div>#}
                 </div>
             </div>
         </div>
 
     {% endfor %}
-
-
-    {#    <div class="index-product-view-title">#}
-    {#        <h1 class="product-view-title-text">Shops Zone</h1>#}
-    {#    </div>#}
-    {#    <div class="index-item-container-box">#}
-    {#        <div class="index-shoes-container">#}
-    {#            <div class="index-shoes-box">#}
-    {#                <div class="left-big-img">#}
-    {#                    <a href="#" target="_blank">#}
-    {#                        <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>#}
-    {#                </div>#}
-    {#                <div class="right-img-area">#}
-    {#                    <div class="right-small-img">#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {##}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </div>#}
 
 
 

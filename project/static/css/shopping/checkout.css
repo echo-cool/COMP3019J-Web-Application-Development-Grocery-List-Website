@@ -11,9 +11,11 @@ h3 {
 }
 
 #shopping-cart-box {
-    background-color: #efefef;
+    background-color: transparent;
     border-left: 30px solid #f4e139;
-    border-right: 1px solid #ddd;
+    border-right: 5px solid #ddd;
+    border-top: 5px solid #ddd;
+    border-bottom: 5px solid #ddd;
     -moz-box-shadow: 0px 0px 16px #aaa;
     border-radius: 12px;
     padding: 75px 120px;
@@ -289,4 +291,27 @@ a {
 
 .removal-items-cart:hover span {
     top: -100%;
+}
+
+.shopping-cart-seller th {
+    text-shadow: 1px 1px 1px #568F23;
+    background-color: #f3db0d;
+    border: 1px solid #f5e02d;
+    border-right: 3px solid #ece499;
+    padding: 5px 10px;
+    background: -webkit-gradient(
+            linear,
+            left bottom,
+            right top,
+            color-stop(0.02, rgb(232, 210, 15)),
+            color-stop(0.51, rgb(245, 224, 45)),
+            color-stop(0.87, rgb(252, 240, 146))
+    );
+    background: -moz-linear-gradient(
+            left bottom,
+            rgb(232, 210, 15) 2%,
+            rgb(245, 224, 45) 51%,
+            rgb(252, 240, 146) 87%
+    );
+    margin-top: 10px;
 }

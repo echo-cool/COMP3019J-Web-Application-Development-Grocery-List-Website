@@ -6,9 +6,11 @@
 }
 
 #shopping-cart-box {
-    background-color: #efefef;
+    background-color: transparent;
     border-left: 30px solid #f4e139;
-    border-right: 1px solid #ddd;
+    border-right: 5px solid #ddd;
+    border-top: 5px solid #ddd;
+    border-bottom: 5px solid #ddd;
     -moz-box-shadow: 0px 0px 16px #aaa;
     border-radius: 12px;
     padding: 75px 120px;

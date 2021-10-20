@@ -1,9 +1,11 @@
 #add-item-box {
     margin-top: 100px;
     padding: 20px;
-    background-color: #efefef;
+    background-color: transparent;
     border-left: 30px solid deepskyblue;
-    border-right: 1px solid #ddd;
+    border-right: 3px solid #ddd;
+    border-top: 3px solid #ddd;
+    border-bottom: 3px solid #ddd;
     -moz-box-shadow: 0px 0px 16px #aaa;
     border-radius: 12px;
     padding: 75px 120px;
@@ -193,10 +195,10 @@
 .add-user-info {
     margin-top: 50px;
     padding: 20px;
-    background-color: #efefef;
-    border-top: 10px solid lightgoldenrodyellow;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    background-color: transparent;
+    /*border-top: 10px solid lightgoldenrodyellow;*/
+    /*border-right: 1px solid #ddd;*/
+    /*border-bottom: 1px solid #ddd;*/
     -moz-box-shadow: 0px 0px 16px #aaa;
     border-radius: 12px;
     padding: 10px 10px;
@@ -210,7 +212,7 @@
 .set-avatar {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 #email-address-new {
@@ -277,4 +279,16 @@
 
 .add_button:hover span {
     top: -100%;
+}
+
+.add-item-box-table #flexLayout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-item-box-table #flexLayout img {
+    margin: 0 auto;
 }
