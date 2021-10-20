@@ -64,9 +64,7 @@
 }
 
 .shell {
-    /*margin-top: 20px;*/
-    /*margin-bottom: 20px;*/
-    width: 100%;
+    width: 98%;
     height: 600px;
     position: relative;
     overflow-x: hidden;
@@ -176,7 +174,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
-    background-color: #f1f1f1;
+    background: transparent;
 }
 
 .index-shoes-box {
@@ -239,6 +237,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 .index-item-container {
@@ -249,7 +248,7 @@
     justify-content: space-around;
     align-content: flex-start;
     margin: auto;
-    background-color: #f1f1f1;
+    background: transparent;
 }
 
 
@@ -284,6 +283,17 @@
     -o-transform: scale(1.1);
     /* Opera */
     -moz-transform: scale(1.1);
+}
+
+.larger:hover {
+    transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    /* IE 9 */
+    -webkit-transform: scale(1.06);
+    /* Safari and Chrome */
+    -o-transform: scale(1.06);
+    /* Opera */
+    -moz-transform: scale(1.06);
 }
 
 .index-product-view-title {

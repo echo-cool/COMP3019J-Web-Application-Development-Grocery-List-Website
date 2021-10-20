@@ -4,33 +4,31 @@ body {
     justify-content: center;
 }
 
-.about-card-box {
+.about {
     position: relative;
     width: 700px;
     height: 400px;
-    border: #fff 10px solid;
+    border: #f3eeee 11px solid;
     background-color: #d979c5;
     top: 120px;
-    border-radius: 20px;
+    border-radius: 45px;
     overflow: hidden;
 }
 
-.about-card-box-description {
+.about-description {
     position: absolute;
-    width: 200px;
-    height: 300px;
     left: 0;
-    margin: 75px 50px;
-    transition: .8s;
+    margin: 75px 70px;
+    transition: .7s;
 }
 
-.about-card-box-description a {
-    text-decoration: none;
+.about-description a {
     color: #fff;
-    font: 900 28px '';
+    font-size: 30px;
+    font-weight: bold;
 }
 
-.about-card-box-description h2 {
+.about-description .name {
     /* The animation when the mouse is released, the first value is the transition time of the animation
     The second value is the delay of one second to execute the animation */
     transition: .3s .8s;
@@ -38,7 +36,7 @@ body {
     color: #1ED2C8FF;
 }
 
-.about-card-box-description span {
+.about-description span {
     transition: .5s 1s;
     color: lightgoldenrodyellow;
     font-weight: bold;
@@ -46,69 +44,69 @@ body {
     top: 70px;
 }
 
-.about-card-box-decoration {
+.about-decoration {
     position: absolute;
     top: -120px;
-    right: -250px;
+    right: -260px;
 }
 
-.about-card-box-decoration-column, .about-card-box-decoration-column1 {
+.about-decoration-common-column, .about-decoration-column1 {
     position: absolute;
-    right: calc(var(--i) * 100px);
-    width: calc(var(--w) * 50px);
+    width: calc(var(--w) * 45px);
     height: 450px;
-    overflow: hidden;
-    border-radius: 111px;
-    transform: rotateZ(219deg) translate(0, 0);
+    right: calc(var(--i) * 107px);
     background: #F0DC96FF;
     transition: .3s .3s;
+    transform: rotateZ(219deg) translate(0, 0);
+    border-radius: 111px;
+    overflow: hidden;
 }
 
-.about-card-box-decoration-column:nth-child(2) {
+.about-decoration-common-column:nth-child(2) {
     background: #F0BEE6FF
 }
 
-.about-card-box-decoration-column1 {
-    left: -470px;
-    top: -140px;
-    width: 70px;
-    background-color: #5ADC96FF;
+.about-decoration-column1 {
+    width: 65px;
+    right: 420px;
+    top: -150px;
+    background-color: #7be5ac;
 }
 
-.about-card-box:hover .about-card-box-decoration div {
+.about:hover .about-decoration div {
     /* set the delay animation */
     transition: .5s calc(var(--i) * .1s);
     /* the trajectory of motion */
     transform: rotateZ(210deg) translate(-211px, 411px);
 }
 
-.about-card-box:hover .about-card-box-description {
-    transition: .8s .3s;
+.about:hover .about-description {
+    transition: .7s .2s;
     left: 370px;
 }
 
-.about-card-box:hover .about-card-box-description span {
-    transition: .8s .3s;
+.about:hover .about-description span {
+    transition: .7s .2s;
     top: 106px;
 }
 
-.about-card-box:hover .about-card-box-description h2 {
-    transition: .8s .3s;
+.about:hover .about-description h2 {
+    transition: .7s .2s;
     opacity: 1;
 }
 
-.about-card-box-decoration-image {
+.about-decoration-image {
     width: 248px;
     height: 248px;
     position: absolute;
     background-image: url("../../image/shopping/1x.png");
     background-size: cover;
-    margin: 68px;
+    margin: 70px;
     opacity: 0;
     transition: .5s;
 }
 
-.about-card-box:hover .about-card-box-decoration-image {
+.about:hover .about-decoration-image {
     transition: 0.5s .7s;
     opacity: 1;
 }
@@ -123,4 +121,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+a {
+    text-decoration: none;
 }
