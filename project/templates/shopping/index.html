@@ -109,10 +109,12 @@
                 <div class="index-shoes-box">
                     <div class="left-big-img">
                         <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
-                            <img class="scroll-fade-in" width="330" height="400" src="../../static/image/shopping/sales.png">
+                            <img class="scroll-fade-in" width="300" height="400" src="../../static/image/shopping/sales.png">
                         </a>
-                        <br>
-                        <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> <span class="button-default">Click here to view more in this shop</span></a>
+                        <div>
+                            <a href="{{ url_for("item.show_all_items", userid=shop.id) }}"> &nbsp;&nbsp;&nbsp;<span class="button-default">
+                                Click to view more in this shop</span></a>
+                        </div>
                     </div>
                     {#                    <div class="right-img-area">#}
                     {% for item in shop_sellers[shop][:3] %}
@@ -129,44 +131,11 @@
                             </div>
                         </div>
                     {% endfor %}
-                    {#                    </div>#}
                 </div>
             </div>
         </div>
 
     {% endfor %}
-
-
-    {#    <div class="index-product-view-title">#}
-    {#        <h1 class="product-view-title-text">Shops Zone</h1>#}
-    {#    </div>#}
-    {#    <div class="index-item-container-box">#}
-    {#        <div class="index-shoes-container">#}
-    {#            <div class="index-shoes-box">#}
-    {#                <div class="left-big-img">#}
-    {#                    <a href="#" target="_blank">#}
-    {#                        <img width="360" height="430" src="../../static/image/shopping/1x.png"></a>#}
-    {#                </div>#}
-    {#                <div class="right-img-area">#}
-    {#                    <div class="right-small-img">#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="230" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-    {#                        <a href="#" target="_blank">#}
-    {#                            <img width="160" height="180" src="../../static/image/shopping/1x.png"></a>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {##}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </div>#}
 
 
 
