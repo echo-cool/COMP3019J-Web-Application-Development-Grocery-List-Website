@@ -105,8 +105,6 @@ def shopping_cart() -> str:
         item: Item = Item.get_by_id(item_id)
         shopper: User = User.get_by_id(shop_user_id)
         item.count = i.count
-        print(item.price)
-        print(i.count)
         total_price += int(item.price) * int(i.count)
 
         if shopper in res.keys():

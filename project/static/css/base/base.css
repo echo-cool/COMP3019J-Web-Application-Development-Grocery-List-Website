@@ -287,3 +287,40 @@ body {
     z-index: 999999;
     pointer-events: none;
 }
+
+/*the style for buttons*/
+.button-default1 {
+    padding: 5px;
+    margin-right: 5px;
+    /*background: 90% url("../../image/shopping/bbg1.jpg") repeat;*/
+    /*gradient color*/
+    background-image: linear-gradient(to right, #d0de33, #f4f003, #8aeeda, #e7cecc);
+    border-radius: 5px;
+    background-size: 390%;
+    font-size: 10px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-default1:hover {
+    animation: anim 8s infinite;
+}
+
+.button-default1 span {
+    display: block;
+    position: relative;
+    top: 0;
+    color: #FFF;
+}
+
+@keyframes anim {
+    /*100% background position*/
+    100% {
+        background-position: -390% 0;
+    }
+}
+
+.button-default1:hover span {
+    top: -100%;
+}

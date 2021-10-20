@@ -162,7 +162,7 @@
                     {{ current_user.username }}
                 </div>
                 <div class="identity">
-                    {% if current_user.isshopper %}
+                    {% if current_user.is_shopper %}
                         Seller
                     {% else %}
                         Customer
@@ -170,27 +170,41 @@
                 </div>
                 <br>
                 <div class="details">
-                    <div class="manage-user-info">
+                    <div>
                         <a href="{{ url_for("user.info") }}">
-                            <button class="button-default">
-                                Manage my details
+                            <button class="button-default1">
+                                Personal Details
                             </button>
                         </a>
                     </div>
                     <br>
-                    {% if current_user.isshopper %}
-                        <div class="manage-user-info">
+                    {% if current_user.is_shopper %}
+                        <div>
                             <a href="{{ url_for("user.info") }}">
-                                <button class="button-default">
-                                    Manage my orders
+                                <button class="button-default1">
+                                    Orders
+                                </button>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for("item.show_all_items", userid=current_user.id) }}">
+                                <button class="button-default1">
+                                    Items
                                 </button>
                             </a>
                         </div>
                     {% else %}
-                        <div class="manage-user-info">
+                        <div>
                             <a href="{{ url_for("order.view_order") }}">
-                                <button class="button-default">
-                                    View my orders
+                                <button class="button-default1">
+                                   Orders
+                                </button>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url_for("cart.shopping_cart") }}">
+                                <button class="button-default1">
+                                    Cart
                                 </button>
                             </a>
                         </div>
