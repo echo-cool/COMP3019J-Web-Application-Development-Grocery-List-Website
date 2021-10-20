@@ -3,10 +3,11 @@
     padding: 30px;
     display: flex;
     flex-direction: row;
-    background-color: #f1f1f1;
+    background-color: transparent;
     align-items: center;
-    justify-content: center;
-    border-radius: 12px
+    justify-content: space-around;
+    border-radius: 12px;
+    border: 5px solid #ddd;
 }
 
 .box {
@@ -17,7 +18,7 @@
 .product-image-box {
     display: flex;
     width: 25%;
-    background-color: #f1f1f1;
+    background-color: rgba(0,0,0,0.1);
     padding: 50px;
 }
 

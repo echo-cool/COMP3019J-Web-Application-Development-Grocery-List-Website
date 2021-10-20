@@ -1,13 +1,26 @@
 .index-container {
     display: flex;
     flex-direction: column;
+
+}
+
+#auto {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
 }
 
 .index-upper {
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    align-content: center;
 }
 
 .index-logo-img {
@@ -71,7 +84,6 @@
     border-radius: 5px;
     border: 10px #fff;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-    /*margin: auto;*/
 }
 
 .index-banner-images-box {
