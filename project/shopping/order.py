@@ -28,10 +28,8 @@ def view_order():
 
     if user.is_shopper:
         orders = OrderModel.get_orders_by_shopper(user.id)
-        # return render_template("shopping/order.html", orders=orders, isshopper=user.is_shopper)
     else:
         orders = OrderModel.get_orders_by_userid(user.id)
-        # return render_template("shopping/order.html", orders=orders, isshopper=user.is_shopper)
 
     for order_id in orders:
         for order in orders[order_id]:
@@ -41,9 +39,14 @@ def view_order():
             item: Item = Item.get_by_id(item_id)
             order.item = item
 
+            user_id: int = order.user_id
+            buyer: User = User.get_by_id(user_id)
+            order.buyer = buyer
+
             # if shopper in orders.keys():
             #     order_dict[shopper].append(item)
             # else:
             #     order_dict[shopper] = [item]
 
-    return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper, orders=orders)
+    return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper,
+                           orders=orders)

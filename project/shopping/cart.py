@@ -45,7 +45,10 @@ def add_to_cart() -> Response:
     cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
     if cart_entry:
         current_count: int = cart_entry.count
+        print(current_count)
+        print(itemCount)
         cart_entry.update(
+
             count=int(current_count) + int(itemCount)
         )
     else:
@@ -102,7 +105,9 @@ def shopping_cart() -> str:
         item: Item = Item.get_by_id(item_id)
         shopper: User = User.get_by_id(shop_user_id)
         item.count = i.count
-        total_price += item.price * i.count
+        print(item.price)
+        print(i.count)
+        total_price += int(item.price) * int(i.count)
 
         if shopper in res.keys():
             res[shopper].append(item)
