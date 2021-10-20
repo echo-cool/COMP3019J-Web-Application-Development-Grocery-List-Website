@@ -20,10 +20,10 @@
 /** universal style for 3d effects **/
 * {
     transition: all 0.4s linear;
+    transition-timing-function: cubic-bezier(0.59, -0.26, 0.33, 1.42);
     -webkit-transition: all 0.4s linear;
     -moz-transition: all 0.4s linear;
     -o-transition: all 0.4s linear;
-    transition-timing-function: cubic-bezier(0.59, -0.26, 0.33, 1.42);
 }
 
 body {
@@ -160,6 +160,10 @@ a {
 
 img {
     animation: FadeIn 0.5s ease-in 0s backwards;
+    border-radius:25px;
+}
+.wiggle-image{
+    animation: wiggle 1.5s ease-in 0s backwards;
 }
 
 body {
