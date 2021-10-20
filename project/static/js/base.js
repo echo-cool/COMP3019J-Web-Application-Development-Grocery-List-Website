@@ -1,3 +1,4 @@
+//This is for scroll fade in animation
 $(window).scroll(function () {
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var window_height = $(window).height();
@@ -18,6 +19,8 @@ $(window).scroll(function () {
         }
     }
 });
+
+//Save the original value of the block
 var counters = $(".anim-counter");
 var orgi_number = new Array();
 for (let i = 0; i < counters.size(); i++) {
@@ -26,6 +29,7 @@ for (let i = 0; i < counters.size(); i++) {
     counters[i].innerText=0;
 }
 
+//start timer to add the value to the original value
 var timer = setInterval(() => {
         var counters = $(".anim-counter");
         for (let i = 0; i < counters.size(); i++) {
@@ -40,3 +44,5 @@ var timer = setInterval(() => {
     },
     10
 );
+
+
