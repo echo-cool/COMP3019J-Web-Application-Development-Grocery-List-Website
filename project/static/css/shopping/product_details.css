@@ -134,9 +134,9 @@
 }
 
 .product-number-box b, .product-des {
-    color: #2e2e2e;
-    font-size: 12px;
-    font-weight: normal;
+    color: #5f5e5e;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .product-inner-box {
@@ -161,8 +161,8 @@
 
 .product-inner-inner-box {
     line-height: 22px;
-    font-size: 12px;
-    color: #7c7c7c;
+    font-size: 16px;
+    color: red;
 }
 
 .product-inner-inner-box span {
@@ -250,4 +250,18 @@
     padding: 10px;
     line-height: 40px;
     color: #7c7c7c;
+}
+
+#number-input {
+    border: 0;
+    outline: 0;
+    height: 40px;
+    width: 120px;
+    border-radius: 30px;
+    background-color: rgba(255, 252, 243,0.7);
+
+}
+
+::-webkit-input-placeholder {
+    color: #459eea;
 }

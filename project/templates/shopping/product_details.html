@@ -42,14 +42,20 @@
                         </div>
                         <div class="product-inner-box">
                             <div class="product-inner-inner-big-title">S</div>
-                            <div class="product-inner-inner-box">Shop: {{ shop.username }}<span></span></div>
+                            <div class="product-inner-inner-box">
+                                <a href="{{ url_for("") }}">
+                                    Shop: {{ shop.username }}<span></span>
+                                </a>
+                            </div>
                         </div>
 
                     </div>
                 </div>
                 <div class="product-box">
                     <div class="product-number-box">
-                        <b>Number：<input type="number" name="itemCount" value="1" width="10px" class="number-input">
+                        <b>Number：<input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')"
+                                         name="itemCount" width="10px" id="number-input"
+                                         placeholder="Enter Number">
                         </b>
                     </div>
                 </div>
