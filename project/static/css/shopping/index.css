@@ -435,7 +435,7 @@
     align-items: center;
 }
 
-.right-side-bar .user-intro {
+.right-side-bar .user-intro, .announcements {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -461,3 +461,6 @@
     justify-content: space-around;
 
 }
+
+
+
