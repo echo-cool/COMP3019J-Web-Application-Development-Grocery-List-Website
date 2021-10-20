@@ -167,9 +167,9 @@ h3 {
 /*the image style*/
 .index-item-image {
     width: 100%;
-    max-width:200px;
+    max-width:100px;
     height: 100%;
-    max-width: 200px;
+    max-width: 100px;
 }
 
 /*the image style*/

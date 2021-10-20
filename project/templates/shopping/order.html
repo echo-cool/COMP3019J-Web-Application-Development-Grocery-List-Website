@@ -116,34 +116,34 @@
 {#                {% endfor %}#}
 
 
-                {% for order_id in order_dict %}
+                {% for order_id in orders %}
 
                     <tr class="shopping-cart-seller">
-                        <th colspan="7">Shop Name: {{ order_id.username }}</th>
+                        <th colspan="7">Order ID: {{ order_id }}</th>
                     </tr>
-                    {% for order in order_dict[order_id] %}
+                    {% for order in orders[order_id] %}
                         <tr>
                             <td class="index-item-image-box">
                                 <a
-                                        href="{{ url_for("item.details", itemID=order.id) }}"><img
+                                        href="{{ url_for("item.details", itemID=order.item_id) }}"><img
                                         class="index-item-image"
-                                        src="{{ url_for('static', filename='uploaded_files/'+order.main_image_url) }}"
+                                        src="{{ url_for('static', filename='uploaded_files/'+order.item.main_image_url) }}"
                                         value="Item Image"></a>
                             </td>
                             <td>
-                                {{ order.name }}
+                                {{ order.item.name }}
                             </td>
                             <td>
-                                {{ order.description }}
+                                {{ order.item.description }}
                             </td>
                             <td>
-                                {{ order.price }}
+                                {{ order.item.price }}
                             </td>
                             <td>
-                                {% for i in orders %}
-                                    {{ orders[i] }}
-                                {% endfor %}
-                                COUNT
+{#                                {% for i in orders %}#}
+{#                                    {{ orders[i] }}#}
+{#                                {% endfor %}#}
+{#                                COUNT#}
                             </td>
                             <td>
                                 Not Confirm Receipt
