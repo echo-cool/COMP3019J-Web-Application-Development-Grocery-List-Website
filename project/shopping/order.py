@@ -39,10 +39,11 @@ def view_order():
             shopper: User = User.get_by_id(shop_user_id)
             item_id: int = order.item_id
             item: Item = Item.get_by_id(item_id)
+            order.item = item
 
-            if shopper in orders.keys():
-                order_dict[shopper].append(item)
-            else:
-                order_dict[shopper] = [item]
+            # if shopper in orders.keys():
+            #     order_dict[shopper].append(item)
+            # else:
+            #     order_dict[shopper] = [item]
 
     return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper, orders=orders)

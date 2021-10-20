@@ -10,6 +10,7 @@
     -webkit-text-size-adjust: 100%;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE 10+ */
+    z-index: 1;
 
 }
 
@@ -28,6 +29,8 @@
 body {
     display: flex;
     flex-direction: column;
+    cursor: url(https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/cursor_1.png), default;
+
 
 }
 
@@ -36,6 +39,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+
 }
 
 
