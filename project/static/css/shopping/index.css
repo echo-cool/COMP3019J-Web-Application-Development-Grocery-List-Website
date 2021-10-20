@@ -439,6 +439,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-content: center;
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.7);
     padding: 20px 0;
@@ -459,8 +460,4 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
 }
-
-
-
