@@ -34,6 +34,11 @@ pip install -r requirements.txt
 ```shell
 flask run
 ```
+or
+
+```shell
+python run.py
+```
 
 ### Roles in the system
 1. Buyers
