@@ -14,23 +14,21 @@
     <div class="container">
         <div class="login-inner_box">
             <div class="login-move_box">
+
                 <!-- register -->
                 <div class="sign_up login-hidden">
                     <h1>Register</h1>
-                    <form class="" autocomplete="off" method="POST" action="">
+                    <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ register_from.csrf_token }}
                         <div class="login-input_area">
-
                             {{ register_from.username(class="login-input-text",placeholder="") }}
                             {{ register_from.username.label }}
                         </div>
                         <div class="login-input_area">
-
                             {{ register_from.email(class="login-input-text",placeholder="") }}
                             {{ register_from.email.label }}
                         </div>
                         <div class="login-input_area">
-
                             {{ register_from.password(class="login-input-text",placeholder="") }}
                             {{ register_from.password.label }}
                         </div>
@@ -39,7 +37,7 @@
                             {{ register_from.confirm(class="login-input-text",placeholder="") }}
                             {{ register_from.confirm.label }}
                         </div>
-                        {{ register_from.submit_register(class="login-input-text") }}
+                        {{ register_from.submit_register(class_="login-submit-button") }}
                     </form>
                 </div>
 
