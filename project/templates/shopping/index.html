@@ -151,81 +151,83 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="right-side-bar">
-            <div class="user-intro">
-                <div class="avatar">
-                    <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
-                         alt="" class="img-avatar">
-                </div>
+        {% if current_user.is_authenticated %}
+            <div class="right-side-bar">
+                <div class="user-intro">
+                    <div class="avatar">
+                        <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
+                             alt="" class="img-avatar">
+                    </div>
 
-                <div class="username">
-                    {{ current_user.username }}
-                </div>
-                <div class="identity">
-                    {% if current_user.is_shopper %}
-                        Seller
-                    {% else %}
-                        Customer
-                    {% endif %}
-                </div>
-                <br>
-                <div class="details">
-                    <div>
-                        <a href="{{ url_for("user.info") }}">
-                            <button class="button-default1">
-                                Personal Details
-                            </button>
-                        </a>
+                    <div class="username">
+                        {{ current_user.username }}
+                    </div>
+                    <div class="identity">
+                        {% if current_user.is_shopper %}
+                            Seller
+                        {% else %}
+                            Customer
+                        {% endif %}
                     </div>
                     <br>
-                    {% if current_user.is_shopper %}
+                    <div class="details">
                         <div>
                             <a href="{{ url_for("user.info") }}">
                                 <button class="button-default1">
-                                    Orders
+                                    Personal Details
                                 </button>
                             </a>
                         </div>
-                        <div>
-                            <a href="{{ url_for("item.show_all_items", userid=current_user.id) }}">
-                                <button class="button-default1">
-                                    Items
-                                </button>
-                            </a>
-                        </div>
-                    {% else %}
-                        <div>
-                            <a href="{{ url_for("order.view_order") }}">
-                                <button class="button-default1">
-                                    Orders
-                                </button>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="{{ url_for("cart.shopping_cart") }}">
-                                <button class="button-default1">
-                                    Cart
-                                </button>
-                            </a>
-                        </div>
-                    {% endif %}
+                        <br>
+                        {% if current_user.is_shopper %}
+                            <div>
+                                <a href="{{ url_for("user.info") }}">
+                                    <button class="button-default1">
+                                        Orders
+                                    </button>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{{ url_for("item.show_all_items", userid=current_user.id) }}">
+                                    <button class="button-default1">
+                                        Items
+                                    </button>
+                                </a>
+                            </div>
+                        {% else %}
+                            <div>
+                                <a href="{{ url_for("order.view_order") }}">
+                                    <button class="button-default1">
+                                        Orders
+                                    </button>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{{ url_for("cart.shopping_cart") }}">
+                                    <button class="button-default1">
+                                        Cart
+                                    </button>
+                                </a>
+                            </div>
+                        {% endif %}
 
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="announcements">
+                    <div>
+                        Announcements
+                    </div>
+                    <div class="text">
+                        Thanks for visiting our website. Feel free to buy anything you want.
+                    </div>
                 </div>
 
             </div>
-            <br>
-            <br>
-            <br>
-            <div class="announcements">
-                <div>
-                    Announcements
-                </div>
-                <div class="text">
-                    Thanks for visiting our website. Feel free to buy anything you want.
-                </div>
-            </div>
-
-        </div>
+        {% endif %}
     </div>
 
 

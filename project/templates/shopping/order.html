@@ -13,35 +13,35 @@
 
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
-{#            {% if isshopper %}#}
-{#                <p class="shopping-cart-box-head"> Seller </p>#}
-{#                <h1>Orders from your shop</h1>#}
-{#                <br>#}
-{#                <br>#}
-{#                {% for order_id in orders %}#}
-{#                    {{ order_id }}#}
-{#                    {% for order in orders[order_id] %}#}
-{#                        {{ order }}#}
-{#                    {% endfor %}#}
-{#                    <br>#}
-{#                    <br>#}
-{##}
-{#                {% endfor %}#}
-{#            {% else %}#}
-{#                <p class="shopping-cart-box-head"> Customer </p>#}
-{#                <h1>Check your orders</h1>#}
-{#                <br>#}
-{#                <br>#}
-{#                {% for order_id in orders %}#}
-{#                    {{ order_id }}#}
-{#                    {% for order in orders[order_id] %}#}
-{#                        {{ order }}#}
-{#                    {% endfor %}#}
-{#                    <br>#}
-{#                    <br>#}
-{##}
-{#                {% endfor %}#}
-{#            {% endif %}#}
+            {#            {% if isshopper %}#}
+            {#                <p class="shopping-cart-box-head"> Seller </p>#}
+            {#                <h1>Orders from your shop</h1>#}
+            {#                <br>#}
+            {#                <br>#}
+            {#                {% for order_id in orders %}#}
+            {#                    {{ order_id }}#}
+            {#                    {% for order in orders[order_id] %}#}
+            {#                        {{ order }}#}
+            {#                    {% endfor %}#}
+            {#                    <br>#}
+            {#                    <br>#}
+            {##}
+            {#                {% endfor %}#}
+            {#            {% else %}#}
+            {#                <p class="shopping-cart-box-head"> Customer </p>#}
+            {#                <h1>Check your orders</h1>#}
+            {#                <br>#}
+            {#                <br>#}
+            {#                {% for order_id in orders %}#}
+            {#                    {{ order_id }}#}
+            {#                    {% for order in orders[order_id] %}#}
+            {#                        {{ order }}#}
+            {#                    {% endfor %}#}
+            {#                    <br>#}
+            {#                    <br>#}
+            {##}
+            {#                {% endfor %}#}
+            {#            {% endif %}#}
 
             <br>
             <hr>
@@ -89,10 +89,18 @@
                 <tr>
                     <th class="cancel-column">Item Image</th>
                     <th class="index-item-image-box">Name</th>
-                    <th class="index-item-image-box">Buyer</th>
+                    <th class="index-item-image-box">
+                        {% if current_user.is_shopper %}
+                            Buyer
+                        {% else %}
+                            Shopper
+                        {% endif %}
+
+                    </th>
                     <th>Price</th>
                     <th>Count</th>
                     <th>Order State</th>
+                    <th>Total Price</th>
                     <th class="cancel-column">Confirm Receipt</th>
                 </tr>
                 </thead>
@@ -102,7 +110,7 @@
                 {% for order_id in orders %}
 
                     <tr class="shopping-cart-seller">
-                        <th colspan="7">Order ID: {{ order_id }}</th>
+                        <th colspan="8">Order ID: {{ order_id }}</th>
                     </tr>
                     {% for order in orders[order_id] %}
                         <tr>
@@ -117,23 +125,40 @@
                             {{ order.item.name }}
                         </td>
                         <td>
-                            {{ order.buyer.username }}
+                            {% if current_user.is_shopper %}
+                                {{ order.buyer.username }}
+                            {% else %}
+                                {{ order.shopper.username }}
+                            {% endif %}
                         </td>
                         <td>
                             {{ order.item.price }}
                         </td>
+
                         <td>
+                            {{ order.count }}
                         </td>
                         <td>
-                            Not Confirm Receipt
+                            {{ order.status }}
                         </td>
+                        {% if loop.index == 1 %}
+                            <td rowspan="{{ orders[order_id]|length }}">
+                                {{ total_price[order_id] }}
+                            </td>
+                            <td rowspan="{{ orders[order_id]|length }}">
+                                {% if current_user.is_shopper %}
+                                    <button class="button-default">
+                                        <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}">Confirm</a>
+                                    </button>
+                                {% else %}
+                                    <button class="button-default">
+                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id) }}">Confirm</a>
+                                    </button>
+                                {% endif %}
+                            </td>
+                        {% endif %}
 
                     {% endfor %}
-                <td>
-                    &nbsp;&nbsp;&nbsp;<button class="button-default">
-                    Confirm
-                </button>
-                </td>
                 </tr>
                 {% endfor %}
 

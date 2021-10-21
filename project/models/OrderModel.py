@@ -11,6 +11,8 @@ class Order(PkModel):
     item_id = db.Column(db.Integer, db.ForeignKey("item.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     shopper_id = db.Column(db.Integer)
+    is_confirmed_by_shopper = db.Column(db.Boolean, nullable=False, default=False)
+    is_confirmed_delivery = db.Column(db.Boolean, nullable=False, default=False)
     created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
 
     def __init__(self, order_id, item_id, user_id, count) -> None:

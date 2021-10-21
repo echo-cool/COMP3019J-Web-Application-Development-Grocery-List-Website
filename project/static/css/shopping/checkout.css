@@ -136,7 +136,6 @@ h3 {
 /*}*/
 
 .shopping-cart-box-table td {
-
     padding: 8px;
     margin-left: 3px;
     background-color: #DEF3CA;
@@ -167,9 +166,9 @@ h3 {
 /*the image style*/
 .index-item-image {
     width: 100%;
-    max-width:200px;
+    max-width: 60px;
     height: 100%;
-    max-width: 200px;
+    max-height: 60px;
 }
 
 /*the image style*/
