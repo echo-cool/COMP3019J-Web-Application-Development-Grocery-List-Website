@@ -149,7 +149,8 @@ body {
 
 .login-more-padding {
   position: absolute;
-  padding-top: 15px;
+  margin-left: -30px;
+  margin-top: 25px;
 }
 
 .login-more-padding input {

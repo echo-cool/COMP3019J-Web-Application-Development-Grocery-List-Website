@@ -9,19 +9,6 @@
 
 {% block js %}
 {% endblock %}
-{#{% block nav %}#}
-{#    <ul>#}
-{#        <li><a  href="/">Home</a></li>#}
-{#        <li><a href="/item/add">Add</a></li>#}
-{#        <li><a href="/about">About</a></li>#}
-{#        <li><a class="active" href="/login">Login</a></li>#}
-{#        {% if current_user.is_authenticated %}#}
-{#            <li><a href="/user">Hello, {{ current_user.username }}</a></li>#}
-{#            <li><a href="/logout">logout</a></li>#}
-{#        {% else %}#}
-{#        {% endif %}#}
-{#    </ul>#}
-{#{% endblock %}#}
 
 {% block content %}
     <div class="container">
@@ -36,36 +23,27 @@
 
                             {{ register_from.username(class="login-input-text",placeholder="") }}
                             {{ register_from.username.label }}
-                            {#                            <input type="text" name="" required>#}
-                            {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
 
                             {{ register_from.email(class="login-input-text",placeholder="") }}
                             {{ register_from.email.label }}
-                            {#                            <input type="text" name="" required>#}
-                            {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
 
                             {{ register_from.password(class="login-input-text",placeholder="") }}
                             {{ register_from.password.label }}
-                            {#                            <input type="password" name="" required>#}
-                            {#                            <label>Password</label>#}
                         </div>
                         <div class="login-input_area">
 
                             {{ register_from.confirm(class="login-input-text",placeholder="") }}
                             {{ register_from.confirm.label }}
-                            {#                            <input type="password" name="" required>#}
-                            {#                            <label>Confirm Password</label>#}
                         </div>
-                        {#                        <button class="button submit">Create Account</button>#}
                         {{ register_from.submit_register(class="login-input-text") }}
                     </form>
                 </div>
 
-                <!-- 登录 -->
+                <!-- login -->
                 <div class="sign_in">
                     <h1>Sign In</h1>
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
@@ -73,20 +51,15 @@
                         <div class="login-input_area">
                             {{ login_form.username(class="login-input-text",placeholder="") }}
                             {{ login_form.username.label }}
-                            {#                            <input type="text" name="" required>#}
-                            {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
                             {{ login_form.password(class="login-input-text",placeholder="") }}
                             {{ login_form.password.label }}
-                            {#                                                        <input type="password" name="" required>#}
-                            {#                                                        <label>Password</label>#}
                         </div>
                         <div class="checkbox">
                             <input class = "login-input-text" type="checkbox" id="remember"/>
                             <label for="remember">Remember Me</label>
                         </div>
-{#                        <button class="button submit1">Login</button>#}
                         {{ login_form.submit_login(class_="login-submit-button") }}
                     </form>
                 </div>
