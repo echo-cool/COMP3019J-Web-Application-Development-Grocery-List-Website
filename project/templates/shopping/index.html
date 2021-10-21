@@ -131,21 +131,39 @@
                                 </div>
                             </div>
                             {#                    <div class="right-img-area">#}
-                            {% for item in shop_sellers[shop][:3] %}
-                                <div class="index-item scroll-fade-in">
-                                    <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
-                                            class="index-item-image"
-                                            src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                            value="Item Image"></a>
-                                    <div class="index-item-text">
-                                        <p class="index-item-price">$ {{ item.price }}</p>
-                                        <a class="index-item-name"
-                                           href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
-                                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                                        <p class="index-item-description">{{ item.description }}</p>
+                            {% if current_user.is_authenticated %}
+                                {% for item in shop_sellers[shop][:3] %}
+                                    <div class="index-item scroll-fade-in">
+                                        <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                                class="index-item-image"
+                                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                value="Item Image"></a>
+                                        <div class="index-item-text">
+                                            <p class="index-item-price">$ {{ item.price }}</p>
+                                            <a class="index-item-name"
+                                               href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                            <p class="index-item-description">{{ item.description }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            {% else %}
+                                {% for item in shop_sellers[shop][:4] %}
+                                    <div class="index-item scroll-fade-in">
+                                        <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                                class="index-item-image"
+                                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                value="Item Image"></a>
+                                        <div class="index-item-text">
+                                            <p class="index-item-price">$ {{ item.price }}</p>
+                                            <a class="index-item-name"
+                                               href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                            <p class="index-item-description">{{ item.description }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
