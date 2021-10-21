@@ -93,6 +93,10 @@ $('#chooseImage').on('change', function () {
     src = window.URL.createObjectURL(this.files[0]);
     if (fileFormat.match(/.png|.jpg|.jpeg/)) {
         $('#upload_image_perivew').attr('src', src);
+        $('#upload_image_perivew')[0].style.animation = "blurFadeIn 0.75s ease-in 0s backwards";
+        setTimeout(function () {
+            $('#upload_image_perivew')[0].style.animation = "none";
+        }, 800);
     } else {
         alert('File type must be：png/jpg/jpeg');
         return;
