@@ -1,7 +1,6 @@
 .index-container {
     display: flex;
     flex-direction: column;
-
 }
 
 #auto {
@@ -15,7 +14,7 @@
 }
 
 .index-upper {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -180,7 +179,7 @@
 }
 
 .index-shoes-container {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -191,7 +190,7 @@
 
 .index-shoes-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
@@ -212,7 +211,7 @@
 
 .right-img-area {
     overflow: hidden;
-    min-width: 70%;
+    min-width: 80%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -249,11 +248,10 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 }
 
 .index-item-container {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -319,7 +317,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 70%;
+    width: 80%;
     height: 100px;
     color: purple;
     font-size: 25px;
@@ -392,7 +390,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 70%;
+    width: 80%;
     height: 100px;
     color: purple;
     font-size: 25px;
@@ -414,4 +412,52 @@
 }
 .product-recommendation-title-text:hover{
     font-size: 35px;
+}
+
+/*.middle {*/
+/*    background: black;*/
+/*}*/
+
+.all {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*the style for the right side bar*/
+.right-side-bar {
+    width: 20%;
+    /*border: 3px solid black;*/
+    margin-right: 35px;
+    margin-top: 155px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-side-bar .user-intro, .announcements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px 0;
+    width: 100%;
+}
+
+.img-avatar {
+    border-radius: 50px;
+}
+
+.username {
+    margin: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

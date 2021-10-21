@@ -13,35 +13,35 @@
 
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
-            {% if isshopper %}
-                <p class="shopping-cart-box-head"> Seller </p>
-                <h1>Orders from your shop</h1>
-                <br>
-                <br>
-                {% for order_id in orders %}
-                    {{ order_id }}
-                    {% for order in orders[order_id] %}
-                        {{ order }}
-                    {% endfor %}
-                    <br>
-                    <br>
-
-                {% endfor %}
-            {% else %}
-                <p class="shopping-cart-box-head"> Customer </p>
-                <h1>Check your orders</h1>
-                <br>
-                <br>
-                {% for order_id in orders %}
-                    {{ order_id }}
-                    {% for order in orders[order_id] %}
-                        {{ order }}
-                    {% endfor %}
-                    <br>
-                    <br>
-
-                {% endfor %}
-            {% endif %}
+{#            {% if isshopper %}#}
+{#                <p class="shopping-cart-box-head"> Seller </p>#}
+{#                <h1>Orders from your shop</h1>#}
+{#                <br>#}
+{#                <br>#}
+{#                {% for order_id in orders %}#}
+{#                    {{ order_id }}#}
+{#                    {% for order in orders[order_id] %}#}
+{#                        {{ order }}#}
+{#                    {% endfor %}#}
+{#                    <br>#}
+{#                    <br>#}
+{##}
+{#                {% endfor %}#}
+{#            {% else %}#}
+{#                <p class="shopping-cart-box-head"> Customer </p>#}
+{#                <h1>Check your orders</h1>#}
+{#                <br>#}
+{#                <br>#}
+{#                {% for order_id in orders %}#}
+{#                    {{ order_id }}#}
+{#                    {% for order in orders[order_id] %}#}
+{#                        {{ order }}#}
+{#                    {% endfor %}#}
+{#                    <br>#}
+{#                    <br>#}
+{##}
+{#                {% endfor %}#}
+{#            {% endif %}#}
 
             <br>
             <hr>
@@ -89,7 +89,7 @@
                 <tr>
                     <th class="cancel-column">Item Image</th>
                     <th class="index-item-image-box">Name</th>
-                    <th class="index-item-image-box">Description</th>
+                    <th class="index-item-image-box">Buyer</th>
                     <th>Price</th>
                     <th>Count</th>
                     <th>Order State</th>
@@ -97,23 +97,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
-{#                {% for order_id in order_dict %}#}
-{#                    {{ order_id.username }} <br>#}
-{#                    {% for order in order_dict[order_id] %}#}
-{#                        {{ order.name }}#}
-{#                        {{ order.price }}#}
-{#                        {{ order.description }}#}
-{#                        <img#}
-{#                                class="index-item-image"#}
-{#                                src="{{ url_for('static', filename='uploaded_files/'+order.main_image_url) }}"#}
-{#                                value="Item Image">#}
-                        {#                        {{ order.item_id }}#}
-{#                        <hr>#}
-{#                    {% endfor %}#}
-{#                    <br>#}
-{#                    <hr>#}
-{#                {% endfor %}#}
 
 
                 {% for order_id in orders %}
@@ -123,38 +106,35 @@
                     </tr>
                     {% for order in orders[order_id] %}
                         <tr>
-                            <td class="index-item-image-box">
-                                <a
-                                        href="{{ url_for("item.details", itemID=order.item_id) }}"><img
-                                        class="index-item-image"
-                                        src="{{ url_for('static', filename='uploaded_files/'+order.item.main_image_url) }}"
-                                        value="Item Image"></a>
-                            </td>
-                            <td>
-                                {{ order.item.name }}
-                            </td>
-                            <td>
-                                {{ order.item.description }}
-                            </td>
-                            <td>
-                                {{ order.item.price }}
-                            </td>
-                            <td>
-{#                                {% for i in orders %}#}
-{#                                    {{ orders[i] }}#}
-{#                                {% endfor %}#}
-{#                                COUNT#}
-                            </td>
-                            <td>
-                                Not Confirm Receipt
-                            </td>
-                            <td>
-                                    <button class="button-default">
-                                        Confirm
-                                    </button>
-                            </td>
-                        </tr>
+                        <td class="index-item-image-box">
+                            <a
+                                    href="{{ url_for("item.details", itemID=order.item_id) }}"><img
+                                    class="index-item-image"
+                                    src="{{ url_for('static', filename='uploaded_files/'+order.item.main_image_url) }}"
+                                    value="Item Image"></a>
+                        </td>
+                        <td>
+                            {{ order.item.name }}
+                        </td>
+                        <td>
+                            {{ order.buyer.username }}
+                        </td>
+                        <td>
+                            {{ order.item.price }}
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            Not Confirm Receipt
+                        </td>
+
                     {% endfor %}
+                <td>
+                    &nbsp;&nbsp;&nbsp;<button class="button-default">
+                    Confirm
+                </button>
+                </td>
+                </tr>
                 {% endfor %}
 
                 </tbody>

@@ -182,7 +182,7 @@
 }
 
 #empty {
-    width: 80px;
+    width: 65px;
     height: 100px;
 }
 
@@ -291,4 +291,10 @@
 
 .add-item-box-table #flexLayout img {
     margin: 0 auto;
+}
+
+input {
+    outline: none;
+    border-radius: 10px;
+    border-color: deepskyblue;
 }

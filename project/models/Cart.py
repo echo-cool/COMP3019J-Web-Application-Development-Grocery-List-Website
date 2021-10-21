@@ -13,9 +13,9 @@ class Cart(PkModel):
     created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
 
     def __init__(self, item_id, user_id, count) -> None:
-        self.item_id = item_id;
-        self.user_id = user_id;
-        self.count = count;
+        self.item_id = item_id
+        self.user_id = user_id
+        self.count = count
         super().__init__()
 
     def get_shop_userID(self) -> int:
