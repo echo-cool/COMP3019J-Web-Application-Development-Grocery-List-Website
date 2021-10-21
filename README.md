@@ -40,6 +40,16 @@ or
 python run.py
 ```
 
+### Test Account
+
+Shopper:
+* Username: shop1
+* Password: 123
+
+Buyer:
+* Username: buyer1
+* Password: 123
+
 ### Roles in the system
 1. Buyers
    1. Register in login page
