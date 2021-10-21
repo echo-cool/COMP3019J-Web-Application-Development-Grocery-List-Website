@@ -450,7 +450,7 @@
     border-radius: 50px;
 }
 
-.username {
+.username, .announcements-text {
     margin: 15px;
     font-weight: bold;
     font-size: 20px;
@@ -460,4 +460,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.text {
+    background-color: rgba(235, 233, 61, 0.2);
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    color: lightblue;
 }

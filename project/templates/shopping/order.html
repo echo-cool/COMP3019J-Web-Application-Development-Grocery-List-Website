@@ -147,11 +147,11 @@
                             </td>
                             <td rowspan="{{ orders[order_id]|length }}">
                                 {% if current_user.is_shopper %}
-                                    <button class="button-default">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="button-default">
                                         <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}">Confirm</a>
                                     </button>
                                 {% else %}
-                                    <button class="button-default">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="button-default">
                                         <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id) }}">Confirm</a>
                                     </button>
                                 {% endif %}
@@ -165,7 +165,7 @@
                 </tbody>
             </table>
             <br>
-            <button class="button-default">
+            <button class="button-default1">
                 <a href="{{ url_for("index.home") }}">
                     Go Home
                 </a>
