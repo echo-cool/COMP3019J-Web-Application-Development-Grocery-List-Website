@@ -337,7 +337,8 @@
             rgb(252, 207, 227) 87%
     );
 }
-.product-view-title-text:hover{
+
+.product-view-title-text:hover {
     font-size: 35px;
 }
 
@@ -410,7 +411,8 @@
             rgb(252, 207, 227) 87%
     );
 }
-.product-recommendation-title-text:hover{
+
+.product-recommendation-title-text:hover {
     font-size: 35px;
 }
 
@@ -462,11 +464,80 @@
     justify-content: space-around;
 }
 
+/*the style for announcements*/
 .text {
     background-color: rgba(235, 233, 61, 0.2);
     margin: 10px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 3px;
     padding: 10px;
     color: lightblue;
+    font-weight: bold;
+}
+
+.text span {
+    display: inline-block;
+    margin: 1px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.text span::before,
+.text span::after {
+    left: -1px;
+    top: 0;
+    display: none;
+    position: absolute;
+    transform-origin: left top;
+    transition: all ease-out 0.2s;
+    content: attr(fill-info);
+}
+
+.text span::before {
+    z-index: -1;
+    transform: scale(1.09, 1) skew(0deg, 19deg);
+}
+
+.text span::after {
+    z-index: 3;
+    color: #d575b1;
+    text-shadow: 0 0 1px #d575b1;
+    transform: rotateY(-28deg);
+}
+
+.text span:hover::before {
+    transform: scale(1.09, 1) skew(0deg, 4deg);
+}
+
+.text span:hover::after {
+    transform: rotateY(-9deg);
+}
+
+@media {
+    .text {
+        font-size: 25px;
+    }
+
+    .text span::after,
+    .text span::before {
+        display: block;
+    }
+}
+
+@media {
+    .text {
+        font-size: 20px;
+    }
+}
+
+@media {
+    .text {
+        font-size: 20px;
+    }
+}
+
+@media {
+    .text {
+        font-size: 20px;
+    }
 }
