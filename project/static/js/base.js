@@ -86,3 +86,15 @@ jQuery(document).ready(function ($) {
     });
 });
 
+$('#chooseImage').on('change', function () {
+    var path_image, fileFormat, src;
+    path_image = $(this).val();
+    fileFormat = path_image.substring(path_image.lastIndexOf(".")).toLowerCase();
+    src = window.URL.createObjectURL(this.files[0]);
+    if (fileFormat.match(/.png|.jpg|.jpeg/)) {
+        $('#upload_image_perivew').attr('src', src);
+    } else {
+        alert('File type must be：png/jpg/jpeg');
+        return;
+    }
+});

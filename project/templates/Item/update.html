@@ -54,10 +54,10 @@
                     </tr>
                     <tr>
                         <th class="th-hover">{{ form.main_image_file.label }}</th>
-                        <td class="td-hover"><img class="product-image"
+                        <td class="td-hover"><img class="product-image" id="upload_image_perivew"
                                  src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                  value="Item Image"/></td>
-                        <td class="td-hover">{{ form.main_image_file }}</td>
+                        <td class="td-hover">{{ form.main_image_file(id="chooseImage") }}</td>
                     </tr>
                     {#                    <tr>#}
                     {#                        <td colspan="2">#}
