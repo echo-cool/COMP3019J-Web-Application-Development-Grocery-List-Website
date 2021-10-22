@@ -150,7 +150,7 @@ h3 {
 .index-item-image {
     width: 100%;
     height: 100%;
-    max-width: 50px;
+    max-width: 100px;
 }
 
 /*the image style*/
@@ -165,7 +165,13 @@ h3 {
 }
 
 .shopping-cart-big-box .shopping-cart-box-table .sub-add-button {
-    max-width: 5%;
+    /*max-width: 5%;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-items: center;
+    min-height: 120px;
 }
 
 .shopping-cart-big-box .shopping-cart-box-table .number-margin {
@@ -264,4 +270,18 @@ a {
 .shopping-cart-big-box .shopping-cart-box-table .checkout-total-payment {
     padding: 10px;
     font-size: 18px;
+}
+
+#shopping-cart-box .h2 {
+    color: #06b8d0;
+    font-size: 40px;
+}
+
+.color {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    padding: 5px;
 }

@@ -100,6 +100,7 @@ def set_to_cart() -> Response:
 def shopping_cart() -> str:
     user: User = current_user
     cart: Cart = Cart.query.filter_by(user_id=user.id).all()
+    cart_length = len(cart)
     res: dict = {}
     total_price: int = 0
     for i in cart:
@@ -115,4 +116,5 @@ def shopping_cart() -> str:
         else:
             res[shopper] = [item]
 
-    return render_template("shopping/shopping_cart.html", cart_dict=res, total_price=total_price)
+    return render_template("shopping/shopping_cart.html", cart_dict=res, total_price=total_price,
+                           cart_length=cart_length)
