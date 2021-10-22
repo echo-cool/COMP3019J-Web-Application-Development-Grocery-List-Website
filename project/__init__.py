@@ -18,7 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 csrf_protect = CSRFProtect(app)
-# migrate = Migrate(app, db)
+migrate = Migrate(app, db)
 # debug_toolbar = DebugToolbarExtension(app)
 # flask_static_digest = FlaskStaticDigest(app)
 # cache = Cache(app, config={'CACHE_TYPE': 'simple'})
