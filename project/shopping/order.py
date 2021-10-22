@@ -12,7 +12,7 @@ from sqlalchemy import null
 
 from project import app, db
 from project.models import ItemModel, OrderModel
-from project.models.Cart import Cart
+from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.OrderModel import Order
 from project.models.UserModel import User

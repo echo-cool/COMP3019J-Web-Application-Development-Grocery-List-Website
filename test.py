@@ -1,7 +1,7 @@
 import os
 
 from project import app, db
-from project.models.Cart import Cart
+from project.models.CartModel import Cart
 
 from project.models.ItemModel import Item
 from project.models.UserModel import User
