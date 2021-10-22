@@ -157,59 +157,6 @@ h3 {
     padding: 2px;
 }
 
-.shopping-cart-big-box .manage-items-box-table .sub-add-button {
-    max-width: 5%;
-}
-
-.shopping-cart-big-box .manage-items-box-table .number-margin {
-    min-width: 16%;
-    margin-right: 6px;
-}
-
-/*cancel button style*/
-.incorrect:before {
-    content: '\2716';
-    color: #b20610;
-}
-
-/*style for different sellers*/
-.shopping-cart-big-box .manage-items-box-table #shopping-cart-seller th {
-    text-shadow: 1px 1px 1px #568F23;
-    background-color: #f3db0d;
-    border: 1px solid #f4e139;
-    border-right: 3px solid #ece499;
-    padding: 5px 10px;
-    background: -webkit-gradient(
-            linear,
-            left bottom,
-            right top,
-            color-stop(0.02, #E8D20FFF),
-            color-stop(0.51, #F4E139FF),
-            color-stop(0.87, #FCF092FF)
-    );
-    background: -moz-linear-gradient(
-            left bottom,
-            #E8D20FFF 2%,
-            #F4E139FF 51%,
-            #FCF092FF 87%
-    );
-    margin-top: 10px;
-}
-
-.shopping-cart-big-box #shopping-cart-box h1:hover {
-    color: orange;
-    transform: scale(1.05);
-}
-
-.shopping-cart-big-box #shopping-cart-box .h2 {
-    font-size: 30px;
-    color: #8ae737;
-}
-
-.shopping-cart-big-box #shopping-cart-box .h2:hover {
-    font-size: 30px;
-    color: #f4e139;
-}
 
 /*style for add items*/
 #add-item-box {

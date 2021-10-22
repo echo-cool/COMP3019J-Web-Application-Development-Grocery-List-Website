@@ -22,19 +22,6 @@
     cursor: pointer;
 }
 
-.index-search-text {
-    width: 320px;
-    padding-left: 18px;
-    padding-right: 10px;
-    line-height: 32px;
-    font-size: 12px;
-    color: #6f6f6f;
-    display: block;
-    float: left;
-    border: 2px solid plum;
-    box-shadow: 0 2px;
-}
-
 .my-basket-box {
     display: flex;
     justify-content: space-around;
