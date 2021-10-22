@@ -2,7 +2,6 @@ import os
 
 from flask import Blueprint, render_template, flash, current_app, url_for, Response, redirect
 from flask_login import current_user, login_required
-
 from project import db
 from project.item.forms import AddNewItem, UpdateItem
 from project.models.ItemModel import Item
