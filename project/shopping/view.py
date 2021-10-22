@@ -51,11 +51,13 @@ def home() -> str:
 @blueprint.route("/search", methods=["GET", "POST"])
 def search() -> str:
     keyword: str = request.args.get(key='keyword')
+    print(keyword)
     items = Item.query.filter(Item.name.like("%" + keyword + "%")).all()
     have_res = True
     if len(items) == 0:
         have_res = False
-    return render_template("shopping/search.html", have_res=have_res, items=items, current_user=current_user)
+    return render_template("shopping/search.html", have_res=have_res, items=items, current_user=current_user,
+                           keyword=keyword)
 
 
 @blueprint.route("/about", methods=["GET", "POST"])
