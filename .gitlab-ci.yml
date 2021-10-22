@@ -56,6 +56,7 @@ docker:
     - docker login -u echo0821 -p Lkq2mapp565688 registry.hub.docker.com
     - docker build -t registry.hub.docker.com/echo0821/web-project:latest .
     - docker push registry.hub.docker.com/echo0821/web-project:latest
+    - docker rmi registry.hub.docker.com/echo0821/web-project
 #    - docker tag registry.hub.docker.com/echo0821/web-project:latest registry.heroku.com/comp3019j-web-dev/web
 #    - docker push registry.heroku.com/comp3019j-web-dev/web
 
