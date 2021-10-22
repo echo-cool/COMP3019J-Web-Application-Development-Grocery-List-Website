@@ -298,3 +298,7 @@ a {
     text-decoration: none;
 }
 
+#shopping-cart-box .h2 {
+    color: #06b8d0;
+    font-size: 40px;
+}
