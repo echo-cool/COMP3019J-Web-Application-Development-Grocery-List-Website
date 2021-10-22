@@ -52,8 +52,8 @@ docker:
     - echo "package docker"
     - docker info
     - docker login -u echo0821 -p Lkq2mapp565688 registry.hub.docker.com
-    - docker build -t echo0821/web-project:latest .
-    - docker push echo0821/web-project:latest
+    - docker build -t registry.hub.docker.com/echo0821/web-project:latest .
+    - docker push registry.hub.docker.com/echo0821/web-project:latest
 
 #  timeout: 0h 1m
     # an alternative approach is to install and run:
