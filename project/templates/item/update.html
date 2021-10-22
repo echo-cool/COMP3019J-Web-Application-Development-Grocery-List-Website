@@ -1,0 +1,65 @@
+{% extends "/base/base.html" %}
+{% block title %}
+    Update Item
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/item/add.css">
+{% endblock %}
+
+{% block content %}
+    <div class="add-item-big-box">
+        <div id="add-item-box">
+            <p class="add-item-box-head"> Seller </p>
+            <h1>Modify Items</h1>
+            <br>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <table class="add-item-box-table">
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th class="th-hover">Previous</th>
+                        <th class="th-hover">Update</th>
+                    </tr>
+                    <tr>
+                        <th class="th-hover">{{ form.item_name.label }}</th>
+                        <td class="td-hover">{{ item.name }}</td>
+                        <td class="td-hover number-input">{{ form.item_name(value=item.name) }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-hover">{{ form.item_price.label }}</th>
+                        <td class="td-hover">{{ item.price }}</td>
+                        <td class="td-hover number-input">{{ form.item_price(value=item.price) }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-hover">{{ form.description.label }}</th>
+                        <td class="td-hover">{{ item.description }}</td>
+                        <td class="td-hover number-input">{{ form.description(value=item.description) }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-hover">{{ form.inventory.label }}</th>
+                        <td class="td-hover">{{ item.inventory }}</td>
+                        <td class="td-hover number-input">{{ form.inventory(value=item.inventory) }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-hover">{{ form.main_image_file.label }}</th>
+                        <td class="td-hover"><img class="product-image" id="upload_image_perivew"
+                                 src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                 value="Item Image"/></td>
+                        <td class="td-hover number-input">{{ form.main_image_file(id="chooseImage") }}</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+                <div class="add_button">
+                    {{ form.add_button(class="button-default") }}
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
