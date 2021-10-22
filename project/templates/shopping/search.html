@@ -34,6 +34,7 @@
                     <thead>
                     <tr>
                         <th class="cancel-column">Select All</th>
+                        <th>Keyword</th>
                         <th class="index-item-image-box">Image</th>
                         <th>Price</th>
                         <th class="number-margin">Inventory</th>
@@ -47,6 +48,7 @@
                     {% for item in items %}
                         <tr>
                             <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+                            <td>{{ keyword }}</td>
                             <td class="index-item-image-box"><a
                                     href="{{ url_for("item.details", itemID=item.id) }}"><img
                                     class="index-item-image"
