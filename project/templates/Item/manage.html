@@ -5,7 +5,7 @@
 {% endblock %}
 {% block style %}
     <link rel="stylesheet" href="../../static/css/item/manage.css">
-     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
 {% endblock %}
 
 {% block content %}
@@ -17,8 +17,11 @@
             <br>
             <br>
 
-            {% if items == null %}
-                dsds
+            {% if itemsLength == 0 %}
+                <h1 class="h2">You Have Not Owned Any Items to Sell</h1>
+                <button class="button-default">
+                    <a href="{{ url_for("item.addNewItem") }}">Click here to add new item</a>
+                </button>
             {% endif %}
 
             <h1 class="h2">Display & Remove & Modify & Add</h1>
@@ -66,7 +69,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ url_for("item.addNewItem")}}">
+                            <a href="{{ url_for("item.addNewItem") }}">
                                 <div class="manage-items-modify">
                                     Add New Item
                                 </div>

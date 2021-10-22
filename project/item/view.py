@@ -27,6 +27,7 @@ def ManageItem() -> str:
     items = Item.query.filter_by(
         owner=user.id,
     ).all()
+    itemsLength = len(items)
     form = AddNewItem()
     print(form.validate_on_submit())
     if form.validate_on_submit():
@@ -57,7 +58,7 @@ def ManageItem() -> str:
             print(e.message)
             db.session.rollback()
 
-    return render_template("item/manage.html", items=items, form=form)
+    return render_template("item/manage.html", items=items, form=form, itemsLength=itemsLength)
 
 
 @blueprint.route("/item/delete/<int:item_id>", methods=["POST", "GET"])
