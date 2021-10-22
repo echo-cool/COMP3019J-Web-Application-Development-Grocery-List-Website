@@ -20,7 +20,7 @@ h3 {
     border-right: 5px solid #ddd;
     border-top: 5px solid #ddd;
     border-bottom: 5px solid #ddd;
-    -moz-box-shadow: 0px 0px 16px #aaa;
+    box-shadow: 0px 0px 16px #aaa;
     border-radius: 12px;
     padding: 75px 120px;
     display: flex;
@@ -37,7 +37,7 @@ h3 {
     margin-top: 60px;
 }
 
-.shopping-cart-box-head {
+.shopping-cart-box-head, .add-item-box-head {
     font-family: Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: bold;
@@ -50,11 +50,11 @@ h3 {
     padding: 10px;
 }
 
-.shopping-cart-box-head a:hover {
+.shopping-cart-box-head a:hover, .add-item-box-head a:hover {
     color: #f0f0f0;
 }
 
-#shopping-cart-box h1 {
+#shopping-cart-box h1, #add-item-box h1 {
     display: flex;
     align-items: flex-start;
     font-family: "Trebuchet MS", sans-serif;
@@ -65,7 +65,7 @@ h3 {
     text-shadow: 1px 1px 1px #aaa;
 }
 
-#shopping-cart-box h2 {
+#shopping-cart-box h2, #add-item-box h2 {
     display: flex;
     font-family: "Trebuchet MS", sans-serif;
     font-size: 34px;
@@ -78,7 +78,7 @@ h3 {
     text-shadow: 1px 1px 1px #fff;
 }
 
-.shopping-cart-box-table {
+.shopping-cart-box-table, .add-item-box-table {
     font-family: "Trebuchet MS", sans-serif;
     font-size: 16px;
     font-weight: bold;
@@ -86,11 +86,7 @@ h3 {
     font-style: normal;
 }
 
-.shopping-cart-box-table tr {
-}
-
-
-.shopping-cart-box-table th {
+.shopping-cart-box-table th, .add-item-box-table th {
     padding: 16px;
     color: #fff;
     text-shadow: 1px 1px 1px #568F23;
@@ -102,7 +98,7 @@ h3 {
 }
 
 /*add gradient color effects*/
-.shopping-cart-box-table th {
+.shopping-cart-box-table th, .add-item-box-table th {
     color: #fff;
     background-color: #9DD929;
     border: 1px solid #93CE37;
@@ -125,8 +121,7 @@ h3 {
     border-radius: 5px;
 }
 
-.shopping-cart-box-table td {
-
+.shopping-cart-box-table td, .add-item-box-table tbody td {
     padding: 8px;
     margin-left: 3px;
     background-color: #DEF3CA;
@@ -213,18 +208,6 @@ h3 {
 .incorrect:before {
     content: '\2716';
     color: #b20610;
-}
-
-
-.manage-items-modify {
-    padding: 5px;
-    background-color: #efefef;
-    color: #616060;
-}
-
-.manage-items-modify:hover {
-    color: orange;
-    border-color: #eddf4d;
 }
 
 a {
