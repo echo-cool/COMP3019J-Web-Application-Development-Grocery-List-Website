@@ -17,7 +17,7 @@
 
                 <!-- register -->
                 <div class="sign_up login-hidden">
-                    <h1>Register</h1>
+                    <h1>REGISTER</h1>
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ register_from.csrf_token }}
                         <div class="login-input_area">
@@ -43,7 +43,7 @@
 
                 <!-- login -->
                 <div class="sign_in">
-                    <h1>Sign In</h1>
+                    <h1>SIGN IN</h1>
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ login_form.csrf_token }}
                         <div class="login-input_area">
@@ -64,21 +64,21 @@
             </div>
 
             <div class="login-left">
-                <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
-                <p class="login-advertise">Choose your favorite <span>Item</span></p>
-                <img class="flower smaller"
+                <h2 class="login-title">WElCOME&nbsp;<span>To</span><br>Shopping</h2>
+                <p class="login-advertise">Buy/Sell your favorite <span>Item</span></p>
+                <img class="flower"
                      src="{{ url_for('static',filename='image/login/webp.webp') }}"/>
                 <p class="login-account">Have an account?</p>
-                <button class="index-banner-button" id="sign_in">Login</button>
+                <button class="index-banner-button" id="sign_in">LOGIN</button>
             </div>
 
             <div class="login-right">
                 <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
-                <p class="login-advertise">Choose your favorite <span>Item</span></p>
+                <p class="login-advertise">Buy/Sell your favorite <span>Item</span></p>
                 <img class="flower"
                      src="{{ url_for('static',filename='image/login/webp.webp') }}"/>
                 <p class="login-account">Don't have an account?</p>
-                <button class="index-banner-button" id="sign_up">Sign Up</button>
+                <button class="index-banner-button" id="sign_up">SIGN UP</button>
             </div>
         </div>
     </div>

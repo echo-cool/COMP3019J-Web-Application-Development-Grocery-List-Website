@@ -1,10 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora");
-
-body {
-    background: #cbc0d3;
-}
-
-/* 容器的样式 */
+/* the style for the container */
 .container {
     display: flex;
     align-items: center;
@@ -12,13 +6,13 @@ body {
 }
 
 .login-inner_box {
+    position: absolute;
     display: flex;
     width: 650px;
-    height: 415px;
-    position: absolute;
-    top: 25%;
+    height: 420px;
+    top: 28%;
     background: #f6f6f6;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -29,10 +23,10 @@ body {
     background: #eac7cc;
     width: 320px;
     height: 500px;
-    border-radius: 5px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
-    z-index: 2;
+    z-index: 99;
 }
 
 .login-hidden {
@@ -47,32 +41,49 @@ body {
 }
 
 .login-left {
-    left: -2%;
+    left: -15px;
 }
 
 .login-right {
-    right: -2%;
+    right: -15px;
 }
 
 /* the style for font and button */
-.login-inner_box h1 {
-    font-family: "Open Sans", sans-serif;
-    text-align: center;
-    margin-top: 95px;
+.login-submit-button {
+    letter-spacing: 3px;
+    font-size: 11px;
     text-transform: uppercase;
+    border-radius: 15px;
+    outline: none;
+    display: block;
+    padding: 12px 20px;
+    margin-top: 3%;
+    background: #f6f6f6;
+    color: #ce7d88;
+    border: solid 1px #e2c7ea;
+    margin-left: 35%;
+}
+
+.login-submit-button:hover {
+    background: #dec7ea;
+    color: #f6f6f6;
+    transition: background-color 0.9s ease-out;
+}
+
+.login-inner_box h1 {
+    text-align: center;
+    margin-top: 65px;
     color: #f6f6f6;
     font-size: 30px;
     letter-spacing: 8px;
 }
 
 .login-title {
-    font-family: "Lora", serif;
-    color: #8e9aaf;
-    font-size: 30px;
+    color: #eac7cc;
+    font-size: 25px;
     line-height: 30px;
     letter-spacing: 3px;
     text-align: center;
-    font-weight: 300;
     margin-top: 20%;
 }
 
@@ -81,62 +92,51 @@ body {
 }
 
 .login-account {
-    margin-top: 45%;
+    margin-top: 150px;
     font-size: 10px;
 }
 
 .login-inner_box p {
-    font-family: "Open Sans", sans-serif;
+    color: #8e9aaf;
     font-size: 15px;
     letter-spacing: 2px;
-    color: #8e9aaf;
     text-align: center;
 }
 
 .login-inner_box span {
-    color: #eac7cc;
+    color: #8e9aaf;
 }
 
 .login-inner_box .flower {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 45%;
-    left: 27%;
-    opacity: 0.8;
-}
-
-.login-inner_box .smaller {
-    width: 130px;
-    height: 130px;
-    top: 48%;
-    left: 30%;
-    opacity: 0.9;
+    top: 160px;
+    left: 95px;
+    width: 140px;
+    height: 140px;
 }
 
 .login-inner_box button {
-    font-family: "Open Sans", sans-serif;
+    display: block;
+    padding: 12px 20px;
+    font-size: 11px;
+    outline: none;
+    border-radius: 12px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 11px;
-    border-radius: 12px;
-    outline: none;
-    display: block;
-    padding: 12px 12px 12px 20px;
 }
 
 .login-inner_box button:hover {
     background: #eac7cc;
     color: #f6f6f6;
-    transition: background-color 1s ease-out;
+    transition: background-color 0.9s ease-out;
 }
 
 .login-inner_box .index-banner-button {
-    margin-top: 3%;
-    background: #f6f6f6;
     color: #ce7d88;
     border: solid 1px #eac7cc;
+    background: #f6f6f6;
     margin-left: 35%;
+    margin-top: 20px;
 }
 
 /* the style for form */
@@ -161,49 +161,40 @@ body {
     margin-top: 45px;
 }
 
-
-
 .login-submit1 {
     margin-top: 25px;
     padding: 12px;
     border-color: #ce7d88;
 }
 
-.login-submit1:hover {
-    background: #cbc0d3;
-    border-color: #bfb1c9;
-}
-
 .login-input-text {
     background: #eac7cc;
-    width: 65%;
+    width: 60%;
     color: #ce7d88;
     border: none;
     padding: 9px;
-    font-weight: 100;
+    border-radius: 11px;
 }
 
 .login-input-text:focus {
-    color: #ce7d88;
+    color: #ce7db0;
     outline: none;
-    border-bottom: 1px solid rgba(206, 125, 136, 0.7);
-    transition: 0.8s all ease;
+    border-bottom: 1px solid #EB6EF8B2;
+    transition: 0.7s all ease;
 }
 
 
 .login-inner_box label {
-    font-family: "Open Sans", sans-serif;
-    color: #ce7d88;
+    color: #ce7db0;
     font-size: 10px;
     letter-spacing: 1px;
 }
 
 .login-inner_box .checkbox {
-    /*display: inline;*/
+    top: -5px;
+    margin: auto;
     white-space: nowrap;
     position: relative;
-    margin: auto;
-    top: -5px;
 }
 
 .login-input-text[type=checkbox] {
@@ -218,20 +209,20 @@ body {
 
 .login-input_area {
     position: relative;
-    margin-left: 58px;
+    margin-left: 65px;
 }
 
 .login-input-text {
     width: 100%;
     padding: 10px 0;
+    color: #fff;
     font-size: 16px;
-    color: white;
     letter-spacing: 1px;
-    margin-bottom: 30px;
+    outline: none;
     border: 0;
     border-bottom: 1px solid #ce7d88;
-    transition: 0.8s all ease;
-    outline: none;
+    margin-bottom: 30px;
+    transition: 0.7s all ease;
     background: transparent;
 }
 
@@ -239,36 +230,19 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 6px 0;
+    padding: 8px 0;
     font-size: 16px;
     font-weight: bold;
-    color: white;
-    letter-spacing: 1px;
+    color: #fff;
     pointer-events: none;
-    transition: .6s;
+    transition: 0.6s;
 }
 
 .login-input-text:focus ~ label,
 .login-input-text:valid ~ label {
-    top: -25px;
+    color: #d6aaf3;
+    font-size: 16px;
     left: 0;
-    color: #cab2dc;
-    font-size: 14px;
+    top: -32px;
 }
 
-
-.login-submit-button {
-    font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 11px;
-    border-radius: 12px;
-    outline: none;
-    display: block;
-    padding: 12px 12px 12px 20px;
-    margin-top: 3%;
-    background: #f6f6f6;
-    color: #ce7d88;
-    border: solid 1px #eac7cc;
-    margin-left: 35%;
-}
