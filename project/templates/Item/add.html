@@ -5,6 +5,7 @@
 
 {% block style %}
     <link rel="stylesheet" href="../../static/css/item/add.css">
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
 {% endblock %}
 
 {% block content %}
@@ -16,46 +17,28 @@
             <form action="" method="POST" enctype="multipart/form-data">
                 {{ form.csrf_token }}
                 <table class="add-item-box-table">
-                    {#    <tfoot>#}
-                    {#      <tr>#}
-                    {#        <th scope="row">This is the foot area</th>#}
-                    {#        <td>dddd</td>#}
-                    {#      </tr>#}
-                    {#    </tfoot>#}
                     <tbody>
-{#                    <tr>#}
-{#                        <th>{{ form.userid.label }}</th>#}
-{#                        <td>{{ form.userid }}</td>#}
-{#                    </tr>#}
                     <tr>
                         <th>{{ form.item_name.label }}</th>
-                        <td>{{ form.item_name }}</td>
+                        <td>{{ form.item_name(class="number-input") }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.item_price.label }}</th>
-                        <td>{{ form.item_price }}</td>
+                        <td>{{ form.item_price(class="number-input") }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.description.label }}</th>
-                        <td>{{ form.description }}</td>
+                        <td>{{ form.description(class="number-input") }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.inventory.label }}</th>
-                        <td>{{ form.inventory }}</td>
+                        <td>{{ form.inventory(class="number-input") }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.main_image_file.label }}</th>
-                        <td>{{ form.main_image_file }}</td>
+                        <td>{{ form.main_image_file(class="number-input") }}</td>
                     </tr>
-                    {#                    <tr>#}
-                    {#                        <td colspan="2">#}
-                    {#                            <div class="add_button">#}
-                    {#                                {{ form.add_button }}#}
-                    {#                            </div>#}
-                    {#                        </td>#}
-                    {#                    </tr>#}
                     </tbody>
-
                 </table>
                 <div class="add_button">
                     {{ form.add_button(class="button-default") }}

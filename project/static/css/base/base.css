@@ -322,3 +322,12 @@ body {
 .button-default1:hover span {
     top: -100%;
 }
+
+#number-input, .number-input {
+    outline: 0;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+    background-color: rgba(255, 252, 243,0.7);
+    padding: 0 20px;
+}

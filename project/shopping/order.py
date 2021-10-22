@@ -24,7 +24,6 @@ blueprint = Blueprint("order", __name__, static_folder="../static")
 @blueprint.route("/order/view", methods=["GET", "POST"])
 @login_required
 def view_order():
-
     user: User = current_user
     total_price: dict = {}
     order_dict: dict = {}
@@ -35,6 +34,8 @@ def view_order():
         orders = OrderModel.get_orders_by_shopper(user.id)
     else:
         orders = OrderModel.get_orders_by_userid(user.id)
+
+    orders_length = len(orders)
 
     for order_id in orders:
         tmp_price = 0
@@ -66,7 +67,8 @@ def view_order():
         total_price[order_id] = tmp_price
 
     return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper,
-                           orders=orders, total_price=total_price, confirm_count_dict=confirm_count_dict)
+                           orders=orders, total_price=total_price, confirm_count_dict=confirm_count_dict,
+                           orders_length=orders_length)
 
 
 @blueprint.route("/order/shopper_confirm/<int:order_id>", methods=["GET", "POST"])

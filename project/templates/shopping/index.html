@@ -50,7 +50,6 @@
                 </div>
                 <div class="index-item-container-box">
                     <div class="index-item-container">
-
                         <div class="shell">
                             <ui class="index-banner-images-box">
                                 <li class="index-banner-image"></li>
@@ -86,7 +85,7 @@
                 <div class="index-item-container">
 
                     {% for item in items %}
-                        <div class="index-item scroll-fade-in">
+                        <div class="index-item scroll-fade-in" id="index-item1">
                             <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
                                                                                           src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                                                           value="Item Image"></a>
@@ -241,7 +240,7 @@
                 {% for announcement in announcements %}
                     <div class="announcements">
                         <div class="announcements-text">
-                            Announcements
+                            Announcement
                         </div>
                         <div>
                             <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png"
@@ -251,20 +250,11 @@
                             {% for text in announcement %}
                                 <span fill-info="{{ text }}">{{ text }}</span>
                             {% endfor %}
-                            {#                        <span fill-info="Thanks">Thanks</span>#}
-                            {#                        <span fill-info="for">for</span>#}
-                            {#                        <span fill-info="visiting">visiting</span>#}
-                            {#                        <span fill-info="our">our</span>#}
-                            {#                        <span fill-info="website.">website.</span>#}
-                            {#                        <span fill-info="Feel">Feel</span>#}
-                            {#                        <span fill-info="free">free</span>#}
-                            {#                        <span fill-info="to">to</span>#}
-                            {#                        <span fill-info="buy">buy</span>#}
-                            {#                        <span fill-info="anything">anything</span>#}
-                            {#                        <span fill-info="you">you</span>#}
-                            {#                        <span fill-info="want.">want.</span>#}
                         </div>
                     </div>
+                    <br>
+                    <br>
+                    <br>
                 {% endfor %}
                 <br>
                 <br>

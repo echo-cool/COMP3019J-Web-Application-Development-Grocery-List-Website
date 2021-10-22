@@ -285,8 +285,11 @@ h3 {
 
 .manage-items-modify {
     padding: 5px;
-    background-color: #efefef;
-    color: #616060;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #06b8d0;
+    padding: 10px;
+    background-color: rgba(231, 228, 228, 0.5);
 }
 
 .manage-items-modify:hover {
