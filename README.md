@@ -44,13 +44,17 @@ or
 python run.py
 ```
 
-or
+[comment]: <> (or)
 
+[comment]: <> (![pipeline]&#40;https://csgitlab.ucd.ie/19206226/TEAM_20/badges/master/pipeline.svg&#41;)
 
-```shell
-docker pull echo0821/web-project:latest 
-docker run -p 5000:5000 echo0821/web-project:latest
-```
+[comment]: <> (```shell)
+
+[comment]: <> (docker pull echo0821/web-project:latest )
+
+[comment]: <> (docker run -p 5000:5000 echo0821/web-project:latest)
+
+[comment]: <> (```)
 
 ### Test Account
 
