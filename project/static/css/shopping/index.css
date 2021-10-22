@@ -310,7 +310,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 25px;
 }
 
 .product-view-title-text {
@@ -321,7 +321,7 @@
     height: 100px;
     color: purple;
     font-size: 25px;
-    font-weight: 800;
+    font-weight: bold;
     background: -webkit-gradient(
             linear,
             left bottom,
@@ -336,6 +336,7 @@
             rgb(255, 228, 76) 51%,
             rgb(252, 207, 227) 87%
     );
+    border-radius: 10px;
 }
 
 .product-view-title-text:hover {
@@ -395,7 +396,8 @@
     height: 100px;
     color: purple;
     font-size: 25px;
-    font-weight: 800;
+    font-weight: bold;
+    border-radius: 10px;
     background: -webkit-gradient(
             linear,
             left bottom,
@@ -437,7 +439,7 @@
     align-items: center;
 }
 
-.right-side-bar .user-intro, .announcements {
+.right-side-bar .user-intro, .announcements, .manage-my-order {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -456,6 +458,7 @@
     margin: 15px;
     font-weight: bold;
     font-size: 20px;
+    color: #6f6f6f;
 }
 
 .details {
@@ -464,7 +467,7 @@
     justify-content: space-around;
 }
 
-/*the style for announcements*/
+/* the style for announcements */
 .text {
     background-color: rgba(235, 233, 61, 0.1);
     margin: 10px;
@@ -499,10 +502,10 @@
 }
 
 .text span::after {
-    z-index: 3;
     color: #d575b1;
     text-shadow: 0 0 1px #d575b1;
     transform: rotateY(-28deg);
+    z-index: 99;
 }
 
 .text span:hover::before {
@@ -540,4 +543,10 @@
     .text {
         font-size: 20px;
     }
+}
+
+.manage-my-order .size {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
 }

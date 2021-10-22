@@ -257,6 +257,22 @@
                         <span fill-info="want.">want.</span>
                     </div>
                 </div>
+                <br>
+                <br>
+                <br>
+                {% if current_user.is_shopper %}
+                    <div class="manage-my-order">
+                        <div class="announcements-text">
+                            Manage My Order
+                        </div>
+                        <div>
+                            <img class="index-logo-img no-anim-image size" src="../../static/image/shopping/order.png" alt="">
+                        </div>
+                    </div>
+                {% else %}
+
+                {% endif %}
+
 
             </div>
         {% endif %}
