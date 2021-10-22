@@ -40,6 +40,13 @@ or
 python run.py
 ```
 
+or
+
+```shell
+docker pull echo0821/web-project:latest 
+docker run -p 5000:5000 echo0821/web-project:latest
+```
+
 ### Test Account
 
 Shopper:

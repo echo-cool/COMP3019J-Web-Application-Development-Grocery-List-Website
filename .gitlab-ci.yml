@@ -48,6 +48,8 @@ docker:
   tags:
     - shell
   stage: package
+  only:
+    - master
   script:
     - echo "package docker"
     - docker info
