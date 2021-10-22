@@ -74,9 +74,9 @@ Buyer:
   * Allowing user to view top-selling products
   * Allowing user to view products grouped by shops
 * Shopping Cart
-  * User's can add product to their shopping cart
-  * Item's in the cart can be removed or change quantity
-  * Item's can be correctly count if user add the product multiple times from detail page
+  * Users can add product to their shopping cart
+  * Items in the cart can be removed or change quantity
+  * Items can be correctly count if user add the product multiple times from detail page
 * Ordering
   * User can make order from shopping cart
   * After paying, user can view the order in the order page
@@ -106,7 +106,6 @@ Buyer:
 * Allowing unregistered user to view products
 * Auto redirect to login page
 * CSRF Protection
-* High-Performance Page Caching
 * Blueprint for routing
 
 

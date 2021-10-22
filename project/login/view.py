@@ -52,7 +52,7 @@ def login():
             password=register_from.password.data,
             active=True,
         )
-        flash("Thank you for registering. You can now log in.", "success")
+        flash("Thank you for registering. You can now log in.")
         return redirect(url_for("index.home"))
 
     else:

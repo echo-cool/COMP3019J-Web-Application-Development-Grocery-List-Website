@@ -10,7 +10,8 @@ from flask_login import login_user, login_required, current_user, logout_user
 
 from project import app, db
 from project.models import ItemModel
-from project.models.Cart import Cart
+from project.models.AnnouncementModel import Announcement
+from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
 
@@ -36,6 +37,9 @@ blueprint = Blueprint("index", __name__, static_folder="../static")
 def home() -> str:
     all_items = Item.query.all()
     shop_sellers = {}
+    announcements = Announcement.query.all()
+    announcements = [i.content.split(" ") for i in announcements]
+    # announcement: Announcement = Announcement.get_by_id(0)
     for item in all_items:
         user_id = item.owner
         shopper = User.get_by_id(user_id)
@@ -45,7 +49,7 @@ def home() -> str:
             shop_sellers[shopper] = [item]
 
     all_items.sort(key=lambda i: i.sold_count, reverse=True)
-    return render_template("shopping/index.html", items=all_items, current_user=current_user, shop_sellers=shop_sellers)
+    return render_template("shopping/index.html", items=all_items, current_user=current_user, shop_sellers=shop_sellers, announcements=announcements)
 
 
 @blueprint.route("/search", methods=["GET", "POST"])

@@ -22,7 +22,8 @@
                         <div class="index-search-box">
                             <form action="{{ url_for("index.search") }}" method="GET" name="search">
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                <input class="index-search-text" name="keyword" placeholder="Enter the product name" value="">
+                                <input class="index-search-text" name="keyword" placeholder="Enter the product name"
+                                       value="">
                                 <input class="index-search-submit-button" type="submit" value="">
                             </form>
                         </div>
@@ -175,7 +176,7 @@
                     <div class="avatar">
                         <a href="{{ url_for("user.info") }}">
                             <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
-                             alt="" class="img-avatar">
+                                 alt="" class="img-avatar">
                         </a>
                     </div>
 
@@ -237,28 +238,34 @@
                 <br>
                 <br>
                 <br>
-                <div class="announcements">
-                    <div class="announcements-text">
-                        Announcements
+                {% for announcement in announcements %}
+                    <div class="announcements">
+                        <div class="announcements-text">
+                            Announcements
+                        </div>
+                        <div>
+                            <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png"
+                                 alt="">
+                        </div>
+                        <div class="text">
+                            {% for text in announcement %}
+                                <span fill-info="{{ text }}">{{ text }}</span>
+                            {% endfor %}
+                            {#                        <span fill-info="Thanks">Thanks</span>#}
+                            {#                        <span fill-info="for">for</span>#}
+                            {#                        <span fill-info="visiting">visiting</span>#}
+                            {#                        <span fill-info="our">our</span>#}
+                            {#                        <span fill-info="website.">website.</span>#}
+                            {#                        <span fill-info="Feel">Feel</span>#}
+                            {#                        <span fill-info="free">free</span>#}
+                            {#                        <span fill-info="to">to</span>#}
+                            {#                        <span fill-info="buy">buy</span>#}
+                            {#                        <span fill-info="anything">anything</span>#}
+                            {#                        <span fill-info="you">you</span>#}
+                            {#                        <span fill-info="want.">want.</span>#}
+                        </div>
                     </div>
-                    <div>
-                        <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
-                    </div>
-                    <div class="text">
-                        <span fill-info="Thanks">Thanks</span>
-                        <span fill-info="for">for</span>
-                        <span fill-info="visiting">visiting</span>
-                        <span fill-info="our">our</span>
-                        <span fill-info="website.">website.</span>
-                        <span fill-info="Feel">Feel</span>
-                        <span fill-info="free">free</span>
-                        <span fill-info="to">to</span>
-                        <span fill-info="buy">buy</span>
-                        <span fill-info="anything">anything</span>
-                        <span fill-info="you">you</span>
-                        <span fill-info="want.">want.</span>
-                    </div>
-                </div>
+                {% endfor %}
                 <br>
                 <br>
                 <br>
@@ -268,7 +275,8 @@
                             Manage My Order
                         </div>
                         <div>
-                            <img class="index-logo-img no-anim-image size" src="../../static/image/shopping/order.png" alt="">
+                            <img class="index-logo-img no-anim-image size" src="../../static/image/shopping/order.png"
+                                 alt="">
                         </div>
                     </div>
                 {% else %}

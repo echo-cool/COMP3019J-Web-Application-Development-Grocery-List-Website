@@ -128,14 +128,17 @@
                             <td rowspan="{{ orders[order_id]|length }}">
                                 {{ total_price[order_id] }}
                             </td>
-                            <td rowspan="{{ orders[order_id]|length }}">
+                        {% endif %}
+                        {% if order.show_td %}
+                            <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
+
                                 {% if current_user.is_shopper %}
                                     &nbsp;&nbsp;&nbsp;&nbsp;<button class="button-default">
                                         <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}">Confirm</a>
                                     </button>
                                 {% else %}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="button-default">
-                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id) }}">Confirm</a>
+                                    <button class="button-default">
+                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}">Confirm</a>
                                     </button>
                                 {% endif %}
                             </td>
