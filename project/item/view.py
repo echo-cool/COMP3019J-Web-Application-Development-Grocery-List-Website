@@ -1,8 +1,7 @@
 import os
 
-from flask import Blueprint, render_template, flash, current_app, url_for, Response
+from flask import Blueprint, render_template, flash, current_app, url_for, Response, redirect
 from flask_login import current_user, login_required
-from werkzeug.utils import secure_filename, redirect
 
 from project import db
 from project.item.forms import AddNewItem, UpdateItem
@@ -16,7 +15,7 @@ blueprint = Blueprint("item", __name__, static_folder="../static")
 @blueprint.route("/item/<int:itemID>", methods=["GET", "POST"])
 def details(itemID: int) -> str:
     item = Item.get_by_id(itemID)
-    owner = User.get_by_id(item.owner);
+    owner = User.get_by_id(item.owner)
     return render_template("shopping/product_details.html", item=item, shop=owner)
 
 
@@ -29,7 +28,6 @@ def ManageItem() -> str:
         owner=user.id,
     ).all()
     form = AddNewItem()
-    # print(form.data)
     print(form.validate_on_submit())
     if form.validate_on_submit():
         userid = current_user.id
@@ -51,7 +49,6 @@ def ManageItem() -> str:
                         inventory=inventory,
                         main_image_url=main_image_url,
                         owner=userid)
-
         try:
             new_item.save()
             flash("Save " + item_name + " Successfully to database !")

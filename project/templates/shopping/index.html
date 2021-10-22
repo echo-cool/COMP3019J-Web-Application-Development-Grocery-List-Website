@@ -173,8 +173,10 @@
             <div class="right-side-bar">
                 <div class="user-intro">
                     <div class="avatar">
-                        <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
+                        <a href="{{ url_for("user.info") }}">
+                            <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
                              alt="" class="img-avatar">
+                        </a>
                     </div>
 
                     <div class="username">
