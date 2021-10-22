@@ -52,7 +52,6 @@ or
 ![pipeline](https://csgitlab.ucd.ie/19206226/TEAM_20/badges/master/pipeline.svg)
 
 ```shell
-
 docker pull echo0821/web-project:latest 
 
 docker run -p 5000:5000 echo0821/web-project:latest
