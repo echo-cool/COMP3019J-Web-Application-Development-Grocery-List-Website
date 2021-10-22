@@ -121,15 +121,6 @@
     border-bottom-left-radius: 5px;
 }
 
-/*table foot effects*/
-/*.add-item-box-table tfoot td {*/
-/*    color: #9CD009;*/
-/*    font-size: 32px;*/
-/*    text-align: center;*/
-/*    padding: 10px 0px;*/
-/*    text-shadow: 1px 1px 1px #444;*/
-/*}*/
-
 .add-item-box-table tfoot th {
     color: #666;
 }
@@ -143,14 +134,6 @@
     color: #616060;
     text-shadow: 1px 1px 1px #fff;
 }
-
-/*.add-item-box-table tbody span.check::before {*/
-/*    content: url(../images/check0.png)*/
-/*}*/
-
-/*tbody td {*/
-/*    width: 80%;*/
-/*}*/
 
 .add_button {
     display: flex;
@@ -194,3 +177,13 @@
     border-color: orange;
 }
 
+.number-input {
+    outline: 0;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+    /*background-color: #FFFCF3B2;*/
+    background-color: black;
+    padding: 0 20px;
+}
