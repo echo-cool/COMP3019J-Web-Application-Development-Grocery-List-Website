@@ -34,7 +34,7 @@ h3 {
 }
 
 .shopping-cart-box-head {
-    font-family: Helvetica, Arial, Serif;
+    font-family: Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
@@ -167,21 +167,13 @@ h3 {
 /*the image style*/
 .index-item-image {
     width: 100%;
-    max-width:60px;
     height: 100%;
-    max-width: 60px;
+    max-width: 120px;
 }
 
 /*the image style*/
 .index-item-image:hover {
     transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    /* IE 9 */
-    -webkit-transform: scale(1.1);
-    /* Safari and Chrome */
-    -o-transform: scale(1.1);
-    /* Opera */
-    -moz-transform: scale(1.1);
 }
 
 /*the style for the image in the td of table*/

@@ -13,35 +13,6 @@
 
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
-            {#            {% if isshopper %}#}
-            {#                <p class="shopping-cart-box-head"> Seller </p>#}
-            {#                <h1>Orders from your shop</h1>#}
-            {#                <br>#}
-            {#                <br>#}
-            {#                {% for order_id in orders %}#}
-            {#                    {{ order_id }}#}
-            {#                    {% for order in orders[order_id] %}#}
-            {#                        {{ order }}#}
-            {#                    {% endfor %}#}
-            {#                    <br>#}
-            {#                    <br>#}
-            {##}
-            {#                {% endfor %}#}
-            {#            {% else %}#}
-            {#                <p class="shopping-cart-box-head"> Customer </p>#}
-            {#                <h1>Check your orders</h1>#}
-            {#                <br>#}
-            {#                <br>#}
-            {#                {% for order_id in orders %}#}
-            {#                    {{ order_id }}#}
-            {#                    {% for order in orders[order_id] %}#}
-            {#                        {{ order }}#}
-            {#                    {% endfor %}#}
-            {#                    <br>#}
-            {#                    <br>#}
-            {##}
-            {#                {% endfor %}#}
-            {#            {% endif %}#}
 
             <br>
             <hr>
@@ -139,7 +110,19 @@
                             {{ order.count }}
                         </td>
                         <td>
-                            {{ order.status }}
+                            {% if order.status == "Confirmed By Shopper" %}
+                                <span class="confirmed-by-shopper">
+                                    ❓&nbsp;{{ order.status }}
+                                </span>
+                            {% elif order.status == "Not Confirmed" %}
+                                <span class="not-confirmed-by-shopper">
+                                    ×&nbsp;{{ order.status }}
+                                </span>
+                            {% elif order.status == "Confirmed Delivered" %}
+                                <span class="confirm-delivered">
+                                    √&nbsp;{{ order.status }}
+                                </span>
+                            {% endif %}
                         </td>
                         {% if loop.index == 1 %}
                             <td rowspan="{{ orders[order_id]|length }}">
