@@ -18,9 +18,9 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 
 ### Run this project
 
-### Preview this project (Deployed in Heroku)
+[comment]: <> (### Preview this project &#40;Deployed in Heroku&#41;)
 
-[http://comp3019j-web-dev.herokuapp.com/](http://comp3019j-web-dev.herokuapp.com/)
+[comment]: <> ([http://comp3019j-web-dev.herokuapp.com/]&#40;http://comp3019j-web-dev.herokuapp.com/&#41;)
 
 #### Set up environment
 1. Install Python3.9
@@ -45,6 +45,7 @@ python run.py
 ```
 
 or
+
 
 ```shell
 docker pull echo0821/web-project:latest 
