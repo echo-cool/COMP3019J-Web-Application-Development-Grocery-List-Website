@@ -18,6 +18,10 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 
 ### Run this project
 
+### Preview this project (Deployed in Heroku)
+
+[http://comp3019j-web-dev.herokuapp.com/](http://comp3019j-web-dev.herokuapp.com/)
+
 #### Set up environment
 1. Install Python3.9
 2. Using the following code to set up environment
