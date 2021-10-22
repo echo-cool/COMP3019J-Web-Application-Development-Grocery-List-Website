@@ -11,10 +11,6 @@
 {% endblock %}
 
 {% block content %}
-
-    {#    <p><label>Item name:</label>{{ item.name }}</p>#}
-    {#    <p><label>Item price:</label>{{ item.price }}</p>#}
-    {#    <p><label>Item description:</label>{{ item.description }}</p>#}
     <form action="{{ url_for("cart.add_to_cart") }}" method="post">
         <div class="product-little-box">
             <div class="product-image-box">
@@ -77,15 +73,7 @@
                     <input type="hidden" name="itemID" value="{{ item.id }}">
                     <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit">
                 </div>
-
             </div>
-
-
         </div>
     </form>
-
-
-
-
-
 {% endblock %}

@@ -9,105 +9,76 @@
 
 {% block js %}
 {% endblock %}
-{#{% block nav %}#}
-{#    <ul>#}
-{#        <li><a  href="/">Home</a></li>#}
-{#        <li><a href="/item/add">Add</a></li>#}
-{#        <li><a href="/about">About</a></li>#}
-{#        <li><a class="active" href="/login">Login</a></li>#}
-{#        {% if current_user.is_authenticated %}#}
-{#            <li><a href="/user">Hello, {{ current_user.username }}</a></li>#}
-{#            <li><a href="/logout">logout</a></li>#}
-{#        {% else %}#}
-{#        {% endif %}#}
-{#    </ul>#}
-{#{% endblock %}#}
 
 {% block content %}
     <div class="container">
         <div class="login-inner_box">
             <div class="login-move_box">
+
                 <!-- register -->
                 <div class="sign_up login-hidden">
-                    <h1>Register</h1>
-                    <form class="" autocomplete="off" method="POST" action="">
+                    <h1>REGISTER</h1>
+                    <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ register_from.csrf_token }}
                         <div class="login-input_area">
-
                             {{ register_from.username(class="login-input-text",placeholder="") }}
                             {{ register_from.username.label }}
-                            {#                            <input type="text" name="" required>#}
-                            {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
-
                             {{ register_from.email(class="login-input-text",placeholder="") }}
                             {{ register_from.email.label }}
-                            {#                            <input type="text" name="" required>#}
-                            {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
-
                             {{ register_from.password(class="login-input-text",placeholder="") }}
                             {{ register_from.password.label }}
-                            {#                            <input type="password" name="" required>#}
-                            {#                            <label>Password</label>#}
                         </div>
                         <div class="login-input_area">
 
                             {{ register_from.confirm(class="login-input-text",placeholder="") }}
                             {{ register_from.confirm.label }}
-                            {#                            <input type="password" name="" required>#}
-                            {#                            <label>Confirm Password</label>#}
                         </div>
-                        {#                        <button class="button submit">Create Account</button>#}
-                        {{ register_from.submit_register(class="login-input-text") }}
+                        {{ register_from.submit_register(class_="login-submit-button") }}
                     </form>
                 </div>
 
-                <!-- 登录 -->
+                <!-- login -->
                 <div class="sign_in">
-                    <h1>Sign In</h1>
+                    <h1>SIGN IN</h1>
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ login_form.csrf_token }}
                         <div class="login-input_area">
                             {{ login_form.username(class="login-input-text",placeholder="") }}
                             {{ login_form.username.label }}
-                            {#                            <input type="text" name="" required>#}
-                            {#                            <label>User Name</label>#}
                         </div>
                         <div class="login-input_area">
                             {{ login_form.password(class="login-input-text",placeholder="") }}
                             {{ login_form.password.label }}
-                            {#                                                        <input type="password" name="" required>#}
-                            {#                                                        <label>Password</label>#}
                         </div>
                         <div class="checkbox">
                             <input class = "login-input-text" type="checkbox" id="remember"/>
                             <label for="remember">Remember Me</label>
                         </div>
-{#                        <button class="button submit1">Login</button>#}
                         {{ login_form.submit_login(class_="login-submit-button") }}
                     </form>
                 </div>
             </div>
 
             <div class="login-left">
-                <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
-                <p class="login-advertise">Choose your favorite <span>Item</span></p>
-                <img class="flower smaller"
+                <h2 class="login-title">WElCOME&nbsp;<span>To</span><br>Shopping</h2>
+                <p class="login-advertise">Buy/Sell your favorite <span>Item</span></p>
+                <img class="flower"
                      src="{{ url_for('static',filename='image/login/webp.webp') }}"/>
                 <p class="login-account">Have an account?</p>
-                <button class="index-banner-button" id="sign_in">Login</button>
+                <button class="index-banner-button" id="sign_in">LOGIN</button>
             </div>
 
             <div class="login-right">
                 <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
-                <p class="login-advertise">Choose your favorite <span>Item</span></p>
+                <p class="login-advertise">Buy/Sell your favorite <span>Item</span></p>
                 <img class="flower"
                      src="{{ url_for('static',filename='image/login/webp.webp') }}"/>
                 <p class="login-account">Don't have an account?</p>
-                <button class="index-banner-button" id="sign_up">Sign Up</button>
+                <button class="index-banner-button" id="sign_up">SIGN UP</button>
             </div>
         </div>
     </div>

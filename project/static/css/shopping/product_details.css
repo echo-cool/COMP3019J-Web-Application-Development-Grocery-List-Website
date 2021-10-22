@@ -253,13 +253,17 @@
 }
 
 #number-input {
-    border: 0;
     outline: 0;
     height: 40px;
     width: 120px;
-    border-radius: 30px;
+    border-radius: 10px;
+    border: 2px solid lightgrey;
     background-color: rgba(255, 252, 243,0.7);
+    padding: 0 20px;
+}
 
+#number-input:hover {
+    border-color: orangered;
 }
 
 ::-webkit-input-placeholder {

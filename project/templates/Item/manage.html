@@ -5,6 +5,7 @@
 {% endblock %}
 {% block style %}
     <link rel="stylesheet" href="../../static/css/item/manage.css">
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
 {% endblock %}
 
 {% block content %}
@@ -15,6 +16,14 @@
             <h1>Manage My Items</h1>
             <br>
             <br>
+
+            {% if itemsLength == 0 %}
+                <h1 class="h2">You Have Not Owned Any Items to Sell</h1>
+                <button class="button-default">
+                    <a href="{{ url_for("item.addNewItem") }}">Click here to add new item</a>
+                </button>
+            {% endif %}
+
             <h1 class="h2">Display & Remove & Modify & Add</h1>
             <br>
             <br>
@@ -26,7 +35,6 @@
                     <th>Price</th>
                     <th class="number-margin">Inventory</th>
                     <th>Total</th>
-                    {#                    <th class="cancel-column">Cancel</th>#}
                     <th class="cancel-column">Modify</th>
                     <th class="cancel-column">Delete</th>
                     <th class="add-column">Add New Item</th>
@@ -44,19 +52,8 @@
                         <td>{{ item.price }}</td>
                         <td class="sub-add-button">
                             {{ item.price }}
-{#                            <button class="sub">#}
-{#                                -#}
-{#                            </button>#}
-{#                            <input type="text" class="number" value="{{ item.price }}">#}
-{#                            <button class="add">#}
-{#                                +#}
-{#                            </button>#}
                         </td>
                         <td>{{ item.price }}</td>
-
-                        {#                        <td class="cancel-column">#}
-                        {#                            <button class="incorrect"></button>#}
-                        {#                        </td>#}
                         <td>
                             <a href="{{ url_for("item.ModifyNewItem",item_id=item.id) }}">
                                 <div class="manage-items-modify">
@@ -72,7 +69,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ url_for("item.addNewItem")}}">
+                            <a href="{{ url_for("item.addNewItem") }}">
                                 <div class="manage-items-modify">
                                     Add New Item
                                 </div>
@@ -83,43 +80,6 @@
                 </tbody>
 
             </table>
-            {#            <br>#}
-            {#            <br>#}
-            {#            <h1 class="h2">Add Items</h1>#}
-            {#            <br>#}
-            {#            <br>#}
-            {#            <form action="" method="POST" enctype="multipart/form-data">#}
-            {#                {{ form.csrf_token }}#}
-            {#                <table class="add-item-box-table">#}
-            {#                    <tbody>#}
-            {#                    <tr>#}
-            {#                        <th>{{ form.item_name.label }}</th>#}
-            {#                        <td>{{ form.item_name }}</td>#}
-            {#                    </tr>#}
-            {#                    <tr>#}
-            {#                        <th>{{ form.item_price.label }}</th>#}
-            {#                        <td>{{ form.item_price }}</td>#}
-            {#                    </tr>#}
-            {#                    <tr>#}
-            {#                        <th>{{ form.description.label }}</th>#}
-            {#                        <td>{{ form.description }}</td>#}
-            {#                    </tr>#}
-            {#                    <tr>#}
-            {#                        <th>{{ form.inventory.label }}</th>#}
-            {#                        <td>{{ form.inventory }}</td>#}
-            {#                    </tr>#}
-            {#                    <tr>#}
-            {#                        <th>{{ form.main_image_file.label }}</th>#}
-            {#                        <td>{{ form.main_image_file }}</td>#}
-            {#                    </tr>#}
-            {#                    </tbody>#}
-            {##}
-            {#                </table>#}
-            {#                <div class="add_button">#}
-            {#                    {{ form.add_button(class="button-default") }}#}
-            {#                </div>#}
-            {#            </form>#}
-
 
         </div>
     </div>

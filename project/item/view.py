@@ -14,7 +14,7 @@ blueprint = Blueprint("item", __name__, static_folder="../static")
 @blueprint.route("/item/<int:itemID>", methods=["GET", "POST"])
 def details(itemID: int) -> str:
     item = Item.get_by_id(itemID)
-    owner = User.get_by_id(item.owner);
+    owner = User.get_by_id(item.owner)
     return render_template("shopping/product_details.html", item=item, shop=owner)
 
 
@@ -26,8 +26,8 @@ def ManageItem() -> str:
     items = Item.query.filter_by(
         owner=user.id,
     ).all()
+    itemsLength = len(items)
     form = AddNewItem()
-    # print(form.data)
     print(form.validate_on_submit())
     if form.validate_on_submit():
         userid = current_user.id
@@ -49,7 +49,6 @@ def ManageItem() -> str:
                         inventory=inventory,
                         main_image_url=main_image_url,
                         owner=userid)
-
         try:
             new_item.save()
             flash("Save " + item_name + " Successfully to database !")
@@ -58,7 +57,7 @@ def ManageItem() -> str:
             print(e.message)
             db.session.rollback()
 
-    return render_template("item/manage.html", items=items, form=form)
+    return render_template("item/manage.html", items=items, form=form, itemsLength=itemsLength)
 
 
 @blueprint.route("/item/delete/<int:item_id>", methods=["POST", "GET"])

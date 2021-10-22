@@ -22,23 +22,22 @@
 }
 
 .shopping-cart-box-head {
-    font-family: Helvetica, Arial, Serif;
+    font-family: Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
-    font-style: normal;
     letter-spacing: 4px;
     color: #888;
     border-bottom: 3px solid #f0f0f0;
     margin-bottom: 10px;
     padding: 10px;
 }
+
 #shopping-cart-box h1 {
     display: flex;
     align-items: flex-start;
     font-family: "Trebuchet MS", sans-serif;
     color: #f4e139;
-    font-weight: normal;
     font-style: normal;
     font-size: 56px;
     text-shadow: 1px 1px 1px #aaa;

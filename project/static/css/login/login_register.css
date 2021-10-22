@@ -1,247 +1,228 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora");
-
-body {
-  background: #cbc0d3;
-}
-
-/* 容器的样式 */
+/* the style for the container */
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-inner_box {
-  display: flex;
-  width: 650px;
-  height: 415px;
-  position: absolute;
-  top: 25%;
-  background: #f6f6f6;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    display: flex;
+    width: 650px;
+    height: 420px;
+    top: 28%;
+    background: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 .login-move_box {
-  position: absolute;
-  top: -10%;
-  left: 5%;
-  background: #eac7cc;
-  width: 320px;
-  height: 500px;
-  border-radius: 5px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease-in-out;
-  z-index: 2;
+    position: absolute;
+    top: -10%;
+    left: 5%;
+    background: #eac7cc;
+    width: 320px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+    z-index: 99;
 }
 
 .login-hidden {
-  display: none;
-  transition: all 0.5s ease;
+    display: none;
+    transition: all 0.5s ease;
 }
 
 .login-left, .login-right {
-  position: absolute;
-  width: 50%;
-  transition: 1s all ease;
+    position: absolute;
+    width: 50%;
+    transition: 1s all ease;
 }
 
 .login-left {
-  left: -2%;
+    left: -15px;
 }
 
 .login-right {
-  right: -2%;
+    right: -15px;
 }
 
-/* 字体和按钮的样式 */
+/* the style for font and button */
+.login-submit-button {
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    outline: none;
+    display: block;
+    padding: 12px 20px;
+    margin-top: 3%;
+    background: #f6f6f6;
+    color: #ce7d88;
+    border: solid 1px #e2c7ea;
+    margin-left: 35%;
+}
+
+.login-submit-button:hover {
+    background: #dec7ea;
+    color: #f6f6f6;
+    transition: background-color 0.9s ease-out;
+}
+
 .login-inner_box h1 {
-  font-family: "Open Sans", sans-serif;
-  text-align: center;
-  margin-top: 95px;
-  text-transform: uppercase;
-  color: #f6f6f6;
-  font-size: 2em;
-  letter-spacing: 8px;
+    text-align: center;
+    margin-top: 65px;
+    color: #f6f6f6;
+    font-size: 30px;
+    letter-spacing: 8px;
 }
 
 .login-title {
-  font-family: "Lora", serif;
-  color: #8e9aaf;
-  font-size: 1.8em;
-  line-height: 1.1em;
-  letter-spacing: 3px;
-  text-align: center;
-  font-weight: 300;
-  margin-top: 20%;
+    color: #eac7cc;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 20%;
 }
 
 .login-advertise {
-  margin-top: 8px;
+    margin-top: 8px;
 }
 
 .login-account {
-  margin-top: 45%;
-  font-size: 10px;
+    margin-top: 150px;
+    font-size: 10px;
 }
 
 .login-inner_box p {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.7em;
-  letter-spacing: 2px;
-  color: #8e9aaf;
-  text-align: center;
+    color: #8e9aaf;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-align: center;
 }
 
 .login-inner_box span {
-  color: #eac7cc;
+    color: #8e9aaf;
 }
 
 .login-inner_box .flower {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  top: 45%;
-  left: 27%;
-  opacity: 0.8;
-}
-
-.login-inner_box .smaller {
-  width: 130px;
-  height: 130px;
-  top: 48%;
-  left: 30%;
-  opacity: 0.9;
+    position: absolute;
+    top: 160px;
+    left: 95px;
+    width: 140px;
+    height: 140px;
 }
 
 .login-inner_box button {
-  font-family: "Open Sans", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 11px;
-  border-radius: 12px;
-  outline: none;
-  display: block;
-  padding: 12px 12px 12px 20px;
+    display: block;
+    padding: 12px 20px;
+    font-size: 11px;
+    outline: none;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 .login-inner_box button:hover {
-  background: #eac7cc;
-  color: #f6f6f6;
-  transition: background-color 1s ease-out;
+    background: #eac7cc;
+    color: #f6f6f6;
+    transition: background-color 0.9s ease-out;
 }
 
 .login-inner_box .index-banner-button {
-  margin-top: 3%;
-  background: #f6f6f6;
-  color: #ce7d88;
-  border: solid 1px #eac7cc;
-  margin-left: 35%;
+    color: #ce7d88;
+    border: solid 1px #eac7cc;
+    background: #f6f6f6;
+    margin-left: 35%;
+    margin-top: 20px;
 }
 
-/* 表单样式 */
+/* the style for form */
 .login-inner_box form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 7px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 7px;
 }
 
 .login-more-padding {
-  position: absolute;
-  padding-top: 15px;
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 25px;
 }
 
 .login-more-padding input {
-  padding: 12px;
+    padding: 12px;
 }
 
 .login-more-padding .login-submit1 {
-  margin-top: 45px;
+    margin-top: 45px;
 }
 
 .login-submit1 {
-  margin-top: 25px;
-  padding: 12px;
-  border-color: #ce7d88;
+    margin-top: 25px;
+    padding: 12px;
+    border-color: #ce7d88;
 }
 
-.login-submit1:hover {
-  background: #cbc0d3;
-  border-color: #bfb1c9;
-}
-
-.login-input-text{
-  background: #eac7cc;
-  width: 65%;
-  color: #ce7d88;
-  border: none;
-  /*border-bottom: 1px solid rgba(246, 246, 246, 0.5);*/
-  /*transition: .5s;*/
-  padding: 9px;
-  font-weight: 100;
+.login-input-text {
+    background: #eac7cc;
+    width: 60%;
+    color: #ce7d88;
+    border: none;
+    padding: 9px;
+    border-radius: 11px;
 }
 
 .login-input-text:focus {
-  color: #ce7d88;
-  outline: none;
-  border-bottom: 1.2px solid rgba(206, 125, 136, 0.7);
-  /*font-size: 1.0em;*/
-  transition: 0.8s all ease;
+    color: #ce7db0;
+    outline: none;
+    border-bottom: 1px solid #EB6EF8B2;
+    transition: 0.7s all ease;
 }
 
-/*input:focus::placeholder {*/
-/*  opacity: 0;*/
-/*}*/
 
 .login-inner_box label {
-  font-family: "Open Sans", sans-serif;
-  color: #ce7d88;
-  font-size: 0.8em;
-  letter-spacing: 1px;
+    color: #ce7db0;
+    font-size: 10px;
+    letter-spacing: 1px;
 }
 
 .login-inner_box .checkbox {
-  /*display: inline;*/
-  white-space: nowrap;
-  position: relative;
-  margin: auto;
-  top: -5px;
+    top: -5px;
+    margin: auto;
+    white-space: nowrap;
+    position: relative;
 }
 
 .login-input-text[type=checkbox] {
-  width: 15px;
-  background: #ce7d88;
+    width: 15px;
+    background: #ce7d88;
 }
 
 .login-input-text[type=checkbox]:checked + label {
-  color: #ce7d88;
-  transition: 0.5s all ease;
+    color: #ce7d88;
+    transition: 0.5s all ease;
 }
 
 .login-input_area {
-  position: relative;
-  margin-left: 58px;
+    position: relative;
+    margin-left: 65px;
 }
 
 .login-input-text {
     width: 100%;
-    /*上下10，左右0*/
-    /*padding 简写属性后面的值*/
-    /*1值:代表4个方向设置相同的内边距*/
-    /*2值:上下 左右*/
-    /*3值:上 左右 下*/
-    /*4值:上 右 下 左*/
     padding: 10px 0;
+    color: #fff;
     font-size: 16px;
-    color: white;
     letter-spacing: 1px;
-    margin-bottom: 30px;
-    /*设置了border: none/0 仍然有边框,这是因为设置了height 和 weight, 去掉即可 */
+    outline: none;
     border: 0;
     border-bottom: 1px solid #ce7d88;
-    transition: 0.8s all ease;
-    outline: none;
+    margin-bottom: 30px;
+    transition: 0.7s all ease;
     background: transparent;
 }
 
@@ -249,38 +230,19 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 6px 0;
+    padding: 8px 0;
     font-size: 16px;
     font-weight: bold;
-    color: white;
-    letter-spacing: 1px;
-    /*设置一个元素的css属性为pointer-events: none。它将不会捕获任何click事件，而是让事件穿过该元素到达下面的元素*/
+    color: #fff;
     pointer-events: none;
-    transition: .6s;
+    transition: 0.6s;
 }
 
 .login-input-text:focus ~ label,
 .login-input-text:valid ~ label {
-    top: -25px;
+    color: #d6aaf3;
+    font-size: 16px;
     left: 0;
-    color: #cab2dc;
-    font-size: 14px;
+    top: -32px;
 }
 
-
-.login-submit-button{
-    font-family: "Open Sans", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 11px;
-  border-radius: 12px;
-  outline: none;
-  display: block;
-  padding: 12px 12px 12px 20px;
-  margin-top: 3%;
-  background: #f6f6f6;
-  color: #ce7d88;
-  border: solid 1px #eac7cc;
-  margin-left: 35%;
-
-}

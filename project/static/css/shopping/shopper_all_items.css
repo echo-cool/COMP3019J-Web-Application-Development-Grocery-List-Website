@@ -22,19 +22,6 @@
     cursor: pointer;
 }
 
-.index-search-text {
-    width: 320px;
-    padding-left: 18px;
-    padding-right: 10px;
-    line-height: 32px;
-    font-size: 12px;
-    color: #6f6f6f;
-    display: block;
-    float: left;
-    border: 2px solid plum;
-    box-shadow: 0 2px;
-}
-
 .my-basket-box {
     display: flex;
     justify-content: space-around;
@@ -63,101 +50,6 @@
     color: green;
 }
 
-.shell {
-    /*margin-top: 20px;*/
-    /*margin-bottom: 20px;*/
-    width: 99%;
-    height: 600px;
-    position: relative;
-    overflow-x: hidden;
-    border-radius: 5px;
-    border: 10px #fff;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-    /*margin: auto;*/
-}
-
-.index-banner-images-box {
-    width: 100%;
-    height: 100%;
-    display: block;
-    /*display: flex;*/
-    position: absolute;
-    left: 0;
-    transition: .2s;
-}
-
-.index-banner-image {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    /*position: absolute;*/
-    background-size: cover;
-}
-
-.index-banner-image:nth-child(1) {
-    background-image: url("../../image/shopping/shopping_menu1.png");
-    width: 100%;
-    height: 100%;
-}
-
-.index-banner-image:nth-child(2) {
-    background-image: url("../../image/shopping/shopping_menu2.png");
-}
-
-.index-banner-image:nth-child(3) {
-    background-image: url("../../image/shopping/shopping_menu3.png");
-}
-
-.index-banner-min-images-box {
-    display: flex;
-    justify-content: space-evenly;
-    position: absolute;
-    bottom: 20px;
-    width: 40%;
-    z-index: 999;
-    right: 10%;
-}
-
-.index-banner-min-image {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    border-radius: 50%;
-    background-size: cover;
-    border: solid rgba(255, 255, 255, 0.5) 5px;
-    background-position: -20px 0;
-}
-
-.index-banner-min-image:nth-child(1) {
-    background-image: url("../../image/shopping/shopping_menu1.png");
-}
-
-.index-banner-min-image:nth-child(2) {
-    background-image: url("../../image/shopping/shopping_menu2.png");
-}
-
-.index-banner-min-image:nth-child(3) {
-    background-image: url("../../image/shopping/shopping_menu3.png");
-}
-
-.index-banner-button {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    user-select: none;
-}
-
-.index-banner-button-left,
-.index-banner-button-right {
-    font-size: 50px;
-    background-color: rgba(249, 240, 248, 0.7);
-    padding: 2px;
-    cursor: pointer;
-    line-height: 500px;
-}
-
 .index-item {
     padding: 10px;
     margin: 20px;
@@ -166,7 +58,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 1px lightgrey solid;
+    border: 3px lightblue solid;
+    border-radius: 15px;
 }
 
 .index-item-container-box {
@@ -184,7 +77,7 @@
     justify-content: flex-start;
     align-content: flex-start;
     margin: auto;
-    background-color: #f1f1f1;
+    background: transparent;
 }
 
 
@@ -210,13 +103,6 @@
 
 .index-item-image:hover {
     transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    /* IE 9 */
-    -webkit-transform: scale(1.1);
-    /* Safari and Chrome */
-    -o-transform: scale(1.1);
-    /* Opera */
-    -moz-transform: scale(1.1);
 }
 
 .index-product-view-title {
@@ -239,16 +125,17 @@
             linear,
             left bottom,
             right top,
-            color-stop(0.02, rgb(249, 188, 201)),
-            color-stop(0.51, rgb(243, 255, 76)),
-            color-stop(0.87, rgb(252, 207, 227))
+            color-stop(0.05, #F9BCC9FF),
+            color-stop(0.52, #F3FF4CFF),
+            color-stop(0.88, #FCCFE3FF)
     );
     background: -moz-linear-gradient(
             left bottom,
-            rgb(249, 188, 201) 2%,
-            rgb(255, 228, 76) 51%,
-            rgb(252, 207, 227) 87%
+            #F9BCC9FF 5%,
+            #F3FF4CFF 52%,
+            #FCCFE3FF 88%
     );
+    border-radius: 10px;
 }
 
 .index-item-text {

@@ -22,7 +22,7 @@
                         <div class="index-search-box">
                             <form action="{{ url_for("index.search") }}" method="GET" name="search">
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                <input class="index-search-text" name="keyword" value="">
+                                <input class="index-search-text" name="keyword" placeholder="Enter the product name" value="">
                                 <input class="index-search-submit-button" type="submit" value="">
                             </form>
                         </div>
@@ -131,21 +131,39 @@
                                 </div>
                             </div>
                             {#                    <div class="right-img-area">#}
-                            {% for item in shop_sellers[shop][:3] %}
-                                <div class="index-item scroll-fade-in">
-                                    <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
-                                            class="index-item-image"
-                                            src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                            value="Item Image"></a>
-                                    <div class="index-item-text">
-                                        <p class="index-item-price">$ {{ item.price }}</p>
-                                        <a class="index-item-name"
-                                           href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
-                                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                                        <p class="index-item-description">{{ item.description }}</p>
+                            {% if current_user.is_authenticated %}
+                                {% for item in shop_sellers[shop][:3] %}
+                                    <div class="index-item scroll-fade-in">
+                                        <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                                class="index-item-image"
+                                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                value="Item Image"></a>
+                                        <div class="index-item-text">
+                                            <p class="index-item-price">$ {{ item.price }}</p>
+                                            <a class="index-item-name"
+                                               href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                            <p class="index-item-description">{{ item.description }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            {% else %}
+                                {% for item in shop_sellers[shop][:4] %}
+                                    <div class="index-item scroll-fade-in">
+                                        <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                                class="index-item-image"
+                                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                value="Item Image"></a>
+                                        <div class="index-item-text">
+                                            <p class="index-item-price">$ {{ item.price }}</p>
+                                            <a class="index-item-name"
+                                               href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                            <p class="index-item-description">{{ item.description }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -155,8 +173,10 @@
             <div class="right-side-bar">
                 <div class="user-intro">
                     <div class="avatar">
-                        <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
+                        <a href="{{ url_for("user.info") }}">
+                            <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
                              alt="" class="img-avatar">
+                        </a>
                     </div>
 
                     <div class="username">
@@ -218,13 +238,43 @@
                 <br>
                 <br>
                 <div class="announcements">
-                    <div>
+                    <div class="announcements-text">
                         Announcements
                     </div>
+                    <div>
+                        <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
+                    </div>
                     <div class="text">
-                        Thanks for visiting our website. Feel free to buy anything you want.
+                        <span fill-info="Thanks">Thanks</span>
+                        <span fill-info="for">for</span>
+                        <span fill-info="visiting">visiting</span>
+                        <span fill-info="our">our</span>
+                        <span fill-info="website.">website.</span>
+                        <span fill-info="Feel">Feel</span>
+                        <span fill-info="free">free</span>
+                        <span fill-info="to">to</span>
+                        <span fill-info="buy">buy</span>
+                        <span fill-info="anything">anything</span>
+                        <span fill-info="you">you</span>
+                        <span fill-info="want.">want.</span>
                     </div>
                 </div>
+                <br>
+                <br>
+                <br>
+                {% if current_user.is_shopper %}
+                    <div class="manage-my-order">
+                        <div class="announcements-text">
+                            Manage My Order
+                        </div>
+                        <div>
+                            <img class="index-logo-img no-anim-image size" src="../../static/image/shopping/order.png" alt="">
+                        </div>
+                    </div>
+                {% else %}
+
+                {% endif %}
+
 
             </div>
         {% endif %}
