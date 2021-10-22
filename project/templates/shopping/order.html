@@ -5,8 +5,9 @@
 {% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="../../static/css/shopping/order.css">
+
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+    <link rel="stylesheet" href="../../static/css/shopping/order.css">
 {% endblock %}
 
 {% block content %}
@@ -112,15 +113,15 @@
                         <td>
                             {% if order.status == "Confirmed By Shopper" %}
                                 <span class="confirmed-by-shopper">
-                                    ?&nbsp;Confirmed By Seller
+                                    🆗&nbsp;Confirmed By Seller
                                 </span>
                             {% elif order.status == "Not Confirmed" %}
                                 <span class="not-confirmed-by-shopper">
-                                    ×&nbsp;{{ order.status }}
+                                    🕐&nbsp;{{ order.status }}
                                 </span>
                             {% elif order.status == "Confirmed Delivered" %}
                                 <span class="confirm-delivered">
-                                    √&nbsp;{{ order.status }}
+                                    👍&nbsp;{{ order.status }}
                                 </span>
                             {% endif %}
                         </td>
@@ -133,7 +134,8 @@
                             <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
 
                                 {% if current_user.is_shopper %}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="button-default">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button class="button-default">
                                         <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}">Confirm</a>
                                     </button>
                                 {% else %}
