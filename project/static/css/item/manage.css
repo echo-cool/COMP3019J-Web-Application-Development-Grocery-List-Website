@@ -1,5 +1,3 @@
-
-
 .cart table td, .cart table th {
     border: 1px solid black;
     padding: 10px;
@@ -16,7 +14,7 @@ h3 {
     background-color: #efefef;
     border-left: 30px solid #f4e139;
     border-right: 1px solid #ddd;
-    -moz-box-shadow: 0px 0px 16px #aaa;
+    box-shadow: 1px 1px 17px #AAAAAAF7;
     border-radius: 12px;
     padding: 75px 120px;
     display: flex;
@@ -31,23 +29,27 @@ h3 {
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
+    background: transparent;
 }
 
 .shopping-cart-box-head {
-    font-family: Helvetica, Arial, Serif;
+    color: #898787;
+    padding: 9px;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    border-bottom: 3px solid #e7e6e6;
+    margin-bottom: 10px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 12px;
-    font-style: normal;
-    letter-spacing: 4px;
-    color: #888;
-    border-bottom: 3px solid #f0f0f0;
-    margin-bottom: 10px;
-    padding: 10px;
 }
 
 .shopping-cart-box-head a:hover {
     color: #f0f0f0;
+}
+
+#shopping-cart-box {
+    background: transparent;
 }
 
 #shopping-cart-box h1 {
@@ -55,8 +57,6 @@ h3 {
     align-items: flex-start;
     font-family: "Trebuchet MS", sans-serif;
     color: #f4e139;
-    font-weight: normal;
-    font-style: normal;
     font-size: 56px;
     text-shadow: 1px 1px 1px #aaa;
 }
@@ -65,86 +65,63 @@ h3 {
     display: flex;
     font-family: "Trebuchet MS", sans-serif;
     font-size: 34px;
-    font-style: normal;
     background-color: #f0f0f0;
     margin: 40px 0px 30px -40px;
     padding: 0px 40px;
     width: 100%;
-    color: #aaa;
-    text-shadow: 1px 1px 1px #fff;
+    color: #a8a4a4;
+    text-shadow: 2px 2px 2px #fff;
 }
 
 .manage-items-box-table {
     font-family: "Trebuchet MS", sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
-    line-height: 1.4em;
-    font-style: normal;
+    line-height: 1.5em;
 }
-
-.manage-items-box-table tr {
-}
-
 
 .manage-items-box-table th {
     padding: 16px;
     color: #fff;
-    text-shadow: 1px 1px 1px #568F23;
-    border-bottom: 3px solid #9ED929;
-    border-radius: 5px;
+    margin: 3px;
     min-width: 15%;
     background: transparent;
-    margin: 2px;
+    border-radius: 5px;
+    border-bottom: 3px solid #9ED929;
 }
 
 /*add gradient color effects*/
 .manage-items-box-table th {
     color: #fff;
-    text-shadow: 1px 1px 1px #568F23;
-    background-color: #9DD929;
     border: 1px solid #93CE37;
     border-right: 3px solid #9ED929;
-    padding: 0px 10px;
+    padding: 1px 10px;
+    background-color: #9DD929;
     background: -webkit-gradient(
             linear,
             left bottom,
             right top,
-            color-stop(0.02, rgb(158, 217, 41)),
-            color-stop(0.51, rgb(139, 198, 66)),
-            color-stop(0.87, rgb(123, 192, 67))
+            color-stop(0.05, #62ac1e),
+            color-stop(0.52, #9DD929),
+            color-stop(0.89, #9ED929)
     );
     background: -moz-linear-gradient(
             left bottom,
-            rgb(158, 217, 41) 2%,
-            rgb(139, 198, 66) 51%,
-            rgb(123, 192, 67) 87%
+            #62ac1e 5%,
+            #9DD929 52%,
+            #9ED929 89%
     );
     border-radius: 5px;
 }
 
-/*table foot effects*/
-/*.manage-items-box-table tfoot td {*/
-/*    color: #9CD009;*/
-/*    font-size: 32px;*/
-/*    text-align: center;*/
-/*    padding: 10px 0px;*/
-/*    text-shadow: 1px 1px 1px #444;*/
-/*}*/
-
-/*.manage-items-box-table tfoot th {*/
-/*    color: #666;*/
-/*}*/
-
 .manage-items-box-table td {
-
+    color: #616060;
     padding: 8px;
     margin-left: 3px;
-    background-color: #DEF3CA;
     border: 2px solid #e9f1e3;
-    border-radius: 3px;
-    color: #616060;
-    text-shadow: 1px 1px 1px #fff;
+    border-radius: 4px;
     justify-content: center;
+    background-color: #DEF3CA;
 }
 
 #shopping-cart-box .add_button {
@@ -159,29 +136,20 @@ h3 {
 /*the image style*/
 .index-item-image {
     width: 100%;
-    max-width:200px;
     height: 100%;
     max-width: 200px;
+    max-height: 200px;
 }
 
 /*the image style*/
 .index-item-image:hover {
     transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    /* IE 9 */
-    -webkit-transform: scale(1.05);
-    /* Safari and Chrome */
-    -o-transform: scale(1.05);
-    /* Opera */
-    -moz-transform: scale(1.05);
 }
 
 /*the style for the image in the td of table*/
 .shopping-cart-big-box .manage-items-box-table .index-item-image-box:hover {
     border-color: orange;
 }
-
-
 
 /*the style for changing number values*/
 .number {
@@ -215,15 +183,15 @@ h3 {
             linear,
             left bottom,
             right top,
-            color-stop(0.02, rgb(232, 210, 15)),
-            color-stop(0.51, rgb(244, 225, 57)),
-            color-stop(0.87, rgb(252, 240, 146))
+            color-stop(0.02, #E8D20FFF),
+            color-stop(0.51, #F4E139FF),
+            color-stop(0.87, #FCF092FF)
     );
     background: -moz-linear-gradient(
             left bottom,
-            rgb(232, 210, 15) 2%,
-            rgb(244, 225, 57) 51%,
-            rgb(252, 240, 146) 87%
+            #E8D20FFF 2%,
+            #F4E139FF 51%,
+            #FCF092FF 87%
     );
     margin-top: 10px;
 }
@@ -231,13 +199,6 @@ h3 {
 .shopping-cart-big-box #shopping-cart-box h1:hover {
     color: orange;
     transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    /* IE 9 */
-    -webkit-transform: scale(1.05);
-    /* Safari and Chrome */
-    -o-transform: scale(1.05);
-    /* Opera */
-    -moz-transform: scale(1.05);
 }
 
 .shopping-cart-big-box #shopping-cart-box .h2 {
@@ -252,19 +213,18 @@ h3 {
 
 /*style for add items*/
 #add-item-box {
-    margin-top: 100px;
-    padding: 20px;
-    background-color: #efefef;
-    border-left: 30px solid deepskyblue;
-    border-right: 1px solid #ddd;
-    -moz-box-shadow: 0px 0px 16px #aaa;
-    border-radius: 12px;
-    padding: 75px 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-width: 50%;
+    margin-top: 100px;
+    background-color: #efefef;
+    border-left: 30px solid deepskyblue;
+    border-right: 1px solid #dedada;
+    box-shadow: 1px 1px 17px #b1adad;
+    border-radius: 12px;
+    padding: 75px 120px;
 }
 
 .add-item-big-box {
@@ -275,11 +235,10 @@ h3 {
 
 .add-item-box-head {
     display: flex;
-    font-family: Helvetica, Arial, Serif;
+    font-family: Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
-    font-style: normal;
     letter-spacing: 4px;
     color: #888;
     border-bottom: 3px solid #f0f0f0;
@@ -296,59 +255,45 @@ h3 {
     align-items: flex-start;
     font-family: "Trebuchet MS", sans-serif;
     color: deepskyblue;
-    font-weight: normal;
-    font-style: normal;
     font-size: 56px;
-    text-shadow: 1px 1px 1px #aaa;
 }
 
 #add-item-box h2 {
+    color: #a5a0a0;
+    width: 100%;
     display: flex;
-    font-family: "Trebuchet MS", sans-serif;
     font-size: 34px;
-    font-style: normal;
-    background-color: #f0f0f0;
-    margin: 40px 0px 30px -40px;
-    padding: 0px 40px;
+    background-color: #eae6e6;
+    font-family: "Trebuchet MS", sans-serif;
+    margin: 45px 0px 35px -45px;
+    padding: 1px 40px;
     clear: both;
     float: left;
-    width: 100%;
-    color: #aaa;
-    text-shadow: 1px 1px 1px #fff;
 }
 
 .add-item-box-table {
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.4em;
-    font-style: normal;
-    border-collapse: separate;
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-family: "Trebuchet MS", sans-serif;
+    border-collapse: separate;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5em;
 }
-
-.add-item-box-table tr {
-}
-
 
 .add-item-box-table th {
-
     padding: 16px;
     color: #fff;
-    text-shadow: 1px 1px 1px #568F23;
     border-bottom: 3px solid #9ED929;
     border-radius: 5px;
-    min-width: 28%;
-    background: transparent;
+    min-width: 29%;
     margin: 2px;
 }
 
 /*add gradient color effects*/
 .add-item-box-table th {
     color: #fff;
-    text-shadow: 1px 1px 1px #568F23;
     background-color: #9DD929;
     border: 1px solid #93CE37;
     border-right: 3px solid #9ED929;
@@ -357,31 +302,18 @@ h3 {
             linear,
             left bottom,
             right top,
-            color-stop(0.02, rgb(158, 217, 41)),
-            color-stop(0.51, rgb(139, 198, 66)),
-            color-stop(0.87, rgb(123, 192, 67))
+            color-stop(0.05, #9ED929FF),
+            color-stop(0.52, #8BC642FF),
+            color-stop(0.88, #7BC043FF)
     );
     background: -moz-linear-gradient(
             left bottom,
-            rgb(158, 217, 41) 2%,
-            rgb(139, 198, 66) 51%,
-            rgb(123, 192, 67) 87%
+            #9ED929FF 2%,
+            #8BC642FF 51%,
+            #7BC043FF 87%
     );
-    -moz-border-radius: 5px 0px 0px 5px;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px;
 }
-
-/*table foot effects*/
-/*.add-item-box-table tfoot td {*/
-/*    color: #9CD009;*/
-/*    font-size: 32px;*/
-/*    text-align: center;*/
-/*    padding: 10px 0px;*/
-/*    text-shadow: 1px 1px 1px #444;*/
-/*}*/
 
 .add-item-box-table tfoot th {
     color: #666;
@@ -390,20 +322,12 @@ h3 {
 .add-item-box-table tbody td {
     padding: 10px;
     text-align: center;
-    background-color: #DEF3CA;
-    border: 2px solid #e9f1e3;
+    background-color: #dbf1c7;
+    border: 2px solid #d8e0d2;
     border-radius: 3px;
     color: #616060;
-    text-shadow: 1px 1px 1px #fff;
+    font-weight: bold;
 }
-
-/*.add-item-box-table tbody span.check::before {*/
-/*    content: url(../images/check0.png)*/
-/*}*/
-
-/*tbody td {*/
-/*    width: 80%;*/
-/*}*/
 
 .add_button {
     display: flex;

@@ -234,13 +234,6 @@
 
 #right-small-image:hover {
     transform: scale(1.06);
-    -ms-transform: scale(1.06);
-    /* IE 9 */
-    -webkit-transform: scale(1.06);
-    /* Safari and Chrome */
-    -o-transform: scale(1.06);
-    /* Opera */
-    -moz-transform: scale(1.06);
 }
 
 .index-item-container-box {
@@ -286,24 +279,10 @@
 
 .index-item-image:hover {
     transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    /* IE 9 */
-    -webkit-transform: scale(1.1);
-    /* Safari and Chrome */
-    -o-transform: scale(1.1);
-    /* Opera */
-    -moz-transform: scale(1.1);
 }
 
 .larger:hover {
     transform: scale(1.06);
-    -ms-transform: scale(1.06);
-    /* IE 9 */
-    -webkit-transform: scale(1.06);
-    /* Safari and Chrome */
-    -o-transform: scale(1.06);
-    /* Opera */
-    -moz-transform: scale(1.06);
 }
 
 .index-product-view-title {
