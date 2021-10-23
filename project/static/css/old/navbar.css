@@ -50,40 +50,20 @@ nav a {
     font-weight: bold;
 }
 
-#nav-title_information .follow_us a:link {
-    color: gray;
-}
-
 #nav-title_information .follow_us a:hover {
     color: orange;
-}
-
-#nav-title_information .nav-title_shopping_cart a:link {
-    color: gray;
 }
 
 #nav-title_information .nav-title_shopping_cart a:hover {
     color: orange;
 }
 
-#nav-title_information .contact a:link {
-    color: gray;
-}
-
 #nav-title_information .contact a:hover {
     color: orange;
 }
 
-#nav-title_information .login a:link {
-    color: gray;
-}
-
 #nav-title_information .login a:hover {
     color: orange;
-}
-
-#nav-title_information .register a:link {
-    color: gray;
 }
 
 #nav-title_information .register a:hover {

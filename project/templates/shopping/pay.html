@@ -14,11 +14,9 @@
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Customer </p>
             {% if pay_status %}
-                <h1>Pay Success</h1>
-                <br>
-                <br>
+                <h1 class="pay">Pay Success</h1>
 
-                <h2>Thanks for ordering. We will deliver to you ASAP.</h2>
+                <h2 class="pay1">Thanks for ordering. We will deliver to you ASAP.</h2>
                 <br>
                 <br>
                 <a href="{{ url_for("index.home") }}">
@@ -28,11 +26,11 @@
                 </a>
 
             {% else %}
-                <h1>Pay</h1>
-                <br>
-                <br>
+                <h1 class="pay">Pay</h1>
 
-                <h2>You Need to Pay: {{ total_price }}</h2>
+
+
+                <h2 class="pay1">You Need to Pay: {{ total_price }}</h2>
                 <br>
                 <br>
                 <form action="" method="POST">

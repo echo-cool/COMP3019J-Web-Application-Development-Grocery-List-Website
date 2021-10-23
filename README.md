@@ -7,14 +7,62 @@
 * Wang Yuyang 19206226
 * Yang Liuxin 19206207
 
-### Introduction
-
+### Project Description
 The website should allow multiple grocery shops to set up products available, along with their unit prices as well as images. 
 The website should allow users to visit different shops, and put items into their basket. The website should allow users to view their basket at all times, and add/remove items from the basket. 
 The website should allow users to increase/ decrease the quantity of the items while looking at their baskets. 
 It should also calculate the total expenditure/cost for all items in the basket. 
 Finally, it should create an itemised list of the user’s shopping bill, grouped by the shop.
 
+### Intended Functionalities
+#### Seller / Shop
+- [x] Allow sellers to **visit** different shops
+- [x] Allow sellers to set up their **personal information**
+- [x] Allow multiple sellers/shops to **upload** products with their prices and images
+- [x] Allow sellers to **visit** different shops
+- [x] Allow sellers to **manage** their **items**
+- [x] Allow sellers to **manage** their **orders**
+
+#### Buyer
+#### Not Logged-in Buyer
+- [x] Allow visitors to **visit** different shops
+ #### Logged-in Buyer
+- [x] Allow buyers to **visit** different shops
+- [x] Allow buyers to set up their **personal information**
+- [x] Allow buyers to **put** items into their **basket**
+- [x] Allow buyers to **view** their **basket** at all times
+- [x] Allow buyers to **add** or **remove** items form the **basket**
+- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **basket**
+- [x] Allow buyers to view the **total expenditure** for all items in the basket
+- [x] Allow buyers to view an itemised list of their **shopping bill**, grouped by the shop
+
+### Implemented Functions for MileStone 1
+#### General Functions:
+- [x] Establish all basic databases
+- [x] Identity Detection: detect sellers or buyers from the database
+#### Not Logged-in Buyer
+- [x] Allow visitors to view recommended items in the main page
+- [x] Allow visitors to view at most **four** sample items of each shop in the main page
+- [x] Allow visitors to click an item to view its product details
+- [x] Allow visitors to click the shop to view all items in each shop
+- [x] Allow visitors to view the **contact page**
+- [x] Allow visitors to register for an account or log in using a valid account
+
+#### Logged-in Buyer
+- [x] Allow buyers to view recommended items in the main page
+- [x] Allow buyers to view at most **three** sample items of each shop in the main page
+- [x] Allow buyers to click an item to view its **product details**
+- [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
+- [x] Allow buyers to **view** their **shopping cart ordered by shops**
+- [x] Allow buyers to **remove** items from the **shopping cart**
+- [x] Allow buyers to **increase or decrease** the **quantity** of the item in its product-details page (before adding to their baskets)
+- [x] Allow buyers to **increase or decrease** the **quantity** of each item in the **shopping cart** 
+- [x] Allow buyers to **make orders** and checkout orders (ordered by shops)
+- [x] Allow buyers to view the **sidebar**, which contains its basic profile and announcements  
+- [x] Allow buyers to **upload** and **modify** their **personal details**, which contain their avatar, username, email address
+- [x] Allow buyers to click the shop to view all items in each shop
+- [x] Allow buyers to view the **contact page**
+- [x] Allow buyers to logout the current account
 
 ### Preview this project (Deployed in Heroku)
 
@@ -59,7 +107,7 @@ If pipeline passed then this docker contains the same code with master:
 docker pull echo0821/web-project:latest 
 docker run -p 5000:5000 echo0821/web-project:latest
 ```
-#### Open the web page using Chrome(Edge)
+#### Open the web page using Firefox / Chrome / Edge
 **Safari and IE is not offfically supported**
 
 URL: http://localhost:5000
@@ -70,7 +118,7 @@ URL: http://127.0.0.1:5000
 
 
 
-### Test Account
+### User Accounts for Testing
 
 Shopper:
 * Username: shop1
@@ -82,34 +130,34 @@ Buyer:
 
 ### Roles in the system
 1. Buyers
-   1. Register in login page
-   2. Can add product to his cart
+   1. Register and Login in the login-register page
+   2. Can add products to his shopping cart
    3. Can view his cart
-   4. Can Make orders 
+   4. Can make orders 
    5. Can view his orders
-   6. Can't Add products
-   7. Can't Manage products
+   6. Cannot add products to the site
+   7. Cannot manage products of the site
 2. Seller (Registered by Admin, Not allowed to be created by public register)
-   1. Can Add products
-   2. Can Manage products 
-   3. Can view orders from his shop
-   4. **Can't view his cart**
-   5. Can't make orders
-   6. Can confirm orders
+   1. Can add products
+   2. Can manage products 
+   3. Can view orders made from his shop
+   4. Can confirm orders
+   5. **Cannot view his cart**
+   6. Cannot make orders
    
 ### Buyer's Functionality
 * Navigation bar
-  * Automatically Change for different role
+  * Automatically change for different roles
   * Auto hide & display flash message
 * Index Page
-  * Allowing user to view top-selling products
-  * Allowing user to view products grouped by shops
+  * Allowing buyers to view recommended products
+  * Allowing buyers to view sample products grouped by shops
 * Shopping Cart
-  * Users can add product to their shopping cart
-  * Items in the cart can be removed or change quantity
-  * Items can be correctly count if user add the product multiple times from detail page
+  * Buyers can add product to their shopping cart
+  * Items in the cart can be removed or added in quantity
+  * Items can be correctly count if buyers add the product multiple times from product-details page
 * Ordering
-  * User can make order from shopping cart
+  * Buyers can make orders from his shopping cart
   * After paying, user can view the order in the order page
 * User profile
   * User can change their avatar in the profile page
@@ -118,17 +166,17 @@ Buyer:
 
 ### Seller's Functionality
 * Navigation bar
-  * Automatically Change for different role
+  * Automatically Change for different roles
   * Auto hide & display flash message
 * Index Page
-  * Allowing user to view top-selling products
-  * Allowing user to view products grouped by shops
+  * Allowing sellers to view recommended products
+  * Allowing sellers to view sample products grouped by shops
 * Product Management
-  * User can add product to the system
-  * User can modify product to the system
-  * User can remove product to the system
+  * Sellers can add product to the system
+  * Sellers can modify product of the system
+  * Sellers can remove product from the system
 * Order Management
-  * User can view the order in his shop 
+  * User can view the orders made in his shop 
 
 
 ### Characteristic

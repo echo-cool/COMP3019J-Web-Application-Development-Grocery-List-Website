@@ -15,10 +15,6 @@
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
 
-            <br>
-            <hr>
-            <br>
-
             {#            present the user information#}
             <div class="user-info-default">
                 <div id="default_avatar">
@@ -54,9 +50,7 @@
 
             </div>
 
-            <br><br>
-
-            <table class="shopping-cart-box-table">
+            <table class="shopping-cart-box-table empty-space">
                 <thead>
                 <tr>
                     <th class="cancel-column">Item Image</th>
@@ -132,15 +126,13 @@
                         {% endif %}
                         {% if order.show_td %}
                             <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
-
                                 {% if current_user.is_shopper %}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
                                     <button class="button-default">
-                                        <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}">Confirm</a>
+                                        <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}" class="order-font">Confirm</a>
                                     </button>
                                 {% else %}
                                     <button class="button-default">
-                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}">Confirm</a>
+                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}" class="order-font">Confirm</a>
                                     </button>
                                 {% endif %}
                             </td>
@@ -153,8 +145,8 @@
                 </tbody>
             </table>
             <br>
-            <button class="button-default1">
-                <a href="{{ url_for("index.home") }}">
+            <button class="button-default1 empty-space1">
+                <a href="{{ url_for("index.home") }}" id="go-home">
                     Go Home
                 </a>
             </button>

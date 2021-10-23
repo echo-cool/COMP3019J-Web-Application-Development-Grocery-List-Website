@@ -14,9 +14,13 @@
 
     <div class="add-item-big-box">
         <div id="add-item-box">
-            <p class="add-item-box-head"> Seller or Customer</p>
+            {% if current_user.is_shopper %}
+                <p class="add-item-box-head"> Seller</p>
+            {% else %}
+                <p class="add-item-box-head"> Customer</p>
+            {% endif %}
             <h1>Personal Information</h1>
-            <br><br>
+            <div class="empty-space1"></div>
 
             <div class="user-info-default">
                 <div id="default_avatar">
@@ -60,7 +64,7 @@
                             <tbody>
                             <tr>
                                 <th>Current Avatar</th>
-                                <td id="flexLayout"><img id="upload_image_perivew" width="200px" height="200px"
+                                <td id="flexLayout"><img id="upload_image_perivew" width="170px" height="170px"
                                                          src="../../{{ current_user.main_image_url }}"
                                                          alt="">
                                     {{ form.image_file(id="chooseImage") }}
@@ -86,14 +90,6 @@
                                     {{ form.email(id="email-address-new", value=current_user.email) }}
                                 </td>
                             </tr>
-
-                            {#                                <tr>#}
-                            {#                                    <th>Shopping Cart</th>#}
-                            {#                                    <td><a class="add_button" href="{{ url_for("cart.shopping_cart") }}">#}
-                            {#                                        <img id="shopping-cart-logo" src="../../static/image/shopping/gwc.png" alt="">#}
-                            {#                                        &nbsp; &nbsp;Click here to enter your shopping cart#}
-                            {#                                    </a></td>#}
-                            {#                                </tr>#}
                             <tr>
                                 <td colspan="2">
                                     <div>
@@ -110,10 +106,6 @@
 
                 </div>
             </div>
-
-            {#            </div>#}
-
-
         </div>
     </div>
 {% endblock %}

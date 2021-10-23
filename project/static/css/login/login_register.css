@@ -5,28 +5,144 @@
     justify-content: center;
 }
 
+/* the style for form */
+.login-inner_box form {
+    display: flex;
+    padding-top: 8px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-more-padding {
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 25px;
+}
+
+.login-more-padding input {
+    padding: 12px;
+}
+
+.login-more-padding .login-submit1 {
+    margin-top: 45px;
+}
+
+.login-submit1 {
+    margin-top: 25px;
+    padding: 12px;
+    border-color: #ce7d88;
+}
+
+.remember-me {
+    margin-top: 6%;
+    margin-left: 25%;
+}
+
+.login-register-button {
+    margin-left: 25%;
+}
+
+.login-input-text {
+    background: #eac7cc;
+    width: 60%;
+    color: #ce7d88;
+    border: none;
+    padding: 9px;
+    border-radius: 11px;
+}
+
+.login-input-text:focus {
+    color: #ce7db0;
+    outline: none;
+    border-bottom: 1px solid #EB6EF8B2;
+    transition: 0.7s all ease;
+}
+
+
+.login-inner_box label {
+    color: #ce7db0;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.login-inner_box .checkbox {
+    top: -5px;
+    margin: auto;
+    white-space: nowrap;
+    position: relative;
+}
+
+.login-input-text[type=checkbox] {
+    width: 15px;
+    background: #ce7d88;
+}
+
+.login-input-text[type=checkbox]:checked + label {
+    color: #ce7d88;
+    transition: 0.5s all ease;
+}
+
+.login-input_area {
+    position: relative;
+    margin-left: 45px;
+}
+
+.login-input-text {
+    width: 100%;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #ce7d88;
+    margin-bottom: 30px;
+    transition: 0.7s all ease;
+    background: transparent;
+}
+
+.login-input_area label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.6s;
+}
+
+.login-input-text:focus ~ label,
+.login-input-text:valid ~ label {
+    color: #d6aaf3;
+    font-size: 16px;
+    left: 0;
+    top: -32px;
+}
+
 .login-inner_box {
     position: absolute;
     display: flex;
     width: 650px;
     height: 420px;
     top: 28%;
-    background: #f6f6f6;
+    background: #f6f1f1;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 .login-move_box {
+    z-index: 99;
+    width: 319px;
+    height: 501px;
     position: absolute;
     top: -10%;
     left: 5%;
-    background: #eac7cc;
-    width: 320px;
-    height: 500px;
-    border-radius: 10px;
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #e7c3c8;
     transition: all 0.5s ease-in-out;
-    z-index: 99;
 }
 
 .login-hidden {
@@ -35,9 +151,9 @@
 }
 
 .login-left, .login-right {
+    width: 49%;
     position: absolute;
-    width: 50%;
-    transition: 1s all ease;
+    transition: 0.9s all ease;
 }
 
 .login-left {
@@ -58,7 +174,7 @@
     display: block;
     padding: 12px 20px;
     margin-top: 3%;
-    background: #f6f6f6;
+    background: #f1ecec;
     color: #ce7d88;
     border: solid 1px #e2c7ea;
     margin-left: 35%;
@@ -126,8 +242,8 @@
 }
 
 .login-inner_box button:hover {
-    background: #eac7cc;
-    color: #f6f6f6;
+    background: #e8c6cb;
+    color: #efebeb;
     transition: background-color 0.9s ease-out;
 }
 
@@ -139,110 +255,8 @@
     margin-top: 20px;
 }
 
-/* the style for form */
-.login-inner_box form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 7px;
-}
-
-.login-more-padding {
-    position: absolute;
-    margin-left: -30px;
-    margin-top: 25px;
-}
-
-.login-more-padding input {
-    padding: 12px;
-}
-
-.login-more-padding .login-submit1 {
-    margin-top: 45px;
-}
-
-.login-submit1 {
-    margin-top: 25px;
-    padding: 12px;
-    border-color: #ce7d88;
-}
-
-.login-input-text {
-    background: #eac7cc;
-    width: 60%;
-    color: #ce7d88;
-    border: none;
-    padding: 9px;
-    border-radius: 11px;
-}
-
-.login-input-text:focus {
-    color: #ce7db0;
-    outline: none;
-    border-bottom: 1px solid #EB6EF8B2;
-    transition: 0.7s all ease;
-}
-
-
-.login-inner_box label {
-    color: #ce7db0;
-    font-size: 10px;
-    letter-spacing: 1px;
-}
-
-.login-inner_box .checkbox {
-    top: -5px;
-    margin: auto;
-    white-space: nowrap;
-    position: relative;
-}
-
-.login-input-text[type=checkbox] {
-    width: 15px;
-    background: #ce7d88;
-}
-
-.login-input-text[type=checkbox]:checked + label {
-    color: #ce7d88;
-    transition: 0.5s all ease;
-}
-
-.login-input_area {
-    position: relative;
-    margin-left: 65px;
-}
-
-.login-input-text {
-    width: 100%;
-    padding: 10px 0;
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: 1px;
-    outline: none;
-    border: 0;
-    border-bottom: 1px solid #ce7d88;
-    margin-bottom: 30px;
-    transition: 0.7s all ease;
-    background: transparent;
-}
-
-.login-input_area label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 8px 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    pointer-events: none;
-    transition: 0.6s;
-}
-
-.login-input-text:focus ~ label,
-.login-input-text:valid ~ label {
-    color: #d6aaf3;
-    font-size: 16px;
-    left: 0;
-    top: -32px;
-}
+/*
+    layout ideas are partly from the following reference, but codes are written by ourself:
+    https://www.bilibili.com/video/BV18K4y1N7zM/?spm_id_from=333.788.recommend_more_video.-1
+*/
 
