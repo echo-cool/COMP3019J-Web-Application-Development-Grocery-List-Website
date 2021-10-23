@@ -67,11 +67,11 @@ or
 URL: http://127.0.0.1:5000
 
 ### Characteristic
-* Responsive Layout using the flex layout
-* Allow unregistered user to view products
-* Auto redirect to login page
-* CSRF Protection
-* Blueprint for routing
+* **Responsive Layout** using the flex layout
+* Allow **unregistered user** to **view products**
+* Auto **redirect** to login page
+* **CSRF Protection**
+* **Blueprint** for routing
 
 
 ### Intended Functionalities
