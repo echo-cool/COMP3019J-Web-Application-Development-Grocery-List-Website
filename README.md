@@ -20,8 +20,8 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 
 ### Preview this project (Deployed in Heroku)
 
-This is a **preview version** of this project, it might contain errors or out-dated
-Please use python to run this project locally to see the website.
+This is a **preview version** of this project, it might contain errors or out-dated pages.
+Please use python to run this project locally to see the latest website.
 
 [http://comp3019j-web-dev.herokuapp.com/](http://comp3019j-web-dev.herokuapp.com/)
 
