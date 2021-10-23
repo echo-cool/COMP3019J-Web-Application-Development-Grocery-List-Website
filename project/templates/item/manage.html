@@ -14,20 +14,17 @@
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Seller </p>
             <h1>Manage My Items</h1>
-            <br>
-            <br>
+            <div class="empty-space1"></div>
 
             {% if itemsLength == 0 %}
                 <h1 class="h2">You Have Not Owned Any Items to Sell</h1>
-                <br>
-                <br>
+                <div class="empty-space1"></div>
                 <button class="button-default">
                     <a href="{{ url_for("item.addNewItem") }}">Click here to add new item</a>
                 </button>
             {% else %}
                 <h1 class="h2">Display & Remove & Modify & Add</h1>
-                <br>
-                <br>
+                <div class="empty-space1"></div>
                 <table class="manage-items-box-table">
                     <thead>
                     <tr>
@@ -70,7 +67,7 @@
                                     </div>
                                 </a>
                             </td>
-                            <td>
+                            <td rowspan="4">
                                 <a href="{{ url_for("item.addNewItem") }}">
                                     <div class="manage-items-modify">
                                         Add New Item

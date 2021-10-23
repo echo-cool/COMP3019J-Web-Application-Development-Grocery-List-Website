@@ -37,6 +37,9 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 - [x] Allow buyers to view an itemised list of their **shopping bill**, grouped by the shop
 
 ### Implemented Functions for MileStone 1
+#### General Functions:
+- [x] Establish all basic databases
+- [x] Identity Detection: detect sellers or buyers from the database
 #### Not Logged-in Buyer
 - [x] Allow visitors to view recommended items in the main page
 - [x] Allow visitors to view at most **four** sample items of each shop in the main page
@@ -52,6 +55,7 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 - [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
 - [x] Allow buyers to **view** their **shopping cart ordered by shops**
 - [x] Allow buyers to **remove** items from the **shopping cart**
+- [x] Allow buyers to **increase or decrease** the **quantity** of the item in its product-details page (before adding to their baskets)
 - [x] Allow buyers to **increase or decrease** the **quantity** of each item in the **shopping cart** 
 - [x] Allow buyers to **make orders** and checkout orders (ordered by shops)
 - [x] Allow buyers to view the **sidebar**, which contains its basic profile and announcements  
