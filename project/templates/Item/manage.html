@@ -14,20 +14,17 @@
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Seller </p>
             <h1>Manage My Items</h1>
-            <br>
-            <br>
+            <div class="empty-space1"></div>
 
             {% if itemsLength == 0 %}
                 <h1 class="h2">You Have Not Owned Any Items to Sell</h1>
-                <br>
-                <br>
+                <div class="empty-space1"></div>
                 <button class="button-default">
                     <a href="{{ url_for("item.addNewItem") }}">Click here to add new item</a>
                 </button>
             {% else %}
                 <h1 class="h2">Display & Remove & Modify & Add</h1>
-                <br>
-                <br>
+                <div class="empty-space1"></div>
                 <table class="manage-items-box-table">
                     <thead>
                     <tr>
@@ -38,7 +35,6 @@
                         <th>Total</th>
                         <th class="cancel-column">Modify</th>
                         <th class="cancel-column">Delete</th>
-                        <th class="add-column">Add New Item</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -70,17 +66,20 @@
                                     </div>
                                 </a>
                             </td>
-                            <td>
-                                <a href="{{ url_for("item.addNewItem") }}">
-                                    <div class="manage-items-modify">
-                                        Add New Item
-                                    </div>
-                                </a>
-                            </td>
+
                         </tr>
                     {% endfor %}
+                    <tr>
+                        <th colspan="7" id="padding-add-new">
+                            <a href="{{ url_for("item.addNewItem") }}" id="add-new">
+                                Add New Item
+                            </a>
+                        </th>
+                    </tr>
                     </tbody>
                 </table>
+
+
             {% endif %}
         </div>
     </div>
