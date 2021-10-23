@@ -9,14 +9,14 @@
 
 ### Project Description
 The website should allow multiple grocery shops to set up products available, along with their unit prices as well as images. 
-The website should allow users to visit different shops, and put items into their basket. The website should allow users to view their basket at all times, and add/remove items from the basket. 
+The website should allow users to visit different shops, and put items into their baskets. The website should allow users to view their basket at all times, and add/remove items from the basket. 
 The website should allow users to increase/ decrease the quantity of the items while looking at their baskets. 
 It should also calculate the total expenditure/cost for all items in the basket. 
-Finally, it should create an itemised list of the user’s shopping bill, grouped by the shop.
+Finally, it should create an itemized list of the user’s shopping bill, grouped by the shop.
 
 ### Preview this project (Deployed in Heroku)
 
-This is a **preview version** of this project, it might contain errors or out-dated pages.
+This is a **preview version** of this project, it might contain errors or outdated pages.
 Please use python to run this project locally to see the latest website.
 
 [http://comp3019j-web-dev.herokuapp.com/](http://comp3019j-web-dev.herokuapp.com/)
@@ -27,7 +27,7 @@ Please use python to run this project locally to see the latest website.
 
 #### Set up environment
 1. Install Python3.9
-2. Using the following code to set up environment
+2. Using the following code to set up the environment
 ```shell
 python -V  # Print out python version for debugging
 pip install virtualenv
@@ -96,24 +96,24 @@ URL: http://127.0.0.1:5000
 - [x] Allow buyers to **add** or **remove** items form the **basket**
 - [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets**
 - [x] Allow buyers to view the **total expenditure** for all items in the basket
-- [x] Allow buyers to view an itemised list of their **shopping bill**, grouped by the shop
-- [ ] Display recommened items to logged-in users based on their preferences (algorithm optimization)
+- [x] Allow buyers to view an itemized list of their **shopping bill**, grouped by the shop
+- [ ] Display recommended items to logged-in users based on their preferences (algorithm optimization)
 
 ### Implemented Functions for MileStone 1
 #### General Functions:
 - [x] Establish all basic databases
 - [x] Identity Detection: detect sellers or buyers from the database
 #### Not Logged-in Buyer
-- [x] Allow visitors to view recommended items in the main page
-- [x] Allow visitors to view at most **four** sample items of each shop in the main page
+- [x] Allow visitors to view recommended items on the main page
+- [x] Allow visitors to view at most **four** sample items of each shop on the main page
 - [x] Allow visitors to click an item to view its product details
 - [x] Allow visitors to click the shop to view all items in this shop
 - [x] Allow visitors to view the **contact page**
 - [x] Allow visitors to register for an account or log in using a valid account
 
 #### Logged-in Buyer
-- [x] Allow buyers to view recommended items in the main page
-- [x] Allow buyers to view at most **three** sample items of each shop in the main page
+- [x] Allow buyers to view recommended items on the main page
+- [x] Allow buyers to view at most **three** sample items of each shop on the main page
 - [x] Allow buyers to click an item to view its **product details**
 - [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
 - [x] Allow buyers to **view** their **shopping cart ordered by shops**
@@ -127,14 +127,14 @@ URL: http://127.0.0.1:5000
 - [x] Allow buyers to view the **contact page**
 - [x] Allow buyers to logout the current account
 
-### To Do List for MileStone 2
+### To-Do List for MileStone 2
 * Navigation bar
   * Optimize the navigation bar to better display contents
     * Allow the user's avatar to be displayed in the navigation bar
 * Index Page
   * Improve the **sidebar**
     * Displayed the order status in the sidebar
-    * Display recommended products based on users' preferences in the sideabr
+    * Display recommended products based on users' preferences in the sidebar
   * Optimize Page Layout
     * Add right and left sidebars for information display
   * Optimize Algorithm
@@ -166,7 +166,7 @@ Buyer:
 
 ### Roles in the system
 1. **Buyers**
-   1. Register and Login in the login-register page
+   1. Register and Login on the login-register page
    2. Can add products to his shopping cart
    3. Can view his cart
    4. Can make orders 
@@ -184,33 +184,33 @@ Buyer:
 ### Buyer's Functionality
 * Navigation bar
   * Automatically change for different roles
-  * Auto hide & display flash message
+  * Auto-hide & display flash message
 * Index Page
   * Allowing buyers to view recommended products
   * Allowing buyers to view sample products grouped by shops
 * Shopping Cart
-  * Buyers can add product to their shopping cart
+  * Buyers can add a product to their shopping cart
   * Items in the cart can be removed or added in quantity
-  * Items can be correctly count if buyers add the product multiple times from product-details page
+  * Items can be correctly counted if buyers add the product multiple times from the product-details page
 * Ordering
   * Buyers can make orders from his shopping cart
-  * After paying, user can view the order in the order page
+  * After paying, users can view the order on the order page
 * User profile
-  * User can change their avatar in the profile page
-  * User can change their email in the profile page
-  * User can change their password in the profile page
+  * User can change their avatar on the profile page
+  * User can change their email on the profile page
+  * User can change their password on the profile page
 
 ### Seller's Functionality
 * Navigation bar
   * Automatically Change for different roles
-  * Auto hide & display flash message
+  * Auto-hide & display flash message
 * Index Page
   * Allowing sellers to view recommended products
   * Allowing sellers to view sample products grouped by shops
 * Product Management
-  * Sellers can add product to the system
-  * Sellers can modify product of the system
-  * Sellers can remove product from the system
+  * Sellers can add a product to the system
+  * Sellers can modify products of the system
+  * Sellers can remove products from the system
 * Order Management
   * User can view the orders made in his shop 
 
