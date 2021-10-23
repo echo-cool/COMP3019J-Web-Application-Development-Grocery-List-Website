@@ -104,7 +104,10 @@ $('#chooseImage').on('change', function () {
 });
 
 $(document).ready(function () {
+    //Page ready hide load animation
     $(".background-image-loading-container").remove();
+
+    //Page ready show content in body
     $(".content-body").show();
     document.getElementsByClassName("content-body")[0].hidden = false;
 });
