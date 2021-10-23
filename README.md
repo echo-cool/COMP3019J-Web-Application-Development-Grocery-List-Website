@@ -8,7 +8,6 @@
 * Yang Liuxin 19206207
 
 ### Introduction
-ddd
 The website should allow multiple grocery shops to set up products available, along with their unit prices as well as images. 
 The website should allow users to visit different shops, and put items into their basket. The website should allow users to view their basket at all times, and add/remove items from the basket. 
 The website should allow users to increase/ decrease the quantity of the items while looking at their baskets. 
@@ -70,7 +69,7 @@ URL: http://127.0.0.1:5000
 
 
 
-### Test Account
+### User Accounts for Testing
 
 Shopper:
 * Username: shop1
@@ -82,34 +81,34 @@ Buyer:
 
 ### Roles in the system
 1. Buyers
-   1. Register in login page
-   2. Can add product to his cart
+   1. Register and Login in the login-register page
+   2. Can add products to his shopping cart
    3. Can view his cart
-   4. Can Make orders 
+   4. Can make orders 
    5. Can view his orders
-   6. Can't Add products
-   7. Can't Manage products
+   6. Cannot add products to the site
+   7. Cannot manage products of the site
 2. Seller (Registered by Admin, Not allowed to be created by public register)
-   1. Can Add products
-   2. Can Manage products 
-   3. Can view orders from his shop
-   4. **Can't view his cart**
-   5. Can't make orders
-   6. Can confirm orders
+   1. Can add products
+   2. Can manage products 
+   3. Can view orders made from his shop
+   4. Can confirm orders
+   5. **Cannot view his cart**
+   6. Cannot make orders
    
 ### Buyer's Functionality
 * Navigation bar
-  * Automatically Change for different role
+  * Automatically change for different roles
   * Auto hide & display flash message
 * Index Page
-  * Allowing user to view top-selling products
-  * Allowing user to view products grouped by shops
+  * Allowing buyers to view recommended products
+  * Allowing buyers to view sample products grouped by shops
 * Shopping Cart
-  * Users can add product to their shopping cart
-  * Items in the cart can be removed or change quantity
-  * Items can be correctly count if user add the product multiple times from detail page
+  * Buyers can add product to their shopping cart
+  * Items in the cart can be removed or added in quantity
+  * Items can be correctly count if buyers add the product multiple times from product-details page
 * Ordering
-  * User can make order from shopping cart
+  * Buyers can make orders from his shopping cart
   * After paying, user can view the order in the order page
 * User profile
   * User can change their avatar in the profile page
@@ -118,17 +117,17 @@ Buyer:
 
 ### Seller's Functionality
 * Navigation bar
-  * Automatically Change for different role
+  * Automatically Change for different roles
   * Auto hide & display flash message
 * Index Page
-  * Allowing user to view top-selling products
-  * Allowing user to view products grouped by shops
+  * Allowing sellers to view recommended products
+  * Allowing sellers to view sample products grouped by shops
 * Product Management
-  * User can add product to the system
-  * User can modify product to the system
-  * User can remove product to the system
+  * Sellers can add product to the system
+  * Sellers can modify product of the system
+  * Sellers can remove product from the system
 * Order Management
-  * User can view the order in his shop 
+  * User can view the orders made in his shop 
 
 
 ### Characteristic
