@@ -33,11 +33,10 @@
                             {{ register_from.password.label }}
                         </div>
                         <div class="login-input_area">
-
                             {{ register_from.confirm(class="login-input-text",placeholder="") }}
                             {{ register_from.confirm.label }}
                         </div>
-                        {{ register_from.submit_register(class_="login-submit-button") }}
+                        {{ register_from.submit_register(class_="login-submit-button login-register-button") }}
                     </form>
                 </div>
 
@@ -54,11 +53,11 @@
                             {{ login_form.password(class="login-input-text",placeholder="") }}
                             {{ login_form.password.label }}
                         </div>
-                        <div class="checkbox">
+                        <div class="remember-me">
                             <input class = "login-input-text" type="checkbox" id="remember"/>
                             <label for="remember">Remember Me</label>
                         </div>
-                        {{ login_form.submit_login(class_="login-submit-button") }}
+                        {{ login_form.submit_login(class_="login-submit-button login-register-button") }}
                     </form>
                 </div>
             </div>

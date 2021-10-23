@@ -167,6 +167,15 @@
     border-color: #ce7d88;
 }
 
+.remember-me {
+    margin-top: 6%;
+    margin-left: 25%;
+}
+
+.login-register-button {
+    margin-left: 25%;
+}
+
 .login-input-text {
     background: #eac7cc;
     width: 60%;
@@ -209,7 +218,7 @@
 
 .login-input_area {
     position: relative;
-    margin-left: 65px;
+    margin-left: 45px;
 }
 
 .login-input-text {
