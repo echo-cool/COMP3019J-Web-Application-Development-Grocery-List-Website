@@ -12,8 +12,7 @@
     align-items: center;
     min-width: 70%;
     padding: 75px 120px;
-    background-color: #efefef;
-    border-radius: 13px;
+    background: transparent;
     box-shadow: 1px 1px 16px #aaa;
     border-left: 30px solid #f4e139;
     border-right: 1px solid #ddd;

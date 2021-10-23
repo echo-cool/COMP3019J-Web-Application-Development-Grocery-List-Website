@@ -443,3 +443,11 @@ img {
         transform: translate(1vw, 0) scale(1);
     }
 }
+
+.empty-space {
+    margin-top: 45px;
+}
+
+.empty-space1 {
+    margin-top: 25px;
+}

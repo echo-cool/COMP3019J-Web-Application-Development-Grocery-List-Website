@@ -15,10 +15,6 @@
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
 
-            <br>
-            <hr>
-            <br>
-
             {#            present the user information#}
             <div class="user-info-default">
                 <div id="default_avatar">
@@ -54,9 +50,7 @@
 
             </div>
 
-            <br><br>
-
-            <table class="shopping-cart-box-table">
+            <table class="shopping-cart-box-table empty-space">
                 <thead>
                 <tr>
                     <th class="cancel-column">Item Image</th>
@@ -153,7 +147,7 @@
                 </tbody>
             </table>
             <br>
-            <button class="button-default1">
+            <button class="button-default1 empty-space1">
                 <a href="{{ url_for("index.home") }}">
                     Go Home
                 </a>
