@@ -93,8 +93,9 @@ Buyer:
    1. Can Add products
    2. Can Manage products 
    3. Can view orders from his shop
-   4. Can't view his cart
+   4. **Can't view his cart**
    5. Can't make orders
+   6. Can confirm orders
    
 ### Buyer's Functionality
 * Navigation bar
@@ -132,7 +133,7 @@ Buyer:
 
 ### Characteristic
 
-* Responsive Layout
+* Responsive Layout (flex Layout)
 * Allowing unregistered user to view products
 * Auto redirect to login page
 * CSRF Protection
