@@ -7,7 +7,8 @@
             name="description"
             content="{% block meta_description %}{% endblock %}"
     />
-    <meta name="author" content="{% block meta_author %}{% endblock %}"/>>
+    <meta name="author" content="{% block meta_author %}{% endblock %}"/>
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width"/>
 
     <link rel="stylesheet" href="{{ url_for('static',filename='css/base/base.css') }}">
@@ -95,6 +96,7 @@
                             </li>
                             <li>|</li>
                             <li class="nav-title_shopping_cart">
+                                {#                            &nbsp;&nbsp;&nbsp;#}
                                 <a href="{{ url_for("order.view_order") }}">
                                     View Order</a>
                             </li>
