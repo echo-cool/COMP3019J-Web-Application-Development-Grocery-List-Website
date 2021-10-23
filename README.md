@@ -142,16 +142,27 @@ Buyer:
 
 ### TODO
 * Navigation bar
-  * 
+  * Optimize navigation bar displaying contents
+    * Letting the user's avatar be displayed in navigation bar
 * Index Page
-  * 
+  * Add a more comprehensive sidebar
+    * Letting the order status be displayed in sidebar
+    * Letting the sidebar display recommended products by user's preference
+  * Page layout optimization
+    * Add right and left sidebar for information display
+  * Algorithm's optimization
+    * Recommend product by user's preference (By calculate the word distance between the user's ordered product's title and the product's title on sale)
 * Shopping Cart
-  * 
+  * Using JS to calculate the total price
+  * Using AJAX to dynamically change the number of a product in shopping cart
 * Ordering
-  * 
+  * Adding the functionality of refunding and order canceling
+  * Adding alert to user when they try to "confirm delivered", when the order is not confirmed by the shopper
+  * Adding the functionality of the shopper can upload the delivery express ID
+  * Adding the functionality of buyer can give a comment to an order when submitting
 * User profile
-  * 
-* Product Management
-  * 
-* Order Management
-  * 
+  * Adding the functionality of restoring his password using email 
+* Product details
+  * Adding the functionality of letting the shopper set up a HTML introduction in the product detail page
+  * Adding an iframe to the product detail page
+
