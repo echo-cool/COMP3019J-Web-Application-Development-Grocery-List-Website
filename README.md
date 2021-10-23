@@ -15,17 +15,20 @@ It should also calculate the total expenditure/cost for all items in the basket.
 Finally, it should create an itemised list of the user’s shopping bill, grouped by the shop.
 
 ### Intended Functionalities
-#### Common Functionalities
-- [x] Allow sellers and buyers to **visit** different shops
-
 #### Seller / Shop
+- [x] Allow sellers to **visit** different shops
+- [x] Allow sellers to set up their **personal information**
 - [x] Allow multiple sellers/shops to **upload** products with their prices and images
 - [x] Allow sellers to **visit** different shops
 - [x] Allow sellers to **manage** their **items**
 - [x] Allow sellers to **manage** their **orders**
 
 #### Buyer
+#### Not Logged-in Buyer
+- [x] Allow visitors to **visit** different shops
+ #### Logged-in Buyer
 - [x] Allow buyers to **visit** different shops
+- [x] Allow buyers to set up their **personal information**
 - [x] Allow buyers to **put** items into their **basket**
 - [x] Allow buyers to **view** their **basket** at all times
 - [x] Allow buyers to **add** or **remove** items form the **basket**
@@ -33,9 +36,22 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 - [x] Allow buyers to view the **total expenditure** for all items in the basket
 - [x] Allow buyers to view an itemised list of their **shopping bill**, grouped by the shop
 
-### Implemented Functions for MileStone1
+### Implemented Functions for MileStone 1
+#### Not Logged-in Buyer
+- [x] Allow visitors to view recommended items in the main page
+- [x] Allow visitors to view at most four sample items of each shop in the main page
+- [x] Allow visitors to click the item to view its product details
+- [x] Allow visitors to click the shop to view all items in each shop
+- [x] Allow visitors to view the **contact page**
+- [x] Allow visitors to register for an account or log in using a valid account
 
-
+#### Logged-in Buyer
+- [x] Allow buyers to view recommended items in the main page
+- [x] Allow buyers to view at most three sample items of each shop in the main page
+- [x] Allow buyers to click the item to view its product details
+- [x] Allow buyers to click the shop to view all items in each shop
+- [x] Allow buyers to view the **contact page**
+- [x] Allow buyers to logout the current account
 
 ### Preview this project (Deployed in Heroku)
 
