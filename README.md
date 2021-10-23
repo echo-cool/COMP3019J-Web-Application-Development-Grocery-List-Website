@@ -64,6 +64,32 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 - [x] Allow buyers to view the **contact page**
 - [x] Allow buyers to logout the current account
 
+### To Do List for MileStone 2
+* **Navigation bar**
+  * Optimize the navigation bar to better display contents
+    * Allow the user's avatar to be displayed in the navigation bar
+* Index Page
+  * Improve the **sidebar**
+    * Allow the order status to be displayed in the sidebar
+    * Allow the sidebar to display recommended products based on users' preferences
+  * Optimize Page Layout
+    * Add right and left sidebars for information display
+  * Optimize Algorithm
+    * **Recommend products by users' preferences** (by calculating the word distance between the user's ordered products' titles and the products' titles on sale)
+* Shopping Cart (basket)
+  * Use **JS** to calculate the total price
+  * Use **AJAX** to dynamically change the number of a product in the shopping cart
+* Ordering
+  * Expand the functionality of **refunds** and **order canceling**
+  * Expand the functionality of sellers **uploading the delivery express ID**
+  * Expand the functionality of buyers **commenting an order or item** when confirming delivering
+  * Alert the user when they try to "Confirm Delivered" the order that is not confirmed by the shopper
+* User profile
+  * Expand the functionality of **restoring the password** using email 
+* Product details
+  * Expand the functionality of sellers setting up the introduction in the product details page
+  * Expand the **iframe** to the product detail page
+
 ### Preview this project (Deployed in Heroku)
 
 This is a **preview version** of this project, it might contain errors or out-dated pages.
@@ -186,31 +212,4 @@ Buyer:
 * Auto redirect to login page
 * CSRF Protection
 * Blueprint for routing
-
-
-### TODO
-* Navigation bar
-  * Optimize navigation bar displaying contents
-    * Letting the user's avatar be displayed in navigation bar
-* Index Page
-  * Add a more comprehensive sidebar
-    * Letting the order status be displayed in sidebar
-    * Letting the sidebar display recommended products by user's preference
-  * Page layout optimization
-    * Add right and left sidebar for information display
-  * Algorithm's optimization
-    * Recommend product by user's preference (By calculate the word distance between the user's ordered product's title and the product's title on sale)
-* Shopping Cart
-  * Using JS to calculate the total price
-  * Using AJAX to dynamically change the number of a product in shopping cart
-* Ordering
-  * Adding the functionality of refunding and order canceling
-  * Adding alert to user when they try to "confirm delivered", when the order is not confirmed by the shopper
-  * Adding the functionality of the shopper can upload the delivery express ID
-  * Adding the functionality of buyer can give a comment to an order when submitting
-* User profile
-  * Adding the functionality of restoring his password using email 
-* Product details
-  * Adding the functionality of letting the shopper set up a HTML introduction in the product detail page
-  * Adding an iframe to the product detail page
 
