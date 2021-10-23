@@ -5,146 +5,12 @@
     justify-content: center;
 }
 
-.login-inner_box {
-    position: absolute;
-    display: flex;
-    width: 650px;
-    height: 420px;
-    top: 28%;
-    background: #f6f6f6;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-}
-
-.login-move_box {
-    position: absolute;
-    top: -10%;
-    left: 5%;
-    background: #eac7cc;
-    width: 320px;
-    height: 500px;
-    border-radius: 10px;
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease-in-out;
-    z-index: 99;
-}
-
-.login-hidden {
-    display: none;
-    transition: all 0.5s ease;
-}
-
-.login-left, .login-right {
-    position: absolute;
-    width: 50%;
-    transition: 1s all ease;
-}
-
-.login-left {
-    left: -15px;
-}
-
-.login-right {
-    right: -15px;
-}
-
-/* the style for font and button */
-.login-submit-button {
-    letter-spacing: 3px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 15px;
-    outline: none;
-    display: block;
-    padding: 12px 20px;
-    margin-top: 3%;
-    background: #f6f6f6;
-    color: #ce7d88;
-    border: solid 1px #e2c7ea;
-    margin-left: 35%;
-}
-
-.login-submit-button:hover {
-    background: #dec7ea;
-    color: #f6f6f6;
-    transition: background-color 0.9s ease-out;
-}
-
-.login-inner_box h1 {
-    text-align: center;
-    margin-top: 65px;
-    color: #f6f6f6;
-    font-size: 30px;
-    letter-spacing: 8px;
-}
-
-.login-title {
-    color: #eac7cc;
-    font-size: 25px;
-    line-height: 30px;
-    letter-spacing: 3px;
-    text-align: center;
-    margin-top: 20%;
-}
-
-.login-advertise {
-    margin-top: 8px;
-}
-
-.login-account {
-    margin-top: 150px;
-    font-size: 10px;
-}
-
-.login-inner_box p {
-    color: #8e9aaf;
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-.login-inner_box span {
-    color: #8e9aaf;
-}
-
-.login-inner_box .flower {
-    position: absolute;
-    top: 160px;
-    left: 95px;
-    width: 140px;
-    height: 140px;
-}
-
-.login-inner_box button {
-    display: block;
-    padding: 12px 20px;
-    font-size: 11px;
-    outline: none;
-    border-radius: 12px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-.login-inner_box button:hover {
-    background: #eac7cc;
-    color: #f6f6f6;
-    transition: background-color 0.9s ease-out;
-}
-
-.login-inner_box .index-banner-button {
-    color: #ce7d88;
-    border: solid 1px #eac7cc;
-    background: #f6f6f6;
-    margin-left: 35%;
-    margin-top: 20px;
-}
-
 /* the style for form */
 .login-inner_box form {
     display: flex;
+    padding-top: 8px;
     align-items: center;
     flex-direction: column;
-    padding-top: 7px;
 }
 
 .login-more-padding {
@@ -223,7 +89,7 @@
 
 .login-input-text {
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0;
     color: #fff;
     font-size: 16px;
     letter-spacing: 1px;
@@ -254,4 +120,143 @@
     left: 0;
     top: -32px;
 }
+
+.login-inner_box {
+    position: absolute;
+    display: flex;
+    width: 650px;
+    height: 420px;
+    top: 28%;
+    background: #f6f1f1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.login-move_box {
+    z-index: 99;
+    width: 319px;
+    height: 501px;
+    position: absolute;
+    top: -10%;
+    left: 5%;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #e7c3c8;
+    transition: all 0.5s ease-in-out;
+}
+
+.login-hidden {
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.login-left, .login-right {
+    width: 49%;
+    position: absolute;
+    transition: 0.9s all ease;
+}
+
+.login-left {
+    left: -15px;
+}
+
+.login-right {
+    right: -15px;
+}
+
+/* the style for font and button */
+.login-submit-button {
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    outline: none;
+    display: block;
+    padding: 12px 20px;
+    margin-top: 3%;
+    background: #f1ecec;
+    color: #ce7d88;
+    border: solid 1px #e2c7ea;
+    margin-left: 35%;
+}
+
+.login-submit-button:hover {
+    background: #dec7ea;
+    color: #f6f6f6;
+    transition: background-color 0.9s ease-out;
+}
+
+.login-inner_box h1 {
+    text-align: center;
+    margin-top: 65px;
+    color: #f6f6f6;
+    font-size: 30px;
+    letter-spacing: 8px;
+}
+
+.login-title {
+    color: #eac7cc;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.login-advertise {
+    margin-top: 8px;
+}
+
+.login-account {
+    margin-top: 150px;
+    font-size: 10px;
+}
+
+.login-inner_box p {
+    color: #8e9aaf;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.login-inner_box span {
+    color: #8e9aaf;
+}
+
+.login-inner_box .flower {
+    position: absolute;
+    top: 160px;
+    left: 95px;
+    width: 140px;
+    height: 140px;
+}
+
+.login-inner_box button {
+    display: block;
+    padding: 12px 20px;
+    font-size: 11px;
+    outline: none;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.login-inner_box button:hover {
+    background: #e8c6cb;
+    color: #efebeb;
+    transition: background-color 0.9s ease-out;
+}
+
+.login-inner_box .index-banner-button {
+    color: #ce7d88;
+    border: solid 1px #eac7cc;
+    background: #f6f6f6;
+    margin-left: 35%;
+    margin-top: 20px;
+}
+
+/*
+    layout ideas are partly from the following reference, but codes are written by ourself:
+    https://www.bilibili.com/video/BV18K4y1N7zM/?spm_id_from=333.788.recommend_more_video.-1
+*/
 
