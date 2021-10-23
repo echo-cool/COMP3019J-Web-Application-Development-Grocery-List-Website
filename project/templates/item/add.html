@@ -1,0 +1,53 @@
+{% extends "/base/base.html" %}
+{% block title %}
+    Add new Item
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="../../static/css/item/add.css">
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+{% endblock %}
+
+{% block content %}
+    <div class="add-item-big-box">
+        <div id="add-item-box">
+            <p class="add-item-box-head"> Seller </p>
+            <h1>Add Items</h1>
+            <div class="empty-space1"></div>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <table class="add-item-box-table">
+                    <tbody>
+                    <tr>
+                        <th>{{ form.item_name.label }}</th>
+                        <td>{{ form.item_name(class="number-input") }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ form.item_price.label }}</th>
+                        <td>{{ form.item_price(class="number-input") }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ form.description.label }}</th>
+                        <td>{{ form.description(class="number-input") }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ form.inventory.label }}</th>
+                        <td>{{ form.inventory(class="number-input") }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ form.main_image_file.label }}</th>
+                        <td>{{ form.main_image_file(class="number-input") }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="add_button">
+                    {{ form.add_button(class="button-default") }}
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
