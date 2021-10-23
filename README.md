@@ -39,16 +39,19 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 ### Implemented Functions for MileStone 1
 #### Not Logged-in Buyer
 - [x] Allow visitors to view recommended items in the main page
-- [x] Allow visitors to view at most four sample items of each shop in the main page
-- [x] Allow visitors to click the item to view its product details
+- [x] Allow visitors to view at most **four** sample items of each shop in the main page
+- [x] Allow visitors to click an item to view its product details
 - [x] Allow visitors to click the shop to view all items in each shop
 - [x] Allow visitors to view the **contact page**
 - [x] Allow visitors to register for an account or log in using a valid account
 
 #### Logged-in Buyer
 - [x] Allow buyers to view recommended items in the main page
-- [x] Allow buyers to view at most three sample items of each shop in the main page
-- [x] Allow buyers to click the item to view its product details
+- [x] Allow buyers to view at most **three** sample items of each shop in the main page
+- [x] Allow buyers to click an item to view its **product details**
+- [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
+- [x] Allow buyers to view the **sidebar**, which contains its basic profile and announcements  
+- [x] Allow buyers to **upload** and **modify** their **personal details**, which contain their avatar, username, email address
 - [x] Allow buyers to click the shop to view all items in each shop
 - [x] Allow buyers to view the **contact page**
 - [x] Allow buyers to logout the current account
