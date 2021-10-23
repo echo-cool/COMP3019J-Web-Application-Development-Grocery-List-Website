@@ -16,14 +16,16 @@ It should also calculate the total expenditure/cost for all items in the basket.
 Finally, it should create an itemised list of the user’s shopping bill, grouped by the shop.
 
 
-### Run this project
-
 ### Preview this project (Deployed in Heroku)
 
 This is a **preview version** of this project, it might contain errors or out-dated pages.
 Please use python to run this project locally to see the latest website.
 
 [http://comp3019j-web-dev.herokuapp.com/](http://comp3019j-web-dev.herokuapp.com/)
+
+
+### Run this project
+
 
 #### Set up environment
 1. Install Python3.9
