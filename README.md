@@ -1,8 +1,8 @@
 # COMP3019J Assignment
 
-### Project: Grocery List Website
+### Project Name: Grocery List Website
 
-### Team Members:
+### Team_20 Members:
 
 * Wang Yuyang 19206226
 * Yang Liuxin 19206207
@@ -13,82 +13,6 @@ The website should allow users to visit different shops, and put items into thei
 The website should allow users to increase/ decrease the quantity of the items while looking at their baskets. 
 It should also calculate the total expenditure/cost for all items in the basket. 
 Finally, it should create an itemised list of the user’s shopping bill, grouped by the shop.
-
-### Intended Functionalities
-#### Seller / Shop
-- [x] Allow sellers to **visit** different shops
-- [x] Allow sellers to set up their **personal information**
-- [x] Allow multiple sellers/shops to **upload** products with their prices and images
-- [x] Allow sellers to **visit** different shops
-- [x] Allow sellers to **manage** their **items**
-- [x] Allow sellers to **manage** their **orders**
-
-#### Buyer
-#### Not Logged-in Buyer
-- [x] Allow visitors to **visit** different shops
- #### Logged-in Buyer
-- [x] Allow buyers to **visit** different shops
-- [x] Allow buyers to set up their **personal information**
-- [x] Allow buyers to **put** items into their **basket**
-- [x] Allow buyers to **view** their **basket** at all times
-- [x] Allow buyers to **add** or **remove** items form the **basket**
-- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **basket**
-- [x] Allow buyers to view the **total expenditure** for all items in the basket
-- [x] Allow buyers to view an itemised list of their **shopping bill**, grouped by the shop
-
-### Implemented Functions for MileStone 1
-#### General Functions:
-- [x] Establish all basic databases
-- [x] Identity Detection: detect sellers or buyers from the database
-#### Not Logged-in Buyer
-- [x] Allow visitors to view recommended items in the main page
-- [x] Allow visitors to view at most **four** sample items of each shop in the main page
-- [x] Allow visitors to click an item to view its product details
-- [x] Allow visitors to click the shop to view all items in each shop
-- [x] Allow visitors to view the **contact page**
-- [x] Allow visitors to register for an account or log in using a valid account
-
-#### Logged-in Buyer
-- [x] Allow buyers to view recommended items in the main page
-- [x] Allow buyers to view at most **three** sample items of each shop in the main page
-- [x] Allow buyers to click an item to view its **product details**
-- [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
-- [x] Allow buyers to **view** their **shopping cart ordered by shops**
-- [x] Allow buyers to **remove** items from the **shopping cart**
-- [x] Allow buyers to **increase or decrease** the **quantity** of the item in its product-details page (before adding to their baskets)
-- [x] Allow buyers to **increase or decrease** the **quantity** of each item in the **shopping cart** 
-- [x] Allow buyers to **make orders** and checkout orders (ordered by shops)
-- [x] Allow buyers to view the **sidebar**, which contains its basic profile and announcements  
-- [x] Allow buyers to **upload** and **modify** their **personal details**, which contain their avatar, username, email address
-- [x] Allow buyers to click the shop to view all items in each shop
-- [x] Allow buyers to view the **contact page**
-- [x] Allow buyers to logout the current account
-
-### To Do List for MileStone 2
-* **Navigation bar**
-  * Optimize the navigation bar to better display contents
-    * Allow the user's avatar to be displayed in the navigation bar
-* Index Page
-  * Improve the **sidebar**
-    * Allow the order status to be displayed in the sidebar
-    * Allow the sidebar to display recommended products based on users' preferences
-  * Optimize Page Layout
-    * Add right and left sidebars for information display
-  * Optimize Algorithm
-    * **Recommend products by users' preferences** (by calculating the word distance between the user's ordered products' titles and the products' titles on sale)
-* Shopping Cart (basket)
-  * Use **JS** to calculate the total price
-  * Use **AJAX** to dynamically change the number of a product in the shopping cart
-* Ordering
-  * Expand the functionality of **refunds** and **order canceling**
-  * Expand the functionality of sellers **uploading the delivery express ID**
-  * Expand the functionality of buyers **commenting an order or item** when confirming delivering
-  * Alert the user when they try to "Confirm Delivered" the order that is not confirmed by the shopper
-* User profile
-  * Expand the functionality of **restoring the password** using email 
-* Product details
-  * Expand the functionality of sellers setting up the introduction in the product details page
-  * Expand the **iframe** to the product detail page
 
 ### Preview this project (Deployed in Heroku)
 
@@ -142,11 +66,97 @@ or
 
 URL: http://127.0.0.1:5000
 
+### Characteristic
+* Responsive Layout using the flex layout
+* Allow unregistered user to view products
+* Auto redirect to login page
+* CSRF Protection
+* Blueprint for routing
+
+
+### Intended Functionalities
+#### Seller / Shop
+- [x] Allow sellers to **visit** different shops
+- [x] Allow sellers to set up their **personal information**
+- [x] Allow multiple sellers/shops to **upload** products with their prices and images
+- [x] Allow sellers to **visit** different shops
+- [x] Allow sellers to **manage** their **items**
+- [x] Allow sellers to **manage** their **orders**
+- [ ] Expand the express delivery services
+- [ ] Handle buyers' comments
+
+#### Buyer
+#### Unregistered Buyer (visitor)
+- [x] Allow visitors to **visit** different shops
+ #### Logged-in Buyer
+- [x] Allow buyers to **visit** different shops
+- [x] Allow buyers to set up their **personal information**
+- [x] Allow buyers to **put** items into their **basket**
+- [x] Allow buyers to **view** their **basket** at all times
+- [x] Allow buyers to **add** or **remove** items form the **basket**
+- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets**
+- [x] Allow buyers to view the **total expenditure** for all items in the basket
+- [x] Allow buyers to view an itemised list of their **shopping bill**, grouped by the shop
+- [ ] Display recommened items to logged-in users based on their preferences (algorithm optimization)
+
+### Implemented Functions for MileStone 1
+#### General Functions:
+- [x] Establish all basic databases
+- [x] Identity Detection: detect sellers or buyers from the database
+#### Not Logged-in Buyer
+- [x] Allow visitors to view recommended items in the main page
+- [x] Allow visitors to view at most **four** sample items of each shop in the main page
+- [x] Allow visitors to click an item to view its product details
+- [x] Allow visitors to click the shop to view all items in this shop
+- [x] Allow visitors to view the **contact page**
+- [x] Allow visitors to register for an account or log in using a valid account
+
+#### Logged-in Buyer
+- [x] Allow buyers to view recommended items in the main page
+- [x] Allow buyers to view at most **three** sample items of each shop in the main page
+- [x] Allow buyers to click an item to view its **product details**
+- [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
+- [x] Allow buyers to **view** their **shopping cart ordered by shops**
+- [x] Allow buyers to **remove** items from the **shopping cart**
+- [x] Allow buyers to **increase or decrease** the **quantity** of the item in its product-details page (before adding to their baskets)
+- [x] Allow buyers to **increase or decrease** the **quantity** of each item in the **shopping cart** 
+- [x] Allow buyers to **make orders** and checkout orders (ordered by shops) where they will also view the **total price** of this order
+- [x] Allow buyers to view the **sidebar**, which contains its basic profile and announcements  
+- [x] Allow buyers to **upload** and **modify** their **personal details**, which contain their avatar, username, email address
+- [x] Allow buyers to click the shop to view all items in this shop
+- [x] Allow buyers to view the **contact page**
+- [x] Allow buyers to logout the current account
+
+### To Do List for MileStone 2
+* Navigation bar
+  * Optimize the navigation bar to better display contents
+    * Allow the user's avatar to be displayed in the navigation bar
+* Index Page
+  * Improve the **sidebar**
+    * Displayed the order status in the sidebar
+    * Display recommended products based on users' preferences in the sideabr
+  * Optimize Page Layout
+    * Add right and left sidebars for information display
+  * Optimize Algorithm
+    * Display **recommended products by users' preferences** (by calculating the word distance between the user's ordered products' titles and the products' titles on sale)
+* Shopping Cart (basket)
+  * Use **JS** to calculate the total price
+  * Use **AJAX** to dynamically change the number of a product in the shopping cart
+* Ordering
+  * Expand the functionality of **refunds** and **order canceling**
+  * Expand the functionality of sellers **uploading the delivery express ID**
+  * Expand the functionality of buyers **commenting an order or item** when confirming delivering
+  * Alert the user when they try to "Confirm Delivered" the order that is not confirmed by the shopper
+* User profile
+  * Expand the functionality of **restoring the password** using email 
+* Product details
+  * Expand the functionality of sellers setting up the introduction in the product details page
+  * Expand the **iframe** to the product detail page
 
 
 ### User Accounts for Testing
 
-Shopper:
+Seller:
 * Username: shop1
 * Password: 123
 
@@ -155,18 +165,18 @@ Buyer:
 * Password: 123
 
 ### Roles in the system
-1. Buyers
+1. **Buyers**
    1. Register and Login in the login-register page
    2. Can add products to his shopping cart
    3. Can view his cart
    4. Can make orders 
    5. Can view his orders
-   6. Cannot add products to the site
+   6. Cannot add products to the shopping site
    7. Cannot manage products of the site
-2. Seller (Registered by Admin, Not allowed to be created by public register)
-   1. Can add products
+2. **Seller** (**registered by Admin in the database, not allowed to be created by public register**)
+   1. Can add products to the shopping site
    2. Can manage products 
-   3. Can view orders made from his shop
+   3. Can view and manage orders made from his shop
    4. Can confirm orders
    5. **Cannot view his cart**
    6. Cannot make orders
@@ -205,11 +215,5 @@ Buyer:
   * User can view the orders made in his shop 
 
 
-### Characteristic
 
-* Responsive Layout (flex Layout)
-* Allowing unregistered user to view products
-* Auto redirect to login page
-* CSRF Protection
-* Blueprint for routing
 
