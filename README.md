@@ -24,6 +24,15 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 - [x] Allow sellers to **manage** their **items**
 - [x] Allow sellers to **manage** their **orders**
 
+#### Buyer
+- [x] Allow buyers to **visit** different shops
+- [x] Allow buyers to **put** items into their **basket**
+- [x] Allow buyers to **view** their **basket** at all times
+- [x] Allow buyers to **add** or **remove** items form the **basket**
+- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **basket**
+- [x] Allow buyers to view the **total expenditure** for all items in the basket
+- [x] Allow buyers to view an itemised list of their **shopping bill**, grouped by the shop
+
 ### Implemented Functions for MileStone1
 
 
