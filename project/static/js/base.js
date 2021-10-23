@@ -102,3 +102,9 @@ $('#chooseImage').on('change', function () {
         return;
     }
 });
+
+$(document).ready(function () {
+    $(".background-image-loading-container").remove();
+    $(".content-body").show();
+    document.getElementsByClassName("content-body")[0].hidden = false;
+});
