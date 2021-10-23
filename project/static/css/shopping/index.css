@@ -14,7 +14,7 @@
 }
 
 .index-upper {
-    width: 80%;
+    width: 86%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -76,7 +76,7 @@
 }
 
 .shell {
-    width: 98%;
+    width: 100%;
     height: 600px;
     position: relative;
     overflow-x: hidden;
@@ -169,8 +169,8 @@
 
 .index-item {
     height: 380px;
-    margin-left: 12px;
-    width: 5%;
+    margin-left: 5px;
+    width: 8%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -179,7 +179,7 @@
 }
 
 .index-shoes-container {
-    width: 80%;
+    width: 86%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -204,14 +204,14 @@
     justify-content: center;
     align-content: center;
     border: 3px #ddd solid;
-    margin: 15px;
+    margin: 10px;
     border-radius: 15px;
     padding: 5px;
 }
 
 .right-img-area {
     overflow: hidden;
-    min-width: 80%;
+    min-width: 86%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -244,7 +244,7 @@
 }
 
 .index-item-container {
-    width: 80%;
+    width: 86%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -255,13 +255,19 @@
 }
 
 #index-item1 {
-    margin: 30px;
+    width: 203px;
+    margin: 18px 15px;
+}
+
+#index-item2 {
+    width: 215px;
+    margin: 30px 8px 0 10px;
 }
 
 .index-item {
-    width: 200px;
-    margin: 17px;
-    padding: 10px;
+    width: 190px;
+    margin: 10px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -280,7 +286,12 @@
     height: 210px;
 }
 
-.index-item-image:hover {
+.index-item-image1 {
+    width: 190px;
+    height: 200px;
+}
+
+.index-item-image:hover, .index-item-image1:hover {
     transform: scale(1.1);
 }
 
@@ -299,7 +310,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 86%;
     height: 100px;
     color: purple;
     font-size: 25px;
@@ -374,7 +385,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 86%;
     height: 100px;
     color: purple;
     font-size: 25px;
@@ -412,7 +423,7 @@
 
 /*the style for the right side bar*/
 .right-side-bar {
-    width: 25%;
+    width: 27%;
     /*border: 3px solid black;*/
     margin-right: 35px;
     margin-top: 155px;
