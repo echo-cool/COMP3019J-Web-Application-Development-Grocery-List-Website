@@ -89,7 +89,7 @@ Buyer:
    5. Can view his orders
    6. Can't Add products
    7. Can't Manage products
-2. Seller (Registered by Admin)
+2. Seller (Registered by Admin, Not allowed to be created by public register)
    1. Can Add products
    2. Can Manage products 
    3. Can view orders from his shop
