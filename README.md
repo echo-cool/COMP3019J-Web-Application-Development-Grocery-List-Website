@@ -59,6 +59,16 @@ If pipeline passed then this docker contains the same code with master:
 docker pull echo0821/web-project:latest 
 docker run -p 5000:5000 echo0821/web-project:latest
 ```
+#### Open the web page using Chrome(Edge)
+**Safari and IE is not offfically supported**
+
+URL: http://localhost:5000
+
+or
+
+URL: http://127.0.0.1:5000
+
+
 
 ### Test Account
 
