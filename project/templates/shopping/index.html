@@ -13,32 +13,33 @@
 
     <br>
     <br>
-    <div class="all">
-        <div class="middle">
-            <div class="index-container">
-                <div id="auto">
-                    <div class="index-upper">
-                        <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
-                        <div class="index-search-box">
-                            <form action="{{ url_for("index.search") }}" method="GET" name="search">
-                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                <input class="index-search-text" name="keyword" placeholder="Enter the product name"
-                                       value="">
-                                <input class="index-search-submit-button" type="submit" value="">
-                            </form>
-                        </div>
-                        <div class="my-basket-box">
-                            <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
+    <div id="auto">
+        <div class="index-upper">
+            <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
+            <div class="index-search-box">
+                <form action="{{ url_for("index.search") }}" method="GET" name="search">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input class="index-search-text" name="keyword" placeholder="Enter the product name"
+                           value="">
+                    <input class="index-search-submit-button" type="submit" value="">
+                </form>
+            </div>
+            <div class="my-basket-box">
+                <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
 
                     <span class="index-basket-icon">
                         <p class="index-basket-text">My Shopping Cart</p>
                     <i class="fas fa-cart-arrow-down"></i>
                 </span>
-                            </a>
+                </a>
 
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+    <div class="all">
+        <div class="middle">
+            <div class="index-container">
+
 
                 <br>
                 <br>
