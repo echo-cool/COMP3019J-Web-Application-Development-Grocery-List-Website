@@ -50,6 +50,10 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 - [x] Allow buyers to view at most **three** sample items of each shop in the main page
 - [x] Allow buyers to click an item to view its **product details**
 - [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
+- [x] Allow buyers to **view** their **shopping cart ordered by shops**
+- [x] Allow buyers to **remove** items from the **shopping cart**
+- [x] Allow buyers to **increase or decrease** the **quantity** of each item in the **shopping cart** 
+- [x] Allow buyers to **make order**s and checkout order (ordered by shops)
 - [x] Allow buyers to view the **sidebar**, which contains its basic profile and announcements  
 - [x] Allow buyers to **upload** and **modify** their **personal details**, which contain their avatar, username, email address
 - [x] Allow buyers to click the shop to view all items in each shop
