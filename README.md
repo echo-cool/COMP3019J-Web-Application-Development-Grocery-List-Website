@@ -20,8 +20,8 @@ Finally, it should create an itemised list of the user’s shopping bill, groupe
 
 ### Preview this project (Deployed in Heroku)
 
-This is a preview version of this project, it might contain errors or out-dated
-Please use python to run this project locally to see the web site.
+This is a **preview version** of this project, it might contain errors or out-dated
+Please use python to run this project locally to see the website.
 
 [http://comp3019j-web-dev.herokuapp.com/](http://comp3019j-web-dev.herokuapp.com/)
 
@@ -49,13 +49,13 @@ python run.py
 
 or
 
+If pipeline passed then this docker contains the same code with master:
+
 ![pipeline](https://csgitlab.ucd.ie/19206226/TEAM_20/badges/master/pipeline.svg)
 
 ```shell
 docker pull echo0821/web-project:latest 
-
 docker run -p 5000:5000 echo0821/web-project:latest
-
 ```
 
 ### Test Account
