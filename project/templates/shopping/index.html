@@ -211,7 +211,7 @@
                             Customer
                         {% endif %}
                     </div>
-                    <br>
+                    <div class="empty-space1"></div>
                     <div class="details">
                         <div>
                             <a href="{{ url_for("user.info") }}">
@@ -256,9 +256,7 @@
                     </div>
 
                 </div>
-                <br>
-                <br>
-                <br>
+                <div class="empty-space"></div>
                 {% for announcement in announcements %}
                     <div class="announcements">
                         <div class="announcements-text">
@@ -274,13 +272,9 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <br>
-                    <br>
-                    <br>
+                    <div class="empty-space"></div>
                 {% endfor %}
-                <br>
-                <br>
-                <br>
+                <div class="empty-space"></div>
                 {% if current_user.is_shopper %}
                     <div class="manage-my-order">
                         <div class="announcements-text">
@@ -292,10 +286,7 @@
                         </div>
                     </div>
                 {% else %}
-
                 {% endif %}
-
-
             </div>
         {% endif %}
     </div>
@@ -380,9 +371,5 @@
             // Turn the timer on
             timeCalc()
         </script>
-
     {% endblock %}
-
-
-
 {% endblock %}

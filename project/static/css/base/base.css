@@ -334,7 +334,6 @@ img {
 }
 
 
-
 .g-container {
 
     margin: auto;
@@ -450,4 +449,27 @@ img {
 
 .empty-space1 {
     margin-top: 25px;
+}
+
+.background-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: url("../../image/shopping/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+}
+
+.background-image-loading-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    filter: blur(4px) contrast(8);
+    display: flex;
+    background: rgba(255, 255, 255, 0.5);
 }
