@@ -7,12 +7,25 @@
 * Wang Yuyang 19206226
 * Yang Liuxin 19206207
 
-### Introduction
+### Project Description
 The website should allow multiple grocery shops to set up products available, along with their unit prices as well as images. 
 The website should allow users to visit different shops, and put items into their basket. The website should allow users to view their basket at all times, and add/remove items from the basket. 
 The website should allow users to increase/ decrease the quantity of the items while looking at their baskets. 
 It should also calculate the total expenditure/cost for all items in the basket. 
 Finally, it should create an itemised list of the user’s shopping bill, grouped by the shop.
+
+### Intended Functionalities
+#### Common Functionalities
+- [x] Allow sellers and buyers to **visit** different shops
+
+#### Seller / Shop
+- [x] Allow multiple sellers/shops to **upload** products with their prices and images
+- [x] Allow sellers to **visit** different shops
+- [x] Allow sellers to **manage** their **items**
+- [x] Allow sellers to **manage** their **orders**
+
+### Implemented Functions for MileStone1
+
 
 
 ### Preview this project (Deployed in Heroku)
@@ -58,7 +71,7 @@ If pipeline passed then this docker contains the same code with master:
 docker pull echo0821/web-project:latest 
 docker run -p 5000:5000 echo0821/web-project:latest
 ```
-#### Open the web page using Chrome(Edge)
+#### Open the web page using Firefox / Chrome / Edge
 **Safari and IE is not offfically supported**
 
 URL: http://localhost:5000
