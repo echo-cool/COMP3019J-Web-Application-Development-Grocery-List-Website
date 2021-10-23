@@ -35,7 +35,6 @@
                         <th>Total</th>
                         <th class="cancel-column">Modify</th>
                         <th class="cancel-column">Delete</th>
-                        <th class="add-column">Add New Item</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,17 +66,20 @@
                                     </div>
                                 </a>
                             </td>
-                            <td rowspan="4">
-                                <a href="{{ url_for("item.addNewItem") }}">
-                                    <div class="manage-items-modify">
-                                        Add New Item
-                                    </div>
-                                </a>
-                            </td>
+
                         </tr>
                     {% endfor %}
+                    <tr>
+                        <th colspan="7" id="padding-add-new">
+                            <a href="{{ url_for("item.addNewItem") }}" id="add-new">
+                                Add New Item
+                            </a>
+                        </th>
+                    </tr>
                     </tbody>
                 </table>
+
+
             {% endif %}
         </div>
     </div>

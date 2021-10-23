@@ -288,8 +288,7 @@ h3 {
     border-radius: 15px;
     font-weight: bold;
     color: #06b8d0;
-    padding: 10px;
-    background-color: rgba(231, 228, 228, 0.5);
+    background-color: rgba(256, 256, 256, 0.5);
 }
 
 .manage-items-modify:hover {
@@ -304,4 +303,32 @@ a {
 #shopping-cart-box .h2 {
     color: #06b8d0;
     font-size: 40px;
+}
+
+.button-default2 {
+    height: 44px;
+    padding: 5px;
+    margin-right: 15px;
+    background-image: linear-gradient(to right, #ddeb3b, #03a9f4, #f441a5, #e7cecc);
+    border-radius: 5px;
+    background-size: 390%;
+    font-size: 18px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#add-new {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#add-new:hover {
+    color: #2eeace;
+}
+
+#padding-add-new {
+    padding: 15px;
 }
