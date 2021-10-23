@@ -4,6 +4,7 @@ from flask import Blueprint, render_template, flash, current_app, url_for, Respo
 from flask_login import current_user, login_required
 from project import db
 from project.item.forms import AddNewItem, UpdateItem
+from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
 from project.utils import seller_required
@@ -25,6 +26,7 @@ def ManageItem() -> str:
     user = current_user
     items = Item.query.filter_by(
         owner=user.id,
+        disabled=False
     ).all()
     itemsLength = len(items)
     form = AddNewItem()
@@ -65,7 +67,11 @@ def ManageItem() -> str:
 @seller_required
 def DeleteItem(item_id: int) -> Response:
     item = Item.get_by_id(item_id)
-    item.delete()
+    # item.delete()
+    item.disabled = True
+    item.save()
+    for i in Cart.query.filter_by(item_id=item_id).all():
+        i.delete()
     flash("Delete Success")
     return redirect(url_for("item.ManageItem"))
 
@@ -145,6 +151,6 @@ def show_all_items(userid: int) -> str:
     # print(user)
     user = User.query.filter_by(id=userid).first()
     username = user.username
-    items = Item.query.filter_by(owner=userid).all()
+    items = Item.query.filter_by(owner=userid, disabled=False).all()
     # print(items)
     return render_template("shopping/shopper_all_items.html", items=items, username=username)

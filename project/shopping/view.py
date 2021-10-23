@@ -35,7 +35,7 @@ blueprint = Blueprint("index", __name__, static_folder="../static")
 
 @blueprint.route("/", methods=["GET", "POST"])
 def home() -> str:
-    all_items = Item.query.all()
+    all_items = Item.query.filter_by(disabled=False).all()
     shop_sellers = {}
     announcements = Announcement.query.all()
     announcements = [i.content.split(" ") for i in announcements]
@@ -49,14 +49,19 @@ def home() -> str:
             shop_sellers[shopper] = [item]
 
     all_items.sort(key=lambda i: i.sold_count, reverse=True)
-    return render_template("shopping/index.html", items=all_items, current_user=current_user, shop_sellers=shop_sellers, announcements=announcements)
+    return render_template("shopping/index.html", items=all_items, current_user=current_user, shop_sellers=shop_sellers,
+                           announcements=announcements)
 
 
 @blueprint.route("/search", methods=["GET", "POST"])
 def search() -> str:
     keyword: str = request.args.get(key='keyword')
     print(keyword)
-    items = Item.query.filter(Item.name.like("%" + keyword + "%")).all()
+    items: list = Item.query.filter(Item.name.like("%" + keyword + "%")).all()
+    for i in items:
+        if i.disabled:
+            items.remove(i)
+
     have_res = True
     if len(items) == 0:
         have_res = False
