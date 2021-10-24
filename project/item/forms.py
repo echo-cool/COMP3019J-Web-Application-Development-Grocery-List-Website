@@ -23,7 +23,7 @@ class UpdateItem(FlaskForm):
     item_name = StringField("Item Name", validators=[DataRequired(), ], default="")
     item_price = FloatField("Price", validators=[DataRequired()], default=0.0)
     description = StringField("Description", validators=[DataRequired()], default="")
-    inventory = IntegerField("Inventory", validators=[DataRequired()], default=0)
+    inventory = IntegerField("Inventory", validators=[DataRequired()])
     # main_image_url = URLField("main_image_url", validators=[], default="")
     main_image_file = FileField("Upload Image", validators=[
         FileAllowed(['png', 'jpg', 'jpeg'], 'Only allow png, jpg')
