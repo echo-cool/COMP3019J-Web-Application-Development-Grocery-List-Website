@@ -3,6 +3,9 @@
     Add new Item
 {% endblock %}
 
+{#this is the page for sellers to add items#}
+{#add name, image, description, inventory of the newly-added item#}
+
 {% block style %}
     <link rel="stylesheet" href="../../static/css/item/add.css">
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
@@ -18,18 +21,22 @@
                 {{ form.csrf_token }}
                 <table class="add-item-box-table">
                     <tbody>
+                    {#                    item nam#}
                     <tr>
                         <th>{{ form.item_name.label }}</th>
                         <td>{{ form.item_name(class="number-input") }}</td>
                     </tr>
+                    {#item price#}
                     <tr>
                         <th>{{ form.item_price.label }}</th>
                         <td>{{ form.item_price(class="number-input") }}</td>
                     </tr>
+                    {#item description#}
                     <tr>
                         <th>{{ form.description.label }}</th>
                         <td>{{ form.description(class="number-input") }}</td>
                     </tr>
+                    {#item inventory#}
                     <tr>
                         <th>{{ form.inventory.label }}</th>
                         <td>{{ form.inventory(class="number-input") }}</td>
@@ -40,7 +47,7 @@
                     </tr>
                     </tbody>
                 </table>
-
+                {#add button#}
                 <div class="add_button">
                     {{ form.add_button(class="button-default") }}
                 </div>

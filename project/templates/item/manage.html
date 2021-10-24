@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
 {% endblock %}
 
+{# this is the page for sellers to manage items #}
+{#contains the link to add, modify and remove items#}
+
 {% block content %}
 
     <div class="shopping-cart-big-box">
@@ -15,13 +18,14 @@
             <p class="shopping-cart-box-head"> Seller </p>
             <h1>Manage My Items</h1>
             <div class="empty-space1"></div>
-
+            {#            if the seller does not have any to sell#}
             {% if itemsLength == 0 %}
                 <h1 class="h2">You Have Not Owned Any Items to Sell</h1>
                 <div class="empty-space1"></div>
                 <button class="button-default">
                     <a href="{{ url_for("item.addNewItem") }}">Click here to add new item</a>
                 </button>
+                {#                if the seller has items to sell#}
             {% else %}
                 <h1 class="h2">Display & Remove & Modify & Add</h1>
                 <div class="empty-space1"></div>
@@ -38,20 +42,26 @@
                     </tr>
                     </thead>
                     <tbody>
+                    {#                    loop through items of items and display them in the table#}
                     {% for item in items %}
                         <tr>
                             <th class="cancel-column"><input type="checkbox" checked="checked"></th>
+                            {#                            item image#}
                             <td class="index-item-image-box"><a
                                     href="{{ url_for("item.details", itemID=item.id) }}"><img
                                     class="index-item-image"
                                     src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                     value="Item Image"></a>
                             </td>
+                            {#                            item price#}
                             <td>{{ item.price }}</td>
+                            {#                            item inventory#}
                             <td class="sub-add-button">
                                 {{ item.inventory }}
                             </td>
+                            {#                            number of sold #}
                             <td>{{ item.sold_count }}</td>
+                            {#                            link to modify#}
                             <td>
                                 <a href="{{ url_for("item.ModifyNewItem",item_id=item.id) }}">
                                     <div class="manage-items-modify">
@@ -59,6 +69,7 @@
                                     </div>
                                 </a>
                             </td>
+                            {#                            link to delete#}
                             <td>
                                 <a href="{{ url_for("item.DeleteItem",item_id=item.id) }}">
                                     <div class="manage-items-modify incorrect">
