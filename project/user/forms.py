@@ -5,7 +5,7 @@ from wtforms import StringField, IntegerField, FloatField, SubmitField, FileFiel
 from wtforms.fields.html5 import URLField
 from wtforms.validators import DataRequired
 
-
+# This form is used when user want to update his personal information
 class UpdateUser(FlaskForm):
     username = StringField("Username", validators=[DataRequired(), ])
     email = StringField("Email", validators=[DataRequired(), ])

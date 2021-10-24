@@ -8,12 +8,12 @@ Column = db.Column
 relationship = db.relationship
 
 
-class CRUDMixin(object):
+class BaseModel(object):
     """Mixin that adds convenience methods for CRUD (create, read, update, delete) operations."""
 
     @classmethod
     def create(cls, **kwargs):
-        """Create a new record and save it the database."""
+        """Create a new entry and save it to database."""
         instance = cls(**kwargs)
         return instance.save()
 
@@ -40,7 +40,7 @@ class CRUDMixin(object):
         return
 
 
-class Model(CRUDMixin, db.Model):
+class Model(BaseModel, db.Model):
     """Base model class that includes CRUD convenience methods."""
 
     __abstract__ = True
@@ -70,11 +70,6 @@ def reference_col(
         tablename, nullable=False, pk_name="id", foreign_key_kwargs=None, column_kwargs=None
 ):
     """Column that adds primary key foreign key reference.
-
-    Usage: ::
-
-        category_id = reference_col('category')
-        category = relationship('Category', backref='categories')
     """
     foreign_key_kwargs = foreign_key_kwargs or {}
     column_kwargs = column_kwargs or {}
