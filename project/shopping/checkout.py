@@ -88,7 +88,8 @@ def checkout_pay() -> str:
                 if tmp_item.inventory - i.count < 0:
                     full_order_status = False
                 else:
-                    tmp_item.inventory = tmp_item.inventory - i.count
+                    tmp_item.inventory  -= i.count
+                    tmp_item.sold_count += i.count
                     tmp_item.save()
                     Order.create(
                         order_id=order_id_count,
