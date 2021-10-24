@@ -7,6 +7,7 @@
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/search.css">
     <link rel="stylesheet" href="../../static/css/item/manage.css">
+    <link rel="stylesheet" href="../../static/css/shopping/index.css">
 {% endblock %}
 
 {% block content %}
@@ -22,68 +23,85 @@
             <h1>Search for Items</h1>
             <div class="empty-space1"></div>
 
-            {#            if there is no matching result #}
+            {# if there is no matching result #}
             {% if not have_res %}
                 <h1 class="h2">Sorry, no matching result!</h1>
             {% else %}
                 <h1 class="h2">Display you Search: {{ keyword }}</h1>
                 <div class="empty-space"></div>
-                <table class="manage-items-box-table">
-                    <thead>
-                    <tr>
-                        <th class="cancel-column">Select All</th>
-                        <th>Keyword</th>
-                        <th class="index-item-image-box">Image</th>
-                        <th>Price</th>
-                        <th class="number-margin">Inventory</th>
-                        <th>Total</th>
-                        <th class="cancel-column">Modify</th>
-                        <th class="cancel-column">Delete</th>
-                        <th class="add-column">Add New Item</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for item in items %}
-                        <tr>
-                            <th class="cancel-column"><input type="checkbox" checked="checked"></th>
-                            <td>{{ keyword }}</td>
-                            <td class="index-item-image-box"><a
-                                    href="{{ url_for("item.details", itemID=item.id) }}"><img
-                                    class="index-item-image"
-                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                    value="Item Image"></a>
-                            </td>
-                            <td>{{ item.price }}</td>
-                            <td class="sub-add-button">
-                                {{ item.price }}
-                            </td>
-                            <td>{{ item.price }}</td>
-                            <td>
-                                <a href="{{ url_for("item.ModifyNewItem",item_id=item.id) }}">
-                                    <div class="manage-items-modify">
-                                        Modify
-                                    </div>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{{ url_for("item.DeleteItem",item_id=item.id) }}">
-                                    <div class="manage-items-modify incorrect">
-                                        Delete
-                                    </div>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{{ url_for("item.addNewItem") }}">
-                                    <div class="manage-items-modify">
-                                        Add New Item
-                                    </div>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
+                 <div class="index-item-container">
 
-                </table>
+            {% for item in items %}
+                <div class="index-item">
+                    <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
+                                                                                  src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                                                  value="Item Image"></a>
+                    <div class="index-item-text">
+                        <p class="index-item-price">$ {{ item.price }}</p>
+                        <a class="index-item-name"
+                           href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                        <p class="index-item-description">{{ item.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{#                <table class="manage-items-box-table">#}
+{#                    <thead>#}
+{#                    <tr>#}
+{#                        <th class="cancel-column">Select All</th>#}
+{#                        <th>Keyword</th>#}
+{#                        <th class="index-item-image-box">Image</th>#}
+{#                        <th>Price</th>#}
+{#                        <th class="number-margin">Inventory</th>#}
+{#                        <th>Total</th>#}
+{#                        <th class="cancel-column">Modify</th>#}
+{#                        <th class="cancel-column">Delete</th>#}
+{#                        <th class="add-column">Add New Item</th>#}
+{#                    </tr>#}
+{#                    </thead>#}
+{#                    <tbody>#}
+{#                    {% for item in items %}#}
+{#                        <tr>#}
+{#                            <th class="cancel-column"><input type="checkbox" checked="checked"></th>#}
+{#                            <td>{{ keyword }}</td>#}
+{#                            <td class="index-item-image-box"><a#}
+{#                                    href="{{ url_for("item.details", itemID=item.id) }}"><img#}
+{#                                    class="index-item-image"#}
+{#                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
+{#                                    value="Item Image"></a>#}
+{#                            </td>#}
+{#                            <td>{{ item.price }}</td>#}
+{#                            <td class="sub-add-button">#}
+{#                                {{ item.price }}#}
+{#                            </td>#}
+{#                            <td>{{ item.price }}</td>#}
+{#                            <td>#}
+{#                                <a href="{{ url_for("item.ModifyNewItem",item_id=item.id) }}">#}
+{#                                    <div class="manage-items-modify">#}
+{#                                        Modify#}
+{#                                    </div>#}
+{#                                </a>#}
+{#                            </td>#}
+{#                            <td>#}
+{#                                <a href="{{ url_for("item.DeleteItem",item_id=item.id) }}">#}
+{#                                    <div class="manage-items-modify incorrect">#}
+{#                                        Delete#}
+{#                                    </div>#}
+{#                                </a>#}
+{#                            </td>#}
+{#                            <td>#}
+{#                                <a href="{{ url_for("item.addNewItem") }}">#}
+{#                                    <div class="manage-items-modify">#}
+{#                                        Add New Item#}
+{#                                    </div>#}
+{#                                </a>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    {% endfor %}#}
+{#                    </tbody>#}
+{##}
+{#                </table>#}
             {% endif %}
         </div>
     </div>

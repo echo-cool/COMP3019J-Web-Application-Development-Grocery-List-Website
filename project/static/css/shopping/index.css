@@ -280,8 +280,8 @@
 }
 
 .index-item-image {
-    width: 200px;
-    height: 210px;
+    width: 190px;
+    height: 200px;
 }
 
 .index-item-image1 {
@@ -317,15 +317,15 @@
             linear,
             left bottom,
             right top,
-            color-stop(0.02, rgb(249, 188, 201)),
-            color-stop(0.51, rgb(243, 255, 76)),
-            color-stop(0.87, rgb(252, 207, 227))
+            color-stop(0.02, rgba(249, 188, 201, 0.6)),
+            color-stop(0.51, rgba(243, 255, 76, 0.6)),
+            color-stop(0.87, rgba(252, 207, 227, 0.6))
     );
     background: -moz-linear-gradient(
             left bottom,
-            rgb(249, 188, 201) 2%,
-            rgb(255, 228, 76) 51%,
-            rgb(252, 207, 227) 87%
+            rgba(249, 188, 201, 0.6) 2%,
+            rgba(255, 228, 76, 0.6) 51%,
+            rgba(252, 207, 227, 0.6) 87%
     );
     border-radius: 10px;
 }
@@ -393,15 +393,15 @@
             linear,
             left bottom,
             right top,
-            color-stop(0.02, rgb(249, 188, 201)),
-            color-stop(0.51, rgb(243, 255, 76)),
-            color-stop(0.87, rgb(252, 207, 227))
+            color-stop(0.02, rgba(249, 188, 201, 0.6)),
+            color-stop(0.51, rgba(243, 255, 76, 0.6)),
+            color-stop(0.87, rgba(252, 207, 227, 0.6))
     );
     background: -moz-linear-gradient(
             left bottom,
-            rgb(249, 188, 201) 2%,
-            rgb(255, 228, 76) 51%,
-            rgb(252, 207, 227) 87%
+            rgba(249, 188, 201, 0.6) 2%,
+            rgba(255, 228, 76, 0.6) 51%,
+            rgba(252, 207, 227, 0.6) 87%
     );
 }
 

@@ -10,12 +10,15 @@
 {% endblock %}
 
 {% block content %}
-    <div class="index-container">
+    <div class="empty-space1"></div>
+    <div id="auto">
         <div class="index-upper">
             <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
             <div class="index-search-box">
-                <form action="#" method="post" name="search">
-                    <input class="index-search-text">
+                <form action="{{ url_for("index.search") }}" method="GET" name="search">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input class="index-search-text" name="keyword" placeholder="Enter the product name"
+                           value="">
                     <input class="index-search-submit-button" type="submit" value="">
                 </form>
             </div>
@@ -30,18 +33,17 @@
 
             </div>
         </div>
-
     </div>
 
 
-    <br>
-    <br>
+    <div class="empty-space1"></div>
 
 
     {# Display all items owned by this shop #}
     <div class="index-product-view-title">
         <h1 class="product-view-title-text">Buy Items of Shop: {{ username }}</h1>
     </div>
+    <div class="empty-space1"></div>
     <div class="index-item-container-box">
         <div class="index-item-container">
 
@@ -61,10 +63,7 @@
 
                 </div>
             {% endfor %}
-
-
         </div>
-
     </div>
 
 

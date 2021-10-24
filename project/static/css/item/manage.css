@@ -12,7 +12,7 @@ h3 {
 
 #shopping-cart-box {
     background-color: #efefef;
-    border-left: 30px solid #f4e139;
+    /*border-left: 30px solid #f4e139;*/
     border-right: 1px solid #ddd;
     box-shadow: 1px 1px 17px #AAAAAAF7;
     border-radius: 12px;
@@ -167,7 +167,7 @@ h3 {
     min-width: 50%;
     margin-top: 100px;
     background-color: #efefef;
-    border-left: 30px solid deepskyblue;
+    /*border-left: 30px solid deepskyblue;*/
     border-right: 1px solid #dedada;
     box-shadow: 1px 1px 17px #b1adad;
     border-radius: 12px;
