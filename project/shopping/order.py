@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import Blueprint, Response
 from flask import (
     Blueprint,
@@ -52,6 +54,7 @@ def view_order():
             shopper: User = User.get_by_id(shop_user_id)
             order.buyer = buyer
             order.shopper = shopper
+            order.created_at_txt = str(order.created_at.ctime())
             tmp_price += item.price * order.count
             if user.is_shopper:
                 if user_id in confirm_count_dict[order_id].keys():
