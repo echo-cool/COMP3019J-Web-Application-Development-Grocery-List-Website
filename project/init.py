@@ -6,6 +6,7 @@ from flask import render_template, url_for, flash, redirect
 # from flask_login import current_user
 
 from project import app, shopping, login, item, db, user
+
 # from project.models.CategoryModel import Category
 # from project.models.ItemModel import Item
 # from project.models.OrderModel import Order
@@ -35,9 +36,9 @@ def render_error(error):
     return render_template(f"errors/{error_code}.html"), error_code
 
 
+# Replace original error pages
 for errcode in [401, 404, 500]:
     app.errorhandler(errcode)(render_error)
-
 
 # """Init Admin"""
 # admin.add_view(ModelView(User, db.session, name="Users", endpoint="users"))
@@ -52,4 +53,3 @@ for errcode in [401, 404, 500]:
 # @app.route('/css/<file>')
 # def css(file):
 #     return url_for("static", filename="css/" + file)
-

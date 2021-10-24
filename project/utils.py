@@ -15,7 +15,7 @@ def flash_errors(form: FlaskForm, category="warning"):
         for error in errors:
             flash(f"{getattr(form, field).label.text} - {error}", category)
 
-
+# A decorator for checking if a user's role is a seller
 def seller_required(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
@@ -27,7 +27,7 @@ def seller_required(func):
 
     return decorated_view
 
-
+# A decorator for checking if a user's role is a buyer
 def buyer_required(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
@@ -39,6 +39,8 @@ def buyer_required(func):
 
     return decorated_view
 
+# A decorator for checking if a product is available
+# and having stock in the warehouse
 def product_available_required(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):

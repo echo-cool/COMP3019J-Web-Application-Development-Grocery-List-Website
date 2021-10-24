@@ -3,6 +3,7 @@ import datetime as dt
 from project.database_model import PkModel, Column
 
 
+# This is the Announcement model for showing the Announcements in the main index page
 class Announcement(PkModel):
     __tablename__ = "announcements"
     name = Column(db.String, nullable=False, default="")

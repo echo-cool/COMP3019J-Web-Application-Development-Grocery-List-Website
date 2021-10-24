@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 from project.models.UserModel import User
 
-
+# This is the RegisterForm which will be used in the register page
 class RegisterForm(FlaskForm):
     """Register form."""
 
