@@ -70,7 +70,8 @@
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <input type="hidden" name="itemID" value="{{ item.id }}">
                     {% if item.inventory <= 0 %}
-                        <input class="shopping-cart-disabled" type="submit" disabled="disabled" value="Add to Shopping Cart" name="submit">
+                        <input class="shopping-cart-disabled" type="submit" disabled="disabled"
+                               value="Add to Shopping Cart" name="submit">
                     {% else %}
                         <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit">
                     {% endif %}
