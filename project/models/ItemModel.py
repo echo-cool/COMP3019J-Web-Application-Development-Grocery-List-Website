@@ -4,7 +4,7 @@ from project.database_model import PkModel, Column
 from project import db
 import datetime as dt
 
-
+# This is the item model for all the items in this site
 class Item(PkModel):
     """The products in this project"""
     __tablename__ = "item"
@@ -23,6 +23,7 @@ class Item(PkModel):
     #category_id = Column(db.Integer, db.ForeignKey("category.id"), nullable=True, default=db.null)
 
     def __init__(self, name, price, description, inventory, main_image_url, owner) -> None:
+        """Create instance."""
         self.name = name
         self.price = price
         self.description = description
@@ -32,5 +33,6 @@ class Item(PkModel):
         super().__init__()
 
     def __repr__(self) -> str:
+        """Represent instance as a unique string."""
         return f'<Item:{self.name},price:{self.price},description:{self.description},inventory:{self.inventory},' \
                f'main_image_url:{self.main_image_url},owner:{self.owner}> '

@@ -33,7 +33,9 @@ def login():
         print(username, password)
         user = User.query.filter_by(username=username).first()
         if user:
+            # Check user's password
             if user.check_password(password):
+                # Password correct, login
                 login_user(user)
                 flash("Login Success", "success")
                 return redirect(url_for("index.home"))
@@ -42,10 +44,11 @@ def login():
         else:
             flash("User not exist", "warning")
             # flash_errors(login_form)
-
+    # The submitted form is register
     elif register_from.submit_register.data and register_from.validate_on_submit():
         print("Register")
         print(register_from.submit_register.data)
+        # New user
         User.create(
             username=register_from.username.data,
             email=register_from.email.data,

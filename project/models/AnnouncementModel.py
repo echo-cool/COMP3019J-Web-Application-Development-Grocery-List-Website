@@ -10,9 +10,11 @@ class Announcement(PkModel):
     content = Column(db.String, nullable=False, default="")
 
     def __init__(self, name, content) -> None:
+        """Create instance."""
         self.name = name
         self.content = content
         super().__init__()
 
     def __repr__(self) -> str:
+        """Represent instance as a unique string."""
         return f'<name:{self.name},content:{self.content}>'

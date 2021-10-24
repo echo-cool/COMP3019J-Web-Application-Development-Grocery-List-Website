@@ -10,6 +10,7 @@ from project import bcrypt, login_manager
 
 @login_manager.user_loader
 def load_user(user_id):
+    # load user for login_manager
     user = User.query.get(user_id)
     return user
 
