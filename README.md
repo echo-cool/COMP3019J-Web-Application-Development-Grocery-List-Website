@@ -219,7 +219,10 @@ Buyer:
 ### Misc
 
 * Loading animation for users in poor network condition
+
 ![](misc/loading.gif)
+
 * Adaptive image size and adaptive layout
+
 ![](misc/adaptive-layout.gif)
 ![](misc/adaptive-layout2.gif)
