@@ -52,6 +52,10 @@
     margin-bottom: 20px;
 }
 
+#margin-top {
+    margin-top: 25px;
+}
+
 #shopping-cart-box #pay1 {
     color: #ecec80;
     font-size: 30px;

@@ -15,7 +15,7 @@
             {% if pay_status %}
                 {% if full_order_status %}
                     <h1 class="pay">Pay Success</h1>
-                    <h2 class="pay1">Thanks for ordering. We will deliver to you ASAP.</h2>
+                    <h2 class="shopping-cart-box-head1">Thanks for ordering. We will deliver to you ASAP.</h1>
                 {% else %}
                     <h1 class="pay">Pay Success</h1>
                     <h1 class="pay">Some ordering not succeeded</h1>
@@ -24,7 +24,7 @@
                     <h2 class="shopping-cart-box-head1">Thanks for ordering. We will deliver to you ASAP.</h2>
                 {% endif %}
 
-                <a href="{{ url_for("index.home") }}">
+                <a href="{{ url_for("index.home") }}" id="margin-top">
                     <button class="button-default">
                         Go Home
                     </button>
