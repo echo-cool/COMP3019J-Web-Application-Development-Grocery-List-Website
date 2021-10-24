@@ -8,9 +8,9 @@ from wtforms.validators import DataRequired
 class AddNewItem(FlaskForm):
     # userid = StringField("User ID", validators=[DataRequired(), ])
     item_name = StringField("Item Name", validators=[DataRequired(), ], default="")
-    item_price = FloatField("Price", validators=[], default=0.0)
-    description = StringField("Description", validators=[], default="")
-    inventory = IntegerField("Inventory", validators=[], default=0)
+    item_price = FloatField("Price", validators=[DataRequired()], default=0.0)
+    description = StringField("Description", validators=[DataRequired()], default="")
+    inventory = IntegerField("Inventory", validators=[DataRequired()], default=0)
     # main_image_url = URLField("main_image_url", validators=[], default="")
     main_image_file = FileField("Upload Image", validators=[
         FileRequired(),
@@ -21,9 +21,9 @@ class AddNewItem(FlaskForm):
 
 class UpdateItem(FlaskForm):
     item_name = StringField("Item Name", validators=[DataRequired(), ], default="")
-    item_price = FloatField("Price", validators=[], default=0.0)
-    description = StringField("Description", validators=[], default="")
-    inventory = IntegerField("Inventory", validators=[], default=0)
+    item_price = FloatField("Price", validators=[DataRequired()], default=0.0)
+    description = StringField("Description", validators=[DataRequired()], default="")
+    inventory = IntegerField("Inventory", validators=[DataRequired()], default=0)
     # main_image_url = URLField("main_image_url", validators=[], default="")
     main_image_file = FileField("Upload Image", validators=[
         FileAllowed(['png', 'jpg', 'jpeg'], 'Only allow png, jpg')

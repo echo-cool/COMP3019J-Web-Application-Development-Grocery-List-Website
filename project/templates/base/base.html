@@ -58,13 +58,13 @@
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %}
             <div class="base-message-box">
-                {% for category, message in messages %}
-                    <div class="alert-{{ category }}" id="message_content">
-                        <a class="base-message-close-icon" title="Close" href="#" onclick="HideMessage()">X</a>
+                <div id="message_content">
+                    <a class="base-message-close-icon" title="Close" href="#" onclick="HideMessage()">X</a>
+                    {% for category, message in messages %}
+
                         {{ message }}
-                    </div>
-                    <!-- end .alert -->
-                {% endfor %}
+                        <!-- end .alert -->
+                    {% endfor %}</div>
             </div>
             <!-- end row -->
         {% endif %} {% endwith %}
