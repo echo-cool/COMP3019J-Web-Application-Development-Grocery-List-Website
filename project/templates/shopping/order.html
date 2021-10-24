@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="../../static/css/shopping/order.css">
 {% endblock %}
 
+{#this is the order page containing made orders for sellers and buyers#}
+
 {% block content %}
 
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
 
-            {#            present the user information#}
+            {#   present the user information#}
             <div class="user-info-default">
                 <div id="default_avatar">
                     <img src="../../{{ current_user.main_image_url }}" alt="">
@@ -49,7 +51,7 @@
                 </div>
 
             </div>
-
+            {#display all items that have been ordered#}
             <table class="shopping-cart-box-table empty-space">
                 <thead>
                 <tr>
@@ -71,7 +73,7 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                {#loop through orders#}
 
                 {% for order_id in orders %}
                     <tr class="shopping-cart-seller">
@@ -86,6 +88,7 @@
                             </div>
                         </th>
                     </tr>
+                    {#                    loop through items in each order#}
                     {% for order in orders[order_id] %}
                         <tr>
                         <td class="index-item-image-box">
@@ -118,6 +121,7 @@
                         <td>
                             {{ order.count }}
                         </td>
+                        {#                        detect the order status#}
                         {% if order.show_td %}
                             {% if current_user.is_shopper %}
                                 <td rowspan="{{ confirm_count_dict[order_id][order.buyer.id] }}">

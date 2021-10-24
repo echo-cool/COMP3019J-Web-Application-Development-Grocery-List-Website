@@ -8,22 +8,27 @@
     <link rel="stylesheet" href="../../static/css/shopping/pay.css">
 {% endblock %}
 
+{# this is the page to confirm page which also contains the total price#}
+
 {% block content %}
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Customer </p>
             {% if pay_status %}
+                {#                if the order is successfully paied#}
                 {% if full_order_status %}
                     <h1 class="pay">Pay Success</h1>
-                    <h2 class="shopping-cart-box-head1">Thanks for ordering. We will deliver to you ASAP.</h1>
+                    <h1 class="shopping-cart-box-head1">Thanks for ordering. We will deliver to you ASAP.</h1>
+                    {#                    if fail the pay#}
                 {% else %}
                     <h1 class="pay">Pay Success</h1>
                     <h1 class="pay">Some ordering not succeeded</h1>
-                    <h2 class="shopping-cart-box-head1">Some items dose not have enough inventory, you money will be refund for those
+                    <h2 class="shopping-cart-box-head1">Some items dose not have enough inventory, you money will be
+                        refund for those
                         items.</h2>
                     <h2 class="shopping-cart-box-head1">Thanks for ordering. We will deliver to you ASAP.</h2>
                 {% endif %}
-
+                {#link to go home#}
                 <a href="{{ url_for("index.home") }}" id="margin-top">
                     <button class="button-default">
                         Go Home
