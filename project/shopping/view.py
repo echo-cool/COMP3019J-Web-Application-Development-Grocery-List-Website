@@ -32,11 +32,13 @@ blueprint = Blueprint("index", __name__, static_folder="../static")
 #         res[shopper] = [item]
 #
 #     return render_template("shopping/shopping_cart.html", cart_dict=res)
-
+# This is the main index page
 @blueprint.route("/", methods=["GET", "POST"])
 def home() -> str:
+    # Find all items that are not disabled
     all_items = Item.query.filter_by(disabled=False).all()
     shop_sellers = {}
+    # Find all announcements in the database
     announcements = Announcement.query.all()
     announcements = [i.content.split(" ") for i in announcements]
     # announcement: Announcement = Announcement.get_by_id(0)
