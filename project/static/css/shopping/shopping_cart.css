@@ -47,7 +47,7 @@ h3 {
     color: #888;
     border-bottom: 3px solid #f0f0f0;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 15px 10px 10px;
 }
 
 .shopping-cart-box-head a:hover, .add-item-box-head a:hover {
@@ -76,6 +76,10 @@ h3 {
     width: 100%;
     color: #aaa;
     text-shadow: 1px 1px 1px #fff;
+}
+
+.shopping-cart-box-table {
+    margin-bottom: 25px;
 }
 
 .shopping-cart-box-table, .add-item-box-table {
@@ -251,7 +255,7 @@ a {
 }
 
 .shopping-cart-big-box .shopping-cart-box-table .checkout-total-payment {
-    padding: 10px;
+    padding: 20px;
     font-size: 18px;
 }
 
@@ -290,4 +294,10 @@ a {
     color: white;
     letter-spacing: 1px;
     padding: 5px;
+}
+
+#check-button {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
 }

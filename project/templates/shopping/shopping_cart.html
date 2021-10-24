@@ -92,8 +92,9 @@
                     </tr>
                     </tbody>
                 </table>
-                <br>
-                <button class="button-default"><a href="{{ url_for("checkout.checkout_confirm") }}">Check Out</a>
+
+                <button class="button-default">
+                    <a href="{{ url_for("checkout.checkout_confirm") }}" id="check-button">Check Out</a>
                 </button>
             {% endif %}
         </div>
