@@ -14,10 +14,10 @@ from flask_login import login_user, login_required, current_user, logout_user
 
 blueprint = Blueprint("login", __name__, static_folder="../static")
 
-
+# This is the login handler when user wants to login
 @blueprint.route("/login/", methods=["GET", "POST"])
 def login():
-    """login"""
+    """login functionality"""
     login_form = LoginForm(request.form)
     register_from = RegisterForm(request.form)
 
@@ -59,7 +59,7 @@ def login():
         return redirect(url_for("index.home"))
 
     else:
-        # flash("Error", "error")
+        # if there is errors in the form, flash it.
         flash_errors(login_form)
         flash_errors(register_from)
 

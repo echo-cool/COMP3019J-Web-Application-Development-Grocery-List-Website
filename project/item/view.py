@@ -11,7 +11,7 @@ from project.utils import seller_required, product_available_required, flash_err
 
 blueprint = Blueprint("item", __name__, static_folder="../static")
 
-
+# This is a route if a user want to view a product detail
 @blueprint.route("/item/<int:itemID>", methods=["GET", "POST"])
 @product_available_required
 def details(itemID: int) -> str:
@@ -19,12 +19,13 @@ def details(itemID: int) -> str:
     owner = User.get_by_id(item.owner)
     return render_template("shopping/product_details.html", item=item, shop=owner)
 
-
+# This is used when shoppers need to manage his shop
 @blueprint.route("/item/manage", methods=["POST", "GET"])
 @login_required
 @seller_required
 def ManageItem() -> str:
     user = current_user
+    # Get all the items for this shopper
     items = Item.query.filter_by(
         owner=user.id,
         disabled=False
@@ -41,6 +42,7 @@ def ManageItem() -> str:
         main_image_file = form.main_image_file.data
         print(main_image_file)
         main_image_url = ""
+        # if uploaded a image
         if main_image_file.filename != "":
             filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1]
             main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
@@ -56,6 +58,7 @@ def ManageItem() -> str:
             new_item.save()
             flash("Save " + item_name + " Successfully to database !")
         except Exception as e:
+            # save failed
             flash("Save Failed, Check your input !")
             print(e.message)
             db.session.rollback()
@@ -69,14 +72,16 @@ def ManageItem() -> str:
 def DeleteItem(item_id: int) -> Response:
     item = Item.get_by_id(item_id)
     # item.delete()
+    # Set item state to disable
     item.disabled = True
     item.save()
+    # remove all the related cart item
     for i in Cart.query.filter_by(item_id=item_id).all():
         i.delete()
     flash("Delete Success")
     return redirect(url_for("item.ManageItem"))
 
-
+# a shopper need to modify the item
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
 @login_required
 @seller_required
@@ -91,6 +96,7 @@ def ModifyNewItem(item_id: int) -> str:
         inventory = form.inventory.data
         main_image_file = form.main_image_file.data
         # print()
+        # a new image uploaded
         if main_image_file.filename != "":
             filename = str(os.urandom(30).hex()) + "." + main_image_file.filename.split(".")[-1]
             main_image_file.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
@@ -106,7 +112,7 @@ def ModifyNewItem(item_id: int) -> str:
     flash_errors(form)
     return render_template("item/update.html", item=item, form=form)
 
-
+# a shopper need to add new items
 @blueprint.route("/item/add", methods=["POST", "GET"])
 @login_required
 @seller_required
@@ -145,7 +151,7 @@ def addNewItem() -> str:
     flash_errors(form)
     return render_template("item/add.html", form=form)
 
-
+# get all user's items
 @blueprint.route("/item/show/<int:userid>", methods=["POST", "GET"])
 @login_required
 def show_all_items(userid: int) -> str:
