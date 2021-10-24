@@ -74,9 +74,8 @@
 
 
                 {% for order_id in orders %}
-
                     <tr class="shopping-cart-seller">
-                        <th colspan="8">Order ID: {{ order_id }}</th>
+                        <th colspan="8">Order ID: {{ order_id }} Created at: {{ orders[order_id].created_at }}</th>
                     </tr>
                     {% for order in orders[order_id] %}
                         <tr>
