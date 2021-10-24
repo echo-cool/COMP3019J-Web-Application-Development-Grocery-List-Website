@@ -103,11 +103,45 @@ $('#chooseImage').on('change', function () {
     }
 });
 
-$(document).ready(function () {
-    //Page ready hide load animation
-    $(".background-image-loading-container").remove();
+// $(document).ready(function () {
+//
+// });
 
-    //Page ready show content in body
-    $(".content-body").show();
-    document.getElementsByClassName("content-body")[0].hidden = false;
-});
+// window.addEventListener("pageshow", new function () {
+//
+// });
+document.onreadystatechange = function () {
+    console.log(document.readyState)
+    // if(document.readyState=="interactive"){
+    //
+    // }
+    if (document.readyState == "complete") {
+        console.log("Page complete")
+        //Page ready hide load animation
+        $(".background-image-loading-container").remove();
+
+        //Page ready show content in body
+        $(".content-body").show();
+        document.getElementsByClassName("content-body")[0].hidden = false;
+    }
+}
+// $(function () {
+//
+// });
+
+function monitorEvents(element) {
+    var log = function (e) {
+        console.log(e);
+    };
+    var events = [];
+
+    for (var i in element) {
+        if (i.startsWith("on")) events.push(i.substr(2));
+    }
+    events.forEach(function (eventName) {
+        element.addEventListener(eventName, log);
+    });
+}
+
+// monitorEvents(document);
+

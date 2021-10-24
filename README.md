@@ -72,6 +72,7 @@ URL: http://127.0.0.1:5000
 * Auto **redirect** to login page
 * **CSRF Protection**
 * **Blueprint** for routing
+* Password are **hashed**
 
 
 ### Intended Functionalities
@@ -216,4 +217,13 @@ Buyer:
 
 
 
+### Misc
 
+* Loading animation for users in poor network condition
+
+![](misc/loading.gif)
+
+* Adaptive image size and adaptive layout
+
+![](misc/adaptive-layout.gif)
+![](misc/adaptive-layout2.gif)
