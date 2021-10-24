@@ -159,3 +159,16 @@
     font-weight: bold;
     color: white;
 }
+
+#flex-around {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.shopping-cart-big-box #shopping-cart-box .shopping-cart-box-table tr th #flex-around {
+    color: grey;
+    font-size: 25px;
+    padding: 6px;
+}
