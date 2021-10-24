@@ -26,8 +26,6 @@
                 <div id="default_avatar">
                     <img src="../../{{ current_user.main_image_url }}" alt="">
                 </div>
-                <div id="empty">
-                </div>
                 <div id="default-info">
                     <table class="add-item-box-table">
                         <tbody>
@@ -73,14 +71,14 @@
                             <tr>
                                 <th>Username</th>
                                 <td>
-                                    {#                                        <input id="email-address-new" type="text" value="{{ current_user.username }}">#}
+                                    {# <input id="email-address-new" type="text" value="{{ current_user.username }}">#}
                                     {{ form.username(id="email-address-new", value=current_user.username) }}
                                 </td>
                             </tr>
                             <tr>
                                 <th>Password</th>
                                 <td>
-                                    {#                                        <input id="email-address-new" type="text" value="">#}
+                                    {# <input id="email-address-new" type="text" value="">#}
                                     {{ form.password(id="email-address-new", value="") }}
                                 </td>
                             </tr>
@@ -98,12 +96,9 @@
                                 </td>
                             </tr>
                             </tbody>
-
                         </table>
                         <br>
-
                     </form>
-
                 </div>
             </div>
         </div>
