@@ -45,3 +45,10 @@ for i in Cart.query.all():
         print("".join(["-" for tmp in range(20)]))
         # i.shopper_id = item.owner
         # i.save()
+
+print()
+for i in Item.query.all():
+    sold_count = len(Order.query.filter_by(item_id=i.id).all())
+    print(i.id, sold_count)
+    # i.sold_count = sold_count
+    # i.save()
