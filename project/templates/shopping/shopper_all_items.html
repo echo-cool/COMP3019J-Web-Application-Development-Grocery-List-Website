@@ -15,33 +15,30 @@
             <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
             <div class="index-search-box">
                 <form action="#" method="post" name="search">
-                    <input class="index-search-text">
-                    <input class="index-search-submit-button" type="submit" value="">
+                    <input class="index-search-text" placeholder="Enter the product name">
+                    <input class="index-search-submit-button" type="submit" value="" >
                 </form>
             </div>
             <div class="my-basket-box">
                 <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
-
                     <span class="index-basket-icon">
                         <p class="index-basket-text">My Shopping Cart</p>
                     <i class="fas fa-cart-arrow-down"></i>
                 </span>
                 </a>
-
             </div>
         </div>
-
     </div>
 
 
-    <br>
-    <br>
+    <div class="empty-space1"></div>
 
 
     {# Display all items owned by this shop #}
     <div class="index-product-view-title">
         <h1 class="product-view-title-text">Buy Items of Shop: {{ username }}</h1>
     </div>
+    <div class="empty-space1"></div>
     <div class="index-item-container-box">
         <div class="index-item-container">
 
@@ -61,10 +58,7 @@
 
                 </div>
             {% endfor %}
-
-
         </div>
-
     </div>
 
 

@@ -7,6 +7,7 @@
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/search.css">
     <link rel="stylesheet" href="../../static/css/item/manage.css">
+    <link rel="stylesheet" href="../../static/css/shopping/index.css">
 {% endblock %}
 
 {% block content %}
@@ -22,7 +23,7 @@
             <h1>Search for Items</h1>
             <div class="empty-space1"></div>
 
-            {#            if there is no matching result #}
+            {# if there is no matching result #}
             {% if not have_res %}
                 <h1 class="h2">Sorry, no matching result!</h1>
             {% else %}
