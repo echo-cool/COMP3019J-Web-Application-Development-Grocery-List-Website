@@ -11,6 +11,7 @@
     justify-items: center;
     align-items: center;
     align-content: center;
+    padding-top: 25px;
 }
 
 .index-upper {
@@ -377,6 +378,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-top: 25px;
 }
 
 .product-recommendation-title-text {
@@ -417,6 +419,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 25px;
 }
 
 /*the style for the right side bar*/
@@ -450,6 +453,11 @@
     font-weight: bold;
     font-size: 20px;
     color: #6f6f6f;
+}
+
+.username, .announcements-text:hover {
+    color: orangered;
+    transform: scale(1.06);
 }
 
 .details {
@@ -540,4 +548,5 @@
     width: 150px;
     height: 150px;
     border-radius: 20px;
+    transform: scale(1.06);
 }
