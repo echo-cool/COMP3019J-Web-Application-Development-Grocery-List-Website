@@ -61,14 +61,14 @@
                                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                                         <input type="hidden" name="itemID" value="{{ item.id }}">
                                         <input type="hidden" name="itemCount" value="{{ item.count - 1 }}">
-                                        <input type="submit" value="-">
+                                        <input type="submit" value="-" class="change-quantity">
                                     </form>
-                                    <input type="text" class="number" value="{{ item.count }}">
+                                    <input type="text" class="number number-input1" value="{{ item.count }}">
                                     <form action="{{ url_for("cart.set_to_cart") }}" method="post">
                                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                                         <input type="hidden" name="itemID" value="{{ item.id }}">
                                         <input type="hidden" name="itemCount" value="{{ item.count + 1 }}">
-                                        <input type="submit" value="+">
+                                        <input type="submit" value="+" class="change-quantity">
                                     </form>
                                 </td>
                                 <td>{{ item.price * item.count }}</td>
@@ -94,7 +94,7 @@
                 </table>
 
                 <button class="button-default">
-                    <a href="{{ url_for("checkout.checkout_confirm") }}" id="check-button">Check Out</a>
+                    <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
                 </button>
             {% endif %}
         </div>

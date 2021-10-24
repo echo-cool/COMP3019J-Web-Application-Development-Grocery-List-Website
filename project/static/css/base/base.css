@@ -330,6 +330,14 @@ img {
     padding: 0 20px;
 }
 
+.number-input1 {
+    outline: 0;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+    background-color: rgba(255, 252, 243, 0.7);
+    padding: 0 10px;
+}
 
 .g-container {
 
@@ -469,4 +477,11 @@ img {
     filter: blur(4px) contrast(8);
     display: flex;
     background: rgba(255, 255, 255, 0.5);
+}
+
+.check-button {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 8px;
 }
