@@ -16,7 +16,7 @@ h3 {
 
 #shopping-cart-box {
     background-color: transparent;
-    border-left: 30px solid #f4e139;
+    /*border-left: 30px solid #f4e139;*/
     border-right: 5px solid #ddd;
     border-top: 5px solid #ddd;
     border-bottom: 5px solid #ddd;

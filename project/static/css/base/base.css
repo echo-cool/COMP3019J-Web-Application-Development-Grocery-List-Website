@@ -31,8 +31,6 @@ body {
     display: flex;
     flex-direction: column;
     cursor: url(https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/cursor_1.png), default;
-
-
 }
 
 #container {
@@ -40,7 +38,6 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-
 }
 
 
