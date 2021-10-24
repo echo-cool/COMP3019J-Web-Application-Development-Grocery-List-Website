@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-
+    {#big container#}
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Customer </p>
@@ -17,12 +17,14 @@
             <div class="empty-space1">
 
             </div>
+            {#        if the basket is empty#}
             {% if cart_length == 0 %}
                 <h1 class="h2">Your Shopping Car is Empty</h1>
                 <div class="empty-space1"></div>
                 <button class="button-default color">
                     <a href="{{ url_for("index.home") }}">Click here to view items</a>
                 </button>
+                {#                if not empty#}
             {% else %}
                 <p class="shopping-cart-box-head"> Total Price: {{ total_price }} </p>
                 <table class="shopping-cart-box-table">
@@ -37,6 +39,7 @@
                         <th class="cancel-column">Cancel</th>
                     </tr>
                     </thead>
+                    {#                loop through shops#}
                     <tbody>
                     {% for shop in cart_dict %}
 
@@ -56,6 +59,7 @@
                                         value="Item Image"></a>
                                 </td>
                                 <td>{{ item.price }}</td>
+                                {#                                function to change quantity#}
                                 <td class="sub-add-button">
                                     <form action="{{ url_for("cart.set_to_cart") }}" method="post">
                                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
@@ -64,6 +68,7 @@
                                         <input type="submit" value="-" class="change-quantity">
                                     </form>
                                     <input type="text" class="number number-input1" value="{{ item.count }}">
+                                    {#                                function to change quantity#}
                                     <form action="{{ url_for("cart.set_to_cart") }}" method="post">
                                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                                         <input type="hidden" name="itemID" value="{{ item.id }}">
@@ -72,7 +77,7 @@
                                     </form>
                                 </td>
                                 <td>{{ item.price * item.count }}</td>
-
+                                {#remove from basket#}
                                 <td>
                                     <div class="product-action-buttons">
                                         <form action="{{ url_for("cart.remove_from_cart") }}" method="post">
