@@ -19,3 +19,29 @@ print(User.query.all())
 print(Cart.query.all())
 print(Order.query.all())
 print(Announcement.query.all())
+for i in Order.query.all():
+    shopper: User = User.get_by_id(i.shopper_id)
+    item: Item = Item.get_by_id(i.item_id)
+    if item.owner == shopper.id:
+        print("pass", end=" ")
+    else:
+        print("".join(["-" for tmp in range(20)]))
+        print("ERROR in DATABASE")
+        print(shopper)
+        print(item)
+        print("".join(["-" for tmp in range(20)]))
+        # i.shopper_id = item.owner
+        # i.save()
+for i in Cart.query.all():
+    shopper: User = User.get_by_id(i.get_shop_userID())
+    item: Item = Item.get_by_id(i.item_id)
+    if item.owner == shopper.id:
+        print("pass", end=" ")
+    else:
+        print("".join(["-" for tmp in range(20)]))
+        print("ERROR in DATABASE")
+        print(shopper)
+        print(item)
+        print("".join(["-" for tmp in range(20)]))
+        # i.shopper_id = item.owner
+        # i.save()
