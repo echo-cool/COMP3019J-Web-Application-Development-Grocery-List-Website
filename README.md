@@ -107,7 +107,7 @@ URL: http://127.0.0.1:5000
 #### Not Logged-in Buyer
 - [x] Allow visitors to view recommended items on the main page
 - [x] Allow visitors to view at most **four** sample items of each shop on the main page
-- [x] Allow visitors to click an item to view its product details
+- [x] Allow visitors to click an item to view its product details and its **total sold number**
 - [x] Allow visitors to click the shop to view all items in this shop
 - [x] Allow visitors to view the **contact page**
 - [x] Allow visitors to register for an account or log in using a valid account
@@ -115,7 +115,7 @@ URL: http://127.0.0.1:5000
 #### Logged-in Buyer
 - [x] Allow buyers to view recommended items on the main page
 - [x] Allow buyers to view at most **three** sample items of each shop on the main page
-- [x] Allow buyers to click an item to view its **product details**
+- [x] Allow buyers to click an item to view its **product details** and its **total sold number**
 - [x] Allow buyers to **add** the currently-viewing product to their **shopping carts**
 - [x] Allow buyers to **view** their **shopping carts ordered by shops**
 - [x] Allow buyers to **remove** items from the **shopping cart**
@@ -135,9 +135,9 @@ URL: http://127.0.0.1:5000
 - [x] Allow sellers to **modify** items in their shops (modifying the name, image, price, inventory and description of the newly-updated item)
 - [x] Allow sellers to **remove** items from their shops
 - [x] Allow sellers to **view orders** made in their shops ordered by order-id (containing its created time)
-- [x] Allow sellers to **manage order**s by confirming them.
-- [x] Allow sellers to visit different shops。
-- [x] Allow sellers to click an item to view its product details
+- [x] Allow sellers to **manage order**s by confirming them
+- [x] Allow sellers to visit different shops
+- [x] Allow sellers to click an item to view its product details and its **total sold number**
 - [x] Allow sellers to **set up their personal information** (containing username, avatar and email address)
 - [x] Allow sellers to view the **contact page**
 - [x] Allow sellers to logout the current account
