@@ -190,6 +190,20 @@
     text-decoration: none;
     font-weight: bold;
 }
+.shopping-cart-disabled {
+    height: 44px;
+    padding: 5px;
+    margin-right: 15px;
+    /*background: 90% url("../../image/shopping/bbg1.jpg") repeat;*/
+    /*gradient color*/
+    /*background-image: linear-gradient(to right, #ddeb3b, #03a9f4, #f441a5, #e7cecc);*/
+    border-radius: 5px;
+    background-size: 390%;
+    font-size: 18px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
 
 .shopping-cart:hover {
     animation: anim 8s infinite;

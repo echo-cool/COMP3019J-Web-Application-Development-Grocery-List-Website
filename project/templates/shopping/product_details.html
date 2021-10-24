@@ -29,7 +29,8 @@
                 </div>
                 <div class="product-box">
                     <div class="product-number-box">
-                        <b>Price：</b>￥<div class="product-price-text anim-counter">{{ item.price }}</div>
+                        <b>Price：</b>￥
+                        <div class="product-price-text anim-counter">{{ item.price }}</div>
                     </div>
                     <div class="product-information-box">
                         <div class="product-inner-box">
@@ -71,7 +72,11 @@
                 <div class="product-action-buttons">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <input type="hidden" name="itemID" value="{{ item.id }}">
-                    <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit">
+                    {% if item.inventory <= 0 %}
+                        <input class="shopping-cart-disabled" type="submit" disabled="disabled" value="Add to Shopping Cart" name="submit">
+                    {% else %}
+                        <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit">
+                    {% endif %}
                 </div>
             </div>
         </div>

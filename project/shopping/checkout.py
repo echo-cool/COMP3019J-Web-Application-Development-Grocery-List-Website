@@ -75,6 +75,7 @@ def checkout_pay() -> str:
         pay_now: bool = request.form.get('pay_now')
         # do pay
         pay_status = True
+        full_order_status = True
         if pay_status:
             # do_create_order()
             newest: Order = Order.query.order_by(db.desc(Order.order_id)).first()
@@ -83,15 +84,24 @@ def checkout_pay() -> str:
             else:
                 order_id_count = newest.order_id + 1
             for i in cart:
-                Order.create(
-                    order_id=order_id_count,
-                    count=i.count,
-                    item_id=i.item_id,
-                    user_id=i.user_id,
-                )
-                # do_clear_cart()
-                i.delete()
-            flash("Order successfully done !")
+                tmp_item: Item = Item.get_by_id(i.item_id)
+                if tmp_item.inventory - i.count < 0:
+                    full_order_status = False
+                else:
+                    tmp_item.inventory = tmp_item.inventory - i.count
+                    tmp_item.save()
+                    Order.create(
+                        order_id=order_id_count,
+                        count=i.count,
+                        item_id=i.item_id,
+                        user_id=i.user_id,
+                    )
+                    # do_clear_cart()
+                    i.delete()
+            if full_order_status:
+                flash("Order successfully done !")
+            else:
+                flash("Some items were failed to be ordered, because the shopper dose not have enough inventory.")
             return render_template("shopping/pay.html", pay_status=pay_status, total_price=total_price)
         else:
             return render_template("shopping/pay.html", pay_status=pay_status, total_price=total_price)

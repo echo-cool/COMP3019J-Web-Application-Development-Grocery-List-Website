@@ -14,7 +14,7 @@ from project.models import ItemModel
 from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
-from project.utils import buyer_required
+from project.utils import buyer_required, product_available_required
 
 blueprint = Blueprint("cart", __name__, static_folder="../static")
 
@@ -42,16 +42,29 @@ def add_to_cart() -> Response:
     itemCount: int = request.form.get('itemCount')
     user: User = current_user
     item: Item = Item.get_by_id(itemID)
+    if item.disabled:
+        flash("This product has been removed by the shopper and can't be viewed !")
+        return redirect(url_for("index.home"))
+
+    if int(item.inventory) <= 0:
+        flash("This product has no stock in the warehouse, you can't buy it !")
+        return redirect(url_for('item.details', itemID=itemID))
+
+    if int(item.inventory) - int(itemCount) < 0:
+        flash("The seller dose not have enough product to be sold !")
+        return redirect(url_for('item.details', itemID=itemID))
+
     cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
 
     if itemCount == "":
         itemCount = 1
     if cart_entry:
         current_count: int = cart_entry.count
-        print(current_count)
-        print(itemCount)
+        if int(item.inventory) - int(int(current_count) + int(itemCount)) < 0:
+            flash("You already have " + str(
+                current_count) + " in your cart. " + "The seller dose not have enough product to be sold !")
+            return redirect(url_for('item.details', itemID=itemID))
         cart_entry.update(
-
             count=int(current_count) + int(itemCount)
         )
     else:
@@ -73,6 +86,18 @@ def set_to_cart() -> Response:
     itemCount: int = request.form.get('itemCount')
     user: User = current_user
     item: Item = Item.get_by_id(itemID)
+    if item.disabled:
+        flash("This product has been removed by the shopper and can't be viewed !")
+        return redirect(url_for("index.home"))
+
+    if item.inventory <= 0:
+        flash("This product has no stock in the warehouse, you can't buy it !")
+        return redirect(url_for("index.home"))
+
+    if int(item.inventory) - int(itemCount) < 0:
+        flash("The seller dose not have enough product to be sold !")
+        return redirect(url_for('cart.shopping_cart', itemID=itemID))
+
     cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
     if cart_entry:
         if int(itemCount) <= 0:
@@ -81,6 +106,13 @@ def set_to_cart() -> Response:
                 cart_entry.delete()
             flash("Removed Successfully")
             return redirect(url_for('cart.shopping_cart', itemID=itemID))
+
+        current_count: int = cart_entry.count
+        if int(item.inventory) - int(int(current_count) + int(itemCount)) < 0:
+            flash("You already have " + str(
+                current_count) + " in your cart. " + "The seller dose not have enough product to be sold !")
+            return redirect(url_for('cart.shopping_cart', itemID=itemID))
+
         cart_entry.update(
             count=int(itemCount)
         )

@@ -6,6 +6,8 @@ from flask import flash, redirect, url_for
 from flask_login import current_user
 from flask_wtf import FlaskForm
 
+from project.models.ItemModel import Item
+
 
 def flash_errors(form: FlaskForm, category="warning"):
     """Flash all errors for a form."""
@@ -35,4 +37,20 @@ def buyer_required(func):
             flash("You must be buyer to access this page !")
             return redirect(url_for("index.home"))
 
+    return decorated_view
+
+def product_available_required(func):
+    @wraps(func)
+    def decorated_view(*args, **kwargs):
+        item_id: int = kwargs["itemID"]
+        item: Item = Item.get_by_id(item_id)
+
+        if item.disabled:
+            flash("This product has been removed by the shopper and can't be viewed !")
+            return redirect(url_for("index.home"))
+
+        if item.inventory <= 0:
+            flash("This product has no stock in the warehouse, you can't buy it !")
+
+        return func(*args, **kwargs)
     return decorated_view

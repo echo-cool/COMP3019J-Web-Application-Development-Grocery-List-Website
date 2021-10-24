@@ -7,12 +7,13 @@ from project.item.forms import AddNewItem, UpdateItem
 from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
-from project.utils import seller_required
+from project.utils import seller_required, product_available_required
 
 blueprint = Blueprint("item", __name__, static_folder="../static")
 
 
 @blueprint.route("/item/<int:itemID>", methods=["GET", "POST"])
+@product_available_required
 def details(itemID: int) -> str:
     item = Item.get_by_id(itemID)
     owner = User.get_by_id(item.owner)
