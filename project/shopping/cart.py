@@ -33,7 +33,7 @@ def remove_from_cart() -> Response:
     flash("Removed Successfully")
     return redirect(url_for('cart.shopping_cart'))
 
-
+# Add a item to a cart
 @blueprint.route("/cart/add", methods=["POST"])
 @login_required
 @buyer_required
@@ -127,7 +127,7 @@ def set_to_cart() -> Response:
 
     return redirect(url_for('cart.shopping_cart', itemID=itemID))
 
-
+# This is for user's to view his shopping cart
 @blueprint.route("/cart", methods=["GET", "POST"])
 @login_required
 @buyer_required
