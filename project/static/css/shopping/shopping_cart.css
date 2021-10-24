@@ -298,6 +298,8 @@ a {
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .change-quantity:hover {

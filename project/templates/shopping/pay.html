@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="shopping-cart-big-box">
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Customer </p>
@@ -20,12 +19,11 @@
                 {% else %}
                     <h1 class="pay">Pay Success</h1>
                     <h1 class="pay">Some ordering not succeeded</h1>
-                    <h2 class="pay1">Some items dose not have enough inventory, you money will be refund for those
+                    <h2 class="shopping-cart-box-head1">Some items dose not have enough inventory, you money will be refund for those
                         items.</h2>
-                    <h2 class="pay1">Thanks for ordering. We will deliver to you ASAP.</h2>
+                    <h2 class="shopping-cart-box-head1">Thanks for ordering. We will deliver to you ASAP.</h2>
                 {% endif %}
-                <br>
-                <br>
+
                 <a href="{{ url_for("index.home") }}">
                     <button class="button-default">
                         Go Home
@@ -34,12 +32,7 @@
 
             {% else %}
                 <h1 class="pay">Pay</h1>
-
-
-
-                <h2 class="pay1">You Need to Pay: {{ total_price }}</h2>
-                <br>
-                <br>
+                <h1 id="pay1">You Need to Pay: <h1 id="color">{{ total_price }}</h1></h1>
                 <form action="" method="POST">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <input type="hidden" name="pay_now" value="{{ True }}">
