@@ -127,7 +127,20 @@ URL: http://127.0.0.1:5000
 - [x] Allow buyers to **upload** and **modify** their **personal details**, which contain their avatar, username, email address
 - [x] Allow buyers to click the shop to view all items in this shop
 - [x] Allow buyers to view the **contact page**
+- [x] Allow buyers to **set up their personal information** (containing username, avatar and email address)
 - [x] Allow buyers to logout the current account
+
+#### Sellers
+- [x] Allow sellers to **add** items to their shops (containing the name, image, price, inventory and description of the newly-added item)
+- [x] Allow sellers to **modify** items in their shops (modifying the name, image, price, inventory and description of the newly-updated item)
+- [x] Allow sellers to **remove** items from their shops
+- [x] Allow sellers to **view orders** made in their shops ordered by order-id (containing its created time)
+- [x] Allow sellers to **manage order**s by confirming them.
+- [x] Allow sellers to visit different shops。
+- [x] Allow sellers to click an item to view its product details
+- [x] Allow sellers to **set up their personal information** (containing username, avatar and email address)
+- [x] Allow sellers to view the **contact page**
+- [x] Allow sellers to logout the current account
 
 ### To-Do List for MileStone 2
 * Navigation bar
