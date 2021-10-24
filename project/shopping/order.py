@@ -53,12 +53,20 @@ def view_order():
             order.buyer = buyer
             order.shopper = shopper
             tmp_price += item.price * order.count
-            if shop_user_id in confirm_count_dict[order_id].keys():
-                confirm_count_dict[order_id][shop_user_id] += 1
-                order.show_td = False
+            if user.is_shopper:
+                if user_id in confirm_count_dict[order_id].keys():
+                    confirm_count_dict[order_id][user_id] += 1
+                    order.show_td = False
+                else:
+                    confirm_count_dict[order_id][user_id] = 1
+                    order.show_td = True
             else:
-                confirm_count_dict[order_id][shop_user_id] = 1
-                order.show_td = True
+                if shop_user_id in confirm_count_dict[order_id].keys():
+                    confirm_count_dict[order_id][shop_user_id] += 1
+                    order.show_td = False
+                else:
+                    confirm_count_dict[order_id][shop_user_id] = 1
+                    order.show_td = True
             order.status = "Not Confirmed"
             if order.is_confirmed_by_shopper:
                 order.status = "Confirmed By Shopper"

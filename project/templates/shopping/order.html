@@ -90,13 +90,19 @@
                         <td>
                             {{ order.item.name }}
                         </td>
-                        <td>
+                        {% if order.show_td %}
+
                             {% if current_user.is_shopper %}
-                                {{ order.buyer.username }}
+                                <td rowspan="{{ confirm_count_dict[order_id][order.buyer.id] }}">
+                                    {{ order.buyer.username }}
+                                </td>
                             {% else %}
-                                {{ order.shopper.username }}
+                                <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
+                                    {{ order.shopper.username }}
+                                </td>
                             {% endif %}
-                        </td>
+
+                        {% endif %}
                         <td>
                             {{ order.item.price }}
                         </td>
@@ -104,38 +110,50 @@
                         <td>
                             {{ order.count }}
                         </td>
-                        <td>
-                            {% if order.status == "Confirmed By Shopper" %}
-                                <span class="confirmed-by-shopper">
+                        {% if order.show_td %}
+                            {% if current_user.is_shopper %}
+                                <td rowspan="{{ confirm_count_dict[order_id][order.buyer.id] }}">
+                                    {% else %}
+                                <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
+                            {% endif %}
+                        {% if order.status == "Confirmed By Shopper" %}
+                            <span class="confirmed-by-shopper">
                                     🆗&nbsp;Confirmed By Seller
                                 </span>
-                            {% elif order.status == "Not Confirmed" %}
-                                <span class="not-confirmed-by-shopper">
+                        {% elif order.status == "Not Confirmed" %}
+                            <span class="not-confirmed-by-shopper">
                                     🕐&nbsp;{{ order.status }}
                                 </span>
-                            {% elif order.status == "Confirmed Delivered" %}
-                                <span class="confirm-delivered">
+                        {% elif order.status == "Confirmed Delivered" %}
+                            <span class="confirm-delivered">
                                     👍&nbsp;{{ order.status }}
                                 </span>
-                            {% endif %}
+                        {% endif %}
                         </td>
+                        {% endif %}
                         {% if loop.index == 1 %}
                             <td rowspan="{{ orders[order_id]|length }}">
                                 {{ total_price[order_id] }}
                             </td>
                         {% endif %}
                         {% if order.show_td %}
-                            <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
-                                {% if current_user.is_shopper %}
-                                    <button class="button-default">
-                                        <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}" class="order-font">Confirm</a>
-                                    </button>
-                                {% else %}
-                                    <button class="button-default">
-                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}" class="order-font">Confirm</a>
-                                    </button>
-                                {% endif %}
-                            </td>
+                            {% if current_user.is_shopper %}
+                                <td rowspan="{{ confirm_count_dict[order_id][order.buyer.id] }}">
+                                    {% else %}
+                                <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
+                            {% endif %}
+                        {% if current_user.is_shopper %}
+                            <button class="button-default">
+                                <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}"
+                                   class="order-font">Confirm</a>
+                            </button>
+                        {% else %}
+                            <button class="button-default">
+                                <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
+                                   class="order-font">Confirm</a>
+                            </button>
+                        {% endif %}
+                        </td>
                         {% endif %}
 
                     {% endfor %}
