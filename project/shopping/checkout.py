@@ -50,11 +50,12 @@ def checkout_confirm() -> str:
 # def do_clear_cart():
 #     pass
 
-
+# This is to handle the pay action
 @blueprint.route("/checkout/pay", methods=["GET", "POST"])
 @login_required
 def checkout_pay() -> str:
     user: User = current_user
+    # Get all cart items
     cart: list[Cart] = Cart.query.filter_by(user_id=user.id).all()
     res: dict = {}
     total_price: int = 0
@@ -88,6 +89,7 @@ def checkout_pay() -> str:
                 if tmp_item.inventory - i.count < 0:
                     full_order_status = False
                 else:
+                    # reduce inventory and add sold count
                     tmp_item.inventory  -= i.count
                     tmp_item.sold_count += i.count
                     tmp_item.save()
@@ -99,6 +101,7 @@ def checkout_pay() -> str:
                     )
                     # do_clear_cart()
                     i.delete()
+            # Check if a order is fully succeed
             if full_order_status:
                 flash("Order successfully done !")
             else:

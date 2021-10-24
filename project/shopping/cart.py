@@ -18,7 +18,7 @@ from project.utils import buyer_required, product_available_required
 
 blueprint = Blueprint("cart", __name__, static_folder="../static")
 
-
+# This route is to handle a remove action from cart
 @blueprint.route("/cart/remove", methods=["GET", "POST"])
 @login_required
 @buyer_required
@@ -26,7 +26,7 @@ def remove_from_cart() -> Response:
     itemID: int = request.form.get('itemID')
     user: User = current_user
     cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
-
+    # if have cart_entry, then remove
     if cart_entry:
         cart_entry.delete()
 
@@ -42,6 +42,7 @@ def add_to_cart() -> Response:
     itemCount: int = request.form.get('itemCount')
     user: User = current_user
     item: Item = Item.get_by_id(itemID)
+    # Check item status
     if item.disabled:
         flash("This product has been removed by the shopper and can't be viewed !")
         return redirect(url_for("index.home"))
@@ -60,6 +61,7 @@ def add_to_cart() -> Response:
         itemCount = 1
     if cart_entry:
         current_count: int = cart_entry.count
+        # Check if the seller have enough inventory
         if int(item.inventory) - int(int(current_count) + int(itemCount)) < 0:
             flash("You already have " + str(
                 current_count) + " in your cart. " + "The seller dose not have enough product to be sold !")
