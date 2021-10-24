@@ -19,7 +19,7 @@ from project.models.UserModel import User
 
 blueprint = Blueprint("checkout", __name__, static_folder="../static")
 
-
+# This is to handle checkout_confirm action
 @blueprint.route("/checkout/confirm", methods=["GET", "POST"])
 @login_required
 def checkout_confirm() -> str:

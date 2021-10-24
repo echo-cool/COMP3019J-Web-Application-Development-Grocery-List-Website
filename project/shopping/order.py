@@ -86,7 +86,7 @@ def view_order():
                            orders=orders, total_price=total_price, confirm_count_dict=confirm_count_dict,
                            orders_length=orders_length)
 
-
+# this is to handle a shopper's request to confirm a order
 @blueprint.route("/order/shopper_confirm/<int:order_id>", methods=["GET", "POST"])
 @login_required
 @seller_required
@@ -94,13 +94,14 @@ def shopper_confirm_order(order_id):
     orders = OrderModel.get_order_items_by_id(order_id)
     for order in orders:
         if order.shopper_id == current_user.id:
+            # Confirm shopper
             order.is_confirmed_by_shopper = True
             order.save()
 
     flash("Order Confirmed Successfully !")
     return redirect(url_for("order.view_order"))
 
-
+# this is to handle a buyer's request to confirm a order
 @blueprint.route("/order/buyer_confirm/<int:order_id>/<int:shopper_id>", methods=["GET", "POST"])
 @login_required
 @buyer_required
@@ -108,6 +109,7 @@ def buyer_confirm_order(order_id, shopper_id):
     orders = OrderModel.get_order_items_by_id(order_id)
     for order in orders:
         if order.user_id == current_user.id and order.shopper_id == shopper_id:
+            # Confirm delivery
             order.is_confirmed_delivery = True
             order.save()
 
