@@ -72,14 +72,13 @@
     <nav>
         {% block nav %}
             <div class="nav-container-box">
-                <a class="nav-main-text" href="{{ url_for("index.home") }}">Welcome to Online Shopping Site</a>
+                <a class="nav-main-text" href="{{ url_for("index.home") }}">&nbsp;Welcome to Online Shopping Site</a>
                 <ul class="nav-right-bar">
                     {% if current_user.is_authenticated %}
                         <li><a href="{{ url_for("user.info") }}">Hello, {{ current_user.username }}</a></li>
                         <li>|</li>
 
                         {% if current_user.is_shopper %}
-
                             <li class="nav-title_shopping_cart">
                                 &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}">Manage Items</a>
                             </li>
