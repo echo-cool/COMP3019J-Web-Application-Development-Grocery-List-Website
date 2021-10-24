@@ -255,6 +255,29 @@ a {
     font-size: 18px;
 }
 
+.shopping-cart-big-box .shopping-cart-box-table .shopping-cart-seller .checkout-total-payment {
+    text-shadow: 1px 1px 1px #568F23;
+    background-color: #2eeace;
+    border: 1px solid #66d4be;
+    border-right: 3px solid #a5dcc7;
+    padding: 5px 10px;
+    background: -webkit-gradient(
+            linear,
+            left bottom,
+            right top,
+            color-stop(0.02, #2eeace),
+            color-stop(0.51, #66d4be),
+            color-stop(0.87, #a5dcc7)
+    );
+    background: -moz-linear-gradient(
+            left bottom,
+            #2eeace 2%,
+            #66d4be 51%,
+            #a5dcc7 87%
+    );
+    margin-top: 10px;
+}
+
 #shopping-cart-box .h2 {
     color: #06b8d0;
     font-size: 40px;

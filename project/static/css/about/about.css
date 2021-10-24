@@ -1,7 +1,7 @@
 body {
-    background-color: #CCD4E6FF;
     display: flex;
     justify-content: center;
+    background-image: url("../../image/shopping/background.png");
 }
 
 .about {
@@ -46,7 +46,7 @@ body {
 
 .about-decoration {
     position: absolute;
-    top: -120px;
+    top: -80px;
     right: -260px;
 }
 
@@ -121,3 +121,8 @@ body {
 a {
     text-decoration: none;
 }
+
+/*
+    layout ideas are partly from the following reference, but codes are written by ourself:
+    https://www.bilibili.com/video/BV1SK4y1T7rE/?spm_id_from=333.788.recommend_more_video.15
+ */

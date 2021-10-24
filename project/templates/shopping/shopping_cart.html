@@ -14,12 +14,12 @@
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Customer </p>
             <h1>My Shopping Cart</h1>
-            <br>
-            <br>
+            <div class="empty-space1">
+
+            </div>
             {% if cart_length == 0 %}
                 <h1 class="h2">Your Shopping Car is Empty</h1>
-                <br>
-                <br>
+                <div class="empty-space1"></div>
                 <button class="button-default color">
                     <a href="{{ url_for("index.home") }}">Click here to view items</a>
                 </button>
