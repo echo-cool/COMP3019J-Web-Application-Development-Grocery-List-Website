@@ -151,15 +151,27 @@
                                 <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
                             {% endif %}
                         {% if current_user.is_shopper %}
-                            <button class="button-default">
-                                <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}"
-                                   class="order-font">Confirm</a>
-                            </button>
+                            {% if order.is_confirmed_delivery or order.is_confirmed_by_shopper %}
+                                <button class="button-default-disabled">
+                                    <a class="order-font">Confirm</a>
+                                </button>
+                            {% else %}
+                                <button class="button-default">
+                                    <a href="{{ url_for("order.shopper_confirm_order", order_id=order_id) }}"
+                                       class="order-font">Confirm</a>
+                                </button>
+                            {% endif %}
                         {% else %}
-                            <button class="button-default">
-                                <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
-                                   class="order-font">Confirm</a>
-                            </button>
+                            {% if order.is_confirmed_delivery %}
+                                <button class="button-default-disabled">
+                                    <a class="order-font">Confirm</a>
+                                </button>
+                            {% else %}
+                                <button class="button-default">
+                                    <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
+                                       class="order-font">Confirm</a>
+                                </button>
+                            {% endif %}
                         {% endif %}
                         </td>
                         {% endif %}
