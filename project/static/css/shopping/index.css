@@ -204,7 +204,7 @@
     align-items: center;
     justify-content: center;
     align-content: center;
-    border: 3px #ddd solid;
+    border: 1px #ddd solid;
     margin: 10px;
     border-radius: 15px;
     padding: 5px;
@@ -424,8 +424,7 @@
 
 /*the style for the right side bar*/
 .right-side-bar {
-    width: 29%;
-    /*border: 3px solid black;*/
+    width: 33%;
     margin-right: 35px;
     margin-top: 50px;
     display: flex;

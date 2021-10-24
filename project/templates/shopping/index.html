@@ -81,7 +81,7 @@
                                                                                               src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                                                               value="Item Image"></a>
                                 <div class="index-item-text">
-                                    <p class="index-item-price">$ {{ item.price }}</p>
+                                    <p class="index-item-price">￥ {{ item.price }}</p>
                                     <a class="index-item-name"
                                        href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
                                     <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
@@ -96,7 +96,7 @@
                                                                                               src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                                                               value="Item Image"></a>
                                 <div class="index-item-text">
-                                    <p class="index-item-price">$ {{ item.price }}</p>
+                                    <p class="index-item-price">￥ {{ item.price }}</p>
                                     <a class="index-item-name"
                                        href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
                                     <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
@@ -129,7 +129,7 @@
                         <div class="index-shoes-box">
                             <div class="left-big-img">
                                 <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
-                                    <img class="scroll-fade-in larger" width="300" height="400"
+                                    <img class="scroll-fade-in larger" width="280" height="370"
                                          src="../../static/image/shopping/sales.png">
                                 </a>
                                 <div>
@@ -148,7 +148,7 @@
                                                 src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                 value="Item Image"></a>
                                         <div class="index-item-text">
-                                            <p class="index-item-price">$ {{ item.price }}</p>
+                                            <p class="index-item-price">￥ {{ item.price }}</p>
                                             <a class="index-item-name"
                                                href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
                                             <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
@@ -164,7 +164,7 @@
                                                 src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                 value="Item Image"></a>
                                         <div class="index-item-text">
-                                            <p class="index-item-price">$ {{ item.price }}</p>
+                                            <p class="index-item-price">￥ {{ item.price }}</p>
                                             <a class="index-item-name"
                                                href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
                                             <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
@@ -239,9 +239,7 @@
                                 </a>
                             </div>
                         {% endif %}
-
                     </div>
-
                 </div>
                 <div class="empty-space"></div>
                 {% for announcement in announcements %}
@@ -264,7 +262,7 @@
                 <div class="manage-my-order">
                     <a href="{{ url_for("order.view_order") }}">
                         <div class="announcements-text">
-                            Manage My Order
+                            Manage Order
                         </div>
                     </a>
                     <a href="{{ url_for("order.view_order") }}">
