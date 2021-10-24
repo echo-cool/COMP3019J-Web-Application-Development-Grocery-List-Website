@@ -17,9 +17,10 @@ from project.models.UserModel import User
 
 blueprint = Blueprint("shop", __name__, static_folder="../static")
 
-
+# View a specific a shop
 @blueprint.route("/shop/<int:userID>", methods=["POST", "GET"])
 def shop(userID: int) -> str:
+    # find all items
     items = Item.query.filter_by(owner=userID, disabled=False).all()
     return str(len(items))
 

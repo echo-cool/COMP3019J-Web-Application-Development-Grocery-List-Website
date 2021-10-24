@@ -54,7 +54,7 @@ def home() -> str:
     return render_template("shopping/index.html", items=all_items, current_user=current_user, shop_sellers=shop_sellers,
                            announcements=announcements)
 
-
+# This is to handle user's search requests
 @blueprint.route("/search", methods=["GET", "POST"])
 def search() -> str:
     keyword: str = request.args.get(key='keyword')
@@ -70,7 +70,7 @@ def search() -> str:
     return render_template("shopping/search.html", have_res=have_res, items=items, current_user=current_user,
                            keyword=keyword)
 
-
+# About page
 @blueprint.route("/about", methods=["GET", "POST"])
 def about() -> str:
     return render_template("about/about.html")

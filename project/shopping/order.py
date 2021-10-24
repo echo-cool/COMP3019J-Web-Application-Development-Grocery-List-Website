@@ -22,19 +22,22 @@ from project.utils import seller_required, buyer_required
 
 blueprint = Blueprint("order", __name__, static_folder="../static")
 
-
+# View a order
 @blueprint.route("/order/view", methods=["GET", "POST"])
 @login_required
 def view_order():
     user: User = current_user
+    # total price for each order
     total_price: dict = {}
     order_dict: dict = {}
     confirm_count_dict: dict = {}
     show_confirm_count_dict: dict = {}
 
     if user.is_shopper:
+        # if user is shopper, then get the orders in his shop
         orders = OrderModel.get_orders_by_shopper(user.id)
     else:
+        # if user is buyer, then get this order
         orders = OrderModel.get_orders_by_userid(user.id)
 
     orders_length = len(orders)
@@ -57,6 +60,7 @@ def view_order():
             order.created_at_txt = str(order.created_at.ctime())
             tmp_price += item.price * order.count
             if user.is_shopper:
+                # shopper's count for merging the cell
                 if user_id in confirm_count_dict[order_id].keys():
                     confirm_count_dict[order_id][user_id] += 1
                     order.show_td = False
@@ -64,6 +68,7 @@ def view_order():
                     confirm_count_dict[order_id][user_id] = 1
                     order.show_td = True
             else:
+                # Buyer's count for merging the cell
                 if shop_user_id in confirm_count_dict[order_id].keys():
                     confirm_count_dict[order_id][shop_user_id] += 1
                     order.show_td = False
