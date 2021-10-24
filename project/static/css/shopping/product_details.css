@@ -273,3 +273,30 @@
 ::-webkit-input-placeholder {
     color: #459eea;
 }
+
+.product-little-box {
+    position: relative;
+    z-index: -1;
+    border: 2px solid lightgrey;
+}
+
+
+.product-little-box .product-image-box::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    bottom: 50px;
+    left: 50px;
+    z-index: -99;
+    filter: blur(60px);
+    margin: -30px;
+    border: 3px solid black;
+    background: url("../../image/shopping/background.png") fixed;
+}
+
+
+/*.product-little-box, .product-little-box .product-image-box::before {*/
+/*    background: url("../../image/shopping/background.png") fixed 0;*/
+/*}*/
+
