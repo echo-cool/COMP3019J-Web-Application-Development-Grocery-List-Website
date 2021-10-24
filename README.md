@@ -232,7 +232,9 @@ Buyer:
 * Order Management
   * User can view the orders made in his shop 
 
+### Team 20 small video
 
+The following Weiyun file consists of both members where we explain what grade we think we deserve based on assessment criteria: https://share.weiyun.com/fGgz0sD2
 
 ### Misc
 
