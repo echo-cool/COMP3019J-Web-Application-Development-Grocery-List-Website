@@ -20,16 +20,14 @@
                 {% endif %}
             </p>
             <h1>Search for Items</h1>
-            <br>
-            <br>
+            <div class="empty-space1"></div>
 
             {#            if there is no matching result #}
             {% if not have_res %}
                 <h1 class="h2">Sorry, no matching result!</h1>
             {% else %}
                 <h1 class="h2">Display you Search: {{ keyword }}</h1>
-                <br>
-                <br>
+                <div class="empty-space"></div>
                 <table class="manage-items-box-table">
                     <thead>
                     <tr>
@@ -89,15 +87,6 @@
             {% endif %}
         </div>
     </div>
-
-
-{#    {% if not have_res %}#}
-{#        <div>No Result !</div>#}
-{#    {% else %}#}
-{#        {% for item in items %}#}
-{#            <div>{{ item }}</div>#}
-{#        {% endfor %}#}
-{#    {% endif %}#}
 
 
 {% endblock %}

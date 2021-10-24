@@ -66,10 +66,12 @@
                                     </div>
                                 </a>
                             </td>
-
                         </tr>
                     {% endfor %}
                     <tr>
+                        <td colspan="7"></td>
+                    </tr>
+                    <tr id="add-empty-space">
                         <th colspan="7" id="padding-add-new">
                             <a href="{{ url_for("item.addNewItem") }}" id="add-new">
                                 Add New Item

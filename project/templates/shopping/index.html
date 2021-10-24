@@ -65,8 +65,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
 
@@ -270,13 +268,18 @@
                 {% endfor %}
                 {% if current_user.is_shopper %}
                     <div class="manage-my-order">
-                        <div class="announcements-text">
-                            Manage My Order
-                        </div>
-                        <div>
-                            <img class="index-logo-img no-anim-image size" src="../../static/image/shopping/order.png"
-                                 alt="">
-                        </div>
+                        <a href="{{ url_for("order.view_order") }}">
+                            <div class="announcements-text">
+                                Manage My Order
+                            </div>
+                        </a>
+                        <a href="{{ url_for("order.view_order") }}">
+                            <div>
+                                <img class="index-logo-img no-anim-image size"
+                                     src="../../static/image/shopping/order.png"
+                                     alt="">
+                            </div>
+                        </a>
                     </div>
                 {% else %}
                 {% endif %}
