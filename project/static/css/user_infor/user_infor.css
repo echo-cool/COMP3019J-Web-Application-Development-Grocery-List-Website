@@ -163,6 +163,7 @@
     flex-wrap: nowrap;
     align-content: flex-start;
     text-space: 1px;
+    margin-left: 65px;
 }
 
 #empty {
@@ -278,4 +279,12 @@ input {
     outline: none;
     border-radius: 10px;
     border-color: deepskyblue;
+}
+
+#upload_image_perivew:hover {
+    transform: scale(1.03);
+}
+
+.add-item-box-table tr td:hover, .add-item-box-table tr th:hover {
+    border: 2px solid #2eeace;
 }
