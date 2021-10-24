@@ -1,3 +1,4 @@
+/*big container*/
 #add-item-box {
     margin-top: 100px;
     padding: 20px;
@@ -124,6 +125,8 @@
 /*    text-shadow: 1px 1px 1px #444;*/
 /*}*/
 
+/*add style*/
+
 .add-item-box-table tfoot th {
     color: #666;
 }
@@ -170,6 +173,8 @@
     width: 65px;
     height: 100px;
 }
+
+/*set up user info*/
 
 .user-info-detail {
     display: flex;

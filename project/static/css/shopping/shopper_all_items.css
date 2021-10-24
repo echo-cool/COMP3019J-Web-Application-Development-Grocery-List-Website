@@ -1,3 +1,4 @@
+/*big container*/
 .index-container {
     display: flex;
     flex-direction: column;
@@ -49,6 +50,8 @@
     text-decoration: none;
     color: green;
 }
+
+/*item style*/
 
 .index-item {
     padding: 10px;
