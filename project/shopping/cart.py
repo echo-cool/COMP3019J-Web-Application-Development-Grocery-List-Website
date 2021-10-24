@@ -88,6 +88,7 @@ def set_to_cart() -> Response:
     itemCount: int = request.form.get('itemCount')
     user: User = current_user
     item: Item = Item.get_by_id(itemID)
+    # check if the state of the item is not disabled
     if item.disabled:
         flash("This product has been removed by the shopper and can't be viewed !")
         return redirect(url_for("index.home"))
@@ -143,6 +144,7 @@ def shopping_cart() -> str:
         item: Item = Item.get_by_id(item_id)
         shopper: User = User.get_by_id(shop_user_id)
         item.count = i.count
+        # calc total price
         total_price += int(item.price) * int(i.count)
 
         if shopper in res.keys():

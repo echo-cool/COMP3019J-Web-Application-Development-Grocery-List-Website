@@ -59,7 +59,9 @@ def home() -> str:
 def search() -> str:
     keyword: str = request.args.get(key='keyword')
     print(keyword)
+    # search all the item
     items: list = Item.query.filter(Item.name.like("%" + keyword + "%")).all()
+    # remove disabled items
     for i in items:
         if i.disabled:
             items.remove(i)
