@@ -8,6 +8,7 @@ from flask_login import login_required, current_user, logout_user
 
 from project.models.UserModel import User
 from project.user.forms import UpdateUser
+from project.utils import flash_errors
 
 blueprint = Blueprint("user", __name__, static_folder="../static")
 
@@ -36,7 +37,7 @@ def info() -> str:
 
         user.save()
         flash("Update Success !")
-
+    flash_errors(form)
     return render_template("userinfo/userinfo.html", current_user=current_user, form=form)
 
 

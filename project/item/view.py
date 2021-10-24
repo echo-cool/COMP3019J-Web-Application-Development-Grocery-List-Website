@@ -7,7 +7,7 @@ from project.item.forms import AddNewItem, UpdateItem
 from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
-from project.utils import seller_required, product_available_required
+from project.utils import seller_required, product_available_required, flash_errors
 
 blueprint = Blueprint("item", __name__, static_folder="../static")
 
@@ -59,7 +59,7 @@ def ManageItem() -> str:
             flash("Save Failed, Check your input !")
             print(e.message)
             db.session.rollback()
-
+    flash_errors(form)
     return render_template("item/manage.html", items=items, form=form, itemsLength=itemsLength)
 
 
@@ -103,6 +103,7 @@ def ModifyNewItem(item_id: int) -> str:
             item.main_image_url = filename
         item.update()
         flash("Update Success")
+    flash_errors(form)
     return render_template("item/update.html", item=item, form=form)
 
 
@@ -141,7 +142,7 @@ def addNewItem() -> str:
             flash("Save Failed, Check your input !")
             print(e.message)
             db.session.rollback()
-
+    flash_errors(form)
     return render_template("item/add.html", form=form)
 
 

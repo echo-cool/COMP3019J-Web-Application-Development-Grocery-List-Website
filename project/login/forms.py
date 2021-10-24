@@ -11,13 +11,13 @@ class RegisterForm(FlaskForm):
     """Register form."""
 
     username = StringField(
-        "Username", validators=[DataRequired(), Length(min=1, max=25)]
+        "Username", validators=[DataRequired(), Length(min=3, max=25)]
     )
     email = StringField(
-        "Email", validators=[DataRequired(), Email(), Length(min=1, max=40)]
+        "Email", validators=[DataRequired(), Email(), Length(min=3, max=40)]
     )
     password = PasswordField(
-        "Password", validators=[DataRequired(), Length(min=1, max=40)]
+        "Password", validators=[DataRequired(), Length(min=3, max=40)]
     )
     confirm = PasswordField(
         "Verify password",
