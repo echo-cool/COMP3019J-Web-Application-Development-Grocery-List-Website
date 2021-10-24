@@ -49,6 +49,6 @@ for i in Cart.query.all():
 print()
 for i in Item.query.all():
     sold_count = len(Order.query.filter_by(item_id=i.id).all())
-    print(i.id, sold_count)
+    # print(i.id, sold_count)
     # i.sold_count = sold_count
     # i.save()
