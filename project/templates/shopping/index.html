@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
 {% endblock %}
 
+{#IMPORTANT#}
+{#this is th index / main menu page#}
+
 {% block content %}
+{#    this is the upper banner of the main page#}
     <div id="auto">
         <div class="index-upper">
             <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
@@ -23,6 +27,7 @@
                     <input class="index-search-submit-button" type="submit" value="">
                 </form>
             </div>
+{#            link to basket#}
             <div class="my-basket-box">
                 <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
 
@@ -35,6 +40,8 @@
             </div>
         </div>
     </div>
+{#    this is the images displaying areas#}
+{#    Rotation Chart#}
     <div class="all">
         <div class="middle">
             <div class="index-container">
@@ -42,6 +49,7 @@
                 <div class="index-product-recommendation-title">
                     <h1 class="product-recommendation-title-text">Welcome to Online Grocery List</h1>
                 </div>
+{#                this is where the acutual Rotation Chart is #}
                 <div class="index-item-container-box">
                     <div class="index-item-container">
                         <div class="shell">
@@ -67,13 +75,14 @@
 
             <div class="empty-space1"></div>
 
-
+{#this is the Product viewing area#}
             {# Product viewing area#}
             <div class="index-product-view-title">
                 <h1 class="product-view-title-text">Recommended</h1>
             </div>
             <div class="index-item-container-box">
                 <div class="index-item-container">
+{#                if the current user has logged in#}
                     {% if current_user.is_authenticated %}
                         {% for item in items %}
                             <div class="index-item scroll-fade-in" id="index-item2">
@@ -89,6 +98,7 @@
                                 </div>
                             </div>
                         {% endfor %}
+{#                        for non-logged-in user#}
                     {% else %}
                         {% for item in items %}
                             <div class="index-item scroll-fade-in" id="index-item1">
