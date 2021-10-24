@@ -10,6 +10,8 @@
 {% block js %}
 {% endblock %}
 
+{#this is the page for users (sellers and buyers) to login and register#}
+
 {% block content %}
     <div class="container">
         <div class="login-inner_box">
@@ -54,13 +56,15 @@
                             {{ login_form.password.label }}
                         </div>
                         <div class="remember-me">
-                            <input class = "login-input-text" type="checkbox" id="remember"/>
+                            <input class="login-input-text" type="checkbox" id="remember"/>
                             <label for="remember">Remember Me</label>
                         </div>
                         {{ login_form.submit_login(class_="login-submit-button login-register-button") }}
                     </form>
                 </div>
             </div>
+
+            {#            the left sub-container #}
 
             <div class="login-left">
                 <h2 class="login-title">WElCOME&nbsp;<span>To</span><br>Shopping</h2>
@@ -70,7 +74,7 @@
                 <p class="login-account">Have an account?</p>
                 <button class="index-banner-button" id="sign_in">LOGIN</button>
             </div>
-
+            {# the right sub-container#}
             <div class="login-right">
                 <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
                 <p class="login-advertise">Buy/Sell your favorite <span>Item</span></p>
