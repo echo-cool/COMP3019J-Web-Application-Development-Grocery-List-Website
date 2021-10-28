@@ -29,6 +29,8 @@ if not app.logger.handlers:
     app.logger.addHandler(handler)
 
 """Register error handlers."""
+
+
 def render_error(error):
     """Render error template."""
     # If a HTTPException, pull the `code` attribute; default to 500
@@ -40,6 +42,10 @@ def render_error(error):
 for errcode in [401, 404, 500]:
     app.errorhandler(errcode)(render_error)
 
+
+@app.route("/favicon.ico")
+def favicon_ico():
+    return app.send_static_file('image/favicon.ico')
 # """Init Admin"""
 # admin.add_view(ModelView(User, db.session, name="Users", endpoint="users"))
 # admin.add_view(ModelView(Item, db.session, name="items", endpoint="items"))

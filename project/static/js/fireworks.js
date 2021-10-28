@@ -52,6 +52,7 @@ function animateParticules(x, y) {
                 // ctx.fillStyle = "green";
                 // ctx.fill();
                 ctx.fillStyle = run_color[count];
+                // ctx.fillText("O", x + radious1 * delta_x, y + radious1 * delta_y)
                 ctx.fillRect(x + radious1 * delta_x, y + radious1 * delta_y, 10 - i / 10, 10 - i / 10);
                 ctx.fillRect(x + radious2 * delta_x, y + radious2 * delta_y, 20 - i / 5, 20 - i / 5);
                 count += 1;
