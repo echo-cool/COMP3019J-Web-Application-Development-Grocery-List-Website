@@ -18,6 +18,7 @@ from project.utils import buyer_required, product_available_required
 
 blueprint = Blueprint("cart", __name__, static_folder="../static")
 
+
 # This route is to handle a remove action from cart
 @blueprint.route("/cart/remove", methods=["GET", "POST"])
 @login_required
@@ -32,6 +33,7 @@ def remove_from_cart() -> Response:
 
     flash("Removed Successfully")
     return redirect(url_for('cart.shopping_cart'))
+
 
 # Add a item to a cart
 @blueprint.route("/cart/add", methods=["POST"])
@@ -79,6 +81,7 @@ def add_to_cart() -> Response:
     flash("Successfully added " + str(itemCount) + " " + str(item.name) + " to your cart !")
     return redirect(url_for('item.details', itemID=itemID))
 
+
 # setting the cart item's number
 @blueprint.route("/cart/set", methods=["POST"])
 @login_required
@@ -89,6 +92,7 @@ def set_to_cart() -> Response:
     user: User = current_user
     item: Item = Item.get_by_id(itemID)
     # check if the state of the item is not disabled
+    print(int(item.inventory), int(itemCount))
     if item.disabled:
         flash("This product has been removed by the shopper and can't be viewed !")
         return redirect(url_for("index.home"))
@@ -110,11 +114,11 @@ def set_to_cart() -> Response:
             flash("Removed Successfully")
             return redirect(url_for('cart.shopping_cart', itemID=itemID))
 
-        current_count: int = cart_entry.count
-        if int(item.inventory) - int(int(current_count) + int(itemCount)) < 0:
-            flash("You already have " + str(
-                current_count) + " in your cart. " + "The seller dose not have enough product to be sold !")
-            return redirect(url_for('cart.shopping_cart', itemID=itemID))
+        # current_count: int = cart_entry.count
+        # if int(item.inventory) - int(int(current_count) + int(itemCount)) < 0:
+        #     flash("You already have " + str(
+        #         current_count) + " in your cart. " + "The seller dose not have enough product to be sold !")
+        #     return redirect(url_for('cart.shopping_cart', itemID=itemID))
 
         cart_entry.update(
             count=int(itemCount)
@@ -127,6 +131,7 @@ def set_to_cart() -> Response:
         )
 
     return redirect(url_for('cart.shopping_cart', itemID=itemID))
+
 
 # This is for user's to view his shopping cart
 @blueprint.route("/cart", methods=["GET", "POST"])

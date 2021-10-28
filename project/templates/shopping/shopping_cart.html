@@ -34,6 +34,7 @@
                         <th class="index-item-image-box">Name</th>
                         <th class="index-item-image-box">Image</th>
                         <th>Price</th>
+                        <th>Inventory</th>
                         <th class="number-margin">Number</th>
                         <th>Total</th>
                         <th class="cancel-column">Cancel</th>
@@ -44,7 +45,7 @@
                     {% for shop in cart_dict %}
 
                         <tr class="shopping-cart-seller">
-                            <th colspan="7">Shop Name: {{ shop.username }}</th>
+                            <th colspan="8">Shop Name: {{ shop.username }}</th>
                         </tr>
                         {% for item in cart_dict[shop] %}
                             <tr id="item-entry-id-{{ item.id }}">
@@ -59,6 +60,7 @@
                                         value="Item Image"></a>
                                 </td>
                                 <td id="item-price-id-{{ item.id }}">{{ item.price }}</td>
+                                <td id="item-inventory-id-{{ item.id }}">{{ item.inventory }}</td>
                                 {#                                function to change quantity#}
                                 <td class="sub-add-button">
                                     {#                                    <form action="{{ url_for("cart.set_to_cart") }}" method="post">#}
@@ -101,7 +103,7 @@
                         {% endfor %}
                     {% endfor %}
                     <tr class="shopping-cart-seller">
-                        <th colspan="7" class="checkout-total-payment">Total Price: {{ total_price }}</th>
+                        <th colspan="8" class="checkout-total-payment">Total Price: {{ total_price }}</th>
                     </tr>
                     </tbody>
                 </table>
