@@ -22,6 +22,7 @@ function cart_add(itemID) {
                     cart_total_price += Number.parseFloat(price_array[i].textContent);
                 }
                 $(".checkout-total-payment")[0].textContent = "Total Price: " + cart_total_price;
+                $("#shopping-cart-box-head-price")[0].textContent = "Total Price: " + cart_total_price;
             }
         },
         error: function (data) {
@@ -52,6 +53,7 @@ function cart_minus(itemID) {
                     cart_total_price += Number.parseFloat(price_array[i].textContent);
                 }
                 $(".checkout-total-payment")[0].textContent = "Total Price: " + cart_total_price;
+                $("#shopping-cart-box-head-price")[0].textContent = "Total Price: " + cart_total_price;
             }
         },
         error: function (data) {
