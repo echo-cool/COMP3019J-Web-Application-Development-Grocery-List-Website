@@ -145,3 +145,51 @@ function monitorEvents(element) {
 
 // monitorEvents(document);
 
+var brightness;
+var isDarkMode = false;
+if (window.sessionStorage.getItem("DarkMode") != null) {
+    if (window.sessionStorage.getItem("DarkMode") == 1) {
+        isDarkMode = true;
+        darkMode(0.5)
+    } else {
+        isDarkMode = false;
+        darkMode(0)
+    }
+
+} else {
+    isDarkMode = false;
+    darkMode(0);
+}
+
+
+function darkMode(brightness) {
+
+    if (typeof (div) == 'undefined') {
+        div = document.createElement('div');
+        div.setAttribute('style', 'position:fixed;top:0;left:0;outline:5000px solid;z-index:99999;');
+        document.body.appendChild(div);
+
+    } else {
+        div.style.display = '';
+    }
+    if (brightness == 0.5) {
+        isDarkMode = true
+        window.sessionStorage.setItem("DarkMode", "1")
+    } else {
+        isDarkMode = false
+        window.sessionStorage.setItem("DarkMode", "0")
+    }
+    if (isDarkMode)
+        $("*").each(function () {
+            if (this.classList[0] != null)
+                $(this).addClass(this.classList[0] + "-dark")
+        });
+    else
+        $("*").each(function () {
+            if (this.classList[0] != null)
+                $(this).removeClass(this.classList[0] + "-dark")
+        });
+
+    div.style.outlineColor = 'rgba(0,0,0,' + brightness + ')';
+}
+

@@ -1,0 +1,6 @@
+.background-image-dark {
+    filter: invert(100%);
+}
+.index-item-text-dark{
+    color: white;
+}
