@@ -1,6 +1,12 @@
 .background-image-dark {
     filter: invert(100%);
 }
-.index-item-text-dark{
+
+.index-item-text-dark {
     color: white;
+}
+
+.product-image-box-background-image-dark {
+    filter: invert(100%) blur(60px) !important;
+
 }

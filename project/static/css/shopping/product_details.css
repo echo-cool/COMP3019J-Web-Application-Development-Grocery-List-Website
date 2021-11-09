@@ -256,7 +256,7 @@
     border: 2px solid lightgrey;
 }
 
-.product-little-box .product-image-box::before {
+.product-image-box-background-image {
     content: "";
     position: absolute;
     top: 50px;
