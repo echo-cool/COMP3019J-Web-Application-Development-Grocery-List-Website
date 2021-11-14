@@ -1,5 +1,9 @@
 import logging
 import sys
+from logging.handlers import RotatingFileHandler
+from flask.logging import default_handler
+from flask.logging import wsgi_errors_stream
+
 from flask import render_template, url_for, flash, redirect
 # from flask_admin.contrib.fileadmin import FileAdmin
 # from flask_admin.contrib.sqla import ModelView
@@ -24,9 +28,10 @@ app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
 app.register_blueprint(user.view.blueprint)
 """Configure loggers."""
-handler = logging.StreamHandler(sys.stdout)
-if not app.logger.handlers:
-    app.logger.addHandler(handler)
+
+# handler = logging.StreamHandler(sys.stdout)
+# if not app.logger.handlers:
+#     app.logger.addHandler(handler)
 
 """Register error handlers."""
 
@@ -46,6 +51,8 @@ for errcode in [401, 404, 500]:
 @app.route("/favicon.ico")
 def favicon_ico():
     return app.send_static_file('image/favicon.ico')
+
+
 # """Init Admin"""
 # admin.add_view(ModelView(User, db.session, name="Users", endpoint="users"))
 # admin.add_view(ModelView(Item, db.session, name="items", endpoint="items"))
@@ -59,3 +66,46 @@ def favicon_ico():
 # @app.route('/css/<file>')
 # def css(file):
 #     return url_for("static", filename="css/" + file)
+
+class LevelFilter(object):
+
+    def __init__(self, level):
+        self.level = logging._checkLevel(level)
+
+    def filter(self, record):
+        return record.levelno == self.level
+
+
+root = logging.getLogger()
+
+info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
+debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
+error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="w")
+critical_handler = logging.handlers.RotatingFileHandler('log/critical.log', mode="w")
+
+formatter = logging.Formatter(
+    '[%(asctime)s] %(message)s'
+)
+info_handler.addFilter(LevelFilter('INFO'))
+info_handler.setFormatter(formatter)
+
+error_handler.addFilter(LevelFilter('ERROR'))
+error_handler.setFormatter(formatter)
+
+debug_handler.addFilter(LevelFilter("DEBUG"))
+debug_handler.setFormatter(formatter)
+
+critical_handler.addFilter(LevelFilter("CRITICAL"))
+critical_handler.setFormatter(formatter)
+# set formatters, etc..
+
+root.addHandler(info_handler)
+root.addHandler(error_handler)
+root.addHandler(debug_handler)
+root.addHandler(critical_handler)
+root.setLevel(logging.DEBUG)
+
+logging.log(logging.ERROR, "Start ERROR Logging")
+logging.log(logging.INFO, "Start INFO Logging")
+logging.log(logging.DEBUG, "Start DEBUG Logging")
+logging.log(logging.CRITICAL, "Start CRITICAL logging")
