@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 from logging.handlers import RotatingFileHandler
 from flask.logging import default_handler
@@ -76,8 +77,10 @@ class LevelFilter(object):
         return record.levelno == self.level
 
 
-root = logging.getLogger()
+if not os.path.exists("log"):
+    os.makedirs("log")
 
+root = logging.getLogger()
 info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
 debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
 error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="w")
