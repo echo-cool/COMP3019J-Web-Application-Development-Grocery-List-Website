@@ -80,35 +80,44 @@ class LevelFilter(object):
 if not os.path.exists("log"):
     os.makedirs("log")
 
-root = logging.getLogger()
-info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
-debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
-error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="w")
-critical_handler = logging.handlers.RotatingFileHandler('log/critical.log', mode="w")
-
-formatter = logging.Formatter(
-    '[%(asctime)s] %(message)s'
-)
-info_handler.addFilter(LevelFilter('INFO'))
-info_handler.setFormatter(formatter)
-
-error_handler.addFilter(LevelFilter('ERROR'))
-error_handler.setFormatter(formatter)
-
-debug_handler.addFilter(LevelFilter("DEBUG"))
-debug_handler.setFormatter(formatter)
-
-critical_handler.addFilter(LevelFilter("CRITICAL"))
-critical_handler.setFormatter(formatter)
-# set formatters, etc..
-
-root.addHandler(info_handler)
-root.addHandler(error_handler)
-root.addHandler(debug_handler)
-root.addHandler(critical_handler)
-root.setLevel(logging.DEBUG)
-
-logging.log(logging.ERROR, "Start ERROR Logging")
-logging.log(logging.INFO, "Start INFO Logging")
-logging.log(logging.DEBUG, "Start DEBUG Logging")
-logging.log(logging.CRITICAL, "Start CRITICAL logging")
+# logging config
+logging.basicConfig(
+                    format='asctime:        %(asctime)s \n'  # time
+                           'filename_line:  %(filename)s_[line:%(lineno)d] \n'  # file line
+                           'level:          %(levelname)s \n'  # level
+                           'message:        %(message)s \n',  # info
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='log/log.log',
+                    filemode='a')  # 如果模式为'a'，则为续写（不会抹掉之前的log）
+# root = logging.getLogger()
+# info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
+# debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
+# error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="w")
+# critical_handler = logging.handlers.RotatingFileHandler('log/critical.log', mode="w")
+#
+# formatter = logging.Formatter(
+#     '[%(asctime)s] %(message)s'
+# )
+# info_handler.addFilter(LevelFilter('INFO'))
+# info_handler.setFormatter(formatter)
+#
+# error_handler.addFilter(LevelFilter('ERROR'))
+# error_handler.setFormatter(formatter)
+#
+# debug_handler.addFilter(LevelFilter("DEBUG"))
+# debug_handler.setFormatter(formatter)
+#
+# critical_handler.addFilter(LevelFilter("CRITICAL"))
+# critical_handler.setFormatter(formatter)
+# # set formatters, etc..
+#
+# root.addHandler(info_handler)
+# root.addHandler(error_handler)
+# root.addHandler(debug_handler)
+# root.addHandler(critical_handler)
+# root.setLevel(logging.DEBUG)
+#
+# logging.log(logging.ERROR, "Start ERROR Logging")
+# logging.log(logging.INFO, "Start INFO Logging")
+# logging.log(logging.DEBUG, "Start DEBUG Logging")
+# logging.log(logging.CRITICAL, "Start CRITICAL logging")
