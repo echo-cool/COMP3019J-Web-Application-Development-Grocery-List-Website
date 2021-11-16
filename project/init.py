@@ -2,10 +2,12 @@ import logging
 import os
 import sys
 from logging.handlers import RotatingFileHandler
+from urllib import request
+
 from flask.logging import default_handler
 from flask.logging import wsgi_errors_stream
 
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, has_request_context
 # from flask_admin.contrib.fileadmin import FileAdmin
 # from flask_admin.contrib.sqla import ModelView
 # from flask_login import current_user
@@ -80,15 +82,46 @@ class LevelFilter(object):
 if not os.path.exists("log"):
     os.makedirs("log")
 
+
 # logging config
-logging.basicConfig(
-                    format='asctime:        %(asctime)s \n'  # time
-                           'filename_line:  %(filename)s_[line:%(lineno)d] \n'  # file line
-                           'level:          %(levelname)s \n'  # level
-                           'message:        %(message)s \n',  # info
-                    datefmt='%a, %d %b %Y %H:%M:%S',
-                    filename='log/log.log',
-                    filemode='a')  # 如果模式为'a'，则为续写（不会抹掉之前的log）
+# logging.basicConfig(
+#                     format='asctime:        %(asctime)s \n'  # 时间
+#                            'filename_line:  %(filename)s_[line:%(lineno)d] \n'  # 文件名_行号
+#                            'level:          %(levelname)s \n'  # log级别
+#                            'message:        %(message)s \n',  # log信息
+#                     datefmt='%a, %d %b %Y %H:%M:%S',
+#                     filename='log/log.log',
+#                     filemode='a')  # 如果模式为'a'，则为续写（不会抹掉之前的log）
+# yyyy-MM-dd HH:mm:ss,SSS
+# HH:mm:ss.SSS
+class RequestFormatter(logging.Formatter):
+    def format(self, record):
+        record.msg = record.msg.replace("\n","")
+        if has_request_context():
+            record.url = request.url
+            record.remote_addr = request.remote_addr
+        else:
+            record.url = None
+            record.remote_addr = None
+
+        return super().format(record)
+
+
+root = logging.getLogger()
+log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
+log_handler.setFormatter(
+    RequestFormatter(
+        "%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s requested %(url)s"
+    )
+)
+log_handler.setLevel(logging.DEBUG)
+root.addHandler(log_handler)
+# logging.basicConfig(
+#     format="%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s",
+#     datefmt='%Y-%m-%d %H:%M:%S,000',
+#     level=logging.DEBUG,
+#     filename='log/app.log',
+#     filemode='a')
 # root = logging.getLogger()
 # info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
 # debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
