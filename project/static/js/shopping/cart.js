@@ -160,6 +160,7 @@ for (let i = 0; i < selects.length; i++) {
         for (let i = 0; i < selects.length; i++) {
             if (!selects[i].checked) {
                 flag = false;
+                break;
             }
         }
         selectAll.checked = flag;

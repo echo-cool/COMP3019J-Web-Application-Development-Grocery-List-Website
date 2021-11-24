@@ -82,22 +82,21 @@
                         <li>|</li>
 
                         {% if current_user.is_shopper %}
-                            <li class="nav-title_shopping_cart">
+                            <li>
                                 &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}">Manage Items</a>
                             </li>
                             <li>|</li>
-                            <li class="nav-title_shopping_cart">
+                            <li>
                                 <a href="{{ url_for("order.view_order") }}">
                                     Manage Order</a>
                             </li>
                         {% else %}
-
-                            <li class="nav-title_shopping_cart">
+                            <li>
                                 <a href="{{ url_for("cart.shopping_cart") }}">
                                     Shopping Cart</a>
                             </li>
                             <li>|</li>
-                            <li class="nav-title_shopping_cart">
+                            <li>
                                 {#                            &nbsp;&nbsp;&nbsp;#}
                                 <a href="{{ url_for("order.view_order") }}">
                                     View Order</a>
