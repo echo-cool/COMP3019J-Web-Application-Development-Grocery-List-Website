@@ -30,7 +30,7 @@
 body {
     display: flex;
     flex-direction: column;
-    cursor: url(../../image/cursor_1.png), default;
+    /*cursor: url(../../image/cursor_1.png), default;*/
 }
 
 #container {

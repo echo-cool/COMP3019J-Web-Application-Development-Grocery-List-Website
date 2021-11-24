@@ -5,13 +5,17 @@ enter_product_name.onclick = function () {
     // onfocus
     enter_product_name.onfocus = function () {
         console.log(this.value);
-        if (this.value === "Enter the product name") {
-            this.value = "";
+        if (this.value === 'Enter the product name') {
+            this.value = '';
+            this.style.color = "black"
         }
     }
     // onblur
     enter_product_name.onblur = function () {
-        this.value = "Enter the product name";
+        if (this.value === '') {
+            this.value = "Enter the product name";
+            this.style.color = "#999"
+        }
     }
 }
 

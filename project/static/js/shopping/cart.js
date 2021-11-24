@@ -131,7 +131,6 @@ for (let i = 0; i < input_quantity_array.length; i++) {
         var itemID = input_item.id.split("-").pop();
         var itemCount = input_item.value;
         cart_set(itemID, itemCount)
-
     })
     // monitorEvents(input_item);
 }
@@ -139,3 +138,13 @@ for (let i = 0; i < input_quantity_array.length; i++) {
 // $(".minus-page-button-area").addEventListener("click", function () {
 //
 // })
+
+let selectAll = document.getElementById("select-all");
+let selects = document.getElementById("select-one");
+selectAll.onclick = function () {
+    console.log(selects)
+    //for (let i = 0; i < selects.length; i++) {
+        // get the current state: checked or not: this.checked
+        selects.checked = this.checked
+    //}
+}
