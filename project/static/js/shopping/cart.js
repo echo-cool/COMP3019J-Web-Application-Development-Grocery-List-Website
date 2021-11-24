@@ -140,11 +140,28 @@ for (let i = 0; i < input_quantity_array.length; i++) {
 // })
 
 let selectAll = document.getElementById("select-all");
-let selects = document.getElementById("select-one");
+let selects = document.querySelectorAll("#select-one");
+// add event to the selectAll
 selectAll.onclick = function () {
-    console.log(selects)
-    //for (let i = 0; i < selects.length; i++) {
+    console.log(selects);
+    for (let i = 0; i < selects.length; i++) {
         // get the current state: checked or not: this.checked
-        selects.checked = this.checked
-    //}
+        selects[i].checked = this.checked;
+    }
+}
+
+// add event to each selectOne
+for (let i = 0; i < selects.length; i++) {
+    // if one has been clicked
+    selects[i].onclick = function () {
+        // flag controls whether the selectAll has been clicked
+        let flag = true;
+        // check all: check whether they are selected --> effect the selected state of the selectAll
+        for (let i = 0; i < selects.length; i++) {
+            if (!selects[i].checked) {
+                flag = false;
+            }
+        }
+        selectAll.checked = flag;
+    }
 }
