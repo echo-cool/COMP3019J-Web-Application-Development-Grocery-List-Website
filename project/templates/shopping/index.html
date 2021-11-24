@@ -6,8 +6,6 @@
 {% block script %}
 {% endblock %}
 {% block style %}
-    <style>
-    </style>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
 {% endblock %}
 
@@ -22,8 +20,8 @@
             <div class="index-search-box">
                 <form action="{{ url_for("index.search") }}" method="GET" name="search">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input class="index-search-text" name="keyword" placeholder="Enter the product name"
-                           value="">
+                    <input class="index-search-text" name="keyword" value="Enter the product name"
+                           value="" id="enter_product_name">
                     <input class="index-search-submit-button" type="submit" value="">
                 </form>
             </div>
@@ -371,5 +369,6 @@
             // Turn the timer on
             timeCalc()
         </script>
+        <script type="application/javascript" src="{{ url_for('static',filename='js/shopping/main-page.js') }}"></script>
     {% endblock %}
 {% endblock %}
