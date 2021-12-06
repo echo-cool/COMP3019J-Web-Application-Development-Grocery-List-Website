@@ -9,7 +9,6 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_user, login_required, current_user, logout_user
 from sqlalchemy import null
 
 from project import app, db
@@ -18,7 +17,7 @@ from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.OrderModel import Order
 from project.models.UserModel import User
-from project.utils import seller_required, buyer_required
+from project.utils import seller_required, buyer_required, login_required, get_current_user
 
 blueprint = Blueprint("order", __name__, static_folder="../static")
 
@@ -26,7 +25,7 @@ blueprint = Blueprint("order", __name__, static_folder="../static")
 @blueprint.route("/order/view", methods=["GET", "POST"])
 @login_required
 def view_order():
-    user: User = current_user
+    user: User = get_current_user()
     # total price for each order
     total_price: dict = {}
     order_dict: dict = {}
@@ -84,7 +83,7 @@ def view_order():
 
     return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper,
                            orders=orders, total_price=total_price, confirm_count_dict=confirm_count_dict,
-                           orders_length=orders_length)
+                           orders_length=orders_length,current_user=get_current_user())
 
 # this is to handle a shopper's request to confirm a order
 @blueprint.route("/order/shopper_confirm/<int:order_id>", methods=["GET", "POST"])
@@ -93,7 +92,7 @@ def view_order():
 def shopper_confirm_order(order_id):
     orders = OrderModel.get_order_items_by_id(order_id)
     for order in orders:
-        if order.shopper_id == current_user.id:
+        if order.shopper_id == get_current_user().id:
             # Confirm shopper
             order.is_confirmed_by_shopper = True
             order.save()
@@ -108,7 +107,7 @@ def shopper_confirm_order(order_id):
 def buyer_confirm_order(order_id, shopper_id):
     orders = OrderModel.get_order_items_by_id(order_id)
     for order in orders:
-        if order.user_id == current_user.id and order.shopper_id == shopper_id:
+        if order.user_id == get_current_user().id and order.shopper_id == shopper_id:
             # Confirm delivery
             order.is_confirmed_delivery = True
             order.save()

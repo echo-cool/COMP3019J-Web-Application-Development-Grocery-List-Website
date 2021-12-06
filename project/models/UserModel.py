@@ -2,17 +2,62 @@
 """User models."""
 import datetime as dt
 
-from flask_login import UserMixin
+from sqlalchemy.util import text_type
 
 from project.database_model import Column, PkModel, db, reference_col, relationship
-from project import bcrypt, login_manager
+from project import bcrypt
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    # load user for login_manager
-    user = User.query.get(user_id)
-    return user
+class UserMixin(object):
+    '''
+    This provides default implementations for the methods that Flask-Login
+    expects user objects to have.
+    '''
+
+    __hash__ = object.__hash__
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        try:
+            return text_type(self.id)
+        except AttributeError:
+            raise NotImplementedError('No `id` attribute - override `get_id`')
+
+    def __eq__(self, other):
+        '''
+        Checks the equality of two `UserMixin` objects using `get_id`.
+        '''
+        if isinstance(other, UserMixin):
+            return self.get_id() == other.get_id()
+        return NotImplemented
+
+    def __ne__(self, other):
+        '''
+        Checks the inequality of two `UserMixin` objects using `get_id`.
+        '''
+        equal = self.__eq__(other)
+        if equal is NotImplemented:
+            return NotImplemented
+        return not equal
+
+
+# @login_manager.user_loader
+# def load_user(user_id):
+#     # load user for login_manager
+#     user = User.query.get(user_id)
+#     return user
+
 
 class Role(PkModel):
     """A role for a user."""
@@ -48,9 +93,10 @@ class User(UserMixin, PkModel):
     items = db.relationship("Item", backref='owned_user', lazy=True)
     cart = db.relationship("Cart", backref='cart_user', lazy=True)
     order = db.relationship("Order", backref='order_user', lazy=True)
+
     # order_shopper = db.relationship("Order", backref='order_shopper_user', lazy=True)
 
-    def __init__(self, username: str, email:str, password=None, **kwargs):
+    def __init__(self, username: str, email: str, password=None, **kwargs):
         """Create instance."""
         super().__init__(username=username, email=email, **kwargs)
         if password:
@@ -58,11 +104,11 @@ class User(UserMixin, PkModel):
         else:
             self.password = None
 
-    def set_password(self, password:str):
+    def set_password(self, password: str):
         """Set password."""
         self.password = bcrypt.generate_password_hash(password)
 
-    def check_password(self, value:str) -> bool:
+    def check_password(self, value: str) -> bool:
         """Check password."""
         return bcrypt.check_password_hash(self.password, value)
 

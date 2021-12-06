@@ -7,7 +7,6 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_user, login_required, current_user, logout_user
 
 from project import app
 from project.models import ItemModel
