@@ -47,6 +47,7 @@
 }
 
 .switch-theme {
+    /*non-transparency degree: opacity*/
     opacity: 0;
 }
 
@@ -63,7 +64,7 @@
     margin-left: 50px;
     margin-top: -10px;
     transition: background-color 200ms ease-in-out;
-    width: 120px;
+    width: 110px;
     height: 20px;
     border-radius: 50px;
     text-align: center;
@@ -78,6 +79,7 @@
     top: 50%;
 }
 
+/*light mode*/
 .switch-icon::before {
     content: "☼";
     right: 100%;
@@ -85,6 +87,7 @@
     color: #fea808;
 }
 
+/*dark mode*/
 .switch-icon::after {
     content: "☾";
     left: 100%;
@@ -125,5 +128,5 @@
 }
 
 .switch-theme:checked ~ .switch-icon span::after {
-    transform: translate3d(70px, 0, 0);
+    transform: translate3d(60px, 0, 0);
 }

@@ -161,6 +161,18 @@ if (window.sessionStorage.getItem("DarkMode") != null) {
     darkMode(0);
 }
 
+let light = true;
+function chooseTheme() {
+    if (light) {
+        darkMode(0.5);
+        light = false;
+    }
+    else {
+        darkMode(0);
+        light = true;
+    }
+}
+
 
 function darkMode(brightness) {
 
