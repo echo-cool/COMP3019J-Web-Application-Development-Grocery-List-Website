@@ -7,7 +7,6 @@ from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
 # from flask_static_digest import FlaskStaticDigest
 # from flask_debugtoolbar import DebugToolbarExtension
-from flask_login import LoginManager
 # from flask_caching import Cache
 from flask_bcrypt import Bcrypt
 
@@ -30,10 +29,10 @@ migrate = Migrate(app, db)
 # cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 
-# Setup login manager
-login_manager = LoginManager(app)
-# Setup login default page
-login_manager.login_view = "login.login"
+# # Setup login manager
+# login_manager = LoginManager(app)
+# # Setup login default page
+# login_manager.login_view = "login.login"
 bcrypt = Bcrypt(app)
 # admin = Admin(app)
 

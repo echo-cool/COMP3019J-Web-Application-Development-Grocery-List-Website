@@ -7,14 +7,13 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_user, login_required, current_user, logout_user
 
 from project import app
 from project.models import ItemModel
 from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
-from project.utils import buyer_required, product_available_required
+from project.utils import buyer_required, product_available_required, login_required, get_current_user
 
 blueprint = Blueprint("cart", __name__, static_folder="../static")
 
@@ -25,7 +24,7 @@ blueprint = Blueprint("cart", __name__, static_folder="../static")
 @buyer_required
 def remove_from_cart() -> Response:
     itemID: int = request.form.get('itemID')
-    user: User = current_user
+    user: User = get_current_user()
     cart_entry: Cart = Cart.query.filter_by(item_id=itemID, user_id=user.id).first()
     # if have cart_entry, then remove
     if cart_entry:
@@ -42,7 +41,7 @@ def remove_from_cart() -> Response:
 def add_to_cart() -> Response:
     itemID: int = request.form.get('itemID')
     itemCount: int = request.form.get('itemCount')
-    user: User = current_user
+    user: User = get_current_user()
     item: Item = Item.get_by_id(itemID)
     # Check item status
     if item.disabled:
@@ -89,7 +88,7 @@ def add_to_cart() -> Response:
 def set_to_cart() -> Response:
     itemID: int = request.form.get('itemID')
     itemCount: int = request.form.get('itemCount')
-    user: User = current_user
+    user: User = get_current_user()
     item: Item = Item.get_by_id(itemID)
     # check if the state of the item is not disabled
     print(int(item.inventory), int(itemCount))
@@ -138,7 +137,7 @@ def set_to_cart() -> Response:
 @login_required
 @buyer_required
 def shopping_cart() -> str:
-    user: User = current_user
+    user: User = get_current_user()
     cart: Cart = Cart.query.filter_by(user_id=user.id).all()
     cart_length = len(cart)
     res: dict = {}
@@ -158,4 +157,4 @@ def shopping_cart() -> str:
             res[shopper] = [item]
 
     return render_template("shopping/shopping_cart.html", cart_dict=res, total_price=total_price,
-                           cart_length=cart_length)
+                           cart_length=cart_length,current_user=get_current_user())

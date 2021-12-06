@@ -21,6 +21,10 @@ from project import app, shopping, login, item, db, user
 # from project.models.Cart import Cart
 # from project.shopping import shop
 
+session: dict = {
+
+}
+
 """Register Flask blueprints."""
 app.register_blueprint(shopping.view.blueprint)
 app.register_blueprint(shopping.cart.blueprint)
@@ -107,15 +111,20 @@ class RequestFormatter(logging.Formatter):
         return super().format(record)
 
 
-root = logging.getLogger()
-log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
-log_handler.setFormatter(
-    RequestFormatter(
-        "%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s requested %(url)s"
-    )
-)
-log_handler.setLevel(logging.DEBUG)
-root.addHandler(log_handler)
+# root = logging.getLogger()
+# log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
+# log_handler.setFormatter(
+#     RequestFormatter(
+#         "%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s requested %(url)s"
+#     )
+# )
+# log_handler.setLevel(logging.DEBUG)
+# root.addHandler(log_handler)
+
+
+
+
+
 # logging.basicConfig(
 #     format="%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s",
 #     datefmt='%Y-%m-%d %H:%M:%S,000',

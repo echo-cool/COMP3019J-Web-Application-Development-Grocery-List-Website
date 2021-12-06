@@ -1,13 +1,12 @@
 import os
 
 from flask import Blueprint, render_template, flash, current_app, url_for, Response, redirect
-from flask_login import current_user, login_required
 from project import db
 from project.item.forms import AddNewItem, UpdateItem
 from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
-from project.utils import seller_required, product_available_required, flash_errors
+from project.utils import seller_required, product_available_required, flash_errors, login_required, get_current_user
 
 blueprint = Blueprint("item", __name__, static_folder="../static")
 
@@ -17,14 +16,14 @@ blueprint = Blueprint("item", __name__, static_folder="../static")
 def details(itemID: int) -> str:
     item = Item.get_by_id(itemID)
     owner = User.get_by_id(item.owner)
-    return render_template("shopping/product_details.html", item=item, shop=owner)
+    return render_template("shopping/product_details.html", item=item, shop=owner,current_user=get_current_user())
 
 # This is used when shoppers need to manage his shop
 @blueprint.route("/item/manage", methods=["POST", "GET"])
 @login_required
 @seller_required
 def ManageItem() -> str:
-    user = current_user
+    user = get_current_user()
     # Get all the items for this shopper
     items = Item.query.filter_by(
         owner=user.id,
@@ -34,7 +33,7 @@ def ManageItem() -> str:
     form = AddNewItem()
     print(form.validate_on_submit())
     if form.validate_on_submit():
-        userid = current_user.id
+        userid = get_current_user().id
         item_name = form.item_name.data
         item_price = form.item_price.data
         description = form.description.data
@@ -63,7 +62,7 @@ def ManageItem() -> str:
             print(e.message)
             db.session.rollback()
     flash_errors(form)
-    return render_template("item/manage.html", items=items, form=form, itemsLength=itemsLength)
+    return render_template("item/manage.html", items=items, form=form, itemsLength=itemsLength,current_user=get_current_user())
 
 
 @blueprint.route("/item/delete/<int:item_id>", methods=["POST", "GET"])
@@ -110,7 +109,7 @@ def ModifyNewItem(item_id: int) -> str:
         item.update()
         flash("Update Success")
     flash_errors(form)
-    return render_template("item/update.html", item=item, form=form)
+    return render_template("item/update.html", item=item, form=form,current_user=get_current_user())
 
 # a shopper need to add new items
 @blueprint.route("/item/add", methods=["POST", "GET"])
@@ -121,7 +120,7 @@ def addNewItem() -> str:
     # print(form.data)
     print(form.validate_on_submit())
     if form.validate_on_submit():
-        userid = current_user.id
+        userid = get_current_user().id
         item_name = form.item_name.data
         item_price = form.item_price.data
         description = form.description.data
@@ -161,4 +160,4 @@ def show_all_items(userid: int) -> str:
     username = user.username
     items = Item.query.filter_by(owner=userid, disabled=False).all()
     # print(items)
-    return render_template("shopping/shopper_all_items.html", items=items, username=username)
+    return render_template("shopping/shopper_all_items.html", items=items, username=username,current_user=get_current_user())
