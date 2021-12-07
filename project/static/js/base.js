@@ -147,6 +147,7 @@ function monitorEvents(element) {
 
 var brightness;
 var isDarkMode = false;
+let t = document.querySelector(".switch-icon span");
 if (window.sessionStorage.getItem("DarkMode") != null) {
     if (window.sessionStorage.getItem("DarkMode") == 1) {
         isDarkMode = true;
@@ -155,8 +156,8 @@ if (window.sessionStorage.getItem("DarkMode") != null) {
         isDarkMode = false;
         darkMode(0)
     }
-
-} else {
+}
+else {
     isDarkMode = false;
     darkMode(0);
 }
@@ -164,13 +165,16 @@ if (window.sessionStorage.getItem("DarkMode") != null) {
 let light = true;
 
 function chooseTheme() {
+    let t = document.querySelector(".switch-icon span");
     if (window.sessionStorage.getItem("DarkMode") != null) {
         if (window.sessionStorage.getItem("DarkMode") == 1) {
             light = false;
             darkMode(0)
+            t.style.transform = "translate3d(-10px, 0, 0)";
         } else {
             light = true;
             darkMode(0.5)
+            t.style.transform = "translate3d(60px, 0, 0)";
         }
     } else {
         light = true;
