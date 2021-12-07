@@ -4,11 +4,9 @@ import os
 from urllib import request
 
 from flask import Blueprint, render_template, flash, redirect, url_for, current_app, Response
-from flask_login import login_required, current_user, logout_user
-
 from project.models.UserModel import User
 from project.user.forms import UpdateUser
-from project.utils import flash_errors
+from project.utils import flash_errors, login_required, logout_user, get_current_user
 
 blueprint = Blueprint("user", __name__, static_folder="../static")
 
@@ -17,7 +15,7 @@ blueprint = Blueprint("user", __name__, static_folder="../static")
 @login_required
 def info() -> str:
     form: UpdateUser = UpdateUser()
-    user: User = current_user
+    user: User = get_current_user()
     # Is POST
     if form.validate_on_submit():
         new_username: str = form.username.data
@@ -41,14 +39,14 @@ def info() -> str:
         user.save()
         flash("Update Success !")
     flash_errors(form)
-    return render_template("userinfo/userinfo.html", current_user=current_user, form=form)
+    return render_template("userinfo/userinfo.html", current_user=get_current_user(), form=form)
 
 # User change password
 @blueprint.route('/user/change_password')
 @login_required
 def change_password() -> Response:
     new_password: str = request.form.get('new_password')
-    user: User = current_user
+    user: User = get_current_user()
     user.set_password(new_password)
     logout()
     flash("Set Password successfully, Please Login again !")
@@ -59,7 +57,7 @@ def change_password() -> Response:
 @login_required
 def change_username() -> Response:
     new_username: str = request.form.get('new_username')
-    user: User = current_user
+    user: User = get_current_user()
     user.username = new_username
     user.save()
     flash("Your new username is " + new_username)

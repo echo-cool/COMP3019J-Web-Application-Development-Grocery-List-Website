@@ -1,10 +1,24 @@
 # -*- coding: utf-8 -*-
 """User forms."""
+import re
+
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
-from wtforms.validators import DataRequired, Email, EqualTo, Length
+from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
 
 from project.models.UserModel import User
+
+
+def validate_email(message=None):
+    if message is None:
+        message = 'Must email address.'
+
+    def validate_email(form, field):
+        if not re.match(r'^([\w]+\.*)([\w]+)\@[\w]+\.\w{3}(\.\w{2}|)$', field.data):
+            raise ValidationError(message)
+
+    return validate_email
+
 
 # This is the RegisterForm which will be used in the register page
 class RegisterForm(FlaskForm):
@@ -14,7 +28,7 @@ class RegisterForm(FlaskForm):
         "Username", validators=[DataRequired(), Length(min=3, max=25)]
     )
     email = StringField(
-        "Email", validators=[DataRequired(), Email(), Length(min=3, max=40)]
+        "Email", validators=[DataRequired(), validate_email(), Length(min=3, max=40)]
     )
     password = PasswordField(
         "Password", validators=[DataRequired(), Length(min=3, max=40)]

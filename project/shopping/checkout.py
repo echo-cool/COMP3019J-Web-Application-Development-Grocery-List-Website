@@ -7,7 +7,6 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_user, login_required, current_user, logout_user
 from sqlalchemy import null
 
 from project import app, db
@@ -16,6 +15,7 @@ from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.OrderModel import Order
 from project.models.UserModel import User
+from project.utils import login_required, get_current_user
 
 blueprint = Blueprint("checkout", __name__, static_folder="../static")
 
@@ -23,7 +23,7 @@ blueprint = Blueprint("checkout", __name__, static_folder="../static")
 @blueprint.route("/checkout/confirm", methods=["GET", "POST"])
 @login_required
 def checkout_confirm() -> str:
-    user: User = current_user
+    user: User = get_current_user()
     cart: Cart = Cart.query.filter_by(user_id=user.id).all()
     res: dict = {}
     total_price: int = 0
@@ -40,7 +40,7 @@ def checkout_confirm() -> str:
         else:
             res[shopper] = [item]
 
-    return render_template("shopping/checkout.html", cart_dict=res, total_price=total_price)
+    return render_template("shopping/checkout.html", cart_dict=res, total_price=total_price,current_user=get_current_user())
 
 
 # def do_create_order():

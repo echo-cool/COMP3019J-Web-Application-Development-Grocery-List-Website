@@ -6,7 +6,6 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_user, login_required, current_user, logout_user
 
 from project import app, db
 from project.models import ItemModel
@@ -14,6 +13,7 @@ from project.models.AnnouncementModel import Announcement
 from project.models.CartModel import Cart
 from project.models.ItemModel import Item
 from project.models.UserModel import User
+from project.utils import get_current_user
 
 blueprint = Blueprint("index", __name__, static_folder="../static")
 
@@ -51,7 +51,7 @@ def home() -> str:
             shop_sellers[shopper] = [item]
 
     all_items.sort(key=lambda i: i.sold_count, reverse=True)
-    return render_template("shopping/index.html", items=all_items, current_user=current_user, shop_sellers=shop_sellers,
+    return render_template("shopping/index.html", items=all_items, current_user=get_current_user(), shop_sellers=shop_sellers,
                            announcements=announcements)
 
 # This is to handle user's search requests
@@ -69,10 +69,10 @@ def search() -> str:
     have_res = True
     if len(items) == 0:
         have_res = False
-    return render_template("shopping/search.html", have_res=have_res, items=items, current_user=current_user,
+    return render_template("shopping/search.html", have_res=have_res, items=items, current_user=get_current_user(),
                            keyword=keyword)
 
 # About page
 @blueprint.route("/about", methods=["GET", "POST"])
 def about() -> str:
-    return render_template("about/about.html")
+    return render_template("about/about.html",current_user=get_current_user())

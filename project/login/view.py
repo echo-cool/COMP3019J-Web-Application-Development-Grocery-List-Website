@@ -5,12 +5,12 @@ from flask import (
     render_template,
     request,
     url_for,
+session
 )
 
 from project.login.forms import LoginForm, RegisterForm
 from project.models.UserModel import User
-from project.utils import flash_errors
-from flask_login import login_user, login_required, current_user, logout_user
+from project.utils import flash_errors, login_user, get_current_user
 
 blueprint = Blueprint("login", __name__, static_folder="../static")
 
@@ -63,4 +63,4 @@ def login():
         flash_errors(login_form)
         flash_errors(register_from)
 
-    return render_template("login/login_register.html", login_form=login_form, register_from=register_from)
+    return render_template("login/login_register.html", login_form=login_form, register_from=register_from, current_user=get_current_user())
