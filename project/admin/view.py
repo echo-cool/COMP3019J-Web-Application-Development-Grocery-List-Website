@@ -9,7 +9,7 @@ from sqlalchemy.util import FacadeDict
 from project import db
 from project.models.UserModel import User
 from project.user.forms import UpdateUser
-from project.utils import flash_errors, login_required, logout_user, get_current_user, admin_required
+from project.utils import flash_errors, login_required, logout_user, get_current_user, admin_required, logout_all_user
 
 blueprint = Blueprint("admin", __name__, static_folder="../static")
 
@@ -50,5 +50,6 @@ def del_all_table_data() -> Response:
         db.session.query(db.metadata.tables[name]).delete()
         db.session.commit()
     logout_user()
+    logout_all_user()
     flash("All data deleted")
     return redirect(url_for('admin.view_all_tables'))

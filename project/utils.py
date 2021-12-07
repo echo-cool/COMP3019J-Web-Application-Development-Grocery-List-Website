@@ -87,7 +87,8 @@ def admin_required(func):
 def logout_user():
     session.pop("USER_ID", None)
 
-
+def logout_all_user():
+    session.clear()
 
 def login_user(user):
     session["USER_ID"] = user.id
