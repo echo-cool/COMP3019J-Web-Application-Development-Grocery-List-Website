@@ -4,7 +4,7 @@ import re
 
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
-from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
+from wtforms.validators import DataRequired, EqualTo, Length, ValidationError, Email
 
 from project.models.UserModel import User
 
@@ -18,6 +18,22 @@ def validate_email(message=None):
             raise ValidationError(message)
 
     return validate_email
+
+
+# # reset password
+# class PasswordResetRequestForm(FlaskForm):
+#     email = StringField('Email', render_kw={"placeholder": "Your Email"},
+#                         validators=[DataRequired(), Length(1, 64), Email()])
+#     submit = SubmitField('Reset Password')
+
+
+# reset password inside the email
+class PasswordResetForm(FlaskForm):
+    password = PasswordField('New Password', render_kw={"placeholder": "New Password"},
+                             validators=[DataRequired(), EqualTo('password2', message='Passwords must match')])
+    password2 = PasswordField('Confirm password', render_kw={"placeholder": "Confirm password"},
+                              validators=[DataRequired()])
+    submit = SubmitField('Reset Password')
 
 
 # This is the RegisterForm which will be used in the register page

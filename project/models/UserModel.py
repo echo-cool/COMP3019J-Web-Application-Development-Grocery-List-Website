@@ -9,10 +9,6 @@ from project import bcrypt
 
 
 class UserMixin(object):
-    '''
-    This provides default implementations for the methods that Flask-Login
-    expects user objects to have.
-    '''
 
     __hash__ = object.__hash__
 
@@ -93,6 +89,7 @@ class User(UserMixin, PkModel):
     items = db.relationship("Item", backref='owned_user', lazy=True)
     cart = db.relationship("Cart", backref='cart_user', lazy=True)
     order = db.relationship("Order", backref='order_user', lazy=True)
+    is_admin = Column(db.Boolean(), default=False)
 
     # order_shopper = db.relationship("Order", backref='order_shopper_user', lazy=True)
 

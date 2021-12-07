@@ -10,6 +10,7 @@ from project.utils import flash_errors, login_required, logout_user, get_current
 
 blueprint = Blueprint("user", __name__, static_folder="../static")
 
+
 # This route is for users to view his profile
 @blueprint.route("/user/info", methods=["GET", "POST"])
 @login_required
@@ -24,7 +25,7 @@ def info() -> str:
         new_main_image = form.image_file.data
         # Have a file
         if new_main_image.filename != "":
-            filename = str(os.urandom(30).hex()) + "." + new_main_image.filename.split(".")[-1];
+            filename = str(os.urandom(30).hex()) + "." + new_main_image.filename.split(".")[-1]
             new_main_image.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
 
         user.username = new_username
@@ -41,6 +42,7 @@ def info() -> str:
     flash_errors(form)
     return render_template("userinfo/userinfo.html", current_user=get_current_user(), form=form)
 
+
 # User change password
 @blueprint.route('/user/change_password')
 @login_required
@@ -52,6 +54,7 @@ def change_password() -> Response:
     flash("Set Password successfully, Please Login again !")
     return redirect(url_for('index.home'))
 
+
 # User change username
 @blueprint.route('/user/change_username')
 @login_required
@@ -62,6 +65,7 @@ def change_username() -> Response:
     user.save()
     flash("Your new username is " + new_username)
     return redirect(url_for('index.home'))
+
 
 # User logout
 @blueprint.route('/user/logout')

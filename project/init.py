@@ -12,7 +12,7 @@ from flask import render_template, url_for, flash, redirect, has_request_context
 # from flask_admin.contrib.sqla import ModelView
 # from flask_login import current_user
 
-from project import app, shopping, login, item, db, user
+from project import app, shopping, login, item, db, user, admin
 
 # from project.models.CategoryModel import Category
 # from project.models.ItemModel import Item
@@ -20,6 +20,7 @@ from project import app, shopping, login, item, db, user
 # from project.models.UserModel import User, Role
 # from project.models.Cart import Cart
 # from project.shopping import shop
+from project.utils import get_current_user
 
 session: dict = {
 
@@ -34,6 +35,7 @@ app.register_blueprint(shopping.order.blueprint)
 app.register_blueprint(login.view.blueprint)
 app.register_blueprint(item.view.blueprint)
 app.register_blueprint(user.view.blueprint)
+app.register_blueprint(admin.view.blueprint)
 """Configure loggers."""
 
 # handler = logging.StreamHandler(sys.stdout)
@@ -47,7 +49,7 @@ def render_error(error):
     """Render error template."""
     # If a HTTPException, pull the `code` attribute; default to 500
     error_code = getattr(error, "code", 500)
-    return render_template(f"errors/{error_code}.html"), error_code
+    return render_template(f"errors/{error_code}.html", current_user=get_current_user()), error_code
 
 
 # Replace original error pages
@@ -100,7 +102,7 @@ if not os.path.exists("log"):
 # HH:mm:ss.SSS
 class RequestFormatter(logging.Formatter):
     def format(self, record):
-        record.msg = record.msg.replace("\n","")
+        record.msg = record.msg.replace("\n", "")
         if has_request_context():
             record.url = request.url
             record.remote_addr = request.remote_addr
@@ -109,7 +111,6 @@ class RequestFormatter(logging.Formatter):
             record.remote_addr = None
 
         return super().format(record)
-
 
 # root = logging.getLogger()
 # log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
@@ -120,9 +121,6 @@ class RequestFormatter(logging.Formatter):
 # )
 # log_handler.setLevel(logging.DEBUG)
 # root.addHandler(log_handler)
-
-
-
 
 
 # logging.basicConfig(

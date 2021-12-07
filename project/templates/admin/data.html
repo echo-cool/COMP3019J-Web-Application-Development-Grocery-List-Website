@@ -1,0 +1,20 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Admin page
+{% endblock %}
+{% block style %}
+
+{% endblock %}
+
+
+{% block content %}
+    <div>
+        {% for row_data in data %}
+            <h1>{{ row_data }}</h1>
+            <br>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
