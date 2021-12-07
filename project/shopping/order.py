@@ -21,6 +21,7 @@ from project.utils import seller_required, buyer_required, login_required, get_c
 
 blueprint = Blueprint("order", __name__, static_folder="../static")
 
+
 # View a order
 @blueprint.route("/order/view", methods=["GET", "POST"])
 @login_required
@@ -83,7 +84,8 @@ def view_order():
 
     return render_template("shopping/order.html", order_dict=order_dict, isshopper=user.is_shopper,
                            orders=orders, total_price=total_price, confirm_count_dict=confirm_count_dict,
-                           orders_length=orders_length,current_user=get_current_user())
+                           orders_length=orders_length, current_user=get_current_user())
+
 
 # this is to handle a shopper's request to confirm a order
 @blueprint.route("/order/shopper_confirm/<int:order_id>", methods=["GET", "POST"])
@@ -99,6 +101,7 @@ def shopper_confirm_order(order_id):
 
     flash("Order Confirmed Successfully !")
     return redirect(url_for("order.view_order"))
+
 
 # this is to handle a buyer's request to confirm a order
 @blueprint.route("/order/buyer_confirm/<int:order_id>/<int:shopper_id>", methods=["GET", "POST"])

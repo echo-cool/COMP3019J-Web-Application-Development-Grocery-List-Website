@@ -18,7 +18,7 @@
             <div class="login-move_box">
 
                 <!-- register -->
-                <div class="sign_up login-hidden">
+                <div class="login-hidden">
                     <h1>REGISTER</h1>
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ register_from.csrf_token }}
@@ -59,7 +59,17 @@
                             <input class="login-input-text" type="checkbox" id="remember"/>
                             <label for="remember">Remember Me</label>
                         </div>
-                        {{ login_form.submit_login(class_="login-submit-button login-register-button") }}
+                        <div>
+{#                            <button class="login-submit-button">#}
+
+{#                                <p style="margin-left: 25%">Forget your Password?</p>#}
+{#                            </button>#}
+                            {{ login_form.submit_login(class_="login-submit-button login-register-button") }}
+                            <button id="forget"><a href="{{ url_for("login.restore_password") }}" id="forget-link">Forget</a></button>
+
+                        </div>
+
+                        {#                            <button class="index-banner-button" id="sign_in">Forget</button>#}
                     </form>
                 </div>
             </div>
