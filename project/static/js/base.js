@@ -147,35 +147,44 @@ function monitorEvents(element) {
 
 var brightness;
 var isDarkMode = false;
+let t = document.querySelector(".switch-icon span");
 if (window.sessionStorage.getItem("DarkMode") != null) {
     if (window.sessionStorage.getItem("DarkMode") == 1) {
         isDarkMode = true;
         darkMode(0.5)
+        //t.style.transform = "translate3d(-60px, 0, 0)";
     } else {
         isDarkMode = false;
         darkMode(0)
     }
-
-} else {
+}
+else {
     isDarkMode = false;
     darkMode(0);
 }
 
 let light = true;
+
 function chooseTheme() {
-    if (light) {
-        darkMode(0.5);
-        light = false;
-    }
-    else {
-        darkMode(0);
+    let t = document.querySelector(".switch-icon span");
+    if (window.sessionStorage.getItem("DarkMode") != null) {
+        if (window.sessionStorage.getItem("DarkMode") == 1) {
+            light = false;
+            darkMode(0)
+            t.style.transform = "translate3d(-10px, 0, 0)";
+        } else {
+            light = true;
+            darkMode(0.5)
+            t.style.transform = "translate3d(60px, 0, 0)";
+        }
+    } else {
         light = true;
+        darkMode(0);
     }
 }
 
 
 function darkMode(brightness) {
-
     if (typeof (div) == 'undefined') {
         div = document.createElement('div');
         div.setAttribute('style', 'position:fixed;top:0;left:0;outline:5000px solid;z-index:99999;');
@@ -209,7 +218,7 @@ let lis = document.querySelectorAll("li")
 for (let i = 0; i < lis.length; i++) {
     lis[i].onclick = function () {
         for (let k = 1; k < lis.length; k++) {
-             lis[k].className = ""
+            lis[k].className = ""
             //console.log(lis[k])
         }
         this.className = "for-javascript"

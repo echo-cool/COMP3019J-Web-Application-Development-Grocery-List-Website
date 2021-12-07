@@ -72,6 +72,7 @@
     box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4);
 }
 
+/*enable the icon to be in the correct place*/
 .switch-icon::before, .switch-icon::after {
     font-size: 1.5rem;
     position: absolute;
@@ -109,10 +110,10 @@
     width: 40px;
     height: 40px;
     content: "";
-    border-radius: 50%;
+    border-radius: 40px;
     background-color: lightBlue;
     transition: transform 200ms, background-color 200ms;
-    box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: -2px 2px 7px rgba(0, 0, 0, 0.3);
 }
 
 .switch-theme:checked ~ .switch-icon {
@@ -127,6 +128,6 @@
     color: #40e0d0;
 }
 
-.switch-theme:checked ~ .switch-icon span::after {
-    transform: translate3d(60px, 0, 0);
-}
+/*.switch-theme:checked ~ .switch-icon span::after {*/
+/*    transform: translate3d(60px, 0, 0);*/
+/*}*/
