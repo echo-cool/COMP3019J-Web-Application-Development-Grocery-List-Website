@@ -1,8 +1,10 @@
 # The purpose of this file is to deal with the issue of sending email
 from threading import Thread
+
+import mail
 from flask import current_app, render_template
 from flask_mail import Message
-from . import mail
+# from . import mail
 
 
 def send_async_email(app, msg):
