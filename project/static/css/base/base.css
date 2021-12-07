@@ -489,3 +489,13 @@ img {
     text-transform: uppercase;
     padding: 8px;
 }
+
+.small-personal-icon {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.small-personal-icon:hover {
+    transform: scale(1.2);
+}
