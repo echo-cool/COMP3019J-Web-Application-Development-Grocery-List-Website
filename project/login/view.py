@@ -7,7 +7,8 @@ from flask import (
     url_for
 )
 
-from project.login.forms import LoginForm, RegisterForm
+from project.login.email import send_email
+from project.login.forms import LoginForm, RegisterForm, PasswordResetRequestForm
 from project.models.UserModel import User
 from project.utils import flash_errors, login_user, get_current_user
 
@@ -70,5 +71,16 @@ def login():
 # this is used for users to restore their passwords
 @blueprint.route("/restore_password/", methods=["GET", "POST"])
 def restore_password():
+    form = PasswordResetRequestForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data.lower()).first()
+        if user:
+            token = user.generate_reset_token()
+            send_email(user.email, 'Reset Your Password',
+                       'mail/reset_pwd',
+                       user=user, token=token)
+        flash('An email with instructions to reset your password has been '
+              'sent to you.')
+        return redirect(url_for('auth.login'))
     return render_template("login/restore_password.html",
                            current_user=get_current_user())
