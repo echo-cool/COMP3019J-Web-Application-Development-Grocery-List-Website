@@ -154,6 +154,7 @@
                                     {% else %}
                                 <td rowspan="{{ confirm_count_dict[order_id][order.shopper.id] }}">
                             {% endif %}
+                        {#                        if the user is a seller    #}
                         {% if current_user.is_shopper %}
                             {% if order.is_confirmed_delivery or order.is_confirmed_by_shopper %}
                                 <button class="button-default-disabled">
@@ -165,6 +166,7 @@
                                        class="order-font">Confirm</a>
                                 </button>
                             {% endif %}
+                            {#                        if the user is a buyer    #}
                         {% else %}
                             {% if order.is_confirmed_delivery %}
                                 <button class="button-default-disabled">
@@ -172,8 +174,13 @@
                                 </button>
                             {% else %}
                                 <button class="button-default">
-                                    <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
-                                       class="order-font">Confirm</a>
+                                    {% if not order.is_confirmed_by_shopper %}
+                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
+                                           class="order-font" onclick="alertNotConfirmedBySeller()">Confirm</a>
+                                    {% else %}
+                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
+                                           class="order-font" onclick="alertConfirmedBySeller()">Confirm</a>
+                                    {% endif %}
                                 </button>
                             {% endif %}
                         {% endif %}
@@ -199,4 +206,7 @@
 
 
 
+{% endblock %}
+{% block jsfoot %}
+    <script src="{{ url_for('static',filename='js/shopping/order.js') }}"></script>
 {% endblock %}
