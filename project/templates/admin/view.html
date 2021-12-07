@@ -1,0 +1,26 @@
+{% extends "/base/base.html" %}
+
+{% block title %}
+    Admin page
+{% endblock %}
+{% block style %}
+
+{% endblock %}
+
+
+{% block content %}
+    <div>
+        {% for name in tables %}
+            <br>
+            <br>
+            <a href="view/{{ name }}">{{ name }}</a>
+            <br>
+            <hr>
+
+            <br>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

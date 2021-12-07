@@ -65,7 +65,6 @@ def product_available_required(func):
 def login_required(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
-        print(session)
         if not session.get("USER_ID") is None:
             return func(*args, **kwargs)
         else:
@@ -74,6 +73,16 @@ def login_required(func):
 
     return decorated_view
 
+def admin_required(func):
+    @wraps(func)
+    def decorated_view(*args, **kwargs):
+        if not session.get("USER_ID") is None:
+            return func(*args, **kwargs)
+        else:
+            flash("You must be login to access this page !")
+            return redirect(url_for("login.login"))
+
+    return decorated_view
 
 def logout_user():
     session.pop("USER_ID", None)
