@@ -10,3 +10,17 @@
     filter: invert(100%) blur(60px) !important;
 
 }
+
+.product-box-dark {
+    background: black !important;
+}
+
+.product-description-box-dark {
+
+    background: black !important;
+}
+
+.number-input-dark {
+    color: white !important;
+    background: black !important;
+}
