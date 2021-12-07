@@ -20,11 +20,11 @@ def validate_email(message=None):
     return validate_email
 
 
-# reset password
-class PasswordResetRequestForm(FlaskForm):
-    email = StringField('Email', render_kw={"placeholder": "Your Email"},
-                        validators=[DataRequired(), Length(1, 64), Email()])
-    submit = SubmitField('Reset Password')
+# # reset password
+# class PasswordResetRequestForm(FlaskForm):
+#     email = StringField('Email', render_kw={"placeholder": "Your Email"},
+#                         validators=[DataRequired(), Length(1, 64), Email()])
+#     submit = SubmitField('Reset Password')
 
 
 # reset password inside the email

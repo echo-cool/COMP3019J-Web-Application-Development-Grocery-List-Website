@@ -7,8 +7,7 @@ from flask import (
     url_for
 )
 
-from project.login.email import send_email
-from project.login.forms import LoginForm, RegisterForm, PasswordResetRequestForm
+from project.login.forms import LoginForm, RegisterForm
 from project.models.UserModel import User
 from project.utils import flash_errors, login_user, get_current_user
 
