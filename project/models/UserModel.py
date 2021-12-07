@@ -9,10 +9,6 @@ from project import bcrypt
 
 
 class UserMixin(object):
-    '''
-    This provides default implementations for the methods that Flask-Login
-    expects user objects to have.
-    '''
 
     __hash__ = object.__hash__
 
