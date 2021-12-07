@@ -152,6 +152,7 @@ if (window.sessionStorage.getItem("DarkMode") != null) {
     if (window.sessionStorage.getItem("DarkMode") == 1) {
         isDarkMode = true;
         darkMode(0.5)
+        //t.style.transform = "translate3d(-60px, 0, 0)";
     } else {
         isDarkMode = false;
         darkMode(0)
