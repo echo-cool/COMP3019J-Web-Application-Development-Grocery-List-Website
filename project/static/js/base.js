@@ -161,6 +161,18 @@ if (window.sessionStorage.getItem("DarkMode") != null) {
     darkMode(0);
 }
 
+let light = true;
+function chooseTheme() {
+    if (light) {
+        darkMode(0.5);
+        light = false;
+    }
+    else {
+        darkMode(0);
+        light = true;
+    }
+}
+
 
 function darkMode(brightness) {
 
@@ -189,7 +201,19 @@ function darkMode(brightness) {
             if (this.classList[0] != null)
                 $(this).removeClass(this.classList[0] + "-dark")
         });
-
     div.style.outlineColor = 'rgba(0,0,0,' + brightness + ')';
+}
+
+let lis = document.querySelectorAll("li")
+//console.log(lis)
+for (let i = 0; i < lis.length; i++) {
+    lis[i].onclick = function () {
+        for (let k = 1; k < lis.length; k++) {
+             lis[k].className = ""
+            //console.log(lis[k])
+        }
+        this.className = "for-javascript"
+        //alert(lis[i].className)
+    }
 }
 

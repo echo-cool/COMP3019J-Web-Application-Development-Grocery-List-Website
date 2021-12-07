@@ -55,3 +55,10 @@
 .nav-follow_us {
     display: flex;
 }
+
+.for-javascript a {
+    text-decoration: none;
+    color: #ff1393;
+    font-weight: bold;
+    margin: 100px;
+}

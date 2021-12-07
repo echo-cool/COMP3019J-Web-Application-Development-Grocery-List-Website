@@ -30,3 +30,103 @@
     color: white;
     background-color: #4CAF50;
 }
+
+/**
+    the following css code achieves the light turn on and turn off effect
+    Reference: https://gscode.in/css-toggle-switches/
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+.switch-theme,
+.switch-icon {
+    position: absolute;
+    z-index: 1;
+}
+
+.switch-theme {
+    /*non-transparency degree: opacity*/
+    opacity: 0;
+}
+
+.switch-theme:hover + .switch-icon, .switch-theme:focus + .switch-icon {
+    background-color: #778899;
+}
+
+.switch-theme:hover + .switch-icon span::after, .switch-theme:focus + .switch-icon span::after {
+    background-color: #d4ebf2;
+}
+
+.switch-icon {
+    padding: 20px;
+    margin-left: 50px;
+    margin-top: -10px;
+    transition: background-color 200ms ease-in-out;
+    width: 110px;
+    height: 20px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #708090;
+    box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4);
+}
+
+.switch-icon::before, .switch-icon::after {
+    font-size: 1.5rem;
+    position: absolute;
+    transform: translate3d(0, -50%, 0);
+    top: 50%;
+}
+
+/*light mode*/
+.switch-icon::before {
+    content: "☼";
+    right: 100%;
+    margin-right: 10px;
+    color: #fea808;
+}
+
+/*dark mode*/
+.switch-icon::after {
+    content: "☾";
+    left: 100%;
+    margin-left: 10px;
+    color: #778899;
+}
+
+.switch-icon span {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 0;
+    width: 100%;
+}
+
+.switch-icon span::after {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    content: "";
+    border-radius: 50%;
+    background-color: lightBlue;
+    transition: transform 200ms, background-color 200ms;
+    box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.switch-theme:checked ~ .switch-icon {
+    background-color: #778899;
+}
+
+.switch-theme:checked ~ .switch-icon::before {
+    color: #778899;
+}
+
+.switch-theme:checked ~ .switch-icon::after {
+    color: #40e0d0;
+}
+
+.switch-theme:checked ~ .switch-icon span::after {
+    transform: translate3d(60px, 0, 0);
+}
