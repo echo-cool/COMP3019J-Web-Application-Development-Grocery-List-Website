@@ -162,20 +162,24 @@ if (window.sessionStorage.getItem("DarkMode") != null) {
 }
 
 let light = true;
+
 function chooseTheme() {
-    if (light) {
-        darkMode(0.5);
-        light = false;
-    }
-    else {
-        darkMode(0);
+    if (window.sessionStorage.getItem("DarkMode") != null) {
+        if (window.sessionStorage.getItem("DarkMode") == 1) {
+            light = false;
+            darkMode(0)
+        } else {
+            light = true;
+            darkMode(0.5)
+        }
+    } else {
         light = true;
+        darkMode(0);
     }
 }
 
 
 function darkMode(brightness) {
-
     if (typeof (div) == 'undefined') {
         div = document.createElement('div');
         div.setAttribute('style', 'position:fixed;top:0;left:0;outline:5000px solid;z-index:99999;');
@@ -209,7 +213,7 @@ let lis = document.querySelectorAll("li")
 for (let i = 0; i < lis.length; i++) {
     lis[i].onclick = function () {
         for (let k = 1; k < lis.length; k++) {
-             lis[k].className = ""
+            lis[k].className = ""
             //console.log(lis[k])
         }
         this.className = "for-javascript"
