@@ -3,5 +3,5 @@ function alertNotConfirmedBySeller(){
 }
 
 function alertConfirmedBySeller(){
-    alert("That is fine!")
+    // alert("That is fine!")
 }
