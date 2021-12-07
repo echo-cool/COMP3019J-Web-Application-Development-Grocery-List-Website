@@ -78,7 +78,8 @@
                     Site</a>
                 <ul class="nav-right-bar">
                     {% if current_user.is_authenticated %}
-                        <li><a href="{{ url_for("user.info") }}">Hello, {{ current_user.username }}</a></li>
+                        <li><a href="{{ url_for("user.info") }}">Hello, {{ current_user.username }} </a></li>
+                        <li><a href="{{ url_for("user.info") }}"><img src="../../{{ current_user.main_image_url }}" alt="" class="small-personal-icon"></a></li>
                         <li>|</li>
 
                         {% if current_user.is_shopper %}
