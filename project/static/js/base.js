@@ -123,6 +123,19 @@ document.onreadystatechange = function () {
         //Page ready show content in body
         $(".content-body").show();
         document.getElementsByClassName("content-body")[0].hidden = false;
+        let t = document.querySelector(".switch-icon span");
+        if (window.sessionStorage.getItem("DarkMode") != null) {
+            if (window.sessionStorage.getItem("DarkMode") == 1) {
+
+                t.style.transform = "translate3d(60px, 0, 0)";
+
+            } else {
+                t.style.transform = "translate3d(-10px, 0, 0)";
+
+            }
+        } else {
+
+        }
     }
 }
 // $(function () {
@@ -157,13 +170,13 @@ if (window.sessionStorage.getItem("DarkMode") != null) {
         isDarkMode = false;
         darkMode(0)
     }
-}
-else {
+} else {
     isDarkMode = false;
     darkMode(0);
 }
 
 let light = true;
+
 
 function chooseTheme() {
     let t = document.querySelector(".switch-icon span");
