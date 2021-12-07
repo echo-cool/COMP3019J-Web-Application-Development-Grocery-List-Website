@@ -25,7 +25,7 @@ def info() -> str:
         new_main_image = form.image_file.data
         # Have a file
         if new_main_image.filename != "":
-            filename = str(os.urandom(30).hex()) + "." + new_main_image.filename.split(".")[-1];
+            filename = str(os.urandom(30).hex()) + "." + new_main_image.filename.split(".")[-1]
             new_main_image.save(os.path.join(current_app.static_folder, 'uploaded_files', filename))
 
         user.username = new_username
