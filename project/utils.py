@@ -76,11 +76,11 @@ def login_required(func):
 def admin_required(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
-        if not session.get("USER_ID") is None:
+        if get_current_user().is_authenticated and get_current_user().is_admin:
             return func(*args, **kwargs)
         else:
-            flash("You must be login to access this page !")
-            return redirect(url_for("login.login"))
+            flash("Only admin can access this page !")
+            return redirect(url_for("index.home"))
 
     return decorated_view
 
