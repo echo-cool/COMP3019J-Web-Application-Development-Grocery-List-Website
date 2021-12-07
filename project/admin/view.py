@@ -29,3 +29,26 @@ def view_table_details(table_name: str) -> Response:
     data = db.session.query(db.metadata.tables[table_name]).all()
     print(data)
     return render_template('admin/data.html', data=data, current_user=get_current_user())
+
+
+@blueprint.route('/admin/del_table/<string:table_name>')
+@login_required
+@admin_required
+def del_table_data_by_name(table_name: str) -> Response:
+    db.session.query(db.metadata.tables[table_name]).delete()
+    db.session.commit()
+    data = db.session.query(db.metadata.tables[table_name]).all()
+    flash("Table deleted --- " + table_name)
+    return redirect(url_for('admin.view_all_tables'))
+
+@blueprint.route('/admin/del_all_tables')
+@login_required
+@admin_required
+def del_all_table_data() -> Response:
+    data: FacadeDict = db.metadata.tables
+    for name in data:
+        db.session.query(db.metadata.tables[name]).delete()
+        db.session.commit()
+    logout_user()
+    flash("All data deleted")
+    return redirect(url_for('admin.view_all_tables'))
