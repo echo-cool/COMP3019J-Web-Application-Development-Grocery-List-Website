@@ -280,7 +280,11 @@
     margin-top: 20px;
 }
 
-
+#forget-link {
+    font-size: 11px;
+    color: #ce7d88;
+    padding: 6px 5px;
+}
 
 
 
