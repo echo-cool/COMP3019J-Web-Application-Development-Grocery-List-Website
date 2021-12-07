@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
-from flask_migrate import Migrate
+# from flask_migrate import Migrate
 # from flask_static_digest import FlaskStaticDigest
 # from flask_debugtoolbar import DebugToolbarExtension
 # from flask_caching import Cache
@@ -23,7 +23,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Init extensions for flask
 db = SQLAlchemy(app)
 csrf_protect = CSRFProtect(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 # debug_toolbar = DebugToolbarExtension(app)
 # flask_static_digest = FlaskStaticDigest(app)
 # cache = Cache(app, config={'CACHE_TYPE': 'simple'})
