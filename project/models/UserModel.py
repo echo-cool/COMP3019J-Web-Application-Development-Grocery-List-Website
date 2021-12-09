@@ -9,7 +9,6 @@ from project import bcrypt
 
 
 class UserMixin(object):
-
     __hash__ = object.__hash__
 
     @property

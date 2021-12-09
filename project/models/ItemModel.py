@@ -4,6 +4,7 @@ from project.database_model import PkModel, Column
 from project import db
 import datetime as dt
 
+
 # This is the item model for all the items in this site
 class Item(PkModel):
     """The products in this project"""
@@ -20,7 +21,8 @@ class Item(PkModel):
     owner = db.Column(db.Integer, db.ForeignKey("users.id"))
     cart = db.relationship("Cart", backref='cart_item', lazy=True)
     order = db.relationship("Order", backref='order_item', lazy=True)
-    #category_id = Column(db.Integer, db.ForeignKey("category.id"), nullable=True, default=db.null)
+
+    # category_id = Column(db.Integer, db.ForeignKey("category.id"), nullable=True, default=db.null)
 
     def __init__(self, name, price, description, inventory, main_image_url, owner) -> None:
         """Create instance."""

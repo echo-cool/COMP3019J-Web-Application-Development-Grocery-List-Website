@@ -4,17 +4,56 @@
     Admin page
 {% endblock %}
 {% block style %}
-
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+    <link rel="stylesheet" href="../../static/css/admin/view.css">
 {% endblock %}
 
 
 {% block content %}
     <div>
-        {% for row_data in data %}
-            <h1>{{ row_data }}</h1>
-            <br>
-        {% endfor %}
+        <div>
+            <div class="shopping-cart-big-box">
+                <div id="shopping-cart-box">
+                    <p class="shopping-cart-box-head"> Administrator </p>
+                    <h1 id="capital">{{ table_name }} Visualization</h1>
+                    <div class="empty-space1">
 
-    </div>
+                    </div>
+                    <p class="shopping-cart-box-head" id="shopping-cart-box-head-price"> Manage {{ table_name }}  </p>
+                    <table class="shopping-cart-box-table">
+                        <thead>
+                        <tr>
+                            {% for row_data in data %}
+                                {{ row_data }}
+                                <br>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        {#                loop through shops#}
+                        <tbody id="shopping-cart-box-tbody">
+                        {% for shop in cart_dict %}
+
+                            <tr class="shopping-cart-seller">
+                                <th colspan="8">Shop Name: {{ shop.username }}</th>
+                            </tr>
+
+                        {% endfor %}
+                        {#                    <tr class="shopping-cart-seller">#}
+                        {#                        <th colspan="8" class="checkout-total-payment">Total Price: {{ total_price }}</th>#}
+                        {#                    </tr>#}
+                        </tbody>
+                    </table>
+
+                    <button class="button-default">
+                        <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
+                    </button>
+                </div>
+            </div>
+            {% for row_data in data %}
+                <h1>{{ row_data }}</h1>
+                <br>
+            {% endfor %}
+
+        </div>
 
 {% endblock %}

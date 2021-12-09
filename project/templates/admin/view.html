@@ -5,6 +5,7 @@
 {% endblock %}
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+    <link rel="stylesheet" href="../../static/css/admin/view.css">
 {% endblock %}
 
 {% block content %}
@@ -16,26 +17,20 @@
             <div class="empty-space1">
 
             </div>
-            {#        if the basket is empty#}
-            {% if cart_length == 0 %}
-                <h1 class="h2">Your Shopping Car is Empty</h1>
-                <div class="empty-space1"></div>
-                <button class="button-default color">
-                    <a href="{{ url_for("index.home") }}">Click here to view items</a>
-                </button>
-                {#                if not empty#}
-            {% else %}
                 <p class="shopping-cart-box-head" id="shopping-cart-box-head-price"> Manage Database </p>
                 <table class="shopping-cart-box-table">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                        <th>Inventory</th>
-                        <th class="number-margin">Number</th>
-                        <th>Total</th>
-                        <th class="cancel-column">Cancel</th>
+                        {% for name in tables %}
+                            <th><a href="view/{{ name }}" id="change-to-white">{{ name }}</a></th>
+{#                        <th>Name</th>#}
+{#                        <th>Image</th>#}
+{#                        <th>Price</th>#}
+{#                        <th>Inventory</th>#}
+{#                        <th class="number-margin">Number</th>#}
+{#                        <th>Total</th>#}
+{#                        <th class="cancel-column">Cancel</th>#}
+                        {% endfor %}
                     </tr>
                     </thead>
                     {#                loop through shops#}
@@ -56,7 +51,6 @@
                 <button class="button-default">
                     <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
                 </button>
-            {% endif %}
         </div>
     </div>
 
