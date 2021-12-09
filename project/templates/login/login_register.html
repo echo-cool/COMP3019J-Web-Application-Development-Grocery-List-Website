@@ -10,15 +10,13 @@
 {% block js %}
 {% endblock %}
 
-{#this is the page for users (sellers and buyers) to login and register#}
-
 {% block content %}
     <div class="container">
         <div class="login-inner_box">
             <div class="login-move_box">
 
                 <!-- register -->
-                <div class="login-hidden">
+                <div class="sign_up login-hidden">
                     <h1>REGISTER</h1>
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ register_from.csrf_token }}
@@ -56,25 +54,13 @@
                             {{ login_form.password.label }}
                         </div>
                         <div class="remember-me">
-                            <input class="login-input-text" type="checkbox" id="remember"/>
+                            <input class = "login-input-text" type="checkbox" id="remember"/>
                             <label for="remember">Remember Me</label>
                         </div>
-                        <div>
-{#                            <button class="login-submit-button">#}
-
-{#                                <p style="margin-left: 25%">Forget your Password?</p>#}
-{#                            </button>#}
-                            {{ login_form.submit_login(class_="login-submit-button login-register-button") }}
-{#                            <button id="forget"><a href="{{ url_for("login.restore_password") }}" id="forget-link">Forget</a></button>#}
-
-                        </div>
-
-                        {#                            <button class="index-banner-button" id="sign_in">Forget</button>#}
+                        {{ login_form.submit_login(class_="login-submit-button login-register-button") }}
                     </form>
                 </div>
             </div>
-
-            {#            the left sub-container #}
 
             <div class="login-left">
                 <h2 class="login-title">WElCOME&nbsp;<span>To</span><br>Shopping</h2>
@@ -84,7 +70,7 @@
                 <p class="login-account">Have an account?</p>
                 <button class="index-banner-button" id="sign_in">LOGIN</button>
             </div>
-            {# the right sub-container#}
+
             <div class="login-right">
                 <h2 class="login-title"><span>WElCOME</span>&nbsp;To<br>Shopping</h2>
                 <p class="login-advertise">Buy/Sell your favorite <span>Item</span></p>
