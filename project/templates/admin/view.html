@@ -4,12 +4,62 @@
     Admin page
 {% endblock %}
 {% block style %}
-
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
 {% endblock %}
-
 
 {% block content %}
     <div>
+        <div class="shopping-cart-big-box">
+        <div id="shopping-cart-box">
+            <p class="shopping-cart-box-head"> Administrator </p>
+            <h1>Administration Visualization</h1>
+            <div class="empty-space1">
+
+            </div>
+            {#        if the basket is empty#}
+            {% if cart_length == 0 %}
+                <h1 class="h2">Your Shopping Car is Empty</h1>
+                <div class="empty-space1"></div>
+                <button class="button-default color">
+                    <a href="{{ url_for("index.home") }}">Click here to view items</a>
+                </button>
+                {#                if not empty#}
+            {% else %}
+                <p class="shopping-cart-box-head" id="shopping-cart-box-head-price"> Manage Database </p>
+                <table class="shopping-cart-box-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Inventory</th>
+                        <th class="number-margin">Number</th>
+                        <th>Total</th>
+                        <th class="cancel-column">Cancel</th>
+                    </tr>
+                    </thead>
+                    {#                loop through shops#}
+                    <tbody id="shopping-cart-box-tbody">
+                    {% for shop in cart_dict %}
+
+                        <tr class="shopping-cart-seller">
+                            <th colspan="8">Shop Name: {{ shop.username }}</th>
+                        </tr>
+
+                    {% endfor %}
+{#                    <tr class="shopping-cart-seller">#}
+{#                        <th colspan="8" class="checkout-total-payment">Total Price: {{ total_price }}</th>#}
+{#                    </tr>#}
+                    </tbody>
+                </table>
+
+                <button class="button-default">
+                    <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
+                </button>
+            {% endif %}
+        </div>
+    </div>
+
         {% for name in tables %}
             <br>
             <br>
@@ -23,4 +73,8 @@
 
     </div>
 
+{% endblock %}
+
+{% block jsfoot %}
+    <script type="application/javascript" src="{{ url_for('static',filename='js/shopping/cart.js') }}"></script>
 {% endblock %}
