@@ -1,4 +1,9 @@
 /*big container*/
+
+* {
+    list-style: none;
+}
+
 .index-container {
     display: flex;
     flex-direction: column;
@@ -48,6 +53,24 @@
     border: 2px solid plum;
     box-shadow: 0 2px;
 }
+
+.index-search-box ul li {
+            height: 0;
+            transition: .2s;
+            opacity: 0;
+            transform: translateY(-65px);
+            background-color: #e07a5f;
+        }
+
+        .index-search-box:hover li {
+            height: 35px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .index-search-box li:hover {
+            background-color: #ffb29d;
+        }
 
 .my-basket-box {
     display: flex;

@@ -7,6 +7,7 @@
 {% endblock %}
 {% block style %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
+    <script src="{{ url_for('static',filename='js/shopping/index.js') }}"></script>
 {% endblock %}
 
 {#IMPORTANT#}
@@ -23,6 +24,11 @@
                     <input class="index-search-text" name="keyword" value="Enter the product name"
                            value="" id="enter_product_name">
                     <input class="index-search-submit-button" type="submit" value="">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
                 </form>
             </div>
             {#            link to basket#}
@@ -84,9 +90,10 @@
                     {% if current_user.is_authenticated %}
                         {% for item in items %}
                             <div class="index-item scroll-fade-in" id="index-item2">
-                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image-big"
-                                                                                              src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                                                              value="Item Image"></a>
+                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                        class="index-item-image-big"
+                                        src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                        value="Item Image"></a>
                                 <div class="index-item-text">
                                     <p class="index-item-price">￥ {{ item.price }}</p>
                                     <a class="index-item-name"
@@ -295,6 +302,7 @@
 
 
     {% block jsfoot %}
-        <script type="application/javascript" src="{{ url_for('static',filename='js/shopping/main-page.js') }}"></script>
+        <script type="application/javascript"
+                src="{{ url_for('static',filename='js/shopping/main-page.js') }}"></script>
     {% endblock %}
 {% endblock %}
