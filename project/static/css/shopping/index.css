@@ -266,7 +266,7 @@
 }
 
 .index-item {
-    width: 190px;
+    width: 200px;
     margin: 10px;
     padding: 12px;
     display: flex;
@@ -281,22 +281,22 @@
     border: 3px solid orange;
 }
 
-.index-item-image {
+.index-item-image-big {
     width: 190px;
     height: 200px;
 }
 
-/*.index-item-image {*/
-/*    width: 175px;*/
-/*    height: 190px;*/
-/*}*/
+.index-item-image {
+    width: 175px;
+    height: 190px;
+}
 
 .index-item-image1 {
     width: 190px;
     height: 200px;
 }
 
-.index-item-image:hover, .index-item-image1:hover {
+.index-item-image:hover, .index-item-image1:hover, .index-item-image-big:hover {
     transform: scale(1.1);
 }
 

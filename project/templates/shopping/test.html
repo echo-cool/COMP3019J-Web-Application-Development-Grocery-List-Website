@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 20px;
+            color: #f4f1de;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        background-image:linear-gradient(to right, #a18cd1, #fbc2eb);
+        }
+        .shell{
+            display: flex;
+            justify-content: center;
+        }
+        .button{
+            background-color: #50536e;
+            width: 170px;
+            height: 65px;
+            text-align: center;
+            line-height: 65px;
+            transition: .3s;
+            cursor: pointer;
+        }
+        .button:hover{
+            background-color: #d15a39;
+        }
+        .button li:hover{
+            background-color: #ffb29d;
+        }
+        .button ul li{
+            height: 0;
+            transition: .2s;
+            opacity: 0;
+            transform: translateY(-65px);
+            background-color: #e07a5f;
+        }
+        .button:hover li{
+            height: 65px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="shell">
+        <li class="button">
+            <span>test</span>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

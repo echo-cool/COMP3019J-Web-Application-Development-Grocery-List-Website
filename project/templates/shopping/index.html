@@ -84,7 +84,7 @@
                     {% if current_user.is_authenticated %}
                         {% for item in items %}
                             <div class="index-item scroll-fade-in" id="index-item2">
-                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
+                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image-big"
                                                                                               src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                                                                                               value="Item Image"></a>
                                 <div class="index-item-text">
