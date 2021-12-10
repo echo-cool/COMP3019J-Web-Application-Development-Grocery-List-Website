@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 """User views."""
-import os
-from urllib import request
 
-from flask import Blueprint, render_template, flash, redirect, url_for, current_app, Response
+from flask import Blueprint, render_template, flash, redirect, url_for, Response
 from sqlalchemy.util import FacadeDict
 
 from project import db
-from project.models.UserModel import User
-from project.user.forms import UpdateUser
-from project.utils import flash_errors, login_required, logout_user, get_current_user, admin_required, logout_all_user
+from project.utils import login_required, logout_user, get_current_user, admin_required, logout_all_user
 
 blueprint = Blueprint("admin", __name__, static_folder="../static")
 
@@ -28,7 +24,7 @@ def view_all_tables() -> Response:
 def view_table_details(table_name: str) -> Response:
     data = db.session.query(db.metadata.tables[table_name]).all()
     print(data)
-    return render_template('admin/data.html', data=data, current_user=get_current_user())
+    return render_template('admin/data.html', data=data, current_user=get_current_user(), table_name=table_name)
 
 
 @blueprint.route('/admin/del_table/<string:table_name>')
@@ -40,6 +36,7 @@ def del_table_data_by_name(table_name: str) -> Response:
     data = db.session.query(db.metadata.tables[table_name]).all()
     flash("Table deleted --- " + table_name)
     return redirect(url_for('admin.view_all_tables'))
+
 
 @blueprint.route('/admin/del_all_tables')
 @login_required

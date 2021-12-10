@@ -1,5 +1,5 @@
-
 from project.database_model import Column, PkModel, db
+
 
 # This is the Category for set Category of different items
 class Category(PkModel):
