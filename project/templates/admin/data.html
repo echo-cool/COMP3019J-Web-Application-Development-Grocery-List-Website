@@ -21,10 +21,15 @@
                     <p class="shopping-cart-box-head" id="shopping-cart-box-head-price"> Manage {{ table_name }}  </p>
                     <table class="shopping-cart-box-table">
                         <thead>
+                        <tr class="shopping-cart-seller">
+                            <th colspan="{{ size + 1 }}" style="padding: 18px"><a href="{{ url_for("admin.view_all_tables") }}"
+                                                            id="back-to-main"><span style="font-size: 30px">Back to Main Administration Page</span></a></th>
+                        </tr>
                         <tr>
                             {% for x in range(0,size) %}
                                 <th>{{ x }}</th>
                             {% endfor %}
+                            <th>Delete</th>
                         </tr>
                         </thead>
                         {#                loop through shops#}
@@ -32,17 +37,24 @@
                         {% for j in range(0,num) %}
                             <tr class="shopping-cart-seller">
                                 {% for i in range(0,size) %}
-{#                                    {% if str(data[j][i]).size > 10 %}#}
-{#                                    <td colspan="8">#}
-{#                                    <td class="index-item-image-box"><img#}
-{#                                            class="index-item-image"#}
-{#                                            src="{{ url_for('static', filename='uploaded_files/'+data[j][i]) }}"#}
-{#                                            value="Item Image">#}
-{#                                    </td>#}
-                                    {#                                    {% else %}#}
-                                    <td>{{ data[j][i] }}</td>
-                                    {#                                    {% endif %}#}
+                                    {{ (data[j][i]~'') }}
+                                    {% if (data[j][i]~'').size == 2 %}
+                                        <td colspan="8">
+                                        <td class="index-item-image-box"><img
+                                                class="index-item-image"
+                                                src="{{ url_for('static', filename='uploaded_files/'+data[j][i]) }}"
+                                                value="Item Image">
+                                        </td>
+                                    {% else %}
+                                    <td>{{ data[j][i] ~ '' }}</td>
+                                    {% endif %}
                                 {% endfor %}
+                                <td>
+                                    <button class="button-default">
+                                        <a href="{{ url_for("checkout.checkout_confirm") }}"
+                                           id="delete-button">Delete</a>
+                                    </button>
+                                </td>
                             </tr>
                         {% endfor %}
                         {#                    <tr class="shopping-cart-seller">#}
@@ -51,15 +63,15 @@
                         </tbody>
                     </table>
 
-                    <button class="button-default">
-                        <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
-                    </button>
+                    {#                    <button class="button-default">#}
+                    {#                        <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>#}
+                    {#                    </button>#}
                 </div>
             </div>
-            {% for row_data in data %}
-                <h1>{{ row_data }}</h1>
-                <br>
-            {% endfor %}
+            {#            {% for row_data in data %}#}
+            {#                <h1>{{ row_data }}</h1>#}
+            {#                <br>#}
+            {#            {% endfor %}#}
         </div>
     </div>
 {% endblock %}

@@ -5,3 +5,14 @@
 #capital {
     text-transform: uppercase;
 }
+
+#delete-button {
+    font-size: 15px;
+    color: white;
+    padding: 0 1px;
+}
+
+#back-to-main {
+    font-size: 25px;
+    color: #80c243;
+}
