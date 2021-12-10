@@ -55,22 +55,26 @@
 }
 
 .index-search-box ul li {
-            height: 0;
-            transition: .2s;
-            opacity: 0;
-            transform: translateY(-65px);
-            background-color: #e07a5f;
-        }
+    height: 0;
+    transition: .2s;
+    opacity: 0;
+    transform: translateY(-65px);
+    background-color: #e07a5f;
+    line-height: 35px;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+}
 
-        .index-search-box:hover li {
-            height: 35px;
-            opacity: 1;
-            transform: translateY(0);
-        }
+.index-search-box:hover li {
+    height: 35px;
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .index-search-box li:hover {
-            background-color: #ffb29d;
-        }
+.index-search-box li:hover {
+    background-color: #ffb29d;
+}
 
 .my-basket-box {
     display: flex;
