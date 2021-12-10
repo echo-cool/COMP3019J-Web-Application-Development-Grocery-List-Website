@@ -17,26 +17,33 @@
                     <p class="shopping-cart-box-head"> Administrator </p>
                     <h1 id="capital">{{ table_name }} Visualization</h1>
                     <div class="empty-space1">
-
                     </div>
                     <p class="shopping-cart-box-head" id="shopping-cart-box-head-price"> Manage {{ table_name }}  </p>
                     <table class="shopping-cart-box-table">
                         <thead>
                         <tr>
-                            {% for row_data in data %}
-                                {{ row_data }}
-                                <br>
+                            {% for x in range(0,size) %}
+                                <th>{{ x }}</th>
                             {% endfor %}
                         </tr>
                         </thead>
                         {#                loop through shops#}
                         <tbody id="shopping-cart-box-tbody">
-                        {% for shop in cart_dict %}
-
+                        {% for j in range(0,num) %}
                             <tr class="shopping-cart-seller">
-                                <th colspan="8">Shop Name: {{ shop.username }}</th>
+                                {% for i in range(0,size) %}
+{#                                    {% if str(data[j][i]).size > 10 %}#}
+{#                                    <td colspan="8">#}
+{#                                    <td class="index-item-image-box"><img#}
+{#                                            class="index-item-image"#}
+{#                                            src="{{ url_for('static', filename='uploaded_files/'+data[j][i]) }}"#}
+{#                                            value="Item Image">#}
+{#                                    </td>#}
+                                    {#                                    {% else %}#}
+                                    <td>{{ data[j][i] }}</td>
+                                    {#                                    {% endif %}#}
+                                {% endfor %}
                             </tr>
-
                         {% endfor %}
                         {#                    <tr class="shopping-cart-seller">#}
                         {#                        <th colspan="8" class="checkout-total-payment">Total Price: {{ total_price }}</th>#}
@@ -53,8 +60,6 @@
                 <h1>{{ row_data }}</h1>
                 <br>
             {% endfor %}
-
         </div>
     </div>
-
 {% endblock %}

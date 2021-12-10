@@ -24,7 +24,10 @@ def view_all_tables() -> Response:
 def view_table_details(table_name: str) -> Response:
     data = db.session.query(db.metadata.tables[table_name]).all()
     print(data)
-    return render_template('admin/data.html', data=data, current_user=get_current_user(), table_name=table_name)
+    size = len(data[0])
+    num = len(data)
+    print(size)
+    return render_template('admin/data.html', data=data, current_user=get_current_user(), table_name=table_name, size=size, num=num)
 
 
 @blueprint.route('/admin/del_table/<string:table_name>')
