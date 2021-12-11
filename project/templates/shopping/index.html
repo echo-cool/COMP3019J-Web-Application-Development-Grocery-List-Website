@@ -7,6 +7,7 @@
 {% endblock %}
 {% block style %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/shopping/index.css') }}">
+    <script src="{{ url_for('static',filename='js/shopping/index.js') }}"></script>
 {% endblock %}
 
 {#IMPORTANT#}
@@ -20,9 +21,11 @@
             <div class="index-search-box">
                 <form action="{{ url_for("index.search") }}" method="GET" name="search">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input class="index-search-text" name="keyword" value="Enter the product name"
-                           value="" id="enter_product_name">
+                    <input class="index-search-text" name="keyword" placeholder="Enter the product name"
+                           value="" id="enter_product_name" onfocus="this.blur();">
                     <input class="index-search-submit-button" type="submit" value="">
+                    <ul class="search-result-list">
+                    </ul>
                 </form>
             </div>
             {#            link to basket#}
@@ -84,9 +87,10 @@
                     {% if current_user.is_authenticated %}
                         {% for item in items %}
                             <div class="index-item scroll-fade-in" id="index-item2">
-                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
-                                                                                              src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                                                              value="Item Image"></a>
+                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                        class="index-item-image-big"
+                                        src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                        value="Item Image"></a>
                                 <div class="index-item-text">
                                     <p class="index-item-price">￥ {{ item.price }}</p>
                                     <a class="index-item-name"
@@ -295,6 +299,7 @@
 
 
     {% block jsfoot %}
-        <script type="application/javascript" src="{{ url_for('static',filename='js/shopping/main-page.js') }}"></script>
+        <script type="application/javascript"
+                src="{{ url_for('static',filename='js/shopping/main-page.js') }}"></script>
     {% endblock %}
 {% endblock %}

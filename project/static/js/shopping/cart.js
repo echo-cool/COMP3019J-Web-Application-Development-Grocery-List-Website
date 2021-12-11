@@ -1,4 +1,4 @@
-var csrftoken = $("meta[name=csrf-token]").attr("content");
+const csrf_token = $("meta[name=csrf-token]").attr("content");
 
 function cart_add(itemID) {
     var item_inventory = Number.parseInt($("#item-inventory-id-" + itemID)[0].textContent);
@@ -8,13 +8,13 @@ function cart_add(itemID) {
         itemCount = item_inventory;
     }
     console.log(itemID, itemCount)
-    console.log(csrftoken)
+    console.log(csrf_token)
     $.ajax({
         url: "/cart/set",
         type: "POST",
         dataType: "html",
         data: {"itemID": itemID, "itemCount": itemCount,},
-        headers: {"X-CSRFToken": csrftoken},
+        headers: {"X-CSRFToken": csrf_token},
         success: function (data) {
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
@@ -44,13 +44,13 @@ function cart_minus(itemID) {
         itemCount = item_inventory;
     }
     console.log(itemID, itemCount)
-    console.log(csrftoken)
+    console.log(csrf_token)
     $.ajax({
         url: "/cart/set",
         type: "POST",
         dataType: "html",
         data: {"itemID": itemID, "itemCount": itemCount,},
-        headers: {"X-CSRFToken": csrftoken},
+        headers: {"X-CSRFToken": csrf_token},
         success: function (data) {
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
@@ -76,7 +76,7 @@ function cart_set(itemID, itemCount) {
     var item_inventory = Number.parseInt($("#item-inventory-id-" + itemID)[0].textContent);
 
     console.log(itemID, itemCount)
-    console.log(csrftoken)
+    console.log(csrf_token)
     if (item_inventory - itemCount < 0) {
         alert("You can't have more then inventory !")
         itemCount = item_inventory;
@@ -86,7 +86,7 @@ function cart_set(itemID, itemCount) {
         type: "POST",
         dataType: "html",
         data: {"itemID": itemID, "itemCount": itemCount,},
-        headers: {"X-CSRFToken": csrftoken},
+        headers: {"X-CSRFToken": csrf_token},
         success: function (data) {
             console.log("success")
             if (itemCount <= 0) {
@@ -109,20 +109,6 @@ function cart_set(itemID, itemCount) {
     });
 }
 
-// function monitorEvents(element) {
-//     var log = function (e) {
-//         console.log(e);
-//     };
-//     var events = [];
-//
-//     for (var i in element) {
-//         if (i.startsWith("on")) events.push(i.substr(2));
-//     }
-//     events.forEach(function (eventName) {
-//         element.addEventListener(eventName, log);
-//     });
-// }
-
 var input_quantity_array = $("input[id^='item-quantity-id-']");
 for (let i = 0; i < input_quantity_array.length; i++) {
     var input_item = input_quantity_array[i];
@@ -132,12 +118,7 @@ for (let i = 0; i < input_quantity_array.length; i++) {
         var itemCount = input_item.value;
         cart_set(itemID, itemCount)
     })
-    // monitorEvents(input_item);
 }
-
-// $(".minus-page-button-area").addEventListener("click", function () {
-//
-// })
 
 let selectAll = document.getElementById("select-all");
 let selects = document.querySelectorAll("#select-one");
@@ -165,4 +146,61 @@ for (let i = 0; i < selects.length; i++) {
         }
         selectAll.checked = flag;
     }
+}
+
+$(document).ready(function () {
+    $(".removal-items-cart").on("click", function () {
+        const itemID = $(this).attr("id").split("-").pop();
+        console.log(itemID);
+
+        cart_set(itemID, 0);
+    })
+})
+
+// event handler: click button to remove items from the shopping cart
+let btn = document.querySelector('.dialogue-message-box');
+
+$(".message-button-action").on("click", function (e) {
+
+    let mx = e.clientX - btn.offsetLeft,
+        my = e.clientY - btn.offsetTop;
+
+    let w = $(this).offsetWidth,
+        h = $(this).offsetHeight;
+
+    let directions = [
+        {id: 'top', x: w / 2, y: 0},
+        {id: 'right', x: w, y: h / 2},
+        {id: 'bottom', x: w / 2, y: h},
+        {id: 'left', x: 0, y: h / 2}
+    ];
+
+    directions.sort(function (a, b) {
+        return distance(mx, my, a.x, a.y) - distance(mx, my, b.x, b.y);
+    });
+
+    $(this).parent().attr('data-direction', directions.shift().id);
+    $(this).parent().addClass('is-open');
+});
+
+// event handler: click yes
+$(".dialogue-message-yes-button").on("click", function () {
+    console.log("yes");
+    $(this).parent().parent().removeClass('is-open');
+
+    const itemID = $(this).attr("id").split("-").pop();
+    cart_set(itemID,0);
+});
+
+// event handler: click no
+$(".dialogue-message-no-button").on("click", function () {
+    console.log("no");
+    $(this).parent().parent().removeClass('is-open');
+});
+
+// event handler: calculate the correct position
+function distance(x1, y1, x2, y2) {
+    let dx = x1 - x2;
+    let dy = y1 - y2;
+    return Math.sqrt(dx * dx + dy * dy);
 }

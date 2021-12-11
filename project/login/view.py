@@ -83,3 +83,22 @@ def login():
 #         return redirect(url_for('auth.login'))
 #     return render_template("login/restore_password.html",
 #                            current_user=get_current_user())
+@blueprint.route("/check/username", methods=["POST"])
+def check_username():
+    username = request.form.get("username")
+    print(username)
+    user = User.query.filter_by(username=username).first()
+    if user:
+        return "false"
+    else:
+        return "true"
+
+
+@blueprint.route("/check/email", methods=["POST"])
+def checkEmail():
+    email = request.form.get("email")
+    user = User.query.filter_by(email=email).first()
+    if user:
+        return "false"
+    else:
+        return "true"

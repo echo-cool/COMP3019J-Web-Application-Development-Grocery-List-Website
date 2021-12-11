@@ -175,7 +175,7 @@
                             {% else %}
                                 <button class="button-default">
                                     {% if not order.is_confirmed_by_shopper %}
-                                        <a href="#" class="order-font" onclick="alertNotConfirmedBySeller()">Confirm</a>
+                                        <a href="javascript:;" class="order-font" onclick="alertNotConfirmedBySeller()">Confirm</a>
                                     {% else %}
                                         <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
                                            class="order-font" onclick="alertConfirmedBySeller()">Confirm</a>

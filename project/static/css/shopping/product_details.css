@@ -44,6 +44,8 @@
     font-size: 32px;
     font-weight: bold;
     color: #d73290;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .product-title:hover {

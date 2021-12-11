@@ -19,6 +19,7 @@ from project.utils import login_required, get_current_user
 
 blueprint = Blueprint("checkout", __name__, static_folder="../static")
 
+
 # This is to handle checkout_confirm action
 @blueprint.route("/checkout/confirm", methods=["GET", "POST"])
 @login_required
@@ -40,7 +41,8 @@ def checkout_confirm() -> str:
         else:
             res[shopper] = [item]
 
-    return render_template("shopping/checkout.html", cart_dict=res, total_price=total_price,current_user=get_current_user())
+    return render_template("shopping/checkout.html", cart_dict=res, total_price=total_price,
+                           current_user=get_current_user())
 
 
 # def do_create_order():
@@ -54,7 +56,7 @@ def checkout_confirm() -> str:
 @blueprint.route("/checkout/pay", methods=["GET", "POST"])
 @login_required
 def checkout_pay() -> str:
-    user: User = current_user
+    user: User = get_current_user()
     # Get all cart items
     cart: list[Cart] = Cart.query.filter_by(user_id=user.id).all()
     res: dict = {}
@@ -90,7 +92,7 @@ def checkout_pay() -> str:
                     full_order_status = False
                 else:
                     # reduce inventory and add sold count
-                    tmp_item.inventory  -= i.count
+                    tmp_item.inventory -= i.count
                     tmp_item.sold_count += i.count
                     tmp_item.save()
                     Order.create(
@@ -107,9 +109,9 @@ def checkout_pay() -> str:
             else:
                 flash("Some items were failed to be ordered, because the shopper dose not have enough inventory.")
             return render_template("shopping/pay.html", pay_status=pay_status, total_price=total_price,
-                                   full_order_status=full_order_status)
+                                   full_order_status=full_order_status, current_user=get_current_user())
         else:
             return render_template("shopping/pay.html", pay_status=pay_status, total_price=total_price,
-                                   full_order_status=full_order_status)
+                                   full_order_status=full_order_status, current_user=get_current_user())
     else:
-        return render_template("shopping/pay.html", pay_status=False, total_price=total_price)
+        return render_template("shopping/pay.html", pay_status=False, total_price=total_price, current_user=get_current_user())

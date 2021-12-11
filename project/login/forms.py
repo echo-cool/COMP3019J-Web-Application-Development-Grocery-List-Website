@@ -28,12 +28,12 @@ def validate_email(message=None):
 
 
 # reset password inside the email
-class PasswordResetForm(FlaskForm):
-    password = PasswordField('New Password', render_kw={"placeholder": "New Password"},
-                             validators=[DataRequired(), EqualTo('password2', message='Passwords must match')])
-    password2 = PasswordField('Confirm password', render_kw={"placeholder": "Confirm password"},
-                              validators=[DataRequired()])
-    submit = SubmitField('Reset Password')
+# class PasswordResetForm(FlaskForm):
+#     password = PasswordField('New Password', render_kw={"placeholder": "New Password"},
+#                              validators=[DataRequired(), EqualTo('password2', message='Passwords must match')])
+#     password2 = PasswordField('Confirm password', render_kw={"placeholder": "Confirm password"},
+#                               validators=[DataRequired()])
+#     submit = SubmitField('Reset Password')
 
 
 # This is the RegisterForm which will be used in the register page
@@ -41,13 +41,13 @@ class RegisterForm(FlaskForm):
     """Register form."""
 
     username = StringField(
-        "Username", validators=[DataRequired(), Length(min=3, max=25)]
+        "Username", validators=[DataRequired(), Length(min=5, max=25)]
     )
     email = StringField(
-        "Email", validators=[DataRequired(), validate_email(), Length(min=3, max=40)]
+        "Email", validators=[DataRequired(), validate_email(), Length(min=5, max=40)]
     )
     password = PasswordField(
-        "Password", validators=[DataRequired(), Length(min=3, max=40)]
+        "Password", validators=[DataRequired(), Length(min=5, max=40)]
     )
     confirm = PasswordField(
         "Verify password",
@@ -80,10 +80,10 @@ class LoginForm(FlaskForm):
     """Register form."""
 
     username = StringField(
-        "Username", validators=[DataRequired(), Length(min=1, max=25)]
+        "Username", validators=[DataRequired(), Length(min=5, max=25)]
     )
     password = PasswordField(
-        "Password", validators=[DataRequired(), Length(min=1, max=40)]
+        "Password", validators=[DataRequired(), Length(min=5, max=40)]
     )
     submit_login = SubmitField("Login")
 

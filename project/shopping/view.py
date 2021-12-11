@@ -4,7 +4,7 @@ from flask import (
     redirect,
     render_template,
     request,
-    url_for,
+    url_for, jsonify,
 )
 
 from project import app, db
@@ -51,8 +51,10 @@ def home() -> str:
             shop_sellers[shopper] = [item]
 
     all_items.sort(key=lambda i: i.sold_count, reverse=True)
-    return render_template("shopping/index.html", items=all_items, current_user=get_current_user(), shop_sellers=shop_sellers,
+    return render_template("shopping/index.html", items=all_items, current_user=get_current_user(),
+                           shop_sellers=shop_sellers,
                            announcements=announcements)
+
 
 # This is to handle user's search requests
 @blueprint.route("/search", methods=["GET", "POST"])
@@ -72,7 +74,22 @@ def search() -> str:
     return render_template("shopping/search.html", have_res=have_res, items=items, current_user=get_current_user(),
                            keyword=keyword)
 
+
+@blueprint.route("/search_ajax", methods=["POST"])
+def search_ajax():
+    keyword = request.form.get("keyword")
+    items = Item.query.filter(Item.name.like("%" + keyword + "%")).all()
+    res = []
+    for i in items:
+        if i.disabled:
+            continue
+        if len(res) >= 10:
+            break
+        res.append(i.name)
+    return jsonify(res)
+
+
 # About page
 @blueprint.route("/about", methods=["GET", "POST"])
 def about() -> str:
-    return render_template("about/about.html",current_user=get_current_user())
+    return render_template("about/about.html", current_user=get_current_user())

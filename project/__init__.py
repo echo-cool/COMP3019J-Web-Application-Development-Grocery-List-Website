@@ -4,11 +4,11 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
+
 # from flask_migrate import Migrate
 # from flask_static_digest import FlaskStaticDigest
 # from flask_debugtoolbar import DebugToolbarExtension
 # from flask_caching import Cache
-from flask_bcrypt import Bcrypt
 
 # from flask_admin import Admin, BaseView, expose
 
@@ -33,7 +33,7 @@ csrf_protect = CSRFProtect(app)
 # login_manager = LoginManager(app)
 # # Setup login default page
 # login_manager.login_view = "login.login"
-bcrypt = Bcrypt(app)
+# bcrypt = Bcrypt(app)
 # admin = Admin(app)
 
 # # Database Migration config

@@ -1,3 +1,6 @@
+/*this is the style for the dark mode*/
+/*we use !important to replace the previous style*/
+
 .background-image-dark {
     filter: invert(100%);
 }
@@ -8,7 +11,6 @@
 
 .product-image-box-background-image-dark {
     filter: invert(100%) blur(60px) !important;
-
 }
 
 .product-box-dark {
@@ -23,4 +25,9 @@
 .number-input-dark {
     color: white !important;
     background: black !important;
+}
+
+.product-number-box-dark b, .product-des-dark  {
+    color: white !important;
+    color: white !important;
 }

@@ -4,13 +4,15 @@
     Shopping
 {% endblock %}
 {% block style %}
+    <!-- Link CSS -->
     <link rel="stylesheet" href="../../static/css/shopping/product_details.css">
+    <link rel="stylesheet" href="../../static/css/shopping/product_details_add.css">
 {% endblock %}
 
 {# display product details#}
-
 {% block content %}
-    <form action="{{ url_for("cart.add_to_cart") }}" method="post">
+    <div class="form">
+        {#    <form action="{{ url_for("cart.add_to_cart") }}" method="post">#}
         {#     left box to display item image#}
         <div class="product-little-box">
             <div class="product-image-box">
@@ -21,16 +23,57 @@
                      src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                      value="Item Image"/>
             </div>
-            {#        right box to display product-details #}
+            {#        right box to display product details #}
             <div class="product-details">
                 <div class="product-title">
                     {{ item.name }}
+                    <ul id="share">
+                        <li><a href="#">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook"
+                                 class="svg-inline--fa fa-facebook" role="img" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 512 512">
+                                <path fill="#3b5799"
+                                      d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.8 90.69 226.4 209.3 245V327.7h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.3 482.4 504 379.8 504 256z"></path>
+                            </svg>
+                        </a></li>
+                        <li><a href="#">
+                            <svg t="1639206188178" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="3607" width="40" height="40">
+                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m215.3 337.7c0.3 4.7 0.3 9.6 0.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2-50.8-10.3-88.9-55-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1-30.9-20.6-49.5-55.3-49.5-92.4 0-20.7 5.4-39.6 15.1-56 54.7 67.4 136.9 111.4 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z"
+                                      p-id="3608" fill="#1296db"></path>
+                            </svg>
+                        </a></li>
+                        <li><a href="#">
+                            <svg t="1639208876324" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="1231" width="40" height="40">
+                                <path d="M512.267234 959.569968c247.223255 0 447.572016-200.400979 447.572016-447.582255 0-247.171037-200.347737-447.558705-447.572016-447.558705-247.194586 0-447.568944 200.387669-447.568944 447.558705 0 247.1823 200.373334 447.582255 447.568944 447.582255"
+                                      fill="#1284C7" p-id="1232"></path>
+                                <path d="M387.013295 699.188763h-87.249365V419.999808h87.249365v279.188955z m-45.860848-314.114707h-0.628666c-31.57048 0-52.042043-21.341866-52.042043-48.378582 0-27.573232 21.086918-48.478922 53.286064-48.478922 32.175596 0 51.975491 20.852449 52.607228 48.402131 0.001024 27.046955-20.430608 48.455373-53.222583 48.455373z m394.899259 314.114707H637.125954V554.711376c0-37.815157-15.457597-63.618091-49.496664-63.61809-26.03126 0-40.488521 17.410146-47.233878 34.204937-2.518758 6.013279-2.133777 14.405043-2.133777 22.820356v151.06916h-98.001184s1.273713-255.921161 0-279.188955h98.001184v43.815125c5.794167-19.157918 37.097413-46.5018 87.093733-46.5018 61.986018 0 110.696338 40.168045 110.696338 126.630041v155.246613z"
+                                      fill="#FFFFFF" p-id="1233"></path>
+                            </svg>
+                        </a></li>
+                        <li><a href="#">
+                            <svg t="1639208789860" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="5709" width="35" height="35">
+                                <path d="M512 306.9c-113.5 0-205.1 91.6-205.1 205.1S398.5 717.1 512 717.1 717.1 625.5 717.1 512 625.5 306.9 512 306.9z m0 338.4c-73.4 0-133.3-59.9-133.3-133.3S438.6 378.7 512 378.7 645.3 438.6 645.3 512 585.4 645.3 512 645.3zM725.5 250.7c-26.5 0-47.9 21.4-47.9 47.9s21.4 47.9 47.9 47.9 47.9-21.3 47.9-47.9c-0.1-26.6-21.4-47.9-47.9-47.9z"
+                                      p-id="5710" fill="#d4237a"></path>
+                                <path d="M911.8 512c0-55.2 0.5-109.9-2.6-165-3.1-64-17.7-120.8-64.5-167.6-46.9-46.9-103.6-61.4-167.6-64.5-55.2-3.1-109.9-2.6-165-2.6-55.2 0-109.9-0.5-165 2.6-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-0.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6 46.9 46.9 103.6 61.4 167.6 64.5 55.2 3.1 109.9 2.6 165 2.6 55.2 0 109.9 0.5 165-2.6 64-3.1 120.8-17.7 167.6-64.5 46.9-46.9 61.4-103.6 64.5-167.6 3.2-55.1 2.6-109.8 2.6-165z m-88 235.8c-7.3 18.2-16.1 31.8-30.2 45.8-14.1 14.1-27.6 22.9-45.8 30.2C695.2 844.7 570.3 840 512 840c-58.3 0-183.3 4.7-235.9-16.1-18.2-7.3-31.8-16.1-45.8-30.2-14.1-14.1-22.9-27.6-30.2-45.8C179.3 695.2 184 570.3 184 512c0-58.3-4.7-183.3 16.1-235.9 7.3-18.2 16.1-31.8 30.2-45.8s27.6-22.9 45.8-30.2C328.7 179.3 453.7 184 512 184s183.3-4.7 235.9 16.1c18.2 7.3 31.8 16.1 45.8 30.2 14.1 14.1 22.9 27.6 30.2 45.8C844.7 328.7 840 453.7 840 512c0 58.3 4.7 183.2-16.2 235.8z"
+                                      p-id="5711" fill="#d4237a"></path>
+                            </svg>
+                        </a></li>
+
+                    </ul>
                 </div>
+                <div style="margin-bottom: 20px">
+
+                </div>
+                {#            on sale#}
                 <div class="time-item">
-            <span class="item-sales">
-                On Sales
-            </span>
+                    <span class="item-sales">
+                        On Sales
+                    </span>
                 </div>
+                {#                price#}
                 <div class="product-box">
                     <div class="product-number-box">
                         <b>Price：</b>￥
@@ -52,22 +95,27 @@
 
                     </div>
                 </div>
+                {#            number#}
                 <div class="product-box">
                     <div class="product-number-box">
-                        <b>Number：<input type="number" value="1"
-                                         name="itemCount" class="number-input" width="10px" id="number-input"
-                                         placeholder="Enter Number">
+                        <b>Number：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="quantity-hidden"
+                                                                                         type="number" value="1"
+                                                                                         name="itemCount"
+                                                                                         class="number-input"
+                                                                                         width="10px" id="number-input"
+                                                                                         placeholder="Enter Number">
                         </b>
-
                     </div>
                 </div>
+                {#            Inventory#}
                 <div class="product-box">
                     <div>
-                        <b class="product-des">Inventory：</b>
+                        <b class="product-des">Inventory：&nbsp;&nbsp;&nbsp;&nbsp;</b>
                         <span class="product-description-box" id="product-description-box">{{ item.inventory }}</span>
                     </div>
-                    <br>
-                    <br>
+                </div>
+                {#            product description#}
+                <div class="product-box">
                     <div>
                         <b class="product-des">Description：</b>
                         <span class="product-description-box" id="product-description-box">{{ item.description }}</span>
@@ -75,7 +123,7 @@
                 </div>
                 <div class="product-action-buttons">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input type="hidden" name="itemID" value="{{ item.id }}">
+                    <input id="item-id-hidden" type="hidden" name="itemID" value="{{ item.id }}">
                     {% if item.inventory <= 0 %}
                         <input class="shopping-cart-disabled" type="submit" disabled="disabled"
                                value="Add to Shopping Cart" name="submit">
@@ -85,5 +133,11 @@
                 </div>
             </div>
         </div>
-    </form>
+        {#    </form>#}
+    </div>
+{% endblock %}
+
+{% block jsfoot %}
+    <script type="application/javascript"
+            src="{{ url_for('static',filename='js/shopping/product_detail.js') }}"></script>
 {% endblock %}

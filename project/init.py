@@ -112,6 +112,7 @@ class RequestFormatter(logging.Formatter):
 
         return super().format(record)
 
+
 # root = logging.getLogger()
 # log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
 # log_handler.setFormatter(
@@ -119,45 +120,44 @@ class RequestFormatter(logging.Formatter):
 #         "%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s requested %(url)s"
 #     )
 # )
-# log_handler.setLevel(logging.DEBUG)
+# log_handler.setLevel(logging.INFO)
 # root.addHandler(log_handler)
 
+logging.basicConfig(
+    format="%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s",
+    datefmt='%Y-%m-%d %H:%M:%S,000',
+    level=logging.DEBUG,
+    filename='log/app.log',
+    filemode='a')
+root = logging.getLogger()
+info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
+debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
+error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="w")
+critical_handler = logging.handlers.RotatingFileHandler('log/critical.log', mode="w")
 
-# logging.basicConfig(
-#     format="%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s",
-#     datefmt='%Y-%m-%d %H:%M:%S,000',
-#     level=logging.DEBUG,
-#     filename='log/app.log',
-#     filemode='a')
-# root = logging.getLogger()
-# info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
-# debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
-# error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="w")
-# critical_handler = logging.handlers.RotatingFileHandler('log/critical.log', mode="w")
-#
-# formatter = logging.Formatter(
-#     '[%(asctime)s] %(message)s'
-# )
-# info_handler.addFilter(LevelFilter('INFO'))
-# info_handler.setFormatter(formatter)
-#
-# error_handler.addFilter(LevelFilter('ERROR'))
-# error_handler.setFormatter(formatter)
-#
-# debug_handler.addFilter(LevelFilter("DEBUG"))
-# debug_handler.setFormatter(formatter)
-#
-# critical_handler.addFilter(LevelFilter("CRITICAL"))
-# critical_handler.setFormatter(formatter)
-# # set formatters, etc..
-#
-# root.addHandler(info_handler)
-# root.addHandler(error_handler)
-# root.addHandler(debug_handler)
-# root.addHandler(critical_handler)
-# root.setLevel(logging.DEBUG)
-#
-# logging.log(logging.ERROR, "Start ERROR Logging")
-# logging.log(logging.INFO, "Start INFO Logging")
-# logging.log(logging.DEBUG, "Start DEBUG Logging")
-# logging.log(logging.CRITICAL, "Start CRITICAL logging")
+formatter = logging.Formatter(
+    '[%(asctime)s] %(message)s'
+)
+info_handler.addFilter(LevelFilter('INFO'))
+info_handler.setFormatter(formatter)
+
+error_handler.addFilter(LevelFilter('ERROR'))
+error_handler.setFormatter(formatter)
+
+debug_handler.addFilter(LevelFilter("DEBUG"))
+debug_handler.setFormatter(formatter)
+
+critical_handler.addFilter(LevelFilter("CRITICAL"))
+critical_handler.setFormatter(formatter)
+# set formatters, etc..
+
+root.addHandler(info_handler)
+root.addHandler(error_handler)
+root.addHandler(debug_handler)
+root.addHandler(critical_handler)
+root.setLevel(logging.DEBUG)
+
+logging.log(logging.ERROR, "Start ERROR Logging")
+logging.log(logging.INFO, "Start INFO Logging")
+logging.log(logging.DEBUG, "Start DEBUG Logging")
+logging.log(logging.CRITICAL, "Start CRITICAL logging")

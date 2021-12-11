@@ -1,4 +1,9 @@
 /*big container*/
+
+* {
+    list-style: none;
+}
+
 .index-container {
     display: flex;
     flex-direction: column;
@@ -47,6 +52,35 @@
     float: left;
     border: 2px solid plum;
     box-shadow: 0 2px;
+}
+
+.index-search-box ul li {
+    /*height: 0;*/
+    transition: .2s;
+    animation: FadeIn 0.5s ease-in 0s backwards;
+    /*opacity: 0;*/
+    /*transform: translateY(-65px);*/
+    height: 35px;
+    opacity: 1;
+    transform: translateY(0);
+    background-color: #e07a5f;
+    line-height: 35px;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.search-result-list a {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+/*.index-search-box:hover li {*/
+
+/*}*/
+
+.index-search-box li:hover {
+    background-color: #ffb29d;
 }
 
 .my-basket-box {
@@ -266,7 +300,7 @@
 }
 
 .index-item {
-    width: 190px;
+    width: 200px;
     margin: 10px;
     padding: 12px;
     display: flex;
@@ -281,9 +315,14 @@
     border: 3px solid orange;
 }
 
-.index-item-image {
+.index-item-image-big {
     width: 190px;
     height: 200px;
+}
+
+.index-item-image {
+    width: 175px;
+    height: 190px;
 }
 
 .index-item-image1 {
@@ -291,7 +330,7 @@
     height: 200px;
 }
 
-.index-item-image:hover, .index-item-image1:hover {
+.index-item-image:hover, .index-item-image1:hover, .index-item-image-big:hover {
     transform: scale(1.1);
 }
 
