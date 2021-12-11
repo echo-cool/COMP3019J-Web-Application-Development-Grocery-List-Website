@@ -1,4 +1,4 @@
-var csrftoken = $("meta[name=csrf-token]").attr("content");
+const csrf_token = $("meta[name=csrf-token]").attr("content");
 
 function cart_add(itemID) {
     var item_inventory = Number.parseInt($("#item-inventory-id-" + itemID)[0].textContent);
@@ -8,13 +8,13 @@ function cart_add(itemID) {
         itemCount = item_inventory;
     }
     console.log(itemID, itemCount)
-    console.log(csrftoken)
+    console.log(csrf_token)
     $.ajax({
         url: "/cart/set",
         type: "POST",
         dataType: "html",
         data: {"itemID": itemID, "itemCount": itemCount,},
-        headers: {"X-CSRFToken": csrftoken},
+        headers: {"X-CSRFToken": csrf_token},
         success: function (data) {
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
@@ -44,13 +44,13 @@ function cart_minus(itemID) {
         itemCount = item_inventory;
     }
     console.log(itemID, itemCount)
-    console.log(csrftoken)
+    console.log(csrf_token)
     $.ajax({
         url: "/cart/set",
         type: "POST",
         dataType: "html",
         data: {"itemID": itemID, "itemCount": itemCount,},
-        headers: {"X-CSRFToken": csrftoken},
+        headers: {"X-CSRFToken": csrf_token},
         success: function (data) {
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
@@ -76,7 +76,7 @@ function cart_set(itemID, itemCount) {
     var item_inventory = Number.parseInt($("#item-inventory-id-" + itemID)[0].textContent);
 
     console.log(itemID, itemCount)
-    console.log(csrftoken)
+    console.log(csrf_token)
     if (item_inventory - itemCount < 0) {
         alert("You can't have more then inventory !")
         itemCount = item_inventory;
@@ -86,7 +86,7 @@ function cart_set(itemID, itemCount) {
         type: "POST",
         dataType: "html",
         data: {"itemID": itemID, "itemCount": itemCount,},
-        headers: {"X-CSRFToken": csrftoken},
+        headers: {"X-CSRFToken": csrf_token},
         success: function (data) {
             console.log("success")
             if (itemCount <= 0) {

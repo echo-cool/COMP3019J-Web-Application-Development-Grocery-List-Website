@@ -21,12 +21,12 @@
             <div class="index-search-box">
                 <form action="{{ url_for("index.search") }}" method="GET" name="search">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input class="index-search-text" name="keyword" value="Enter the product name"
-                           value="" id="enter_product_name">
+                    <input class="index-search-text" name="keyword" placeholder="Enter the product name"
+                           value="" id="enter_product_name" onfocus="this.blur();">
                     <input class="index-search-submit-button" type="submit" value="">
-                    <ul>
-                        <li>Search by shops</li>
-                        <li>Search by items</li>
+                    <ul class="search-result-list">
+                        {#                        <li>Search by shops</li>#}
+                        {#                        <li>Search by items</li>#}
                     </ul>
                 </form>
             </div>

@@ -55,10 +55,14 @@
 }
 
 .index-search-box ul li {
-    height: 0;
+    /*height: 0;*/
     transition: .2s;
-    opacity: 0;
-    transform: translateY(-65px);
+    animation: FadeIn 0.5s ease-in 0s backwards;
+    /*opacity: 0;*/
+    /*transform: translateY(-65px);*/
+    height: 35px;
+    opacity: 1;
+    transform: translateY(0);
     background-color: #e07a5f;
     line-height: 35px;
     padding-left: 20px;
@@ -66,11 +70,9 @@
     font-weight: bold;
 }
 
-.index-search-box:hover li {
-    height: 35px;
-    opacity: 1;
-    transform: translateY(0);
-}
+/*.index-search-box:hover li {*/
+
+/*}*/
 
 .index-search-box li:hover {
     background-color: #ffb29d;
