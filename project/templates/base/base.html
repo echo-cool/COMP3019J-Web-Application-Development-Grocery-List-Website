@@ -78,37 +78,37 @@
                     Site</a>
                 <ul class="nav-right-bar">
                     {% if current_user.is_authenticated %}
-                        <li><a href="{{ url_for("user.info") }}">Hello, {{ current_user.username }} </a></li>
+                        <li><a href="{{ url_for("user.info") }}" class="nav-new">Hello, {{ current_user.username }} </a></li>
                         <li><a href="{{ url_for("user.info") }}"><img src="../../{{ current_user.main_image_url }}" alt="" class="small-personal-icon"></a></li>
                         <li>|</li>
 
                         {% if current_user.is_shopper %}
                             <li>
-                                &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}">Manage Items</a>
+                                &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}" class="nav-new">Manage Items</a>
                             </li>
                             <li>|</li>
                             <li>
-                                <a href="{{ url_for("order.view_order") }}">
+                                <a href="{{ url_for("order.view_order") }}" class="nav-new">
                                     Manage Order</a>
                             </li>
                         {% else %}
                             <li>
-                                <a href="{{ url_for("cart.shopping_cart") }}">
+                                <a href="{{ url_for("cart.shopping_cart") }}" class="nav-new">
                                     Shopping Cart</a>
                             </li>
                             <li>|</li>
                             <li>
                                 {#                            &nbsp;&nbsp;&nbsp;#}
-                                <a href="{{ url_for("order.view_order") }}">
+                                <a href="{{ url_for("order.view_order") }}" class="nav-new">
                                     View Order</a>
                             </li>
                         {% endif %}
                         <li>|</li>
-                        <li><a href="{{ url_for("user.logout") }}">Logout</a></li>
+                        <li><a href="{{ url_for("user.logout") }}" class="nav-new">Logout</a></li>
 
                     {% else %}
                         <li class="login">
-                            <a href="{{ url_for("login.login") }}">Login</a>
+                            <a href="{{ url_for("login.login") }}" class="nav-new">Login</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -135,7 +135,7 @@
     {% block jsfoot %}
     {% endblock %}
     <script src="{{ url_for('static',filename='js/base.js') }}"></script>
-    <script type="application/javascript" src="{{ url_for('static',filename='js/fireworks.js') }}"></script>
+{#    <script type="application/javascript" src="{{ url_for('static',filename='js/fireworks.js') }}"></script>#}
 
 
     {% block footer %}

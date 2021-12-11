@@ -24,7 +24,7 @@
                      src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
                      value="Item Image"/>
             </div>
-            {#        right box to display product-details #}
+            {#        right box to display product details #}
             <div class="product-details">
                 <div class="product-title">
                     {{ item.name }}
@@ -38,11 +38,13 @@
                 <div style="margin-bottom: 20px">
 
                 </div>
+            {#            on sale#}
                 <div class="time-item">
                     <span class="item-sales">
                         On Sales
                     </span>
                 </div>
+            {#                price#}
                 <div class="product-box">
                     <div class="product-number-box">
                         <b>Price：</b>￥
@@ -64,21 +66,23 @@
 
                     </div>
                 </div>
+            {#            number#}
                 <div class="product-box">
                     <div class="product-number-box">
                         <b>Number：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" value="1"
                                          name="itemCount" class="number-input" width="10px" id="number-input"
                                          placeholder="Enter Number">
                         </b>
-
                     </div>
                 </div>
+            {#            Inventory#}
                 <div class="product-box">
                     <div>
                         <b class="product-des">Inventory：&nbsp;&nbsp;&nbsp;&nbsp;</b>
                         <span class="product-description-box" id="product-description-box">{{ item.inventory }}</span>
                     </div>
                 </div>
+            {#            product description#}
                 <div class="product-box">
                     <div>
                         <b class="product-des">Description：</b>
