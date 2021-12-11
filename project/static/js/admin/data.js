@@ -1,12 +1,10 @@
 let btn = document.querySelector('.btn');
 
-let btnFront = btn.querySelector('.btn-front'),
-    btnYes = btn.querySelector('.btn-back .yes'),
-    btnNo = btn.querySelector('.btn-back .no');
+// the following codes are partly adapted from this link:
+// no. 42
+// https://pan.baidu.com/s/1XCmR5eGgKZJTYQN08779xw#list/path=%2Fsharelink2789904698-143656889326290%2Fsrc&parentPath=%2Fsharelink2789904698-143656889326290
 
-btnFront.addEventListener('click', function (event) {
-    alert("here")
-
+function btnFront() {
     let mx = event.clientX - btn.offsetLeft,
         my = event.clientY - btn.offsetTop;
 
@@ -26,17 +24,19 @@ btnFront.addEventListener('click', function (event) {
 
     btn.setAttribute('data-direction', directions.shift().id);
     btn.classList.add('is-open');
+}
 
-});
-
-btnYes.addEventListener('click', function (event) {
+// click yes
+function btnYes() {
     btn.classList.remove('is-open');
-});
+}
 
-btnNo.addEventListener('click', function (event) {
+// click no
+function btnNo() {
     btn.classList.remove('is-open');
-});
+}
 
+// calculate the correct position
 function distance(x1, y1, x2, y2) {
     let dx = x1 - x2;
     let dy = y1 - y2;
