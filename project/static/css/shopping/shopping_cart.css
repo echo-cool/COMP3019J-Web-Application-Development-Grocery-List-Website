@@ -453,3 +453,8 @@ a {
 .dialogue-message-box[data-direction="left"].is-open {
     transform: rotateY(-180deg);
 }
+
+#click-shopping-cart {
+    color: whitesmoke;
+    font-weight: bold;
+}

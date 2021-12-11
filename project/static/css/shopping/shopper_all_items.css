@@ -56,13 +56,14 @@
 .index-item {
     padding: 10px;
     margin: 20px;
-    width: 260px;
+    width: 240px !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     border: 3px lightblue solid;
     border-radius: 15px;
+    height: 420px !important;
 }
 
 .index-item-container-box {
@@ -100,8 +101,8 @@
 }
 
 .index-item-image {
-    width: 240px;
-    height: 250px;
+    width: 210px !important;
+    height: 210px !important;
 }
 
 .index-item-image:hover {
@@ -197,4 +198,8 @@
             rgb(255, 228, 76) 51%,
             rgb(252, 207, 227) 87%
     );
+}
+
+.index-item-new {
+    height: 400px;
 }
