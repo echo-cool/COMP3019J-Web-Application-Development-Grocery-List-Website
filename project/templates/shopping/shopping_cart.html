@@ -90,16 +90,29 @@
                                 <td class="item-total-perice"
                                     id="item-total_price-id-{{ item.id }}">{{ item.price * item.count }}</td>
                                 {#remove from basket#}
+
                                 <td>
-                                    <div class="product-action-buttons">
-                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                        <input type="hidden" name="itemID" value="{{ item.id }}">
-                                        <input id="remove-from-cart-button-{{ item.id }}"
-                                               class="removal-items-cart" type="submit"
-                                               value="Remove from Shopping Cart"
-                                               name="submit">
+                                    <div class="dialogue-message-box" style="margin-bottom: 10px">
+                                        <div class="btn-back">
+                                            <p>Are you sure to delete that?</p>
+                                            <button id="dialogue-message-yes-button-{{ item.id }}" class="dialogue-message-yes-button">Yes</button>
+                                            <button id="dialogue-message-no-button-{{ item.id }}" class="dialogue-message-no-button">No</button>
+                                        </div>
+                                        <span class="message-button-action"
+                                              style="width: 100px; height: 40px; line-height: 40px">Remove</span>
                                     </div>
                                 </td>
+
+                                {#                                <td>#}
+                                {#                                    <div class="product-action-buttons">#}
+                                {#                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>#}
+                                {#                                        <input type="hidden" name="itemID" value="{{ item.id }}">#}
+                                {#                                        <input id="remove-from-cart-button-{{ item.id }}"#}
+                                {#                                               class="removal-items-cart" type="submit"#}
+                                {#                                               value="Remove from Shopping Cart"#}
+                                {#                                               name="submit">#}
+                                {#                                    </div>#}
+                                {#                                </td>#}
                             </tr>
                         {% endfor %}
                     {% endfor %}
