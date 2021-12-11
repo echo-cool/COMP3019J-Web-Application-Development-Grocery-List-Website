@@ -7,13 +7,14 @@
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/shopper_all_items.css">
     <link rel="stylesheet" href="../../static/css/shopping/index.css">
+    <script src="{{ url_for('static',filename='js/shopping/index.js') }}"></script>
 {% endblock %}
 
 {# this is where users view all items in a shop#}
 
 {% block content %}
     <div class="empty-space1"></div>
-    {#    upper banner#}
+    {#    this is the upper banner of the shop details page#}
     <div id="auto">
         <div class="index-upper">
             <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
@@ -21,12 +22,16 @@
                 <form action="{{ url_for("index.search") }}" method="GET" name="search">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <input class="index-search-text" name="keyword" placeholder="Enter the product name"
-                           value="">
+                           value="" id="enter_product_name" onfocus="this.blur();">
                     <input class="index-search-submit-button" type="submit" value="">
+                    <ul class="search-result-list">
+                    </ul>
                 </form>
             </div>
+            {#            link to basket#}
             <div class="my-basket-box">
                 <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
+
                     <span class="index-basket-icon">
                         <p class="index-basket-text">My Shopping Cart</p>
                     <i class="fas fa-cart-arrow-down"></i>
