@@ -171,7 +171,8 @@ h3 {
     flex-wrap: wrap;
     align-content: center;
     justify-items: center;
-    min-height: 120px;
+    padding: 60px;
+    /*min-height: 120px;*/
 }
 
 .shopping-cart-big-box .shopping-cart-box-table .number-margin {
@@ -314,6 +315,141 @@ a {
     margin-right: 8px;
 }
 
-#shopping-cart-box-tbody {
+.description {
+    margin-top: 50px;
+    text-align: center;
+    color: #999;
+    transition: opacity 0.3s ease;
+}
 
+.description a {
+    color: #4a9df6;
+    text-decoration: none;
+}
+
+.dialogue-message-box.is-open ~ .description {
+    opacity: 0;
+}
+
+.dialogue-message-box {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 30px;
+    transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.message-button-action {
+    position: absolute;
+    display: block;
+    background-image: linear-gradient(to right, #d0de33, #f4f003, #8dbf31, #83e088);
+    color: #fff;
+    cursor: pointer;
+    backface-visibility: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    /*padding: 8px 18px;*/
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+@keyframes anim {
+    /*100% background position*/
+    100% {
+        background-position: -390% 0;
+    }
+}
+
+.message-button-action:hover {
+    background-color: #f77066;
+    animation: anim 8s infinite;
+}
+
+.dialogue-message-box.is-open .message-button-action {
+    pointer-events: none;
+    line-height: 160px;
+}
+
+.btn-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    color: #222;
+    transform: translateZ(-2px) rotateX(180deg);
+    overflow: hidden;
+    transition: box-shadow 0.8s ease;
+}
+
+.btn-back p {
+    margin-top: 27px;
+    margin-bottom: 25px;
+}
+
+.btn-back button {
+    padding: 12px 20px;
+    width: 30%;
+    margin: 0 5px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 2px;
+    font-size: 1em;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transition: background 0.15s ease;
+}
+
+.btn-back button:focus {
+    outline: 0;
+}
+
+.btn-back button.dialogue-message-yes-button {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+.btn-back button.dialogue-message-yes-button:hover {
+    background-color: #51adf6;
+}
+
+.btn-back button.dialogue-message-no-button {
+    color: #2196f3;
+}
+
+.btn-back button.dialogue-message-no-button:hover {
+    background-color: #ddd;
+}
+
+.dialogue-message-box.is-open .btn-back {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.dialogue-message-box[data-direction="left"] .btn-back, .dialogue-message-box[data-direction="right"] .btn-back {
+    transform: translateZ(-2px) rotateY(180deg);
+}
+
+.dialogue-message-box.is-open {
+    width: 400px;
+    height: 160px;
+}
+
+.dialogue-message-box[data-direction="top"].is-open {
+    transform: rotateX(180deg);
+}
+
+.dialogue-message-box[data-direction="right"].is-open {
+    transform: rotateY(180deg);
+}
+
+.dialogue-message-box[data-direction="bottom"].is-open {
+    transform: rotateX(-180deg);
+}
+
+.dialogue-message-box[data-direction="left"].is-open {
+    transform: rotateY(-180deg);
 }

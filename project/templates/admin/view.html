@@ -11,64 +11,59 @@
 {% block content %}
     <div>
         <div class="shopping-cart-big-box">
-        <div id="shopping-cart-box">
-            <p class="shopping-cart-box-head"> Administrator </p>
-            <h1>Administration Visualization</h1>
-            <div class="empty-space1">
+            <div id="shopping-cart-box">
+                <p class="shopping-cart-box-head"> Administrator </p>
+                <h1>Administration Visualization</h1>
+                <div class="empty-space1">
 
-            </div>
+                </div>
                 <p class="shopping-cart-box-head" id="shopping-cart-box-head-price"> Manage Database </p>
                 <table class="shopping-cart-box-table">
                     <thead>
                     <tr>
                         {% for name in tables %}
                             <th><a href="view/{{ name }}" id="change-to-white">{{ name }}</a></th>
-{#                        <th>Name</th>#}
-{#                        <th>Image</th>#}
-{#                        <th>Price</th>#}
-{#                        <th>Inventory</th>#}
-{#                        <th class="number-margin">Number</th>#}
-{#                        <th>Total</th>#}
-{#                        <th class="cancel-column">Cancel</th>#}
                         {% endfor %}
                     </tr>
                     </thead>
                     {#                loop through shops#}
                     <tbody id="shopping-cart-box-tbody">
-                    {% for shop in cart_dict %}
-
-                        <tr class="shopping-cart-seller">
-                            <th colspan="8">Shop Name: {{ shop.username }}</th>
-                        </tr>
-
-                    {% endfor %}
-{#                    <tr class="shopping-cart-seller">#}
-{#                        <th colspan="8" class="checkout-total-payment">Total Price: {{ total_price }}</th>#}
-{#                    </tr>#}
+                    <tr style="width: 50px">
+                        <td colspan="6">
+                            <div class="dialogue-message-box" style="margin-bottom: 10px">
+                                <div class="btn-back">
+                                    <p>Are you sure to delete that?</p>
+                                    <button class="dialogue-message-yes-button">Yes</button>
+                                    <button class="dialogue-message-no-button">No</button>
+                                </div>
+                                <span class="message-button-action" style="width: 160px; height: 40px; line-height: 40px">Clear Database</span>
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
 
-{#                <button class="button-default">#}
-{#                    <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>#}
-{#                </button>#}
+                {#                <button class="button-default">#}
+                {#                    <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>#}
+                {#                </button>#}
+            </div>
         </div>
-    </div>
 
-        {% for name in tables %}
-            <br>
-            <br>
-            <a href="view/{{ name }}">{{ name }}</a>
-            <br>
-            <hr>
-
-            <br>
-
-        {% endfor %}
+{#        {% for name in tables %}#}
+{#            <br>#}
+{#            <br>#}
+{#            <a href="view/{{ name }}">{{ name }}</a>#}
+{#            <br>#}
+{#            <hr>#}
+{##}
+{#            <br>#}
+{##}
+{#        {% endfor %}#}
 
     </div>
 
 {% endblock %}
 
-{#{% block jsfoot %}#}
-{#    <script type="application/javascript" src="{{ url_for('static',filename='js/shopping/cart.js') }}"></script>#}
-{#{% endblock %}#}
+{% block jsfoot %}
+    <script src="{{ url_for('static',filename='js/admin/data.js') }}"></script>
+{% endblock %}
