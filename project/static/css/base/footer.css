@@ -22,9 +22,12 @@
     text-decoration: none;
 }
 
-.footer-bar li a:hover:not(.active) {
-    background-color: #ddd;
+.footer-bar-dark li-dark a-dark {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
 }
+
 
 .footer-bar li a.active {
     color: white;
@@ -64,8 +67,8 @@
     margin-left: 50px;
     margin-top: -10px;
     transition: background-color 200ms ease-in-out;
-    width: 110px;
-    height: 20px;
+    width: 100px;
+    height: 12px;
     border-radius: 50px;
     text-align: center;
     background-color: #708090;
@@ -107,10 +110,10 @@
     position: absolute;
     top: calc(100% + 15px);
     left: 5px;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     content: "";
-    border-radius: 40px;
+    border-radius: 38px;
     background-color: lightBlue;
     transition: transform 200ms, background-color 200ms;
     box-shadow: -2px 2px 7px rgba(0, 0, 0, 0.3);
@@ -128,6 +131,18 @@
     color: #40e0d0;
 }
 
-/*.switch-theme:checked ~ .switch-icon span::after {*/
-/*    transform: translate3d(60px, 0, 0);*/
-/*}*/
+/*footer style (especially for the dark mode)*/
+.about-footer-dark, .contact-footer-dark {
+    color: white !important;
+    font-weight: bold;
+}
+
+.about-footer:hover, .contact-footer:hover {
+    color: #3767b8 !important;
+    font-weight: bold;
+}
+
+.about-footer-dark:hover, .contact-footer-dark:hover {
+    color: #3767b8 !important;
+    font-weight: bold;
+}

@@ -85,7 +85,18 @@
     /*border: 1px solid #dadada;*/
     margin-bottom: 15px;
     padding: 15px 25px;
+    border-radius: 7px;
+}
 
+.product-box-dark {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: gray;
+    border: 1px solid gray;
+    margin-bottom: 15px;
+    padding: 15px 25px;
+    border-radius: 7px;
 }
 
 .product-number-box {
@@ -273,7 +284,6 @@
 }
 
 
-/*.product-little-box, .product-little-box .product-image-box::before {*/
-/*    background: url("../../image/shopping/background.png") fixed 0;*/
-/*}*/
-
+.product-description-box-dark {
+    color: white !important;
+}
