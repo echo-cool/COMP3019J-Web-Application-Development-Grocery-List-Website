@@ -83,7 +83,7 @@ def search_ajax():
     for i in items:
         if i.disabled:
             continue
-        if len(res) >= 10:
+        if len(res) > 5:
             break
         res.append(i.name)
     return jsonify(res)
