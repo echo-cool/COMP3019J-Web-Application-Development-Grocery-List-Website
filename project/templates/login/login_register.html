@@ -20,20 +20,24 @@
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ register_from.csrf_token }}
                         <div class="login-input_area">
-                            {{ register_from.username(class="login-input-text",placeholder="") }}
+                            {{ register_from.username(id="register-username-input-text",class="login-input-text",placeholder="") }}
                             {{ register_from.username.label }}
+                            <label id="register-username-input-message"></label>
                         </div>
                         <div class="login-input_area">
-                            {{ register_from.email(class="login-input-text",placeholder="") }}
+                            {{ register_from.email(id="register-email-input-text",class="login-input-text",placeholder="") }}
                             {{ register_from.email.label }}
+                            <label id="register-email-input-message"></label>
                         </div>
                         <div class="login-input_area">
-                            {{ register_from.password(class="login-input-text",placeholder="") }}
+                            {{ register_from.password(id="register-password-input-text",class="login-input-text",placeholder="") }}
                             {{ register_from.password.label }}
+                            <label id="register-password-input-message"></label>
                         </div>
                         <div class="login-input_area">
-                            {{ register_from.confirm(class="login-input-text",placeholder="") }}
+                            {{ register_from.confirm(id="register-password-confirm-input-text",class="login-input-text",placeholder="") }}
                             {{ register_from.confirm.label }}
+                            <label id="register-password-confirm-input-message"></label>
                         </div>
                         {{ register_from.submit_register(class_="login-submit-button login-register-button") }}
                     </form>
@@ -45,17 +49,19 @@
                     <form class="login-more-padding" autocomplete="off" method="POST" action="">
                         {{ login_form.csrf_token }}
                         <div class="login-input_area">
-                            {{ login_form.username(class="login-input-text",placeholder="") }}
+                            {{ login_form.username(id="login-username-input-text",class="login-input-text",placeholder="") }}
                             {{ login_form.username.label }}
+                            <label id="login-username-input-message"></label>
                         </div>
                         <div class="login-input_area">
-                            {{ login_form.password(class="login-input-text",placeholder="") }}
+                            {{ login_form.password(id="login-password-input-text",class="login-input-text",placeholder="") }}
                             {{ login_form.password.label }}
+                            <label id="login-password-input-message"></label>
                         </div>
-                        <div class="remember-me">
-                            <input class = "login-input-text" type="checkbox" id="remember"/>
-                            <label for="remember">Remember Me</label>
-                        </div>
+                        {#                        <div class="remember-me">#}
+                        {#                            <input class="login-input-text" type="checkbox" id="remember"/>#}
+                        {#                            <label for="remember">Remember Me</label>#}
+                        {#                        </div>#}
                         {{ login_form.submit_login(class_="login-submit-button login-register-button") }}
                     </form>
                 </div>
