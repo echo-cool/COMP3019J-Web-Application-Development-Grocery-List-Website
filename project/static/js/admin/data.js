@@ -1,15 +1,12 @@
-let btn = document.querySelector('.btn');
+let btn = document.querySelector('.dialogue-message-box');
 
-// the following codes are partly adapted from this link:
-// no. 42
-// https://pan.baidu.com/s/1XCmR5eGgKZJTYQN08779xw#list/path=%2Fsharelink2789904698-143656889326290%2Fsrc&parentPath=%2Fsharelink2789904698-143656889326290
+$(".message-button-action").on("click", function (e) {
 
-function btnFront() {
-    let mx = event.clientX - btn.offsetLeft,
-        my = event.clientY - btn.offsetTop;
+    let mx = e.clientX - btn.offsetLeft,
+        my = e.clientY - btn.offsetTop;
 
-    let w = btn.offsetWidth,
-        h = btn.offsetHeight;
+    let w = $(this).offsetWidth,
+        h = $(this).offsetHeight;
 
     let directions = [
         {id: 'top', x: w / 2, y: 0},
@@ -22,19 +19,29 @@ function btnFront() {
         return distance(mx, my, a.x, a.y) - distance(mx, my, b.x, b.y);
     });
 
-    btn.setAttribute('data-direction', directions.shift().id);
-    btn.classList.add('is-open');
-}
+    $(this).parent().attr('data-direction', directions.shift().id);
+    $(this).parent().addClass('is-open');
+});
 
 // click yes
-function btnYes() {
-    btn.classList.remove('is-open');
-}
+$(".dialogue-message-yes-button").on("click", function () {
+    console.log("yes");
+    $(this).parent().parent().removeClass('is-open');
+});
+
+// function btnYes() {
+//     btn.classList.remove('is-open');
+// }
 
 // click no
-function btnNo() {
-    btn.classList.remove('is-open');
-}
+$(".dialogue-message-no-button").on("click", function () {
+    console.log("no");
+    $(this).parent().parent().removeClass('is-open');
+});
+
+// function btnNo() {
+//     btn.classList.remove('is-open');
+// }
 
 // calculate the correct position
 function distance(x1, y1, x2, y2) {

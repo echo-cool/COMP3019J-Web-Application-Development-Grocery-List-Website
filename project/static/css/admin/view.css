@@ -22,7 +22,7 @@
 /*no. 42*/
 /*https://pan.baidu.com/s/1XCmR5eGgKZJTYQN08779xw#list/path=%2Fsharelink2789904698-143656889326290%2Fsrc&parentPath=%2Fsharelink2789904698-143656889326290*/
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);*/
 
 .description {
     margin-top: 50px;
@@ -36,11 +36,11 @@
     text-decoration: none;
 }
 
-.btn.is-open ~ .description {
+.dialogue-message-box.is-open ~ .description {
     opacity: 0;
 }
 
-.btn {
+.dialogue-message-box {
     display: block;
     position: relative;
     width: 100px;
@@ -52,7 +52,7 @@
     margin: 0 auto;
 }
 
-.btn-front {
+.message-button-action {
     position: absolute;
     display: block;
     width: 100%;
@@ -74,12 +74,12 @@
     }
 }
 
-.btn-front:hover {
+.message-button-action:hover {
     background-color: #f77066;
     animation: anim 8s infinite;
 }
 
-.btn.is-open .btn-front {
+.dialogue-message-box.is-open .message-button-action {
     pointer-events: none;
     line-height: 160px;
 }
@@ -118,48 +118,48 @@
     outline: 0;
 }
 
-.btn-back button.yes {
+.btn-back button.dialogue-message-yes-button {
     background-color: #2196f3;
     color: #fff;
 }
 
-.btn-back button.yes:hover {
+.btn-back button.dialogue-message-yes-button:hover {
     background-color: #51adf6;
 }
 
-.btn-back button.no {
+.btn-back button.dialogue-message-no-button {
     color: #2196f3;
 }
 
-.btn-back button.no:hover {
+.btn-back button.dialogue-message-no-button:hover {
     background-color: #ddd;
 }
 
-.btn.is-open .btn-back {
+.dialogue-message-box.is-open .btn-back {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-.btn[data-direction="left"] .btn-back, .btn[data-direction="right"] .btn-back {
+.dialogue-message-box[data-direction="left"] .btn-back, .dialogue-message-box[data-direction="right"] .btn-back {
     transform: translateZ(-2px) rotateY(180deg);
 }
 
-.btn.is-open {
+.dialogue-message-box.is-open {
     width: 400px;
     height: 160px;
 }
 
-.btn[data-direction="top"].is-open {
+.dialogue-message-box[data-direction="top"].is-open {
     transform: rotateX(180deg);
 }
 
-.btn[data-direction="right"].is-open {
+.dialogue-message-box[data-direction="right"].is-open {
     transform: rotateY(180deg);
 }
 
-.btn[data-direction="bottom"].is-open {
+.dialogue-message-box[data-direction="bottom"].is-open {
     transform: rotateX(-180deg);
 }
 
-.btn[data-direction="left"].is-open {
+.dialogue-message-box[data-direction="left"].is-open {
     transform: rotateY(-180deg);
 }
