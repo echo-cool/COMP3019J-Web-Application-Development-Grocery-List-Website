@@ -71,20 +71,27 @@
             <!-- end row -->
         {% endif %} {% endwith %}
     </main>
+
+    {#    the navigation part#}
     <nav>
+        {#        the following style is referenced from this link:#}
+        {#        https://pan.baidu.com/s/1XCmR5eGgKZJTYQN08779xw#list/path=%2Fsharelink2789904698-143656889326290%2Fsrc&parentPath=%2Fsharelink2789904698-143656889326290#}
         {% block nav %}
             <div class="nav-container-box">
                 <a class="nav-main-text" href="{{ url_for("index.home") }}">&nbsp;Welcome to Online Grocery List
                     Site</a>
                 <ul class="nav-right-bar">
                     {% if current_user.is_authenticated %}
-                        <li><a href="{{ url_for("user.info") }}" class="nav-new">Hello, {{ current_user.username }} </a></li>
-                        <li><a href="{{ url_for("user.info") }}"><img src="../../{{ current_user.main_image_url }}" alt="" class="small-personal-icon"></a></li>
+                        <li><a href="{{ url_for("user.info") }}" class="nav-new">Hello, {{ current_user.username }} </a>
+                        </li>
+                        <li><a href="{{ url_for("user.info") }}"><img src="../../{{ current_user.main_image_url }}"
+                                                                      alt="" class="small-personal-icon"></a></li>
                         <li>|</li>
 
                         {% if current_user.is_shopper %}
                             <li>
-                                &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}" class="nav-new">Manage Items</a>
+                                &nbsp;&nbsp;&nbsp;<a href="{{ url_for("item.ManageItem") }}" class="nav-new">Manage
+                                Items</a>
                             </li>
                             <li>|</li>
                             <li>
@@ -135,7 +142,7 @@
     {% block jsfoot %}
     {% endblock %}
     <script src="{{ url_for('static',filename='js/base.js') }}"></script>
-{#    <script type="application/javascript" src="{{ url_for('static',filename='js/fireworks.js') }}"></script>#}
+    {#    <script type="application/javascript" src="{{ url_for('static',filename='js/fireworks.js') }}"></script>#}
 
 
     {% block footer %}
