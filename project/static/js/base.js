@@ -55,36 +55,36 @@ function gen_color() {
     return res;
 };
 var a_idx = 0;
-jQuery(document).ready(function ($) {
-    $("body").click(function (e) {
-        var text_data = "Hello,Welcome,Shopping";
-        var a = text_data.split(",");
-        var $i = $("<span/>").text(a[a_idx]);
-        a_idx = (a_idx + 1) % a.length;
-        var x = e.pageX,
-            y = e.pageY;
-        $i.css({
-            "z-index": 150,
-            "top": y - 20,
-            "left": x - 40,
-            "position": "absolute",
-            "font-weight": "bold",
-            "cursor": "default",
-            "color": gen_color(),
-            "font-size": "20px",
-            "animation": "wiggle 1.5s ease-in 0s backwards"
-        });
-        $("body").append($i);
-        $i.animate({
-                "top": y - 180,
-                "opacity": 0
-            },
-            1500,
-            function () {
-                $i.remove();
-            });
-    });
-});
+// jQuery(document).ready(function ($) {
+//     $("body").click(function (e) {
+//         var text_data = "Hello,Welcome,Shopping";
+//         var a = text_data.split(",");
+//         var $i = $("<span/>").text(a[a_idx]);
+//         a_idx = (a_idx + 1) % a.length;
+//         var x = e.pageX,
+//             y = e.pageY;
+//         $i.css({
+//             "z-index": 150,
+//             "top": y - 20,
+//             "left": x - 40,
+//             "position": "absolute",
+//             "font-weight": "bold",
+//             "cursor": "default",
+//             "color": gen_color(),
+//             "font-size": "20px",
+//             "animation": "wiggle 1.5s ease-in 0s backwards"
+//         });
+//         $("body").append($i);
+//         $i.animate({
+//                 "top": y - 180,
+//                 "opacity": 0
+//             },
+//             1500,
+//             function () {
+//                 $i.remove();
+//             });
+//     });
+// });
 
 $('#chooseImage').on('change', function () {
     var path_image, fileFormat, src;
@@ -237,5 +237,9 @@ for (let i = 0; i < lis.length; i++) {
         this.className = "for-javascript"
         //alert(lis[i].className)
     }
+}
+
+function HideMessage() {
+    $(".base-message-box").hide();
 }
 
