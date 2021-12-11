@@ -30,7 +30,8 @@
                 <table class="shopping-cart-box-table">
                     <thead>
                     <tr>
-                        <th class="cancel-column"><input type="checkbox" checked="checked" id="select-all">Select All</th>
+                        <th class="cancel-column"><input type="checkbox" checked="checked" id="select-all">Select All
+                        </th>
                         <th class="index-item-image-box">Name</th>
                         <th class="index-item-image-box">Image</th>
                         <th>Price</th>
@@ -63,7 +64,7 @@
                                 <td id="item-inventory-id-{{ item.id }}">{{ item.inventory }}</td>
                                 {#                                function to change quantity#}
                                 <td class="sub-add-button">
-                                    {#                                    <form action="{{ url_for("cart.set_to_cart") }}" method="post">#}
+
                                     <div class="minus-page-button-area"
                                          onclick="cart_minus({{ item.id }})">
                                         <input type="hidden" name="csrf_token"
@@ -72,11 +73,8 @@
                                         <input type="hidden" name="itemCount" value="{{ item.count - 1 }}">
                                         <input type="submit" value="-" class="change-quantity">
                                     </div>
-                                    {#                                    </form>#}
                                     <input type="text" class="number number-input1" id="item-quantity-id-{{ item.id }}"
                                            value="{{ item.count }}">
-                                    {#                                function to change quantity#}
-                                    {#                                    <form action="{{ url_for("cart.set_to_cart") }}" method="post">#}
                                     <div class="plus-page-button-area"
                                          onclick="cart_add({{ item.id }})">
                                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
@@ -86,19 +84,32 @@
                                     </div>
                                     {#                                    </form>#}
                                 </td>
-                                <td class="item-total-perice" id="item-total_price-id-{{ item.id }}">{{ item.price * item.count }}</td>
+                                <td class="item-total-perice"
+                                    id="item-total_price-id-{{ item.id }}">{{ item.price * item.count }}</td>
                                 {#remove from basket#}
-                                <td>
-                                    <div class="product-action-buttons">
-                                        <form action="{{ url_for("cart.remove_from_cart") }}" method="post">
-                                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                            <input type="hidden" name="itemID" value="{{ item.id }}">
-                                            <input class="removal-items-cart" type="submit"
-                                                   value="Remove from Shopping Cart"
-                                                   name="submit">
-                                        </form>
+
+                                <td colspan="6">
+                                    <div class="dialogue-message-box">
+                                        <div class="btn-back">
+                                            <p>Are you sure to delete that?</p>
+                                            <button class="dialogue-message-yes-button">Yes</button>
+                                            <button class="dialogue-message-no-button">No</button>
+                                        </div>
+                                        <div class="message-button-action">Remove</div>
                                     </div>
                                 </td>
+
+{#                                <td>#}
+{#                                    <div class="product-action-buttons">#}
+{#                                        <form action="{{ url_for("cart.remove_from_cart") }}" method="post">#}
+{#                                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>#}
+{#                                            <input type="hidden" name="itemID" value="{{ item.id }}">#}
+{#                                            <input class="removal-items-cart" type="submit"#}
+{#                                                   value="Remove from Shopping Cart"#}
+{#                                                   name="submit">#}
+{#                                        </form>#}
+{#                                    </div>#}
+{#                                </td>#}
                             </tr>
                         {% endfor %}
                     {% endfor %}
@@ -120,4 +131,5 @@
 
 {% block jsfoot %}
     <script type="application/javascript" src="{{ url_for('static',filename='js/shopping/cart.js') }}"></script>
+{#    <script src="{{ url_for('static',filename='js/admin/data.js') }}"></script>#}
 {% endblock %}
