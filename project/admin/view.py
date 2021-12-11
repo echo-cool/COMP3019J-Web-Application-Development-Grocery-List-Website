@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """User views."""
 
-from flask import Blueprint, render_template, flash, redirect, url_for, Response
+from flask import Blueprint, render_template, flash, redirect, url_for, Response, jsonify
 from sqlalchemy.util import FacadeDict
 
 from project import db
@@ -27,7 +27,8 @@ def view_table_details(table_name: str) -> Response:
     size = len(data[0])
     num = len(data)
     print(size)
-    return render_template('admin/data.html', data=data, current_user=get_current_user(), table_name=table_name, size=size, num=num)
+    return render_template('admin/data.html', data=data, current_user=get_current_user(), table_name=table_name,
+                           size=size, num=num)
 
 
 @blueprint.route('/admin/del_table/<string:table_name>')
@@ -52,4 +53,4 @@ def del_all_table_data() -> Response:
     logout_user()
     logout_all_user()
     flash("All data deleted")
-    return redirect(url_for('admin.view_all_tables'))
+    return jsonify({"status": "success"})

@@ -22,7 +22,7 @@
                 <h1 class="h2">Your Shopping Car is Empty</h1>
                 <div class="empty-space1"></div>
                 <button class="button-default color">
-                    <a href="{{ url_for("index.home") }}">Click here to view items</a>
+                    <a href="{{ url_for("index.home") }}" id="click-shopping-cart">Click here to view items</a>
                 </button>
                 {#                if not empty#}
             {% else %}
@@ -94,7 +94,7 @@
                                 <td>
                                     <div class="dialogue-message-box" style="margin-bottom: 10px">
                                         <div class="btn-back">
-                                            <p>Are you sure to delete that?</p>
+                                            <p id="confirm-delete">Are you sure to delete that?</p>
                                             <button id="dialogue-message-yes-button-{{ item.id }}" class="dialogue-message-yes-button">Yes</button>
                                             <button id="dialogue-message-no-button-{{ item.id }}" class="dialogue-message-no-button">No</button>
                                         </div>

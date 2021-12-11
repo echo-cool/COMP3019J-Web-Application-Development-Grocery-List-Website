@@ -10,8 +10,8 @@
     <script src="{{ url_for('static',filename='js/shopping/index.js') }}"></script>
 {% endblock %}
 
-{#IMPORTANT#}
-{#this is th index / main menu page#}
+{#  IMPORTANT  #}
+{#  this is th index / main menu page#}
 
 {% block content %}
     {#    this is the upper banner of the main page#}
@@ -37,7 +37,6 @@
                     <i class="fas fa-cart-arrow-down"></i>
                 </span>
                 </a>
-
             </div>
         </div>
     </div>
@@ -293,6 +292,56 @@
                         </div>
                     </a>
                 </div>
+            </div>
+        {% else %}
+            <div class="right-side-bar">
+                <div class="user-intro">
+                    <div class="avatar">
+                        <a href="{{ url_for("user.info") }}">
+                            <img width="100px" height="100px" src="../../static/image/user_info/default_avatar.jpg"
+                                 alt="" class="img-avatar">
+                        </a>
+                    </div>
+
+                    <div class="username">
+                        Please login
+                    </div>
+                    <div class="identity">
+
+                    </div>
+                    <div class="empty-space1"></div>
+                    <div class="details">
+                        <div>
+                            <a href="{{ url_for("user.info") }}">
+                                <button class="button-default1">
+                                    Personal Details
+                                </button>
+                            </a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="empty-space"></div>
+                {#            side bar to display announcements in the database#}
+                {% for announcement in announcements %}
+                    <div class="announcements">
+                        <div class="announcements-text">
+                            Announcement
+                        </div>
+                        <div>
+                            <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png"
+                                 alt="">
+                        </div>
+                        <div class="text">
+                            {% for text in announcement %}
+                                <span fill-info="{{ text }}">{{ text }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="empty-space"></div>
+                {% endfor %}
+                {#            sidebar to manage orders for both sellers and buyers#}
+
             </div>
         {% endif %}
     </div>

@@ -10,13 +10,15 @@ from project.utils import seller_required, product_available_required, flash_err
 
 blueprint = Blueprint("item", __name__, static_folder="../static")
 
+
 # This is a route if a user want to view a product detail
 @blueprint.route("/item/<int:itemID>", methods=["GET", "POST"])
 @product_available_required
 def details(itemID: int) -> str:
     item = Item.get_by_id(itemID)
     owner = User.get_by_id(item.owner)
-    return render_template("shopping/product_details.html", item=item, shop=owner,current_user=get_current_user())
+    return render_template("shopping/product_details.html", item=item, shop=owner, current_user=get_current_user())
+
 
 # This is used when shoppers need to manage his shop
 @blueprint.route("/item/manage", methods=["POST", "GET"])
@@ -62,7 +64,8 @@ def ManageItem() -> str:
             print(e.message)
             db.session.rollback()
     flash_errors(form)
-    return render_template("item/manage.html", items=items, form=form, itemsLength=itemsLength,current_user=get_current_user())
+    return render_template("item/manage.html", items=items, form=form, itemsLength=itemsLength,
+                           current_user=get_current_user())
 
 
 @blueprint.route("/item/delete/<int:item_id>", methods=["POST", "GET"])
@@ -79,6 +82,7 @@ def DeleteItem(item_id: int) -> Response:
         i.delete()
     flash("Delete Success")
     return redirect(url_for("item.ManageItem"))
+
 
 # a shopper need to modify the item
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
@@ -109,7 +113,8 @@ def ModifyNewItem(item_id: int) -> str:
         item.update()
         flash("Update Success")
     flash_errors(form)
-    return render_template("item/update.html", item=item, form=form,current_user=get_current_user())
+    return render_template("item/update.html", item=item, form=form, current_user=get_current_user())
+
 
 # a shopper need to add new items
 @blueprint.route("/item/add", methods=["POST", "GET"])
@@ -150,6 +155,7 @@ def addNewItem() -> str:
     flash_errors(form)
     return render_template("item/add.html", form=form)
 
+
 # get all user's items
 @blueprint.route("/item/show/<int:userid>", methods=["POST", "GET"])
 @login_required
@@ -160,4 +166,5 @@ def show_all_items(userid: int) -> str:
     username = user.username
     items = Item.query.filter_by(owner=userid, disabled=False).all()
     # print(items)
-    return render_template("shopping/shopper_all_items.html", items=items, username=username,current_user=get_current_user())
+    return render_template("shopping/shopper_all_items.html", items=items, username=username,
+                           current_user=get_current_user())

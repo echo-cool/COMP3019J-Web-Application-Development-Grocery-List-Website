@@ -172,7 +172,6 @@ h3 {
     align-content: center;
     justify-items: center;
     padding: 60px;
-    /*min-height: 120px;*/
 }
 
 .shopping-cart-big-box .shopping-cart-box-table .number-margin {
@@ -452,4 +451,35 @@ a {
 
 .dialogue-message-box[data-direction="left"].is-open {
     transform: rotateY(-180deg);
+}
+
+#click-shopping-cart {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.btn-back-dark button.dialogue-message-yes-button-dark {
+    background-color: yellowgreen;
+    color: #fff;
+}
+
+.btn-back-dark button.dialogue-message-yes-button-dark:hover {
+    background-color: #70902e;
+}
+
+.btn-back-dark button.dialogue-message-no-button-dark {
+    color: yellowgreen;
+}
+
+.btn-back-dark button.dialogue-message-no-button-dark {
+    background-color: #ddd;
+}
+
+.btn-back-dark button.dialogue-message-no-button-dark:hover {
+    background-color: #868686;
+}
+
+#confirm-delete {
+    color: #5c8705;
+    font-weight: bold;
 }

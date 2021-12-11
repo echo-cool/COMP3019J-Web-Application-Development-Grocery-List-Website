@@ -7,6 +7,7 @@
 .index-container {
     display: flex;
     flex-direction: column;
+    min-width: 1400px;
 }
 
 #auto {
@@ -46,12 +47,26 @@
     padding-left: 18px;
     padding-right: 10px;
     line-height: 32px;
-    font-size: 12px;
+    font-size: 16px;
     color: #6f6f6f;
     display: block;
     float: left;
     border: 2px solid plum;
     box-shadow: 0 2px;
+}
+
+.index-search-text-dark {
+    width: 320px;
+    padding-left: 18px;
+    padding-right: 10px;
+    line-height: 32px;
+    font-size: 16px;
+    color: white;
+    display: block;
+    float: left;
+    border: 2px solid plum;
+    box-shadow: 0 2px;
+    background: black;
 }
 
 .index-search-box ul li {
@@ -89,8 +104,18 @@
     align-items: center;
     width: 200px;
     height: 40px;
-    border: 3px solid #33b62a;
+    border: 3px solid plum;
     background-color: #f1f1f1;
+}
+
+.my-basket-box-dark {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border: 3px solid plum;
+    background-color: black;
 }
 
 .index-basket-group {
@@ -108,7 +133,13 @@
 .index-basket-text {
     font-size: 16px;
     text-decoration: none;
-    color: green;
+    color: deeppink;
+}
+
+.index-basket-text-dark {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
 }
 
 .shell {
@@ -483,6 +514,17 @@
     width: 100%;
 }
 
+.right-side-bar-dark .user-intro-dark, .announcements-dark, .manage-my-order-dark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
+    width: 100%;
+}
+
 .img-avatar {
     border-radius: 50px;
 }
@@ -494,7 +536,19 @@
     color: #6f6f6f;
 }
 
+.username-dark, .announcements-text-dark {
+    margin: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
 .username, .announcements-text:hover {
+    color: orangered;
+    transform: scale(1.06);
+}
+
+.username-dark, .announcements-text:hover {
     color: orangered;
     transform: scale(1.06);
 }
@@ -513,6 +567,16 @@
     font-size: 3px;
     padding: 10px;
     color: lightblue;
+    font-weight: bold;
+}
+
+.text-dark {
+    background-color: rgba(235, 233, 61, 0.1);
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 3px;
+    padding: 10px;
+    color: white;
     font-weight: bold;
 }
 
@@ -541,7 +605,12 @@
 
 .text span::after {
     color: #d575b1;
-    text-shadow: 0 0 1px #d575b1;
+    transform: rotateY(-28deg);
+    z-index: 99;
+}
+
+.text-dark span::after {
+    color: black;
     transform: rotateY(-28deg);
     z-index: 99;
 }
@@ -588,4 +657,9 @@
     height: 150px;
     border-radius: 20px;
     transform: scale(1.06);
+}
+
+
+.identity-dark {
+    color: white;
 }
