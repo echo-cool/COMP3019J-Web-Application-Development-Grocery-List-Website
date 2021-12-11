@@ -8,7 +8,7 @@
     display: flex;
     width: 220px;
     height: 40px;
-    margin-left: 160px;
+    margin-left: 280px;
 }
 
 #share:before {
@@ -65,11 +65,7 @@
 }
 
 #share li:nth-child(4) a {
-    background: #0077b5;
-}
-
-#share li:nth-child(5) a {
-    background: #e4405f;
+    background: linear-gradient(45deg, #ff00ff, #8a2be2);
 }
 
 #share:hover li:nth-child(1) a {
