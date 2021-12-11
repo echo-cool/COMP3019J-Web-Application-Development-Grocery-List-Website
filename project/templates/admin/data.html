@@ -6,6 +6,7 @@
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
     <link rel="stylesheet" href="../../static/css/admin/view.css">
+    <script src="{{ url_for('static',filename='js/admin/data.js') }}"></script>
 {% endblock %}
 
 
@@ -48,11 +49,19 @@
                                     <td>{{ data[j][i] ~ '' }}</td>
                                     {% endif %}
                                 {% endfor %}
-                                <td>
-                                    <button class="button-default">
-                                        <a href="{{ url_for("checkout.checkout_confirm") }}"
-                                           id="delete-button">Delete</a>
-                                    </button>
+                                <td class="btn">
+{#                                    <div class="btn">#}
+		<div class="btn-back">
+			<p>Are you sure you want to do that?</p>
+			<button class="yes">Yes</button>
+			<button class="no">No</button>
+{#		</div>#}
+		<div class="btn-front">Delete</div>
+	</div>
+{#                                    <button class="button-default">#}
+{#                                        <a href="#"#}
+{#                                           id="delete-button" class="btn-front">Delete</a>#}
+{#                                    </button>#}
                                 </td>
                             </tr>
                         {% endfor %}
