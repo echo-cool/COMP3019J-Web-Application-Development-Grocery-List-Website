@@ -4,11 +4,14 @@
     Shopping
 {% endblock %}
 {% block style %}
+    <!-- Link CSS -->
     <link rel="stylesheet" href="../../static/css/shopping/product_details.css">
+    {#    referenced link#}
+    <link rel="stylesheet" href="../../static/css/shopping/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/css/shopping/product_details_add.css">
 {% endblock %}
 
 {# display product details#}
-
 {% block content %}
     <form action="{{ url_for("cart.add_to_cart") }}" method="post">
         {#     left box to display item image#}
@@ -25,11 +28,20 @@
             <div class="product-details">
                 <div class="product-title">
                     {{ item.name }}
+                    <ul id="share">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div style="margin-bottom: 20px">
+
                 </div>
                 <div class="time-item">
-            <span class="item-sales">
-                On Sales
-            </span>
+                    <span class="item-sales">
+                        On Sales
+                    </span>
                 </div>
                 <div class="product-box">
                     <div class="product-number-box">
