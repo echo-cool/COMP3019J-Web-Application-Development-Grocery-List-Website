@@ -112,16 +112,16 @@ class RequestFormatter(logging.Formatter):
 
         return super().format(record)
 
-# root = logging.getLogger()
-# log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
-# log_handler.setFormatter(
-#     RequestFormatter(
-#         "%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s requested %(url)s"
-#     )
-# )
-# log_handler.setLevel(logging.DEBUG)
-# root.addHandler(log_handler)
 
+root = logging.getLogger()
+log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
+log_handler.setFormatter(
+    RequestFormatter(
+        "%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s requested %(url)s"
+    )
+)
+log_handler.setLevel(logging.DEBUG)
+root.addHandler(log_handler)
 
 # logging.basicConfig(
 #     format="%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s",
