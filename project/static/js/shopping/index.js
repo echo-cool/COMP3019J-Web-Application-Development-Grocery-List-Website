@@ -5,11 +5,11 @@
 const csrf_token = $("meta[name=csrf-token]").attr("content");
 $(document).ready(function () {
     console.log("ready!")
-    // $(".index-search-box").on("focusout", function () {
-    //     setInterval(function () {
-    //         $(".search-result-list").empty();
-    //     }, 500);
-    // })
+    // $(".index-search-text").on("focusout", function () {
+    //
+    //     $(".search-result-list").empty();
+    //
+    // });
     $(".index-search-text").on("input focus", function (e) {
 
         const input_data = $(this).val();
@@ -37,3 +37,7 @@ $(document).ready(function () {
 
     })
 })
+
+function clear_search_result() {
+    $(".search-result-list").empty();
+}
