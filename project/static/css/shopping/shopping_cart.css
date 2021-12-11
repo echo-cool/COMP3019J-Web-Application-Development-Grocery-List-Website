@@ -171,7 +171,7 @@ h3 {
     flex-wrap: wrap;
     align-content: center;
     justify-items: center;
-    padding: 30px;
+    padding: 60px;
     /*min-height: 120px;*/
 }
 
@@ -352,7 +352,7 @@ a {
     backface-visibility: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    padding: 8px 18px;
+    /*padding: 8px 18px;*/
     border-radius: 5px;
     margin: 0 auto;
 }

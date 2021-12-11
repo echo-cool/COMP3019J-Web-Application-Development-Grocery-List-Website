@@ -92,14 +92,12 @@
                                 {#remove from basket#}
                                 <td>
                                     <div class="product-action-buttons">
-                                        {#                                        <form action="{{ url_for("cart.remove_from_cart") }}" method="post">#}
                                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                                         <input type="hidden" name="itemID" value="{{ item.id }}">
                                         <input id="remove-from-cart-button-{{ item.id }}"
                                                class="removal-items-cart" type="submit"
                                                value="Remove from Shopping Cart"
                                                name="submit">
-                                        {#                                        </form>#}
                                     </div>
                                 </td>
                             </tr>
