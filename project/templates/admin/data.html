@@ -6,7 +6,6 @@
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
     <link rel="stylesheet" href="../../static/css/admin/view.css">
-    <script src="{{ url_for('static',filename='js/admin/data.js') }}"></script>
 {% endblock %}
 
 
@@ -23,8 +22,10 @@
                     <table class="shopping-cart-box-table">
                         <thead>
                         <tr class="shopping-cart-seller">
-                            <th colspan="{{ size + 1 }}" style="padding: 18px"><a href="{{ url_for("admin.view_all_tables") }}"
-                                                            id="back-to-main"><span style="font-size: 30px">Back to Main Administration Page</span></a></th>
+                            <th colspan="{{ size + 1 }}" style="padding: 18px"><a
+                                    href="{{ url_for("admin.view_all_tables") }}"
+                                    id="back-to-main"><span
+                                    style="font-size: 30px">Back to Main Administration Page</span></a></th>
                         </tr>
                         <tr>
                             {% for x in range(0,size) %}
@@ -46,22 +47,22 @@
                                                 value="Item Image">
                                         </td>
                                     {% else %}
-                                    <td>{{ data[j][i] ~ '' }}</td>
+                                        <td>{{ data[j][i] ~ '' }}</td>
                                     {% endif %}
                                 {% endfor %}
-                                <td class="btn">
-{#                                    <div class="btn">#}
-		<div class="btn-back">
-			<p>Are you sure you want to do that?</p>
-			<button class="yes">Yes</button>
-			<button class="no">No</button>
-{#		</div>#}
-		<div class="btn-front">Delete</div>
-	</div>
-{#                                    <button class="button-default">#}
-{#                                        <a href="#"#}
-{#                                           id="delete-button" class="btn-front">Delete</a>#}
-{#                                    </button>#}
+                                <td>
+                                    <div class="btn">
+                                        <div class="btn-back">
+                                            <p>Are you sure you want to do that?</p>
+                                            <button class="yes">Yes</button>
+                                            <button class="no">No</button>
+                                        </div>
+                                        <div class="btn-front">Delete</div>
+                                    </div>
+                                    {#                                    <button class="button-default">#}
+                                    {#                                        <a href="#"#}
+                                    {#                                           id="delete-button" class="btn-front">Delete</a>#}
+                                    {#                                    </button>#}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -82,4 +83,8 @@
             {#            {% endfor %}#}
         </div>
     </div>
+{% endblock %}
+
+{% block jsfoot %}
+    <script src="{{ url_for('static',filename='js/admin/data.js') }}"></script>
 {% endblock %}
