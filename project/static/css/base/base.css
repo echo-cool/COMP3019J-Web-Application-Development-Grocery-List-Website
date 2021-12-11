@@ -255,6 +255,20 @@ img {
     font-weight: bold;
 }
 
+.button-default1-dark {
+    padding: 5px;
+    margin-right: 5px;
+    /*background: 90% url("../../image/shopping/bbg1.jpg") repeat;*/
+    /*gradient color*/
+    background-image: linear-gradient(to right, #d0de33, #f4f003, #8aeeda, #e7cecc);
+    border-radius: 5px;
+    background-size: 390%;
+    font-size: 10px;
+    color: lightslategrey;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .button-default1:hover {
     animation: anim 8s infinite;
 }
