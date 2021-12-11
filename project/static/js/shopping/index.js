@@ -26,7 +26,7 @@ $(document).ready(function () {
                 for (let item_name in data) {
                     $(".search-result-list").append(
                         "<li class='search-list-item'>" +
-                        "<a href='search" + "?csrf_token=" + csrf_token + "&keyword=" + data[item_name] + "'" + ">" +
+                        "<a href='/search" + "?csrf_token=" + csrf_token + "&keyword=" + data[item_name] + "'" + ">" +
                         data[item_name] +
                         "</a>" +
                         "</li>"
