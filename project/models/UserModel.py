@@ -3,9 +3,9 @@
 import datetime as dt
 
 from sqlalchemy.util import text_type
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from project.database_model import Column, PkModel, db, reference_col, relationship
-from project import bcrypt
 
 
 class UserMixin(object):
@@ -102,11 +102,11 @@ class User(UserMixin, PkModel):
 
     def set_password(self, password: str):
         """Set password."""
-        self.password = bcrypt.generate_password_hash(password)
+        self.password = generate_password_hash(password)
 
     def check_password(self, value: str) -> bool:
         """Check password."""
-        return bcrypt.check_password_hash(self.password, value)
+        return check_password_hash(self.password, value)
 
     @property
     def full_name(self) -> str:
