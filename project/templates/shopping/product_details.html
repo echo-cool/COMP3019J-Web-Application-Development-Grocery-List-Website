@@ -11,7 +11,7 @@
 
 {# display product details#}
 {% block content %}
-    <form action="{{ url_for("cart.add_to_cart") }}" method="post">
+{#    <form action="{{ url_for("cart.add_to_cart") }}" method="post">#}
         {#     left box to display item image#}
         <div class="product-little-box">
             <div class="product-image-box">
@@ -102,5 +102,9 @@
                 </div>
             </div>
         </div>
-    </form>
+{#    </form>#}
+{% endblock %}
+
+{% block jsfoot %}
+    <script type="application/javascript" src="{{ url_for('static',filename='js/shopping/product_detail.js') }}"></script>
 {% endblock %}

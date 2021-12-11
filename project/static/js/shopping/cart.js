@@ -166,3 +166,12 @@ for (let i = 0; i < selects.length; i++) {
         selectAll.checked = flag;
     }
 }
+
+$(document).ready(function () {
+    $(".removal-items-cart").on("click", function () {
+        const itemID = $(this).attr("id").split("-").pop();
+        console.log(itemID);
+
+        cart_set(itemID, 0);
+    })
+})
