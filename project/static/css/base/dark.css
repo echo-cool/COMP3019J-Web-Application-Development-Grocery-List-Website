@@ -27,7 +27,12 @@
     background: black !important;
 }
 
-.product-number-box-dark b, .product-des-dark  {
+.product-number-box-dark b, .product-des-dark {
+    color: white !important;
+    color: white !important;
+}
+
+.footer-item-list-dark li a {
     color: white !important;
     color: white !important;
 }
