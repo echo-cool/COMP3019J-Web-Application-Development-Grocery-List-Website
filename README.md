@@ -287,3 +287,7 @@ criteria: https://share.weiyun.com/fGgz0sD2
 * Print shopping list
 
 ![](misc/print-shoping-list.gif)
+
+* Clear database
+
+![](misc/clear-database.gif)
