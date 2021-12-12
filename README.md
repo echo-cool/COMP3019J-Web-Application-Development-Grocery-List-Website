@@ -320,19 +320,24 @@ criteria: https://share.weiyun.com/fGgz0sD2
 * Dark mode
 
 ![](misc/dark-mode.gif)
+ <img src="misc/dark-mode.gif" width = "300px" height = "200px" alt="" align=center/>
 
 * Javascript & AJAX validation
 
-![](misc/login-validation.gif)
+<!-- ![](misc/login-validation.gif) -->
+ <img src="misc/login-validation.gif" width = "300px" height = "200px" alt="" align=center/>
 
 * Print shopping list
 
-![](misc/print-shoping-list.gif)
+<!-- ![](misc/print-shoping-list.gif) -->
+ <img src="misc/print-shoping-list.gif" width = "300px" height = "200px" alt="" align=center/>
 
 * Clear database
 
-![](misc/clear-database.gif)
+<!-- ![](misc/clear-database.gif) -->
+ <img src="misc/clear-database.gif" width = "300px" height = "200px" alt="" align=center/>
 
 * Iframe for product details
 
-![](misc/iframe.gif)
+<!-- ![](misc/iframe.gif) -->
+ <img src="misc/iframe.gif" width = "300px" height = "200px" alt="" align=center/>
