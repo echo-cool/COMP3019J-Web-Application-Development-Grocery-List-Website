@@ -81,14 +81,24 @@ URL: http://127.0.0.1:5000
 * Passwords are **hashed**
 
 ### Roles
+
 ##### Seller / Shop
+
 This is the kind of user who can **upload** products to sell and confirm orders.
+
 ##### Administrator
-This is the kind of user who can **view** the database and **clear the database** with the empty database still working correctly.
+
+This is the kind of user who can **view** the database and **clear the database** with the empty database still working
+correctly.
+
 ##### Unregistered Buyer (visitor)
+
 This is the kind of user who can view the products display in the main page and different shops.
+
 ##### Logged-in Buyer
-This is the **main actor** in our website who can visit and buy products/items, confirm orders and many other functionalities which will be explained in the following sections in detail.
+
+This is the **main actor** in our website who can visit and buy products/items, confirm orders and many other
+functionalities which will be explained in the following sections in detail.
 
 ### Implemented Functionalities
 
@@ -102,7 +112,9 @@ This is the **main actor** in our website who can visit and buy products/items, 
 - [x] Allow sellers to **manage** their **orders**
 
 #### Administrator
-Our website has prepared a role - **administrator** with the following account and corresponding password. Here are the extra functionalities of the administrator.
+
+Our website has prepared a role - **administrator** with the following account and corresponding password. Here are the
+extra functionalities of the administrator.
 
 1. **View the database** using this url: http://localhost:5000/admin/view
 2. **Clear the database** by clicking "**Clear**" button in the administration page
@@ -111,9 +123,9 @@ Our website has prepared a role - **administrator** with the following account a
 5. Database visualization: shopping cart
 6. Database visualization: roles
 7. Database visualization: users
-8. Database visualization: orders 
+8. Database visualization: orders
 
-Professor or Head TA can use this account to **view the database** and perform the "**Clear Database**" operation. 
+Professor or Head TA can use this account to **view the database** and perform the "**Clear Database**" operation.
 
 Importantly, our website **only** allow the administrator to clear database and test using **empty/new database**.
 
@@ -122,17 +134,21 @@ Username | Password
 buyer1 | 123456
 
 #### Unregistered Buyer (visitor)
+
 - [x] Allow visitors to navigate the site and view multiple pages.
 - [x] Allow visitors to register or login with **validators** and **style changed**.
-- [x] Allow visitors to **change the "light mode / dark mode"** via UI in the footer with the **style changed automatically**
+- [x] Allow visitors to **change the "light mode / dark mode"** via UI in the footer with the **style changed
+  automatically**
 
 #### Logged-in Buyer
+
 - [x] Allow buyers to **visit** different shops
 - [x] Allow buyers to set up and modify their **personal information**
 - [x] Allow buyers to **put** items into their **basket** with **jQuery** animation
 - [x] Allow buyers to **view** their **basket** at all times by clicking the "basket" in the navigation bar
 - [x] Allow buyers to **add** or **remove** items form the **basket** using **jQuery and AJAX**
-- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets** using **jQuery and AJAX**
+- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets**
+  using **jQuery and AJAX**
 - [x] Allow buyers to view the **total expenditure** for all items in the basket using **jQuery and AJAX**
 - [x] Allow buyers to view an itemized list of their **shopping bill**, grouped by the shop
 - [x] Allow buyers to **print their desired shopping lists** which they can take for offline buying
@@ -147,6 +163,7 @@ buyer1 | 123456
 - [x] Can work with **empty/new database** - presnet UI to remove all records in the database.
 
 #### Not Logged-in Buyer
+
 - [x] Allow visitors to view recommended items which is **ordered by the total sales** on the main page
 - [x] Allow visitors to view at most three sample items of each shop on the main page
 - [x] Allow visitors to click an item to view its product details and its **total sold number**
@@ -156,6 +173,7 @@ buyer1 | 123456
 - [x] Allow visitors to **search** items based on keywords (with **list expanded**)
 
 #### Logged-in Buyer
+
 - [x] Allow buyers to view recommended items on the main page
 - [x] Allow buyers to view at most **three** sample items of each shop on the main page
 - [x] Allow buyers to click an item to view its **product details** and its **total sold number**
@@ -222,6 +240,7 @@ buyer1 | 123456
 <!--    * Expand the **iframe** to the product detail page-->
 
 ### User Accounts for Testing
+
 Here are the accounts for the professor and head TA to test our website:
 
 Role | Username | Password
@@ -313,3 +332,7 @@ criteria: https://share.weiyun.com/fGgz0sD2
 * Clear database
 
 ![](misc/clear-database.gif)
+
+* Iframe for product details
+
+![](misc/iframe.gif)
