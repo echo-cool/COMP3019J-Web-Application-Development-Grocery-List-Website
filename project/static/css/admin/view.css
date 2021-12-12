@@ -1,3 +1,8 @@
+/*
+    layout ideas are partly from the following reference, but codes are written by ourself:
+    https://pan.baidu.com/s/1XCmR5eGgKZJTYQN08779xw#list/path=%2Fsharelink2789904698-143656889326290%2Fsrc&parentPath=%2Fsharelink2789904698-143656889326290
+ */
+
 #change-to-white {
     color: white;
 }
@@ -179,6 +184,3 @@
     background: #03a9f4;
 }
 
-/*.message-button-action:hover {*/
-/*    background: palevioletred;*/
-/*}*/
