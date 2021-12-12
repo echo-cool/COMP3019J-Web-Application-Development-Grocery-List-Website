@@ -319,25 +319,20 @@ criteria: https://share.weiyun.com/fGgz0sD2
 
 * Dark mode
 
-<!-- ![](misc/dark-mode.gif) -->
- <img src="misc/dark-mode.gif" width = "300px" height = "200px" alt="" align=center/>
+![](misc/dark-mode.gif)
 
 * Javascript & AJAX validation
 
-<!-- ![](misc/login-validation.gif) -->
- <img src="misc/login-validation.gif" width = "300px" height = "200px" alt="" align=center/>
+![](misc/login-validation.gif)
 
 * Print shopping list
 
-<!-- ![](misc/print-shoping-list.gif) -->
- <img src="misc/print-shoping-list.gif" width = "300px" height = "200px" alt="" align=center/>
+![](misc/print-shoping-list.gif)
 
 * Clear database
 
-<!-- ![](misc/clear-database.gif) -->
- <img src="misc/clear-database.gif" width = "300px" height = "200px" alt="" align=center/>
+![](misc/clear-database.gif)
 
 * Iframe for product details
 
-<!-- ![](misc/iframe.gif) -->
- <img src="misc/iframe.gif" width = "300px" height = "200px" alt="" align=center/>
+![](misc/iframe.gif)
