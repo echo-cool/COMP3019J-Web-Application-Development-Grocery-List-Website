@@ -129,7 +129,7 @@ Professor or Head TA can use this account to **view the database** and perform t
 
 Importantly, our website **only** allow the administrator to clear database and test using **empty/new database**.
 
-Username | Password
+**Admin** Username | Password
 ---|---
 buyer1 | 123456
 
