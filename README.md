@@ -92,6 +92,17 @@ URL: http://127.0.0.1:5000
 - [x] Allow sellers to **manage** their **orders**
 
 #### Administrator
+Our website has prepared a role - **administrator** with the following account and corresponding password. Here are the extra functionalities of the administrator.
+
+1. Manage the database using this url: 
+2. **Clear the database** by clicking "**Clear**" button in the administration page
+3. Database visualization: 
+4. Database visualization: 
+5. Database visualization: 
+6. Database visualization: 
+7. Database visualization: 
+
+Professor or Head TA can use this account to 
 
 Account | Password
 ---|---
