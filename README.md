@@ -80,7 +80,7 @@ URL: http://127.0.0.1:5000
 * **Blueprint** for routing
 * Passwords are **hashed**
 
-### Intended Functionalities
+### Roles
 
 #### Seller / Shop
 
@@ -90,26 +90,31 @@ URL: http://127.0.0.1:5000
 - [x] Allow sellers to **visit** different shops
 - [x] Allow sellers to **manage** their **items**
 - [x] Allow sellers to **manage** their **orders**
-- [ ] Expand the express delivery services
-- [ ] Handle buyers' comments
 
-#### Buyer
+#### Administrator
+
+Account | Password
+---|---
+buyer1 | 123456
+
+
 
 #### Unregistered Buyer (visitor)
-
-- [x] Allow visitors to **visit** different shops
+- [x] Allow visitors to navigate the site and view multiple pages.
+- [x] Allow visitors to register or login with **validators** and **style changed**.
+- [x] Allow visitors to **change the "light mode / dark mode"** via UI in the footer
 
 #### Logged-in Buyer
-
 - [x] Allow buyers to **visit** different shops
-- [x] Allow buyers to set up their **personal information**
-- [x] Allow buyers to **put** items into their **basket**
-- [x] Allow buyers to **view** their **basket** at all times
-- [x] Allow buyers to **add** or **remove** items form the **basket**
-- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets**
+- [x] Allow buyers to set up and modify their **personal information**
+- [x] Allow buyers to **put** items into their **basket** with **js** animation
+- [x] Allow buyers to **view** their **basket** at all times by clicking the "basket" in the navigation bar
+- [x] Allow buyers to **add** or **remove** items form the **basket** using **AJAX**
+- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets** using **AJAX**
 - [x] Allow buyers to view the **total expenditure** for all items in the basket
 - [x] Allow buyers to view an itemized list of their **shopping bill**, grouped by the shop
-- [ ] Display recommended items to logged-in users based on their preferences (algorithm optimization)
+- [x] Allow buyers to **print their desired shopping lists** which they can take for offline buying
+- [x] Allow visitors to **change the "light mode / dark mode"** via UI in the footer
 
 ### Implemented Functions for MileStone 1
 
