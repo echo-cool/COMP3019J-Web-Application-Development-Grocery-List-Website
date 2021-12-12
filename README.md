@@ -224,7 +224,7 @@ buyer1 | 123456
 ### User Accounts for Testing
 Here are the accounts for the professor and head TA to test our website:
 
-Role | Account | Password
+Role | Username | Password
 ---|---|---
 Seller | shop1 | 123456
 Buyer | customer1 | 123456
