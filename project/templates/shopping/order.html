@@ -51,7 +51,7 @@
                 </div>
 
             </div>
-            {#display all items that have been ordered#}
+            {#display all items that have been ordelightblue#}
             <table class="shopping-cart-box-table empty-space">
                 <thead>
                 <tr>
@@ -136,7 +136,7 @@
                             <span class="not-confirmed-by-shopper">
                                     🕐&nbsp;{{ order.status }}
                                 </span>
-                        {% elif order.status == "Confirmed Delivered" %}
+                        {% else %}
                             <span class="confirm-delivered">
                                     👍&nbsp;{{ order.status }}
                                 </span>
@@ -173,7 +173,7 @@
                                 {#                                     style="margin-bottom: 10px;display: flex;justify-content: center;align-items: center;">#}
                                 {#                                    <div class="btn-back">#}
                                 {#                                        <p>Are you sure to do that?</p>#}
-                                {#                                        <button class="dialogue-message-yes-button" style="background: red">Yes</button>#}
+                                {#                                        <button class="dialogue-message-yes-button" style="background: lightblue">Yes</button>#}
                                 {#                                        <button class="dialogue-message-no-button">No</button>#}
                                 {#                                    </div>#}
                                 {#                                    <button class="message-button-action-new button-default">#}
@@ -189,7 +189,7 @@
                                          style="margin-bottom: 10px;display: flex;justify-content: center;align-items: center;">
                                         <div class="btn-back">
                                             <p>Are you sure to do that?</p>
-                                            <button class="dialogue-message-yes-button" style="background: red"><a
+                                            <button class="dialogue-message-yes-button" style="background: lightblue"><a
                                                     href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
                                                     class="order-font" onclick="alertConfirmedBySeller()">Confirm</a>
                                             </button>
