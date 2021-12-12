@@ -72,7 +72,6 @@
                 </div>
             </div>
 
-
             <div class="empty-space1"></div>
 
             {#this is the Product viewing area#}
@@ -172,7 +171,7 @@
                                 {% endfor %}
                                 {# if the user has not logged in, view 4 items of each shop#}
                             {% else %}
-                                {% for item in shop_sellers[shop][:4] %}
+                                {% for item in shop_sellers[shop][:3] %}
                                     <div class="index-item scroll-fade-in">
                                         <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
                                                 class="index-item-image1"
