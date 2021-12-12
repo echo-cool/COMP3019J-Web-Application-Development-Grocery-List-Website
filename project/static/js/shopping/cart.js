@@ -18,6 +18,26 @@ function cart_add(itemID) {
         success: function (data) {
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
+                let trs = $(".shopping-cart-box-table tr");
+                for (let i = 0; i < trs.length; i++) {
+                    if (i + 1 < trs.length) {
+                        if (trs[i].className == "shopping-cart-seller" && trs[i].className == trs[i + 1].className) {
+                            trs[i].remove();
+                        }
+                    }
+                }
+                calc_price();
+                if ($("tr[id^='item-entry-id-']").length == 0) {
+                    // location.reload();
+                    $.ajax({
+                        url: "/cart",
+                        type: "GET",
+                        success: function (data) {
+                            $("#shopping-cart-box").html($(data).find("#shopping-cart-box")[0].innerHTML);
+                        }
+                    })
+
+                }
             } else {
                 $("#item-quantity-id-" + itemID)[0].value = itemCount;
                 $("#item-total_price-id-" + itemID)[0].textContent = Number.parseInt($("#item-price-id-" + itemID)[0].textContent) * itemCount;
@@ -54,6 +74,26 @@ function cart_minus(itemID) {
         success: function (data) {
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
+                let trs = $(".shopping-cart-box-table tr");
+                for (let i = 0; i < trs.length; i++) {
+                    if (i + 1 < trs.length) {
+                        if (trs[i].className == "shopping-cart-seller" && trs[i].className == trs[i + 1].className) {
+                            trs[i].remove();
+                        }
+                    }
+                }
+                calc_price();
+                if ($("tr[id^='item-entry-id-']").length == 0) {
+                    // location.reload();
+                    $.ajax({
+                        url: "/cart",
+                        type: "GET",
+                        success: function (data) {
+                            $("#shopping-cart-box").html($(data).find("#shopping-cart-box")[0].innerHTML);
+                        }
+                    })
+
+                }
             } else {
                 $("#item-quantity-id-" + itemID)[0].value = itemCount;
                 $("#item-total_price-id-" + itemID)[0].textContent = Number.parseInt($("#item-price-id-" + itemID)[0].textContent) * itemCount;
@@ -70,6 +110,19 @@ function cart_minus(itemID) {
             console.log("Error")
         }
     });
+}
+
+function calc_price() {
+    trs = $("tr[id^='item-entry-id-']");
+    var total_price = 0;
+    for (let i = 0; i < trs.length; i++) {
+        const tr = trs[i];
+        const itemID = tr.id.split("-")[3];
+        const itemCount = Number.parseInt($("#item-quantity-id-" + itemID)[0].value);
+        total_price += Number.parseInt($("#item-price-id-" + itemID)[0].textContent) * itemCount;
+    }
+    $(".checkout-total-payment")[0].textContent = "Total Price: " + total_price;
+    $("#shopping-cart-box-head-price")[0].textContent = "Total Price: " + total_price;
 }
 
 function cart_set(itemID, itemCount) {
@@ -91,6 +144,28 @@ function cart_set(itemID, itemCount) {
             console.log("success")
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
+                let trs = $(".shopping-cart-box-table tr");
+                for (let i = 0; i < trs.length; i++) {
+                    if (i + 1 < trs.length) {
+                        if (trs[i].className == "shopping-cart-seller" && trs[i].className == trs[i + 1].className) {
+                            trs[i].remove();
+                        }
+                    }
+                }
+                calc_price();
+                if ($("tr[id^='item-entry-id-']").length == 0) {
+                    // location.reload();
+                    $.ajax({
+                        url: "/cart",
+                        type: "GET",
+                        success: function (data) {
+                            $("#shopping-cart-box").html($(data).find("#shopping-cart-box")[0].innerHTML);
+                        }
+                    })
+
+                }
+
+
             } else {
                 $("#item-quantity-id-" + itemID)[0].value = itemCount;
                 $("#item-total_price-id-" + itemID)[0].textContent = Number.parseInt($("#item-price-id-" + itemID)[0].textContent) * itemCount;
@@ -189,7 +264,7 @@ $(".dialogue-message-yes-button").on("click", function () {
     $(this).parent().parent().removeClass('is-open');
 
     const itemID = $(this).attr("id").split("-").pop();
-    cart_set(itemID,0);
+    cart_set(itemID, 0);
 });
 
 // event handler: click no
