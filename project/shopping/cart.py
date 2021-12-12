@@ -1,4 +1,4 @@
-from flask import Blueprint, Response
+from flask import Blueprint, Response, abort
 import datetime
 from flask import (
     Blueprint,
@@ -43,6 +43,8 @@ def add_to_cart() -> Response:
     itemID: int = request.form.get('itemID')
     itemCount: int = request.form.get('itemCount')
     user: User = get_current_user()
+    if user is None:
+        return abort(403)
     item: Item = Item.get_by_id(itemID)
     # Check item status
     if item.disabled:

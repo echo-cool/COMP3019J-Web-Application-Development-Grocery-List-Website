@@ -141,12 +141,17 @@
                         <input class="shopping-cart-disabled" type="submit" disabled="disabled"
                                value="Add to Shopping Cart" name="submit">
                     {% else %}
-                        <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit">
+                        {% if current_user.is_authenticated %}
+                            <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit">
+                        {% else %}
+                            <input class="shopping-cart" type="submit" value="Add to Shopping Cart" name="submit"
+                                   id="to-login">
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
         </div>
-{#        <iframe id="mainIframe" name="mainIframe" src="http://bing.com" frameborder="0"#}
+        {#        <iframe id="mainIframe" name="mainIframe" src="http://bing.com" frameborder="0"#}
         {#                scrolling="auto"></iframe>#}
 
         {#    </form>#}

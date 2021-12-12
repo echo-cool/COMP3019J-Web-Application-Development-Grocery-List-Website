@@ -19,6 +19,7 @@ $(document).ready(function () {
                 // alert("Item added to cart!");
                 var imgtodrag = $("#product-image-file");
                 var cart = $('#shopping-cart-text-nav');
+
                 var imgclone = imgtodrag
                     .clone()
                     .offset({
@@ -64,8 +65,13 @@ $(document).ready(function () {
                 //         times: 2
                 //     }, 200);
                 // }, 1500);
+            },
+            error: function (){
+                location.assign("/login");
             }
         });
 
     });
 });
+
+$
