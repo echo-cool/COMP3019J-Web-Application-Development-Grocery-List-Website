@@ -116,10 +116,10 @@ Our website has prepared a role - **administrator** with the following account a
 Professor or Head TA can use this account to **view the database** and perform the "**Clear Database**" operation. 
 
 Importantly, our website **only** allow the administrator to clear database and test using **empty/new database**.
-Account | Password
+
+Username | Password
 ---|---
 buyer1 | 123456
-
 
 #### Unregistered Buyer (visitor)
 - [x] Allow visitors to navigate the site and view multiple pages.
