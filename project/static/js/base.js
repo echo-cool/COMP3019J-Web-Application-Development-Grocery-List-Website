@@ -159,21 +159,23 @@ function monitorEvents(element) {
 // monitorEvents(document);
 
 var brightness;
-var isDarkMode = false;
-let t = document.querySelector(".switch-icon span");
-if (window.sessionStorage.getItem("DarkMode") != null) {
-    if (window.sessionStorage.getItem("DarkMode") == 1) {
-        isDarkMode = true;
-        darkMode(0.5)
-        //t.style.transform = "translate3d(-60px, 0, 0)";
+$(document).ready(function () {
+    var isDarkMode = false;
+    let t = document.querySelector(".switch-icon span");
+    if (window.sessionStorage.getItem("DarkMode") != null) {
+        if (window.sessionStorage.getItem("DarkMode") == 1) {
+            isDarkMode = true;
+            darkMode(0.5)
+            //t.style.transform = "translate3d(-60px, 0, 0)";
+        } else {
+            isDarkMode = false;
+            darkMode(0)
+        }
     } else {
         isDarkMode = false;
-        darkMode(0)
+        darkMode(0);
     }
-} else {
-    isDarkMode = false;
-    darkMode(0);
-}
+});
 
 let light = true;
 
