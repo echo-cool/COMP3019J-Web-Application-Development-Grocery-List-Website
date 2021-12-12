@@ -7,7 +7,7 @@
 .index-container {
     display: flex;
     flex-direction: column;
-    min-width: 1400px;
+    min-width: 1200px;
 }
 
 #auto {
@@ -331,7 +331,7 @@
 }
 
 .index-item {
-    width: 200px;
+    width: 217px;
     margin: 10px;
     padding: 12px;
     display: flex;

@@ -132,7 +132,7 @@ def set_to_cart() -> Response:
     return redirect(url_for('cart.shopping_cart', itemID=itemID))
 
 
-# This is for user's to view his shopping cart
+# This is for users to view his shopping cart
 @blueprint.route("/cart", methods=["GET", "POST"])
 @login_required
 @buyer_required
@@ -157,4 +157,32 @@ def shopping_cart() -> str:
             res[shopper] = [item]
 
     return render_template("shopping/shopping_cart.html", cart_dict=res, total_price=total_price,
-                           cart_length=cart_length,current_user=get_current_user())
+                           cart_length=cart_length, current_user=get_current_user())
+
+
+# This is for users to print his/her wishing list
+@blueprint.route("/print", methods=["GET", "POST"])
+@login_required
+@buyer_required
+def print_cart() -> str:
+    user: User = get_current_user()
+    cart: Cart = Cart.query.filter_by(user_id=user.id).all()
+    cart_length = len(cart)
+    res: dict = {}
+    total_price: int = 0
+    for i in cart:
+        shop_user_id: int = i.get_shop_userID()
+        item_id: int = i.item_id
+        item: Item = Item.get_by_id(item_id)
+        shopper: User = User.get_by_id(shop_user_id)
+        item.count = i.count
+        # calc total price
+        total_price += int(item.price) * int(i.count)
+
+        if shopper in res.keys():
+            res[shopper].append(item)
+        else:
+            res[shopper] = [item]
+
+    return render_template("shopping/print.html", cart_dict=res, total_price=total_price,
+                           cart_length=cart_length, current_user=get_current_user())
