@@ -65,13 +65,13 @@
 .message-button-action-new {
     position: absolute;
     display: block;
-    background-image: linear-gradient(to right, #d0de33, #f4f003, #8dbf31, #83e088);
+    background-image: linear-gradient(to right, #ddeb3b, #03a9f4, #f441a5, #e7cecc);
     color: #fff;
     cursor: pointer;
     backface-visibility: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    width: 95px;
+    width: 85px;
     height: 43px;
     line-height: 15px;
     border-radius: 8px;
