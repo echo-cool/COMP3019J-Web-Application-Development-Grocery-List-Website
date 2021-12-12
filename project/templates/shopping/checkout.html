@@ -32,7 +32,6 @@
                 <tbody>
                 {#                loop through shop of the shops which have your items in the basket#}
                 {% for shop in cart_dict %}
-
                     <tr id="shopping-cart-seller">
                         <th colspan="7">Shop Name: {{ shop.username }}</th>
                     </tr>
@@ -67,9 +66,6 @@
             <button class="button-default"><a href="{{ url_for("checkout.checkout_pay") }}" class="check-button">Check
                 out And Pay</a>
             </button>
-
-
         </div>
     </div>
-
 {% endblock %}

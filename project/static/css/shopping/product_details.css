@@ -108,8 +108,9 @@
     font-size: 30px;
     color: #e01222;
 }
-.product-price-text{
-        display: flex;
+
+.product-price-text {
+    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     margin-bottom: 12px;
@@ -283,7 +284,11 @@
     background: url("../../image/shopping/background.png") fixed;
 }
 
-
 .product-description-box-dark {
     color: white !important;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
 }
