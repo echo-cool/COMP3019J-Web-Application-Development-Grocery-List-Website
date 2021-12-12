@@ -63,8 +63,9 @@
                                 <td id="item-price-id-{{ item.id }}">{{ item.price }}</td>
                                 <td id="item-inventory-id-{{ item.id }}">{{ item.inventory }}</td>
                                 {#                                function to change quantity#}
-                                <td class="sub-add-button">
+                                <td>
                                     {#                                    <form action="{{ url_for("cart.set_to_cart") }}" method="post">#}
+                                    <span class="sub-add-button">
                                     <div class="minus-page-button-area"
                                          onclick="cart_minus({{ item.id }})">
                                         <input type="hidden" name="csrf_token"
@@ -85,6 +86,7 @@
                                         <input type="hidden" name="itemCount" value="{{ item.count + 1 }}">
                                         <input type="submit" value="+" class="change-quantity">
                                     </div>
+                                        </span>
                                     {#                                    </form>#}
                                 </td>
                                 <td class="item-total-perice"
@@ -95,8 +97,12 @@
                                     <div class="dialogue-message-box" style="margin-bottom: 10px">
                                         <div class="btn-back">
                                             <p id="confirm-delete">Are you sure to delete that?</p>
-                                            <button id="dialogue-message-yes-button-{{ item.id }}" class="dialogue-message-yes-button">Yes</button>
-                                            <button id="dialogue-message-no-button-{{ item.id }}" class="dialogue-message-no-button">No</button>
+                                            <button id="dialogue-message-yes-button-{{ item.id }}"
+                                                    class="dialogue-message-yes-button">Yes
+                                            </button>
+                                            <button id="dialogue-message-no-button-{{ item.id }}"
+                                                    class="dialogue-message-no-button">No
+                                            </button>
                                         </div>
                                         <span class="message-button-action"
                                               style="width: 100px; height: 40px; line-height: 40px">Remove</span>
@@ -114,12 +120,12 @@
                 </table>
 
                 <div>
-                <button class="button-default">
-                    <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
-                </button>
-                <button class="button-default">
-                    <a href="{{ url_for("cart.print_cart") }}" class="check-button">Print List</a>
-                </button>
+                    <button class="button-default">
+                        <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
+                    </button>
+                    <button class="button-default">
+                        <a href="{{ url_for("cart.print_cart") }}" class="check-button">Print List</a>
+                    </button>
                 </div>
 
 
