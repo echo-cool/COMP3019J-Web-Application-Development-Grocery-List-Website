@@ -48,62 +48,6 @@
                 </div>
             {% endfor %}
         </div>
-{#                <table class="manage-items-box-table">#}
-{#                    <thead>#}
-{#                    <tr>#}
-{#                        <th class="cancel-column">Select All</th>#}
-{#                        <th>Keyword</th>#}
-{#                        <th class="index-item-image-box">Image</th>#}
-{#                        <th>Price</th>#}
-{#                        <th class="number-margin">Inventory</th>#}
-{#                        <th>Total</th>#}
-{#                        <th class="cancel-column">Modify</th>#}
-{#                        <th class="cancel-column">Delete</th>#}
-{#                        <th class="add-column">Add New Item</th>#}
-{#                    </tr>#}
-{#                    </thead>#}
-{#                    <tbody>#}
-{#                    {% for item in items %}#}
-{#                        <tr>#}
-{#                            <th class="cancel-column"><input type="checkbox" checked="checked"></th>#}
-{#                            <td>{{ keyword }}</td>#}
-{#                            <td class="index-item-image-box"><a#}
-{#                                    href="{{ url_for("item.details", itemID=item.id) }}"><img#}
-{#                                    class="index-item-image"#}
-{#                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-{#                                    value="Item Image"></a>#}
-{#                            </td>#}
-{#                            <td>{{ item.price }}</td>#}
-{#                            <td class="sub-add-button">#}
-{#                                {{ item.price }}#}
-{#                            </td>#}
-{#                            <td>{{ item.price }}</td>#}
-{#                            <td>#}
-{#                                <a href="{{ url_for("item.ModifyNewItem",item_id=item.id) }}">#}
-{#                                    <div class="manage-items-modify">#}
-{#                                        Modify#}
-{#                                    </div>#}
-{#                                </a>#}
-{#                            </td>#}
-{#                            <td>#}
-{#                                <a href="{{ url_for("item.DeleteItem",item_id=item.id) }}">#}
-{#                                    <div class="manage-items-modify incorrect">#}
-{#                                        Delete#}
-{#                                    </div>#}
-{#                                </a>#}
-{#                            </td>#}
-{#                            <td>#}
-{#                                <a href="{{ url_for("item.addNewItem") }}">#}
-{#                                    <div class="manage-items-modify">#}
-{#                                        Add New Item#}
-{#                                    </div>#}
-{#                                </a>#}
-{#                            </td>#}
-{#                        </tr>#}
-{#                    {% endfor %}#}
-{#                    </tbody>#}
-{##}
-{#                </table>#}
             {% endif %}
         </div>
     </div>

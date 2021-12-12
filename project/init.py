@@ -113,16 +113,6 @@ class RequestFormatter(logging.Formatter):
         return super().format(record)
 
 
-# root = logging.getLogger()
-# log_handler = logging.handlers.RotatingFileHandler('log/app.log', mode="a")
-# log_handler.setFormatter(
-#     RequestFormatter(
-#         "%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s requested %(url)s"
-#     )
-# )
-# log_handler.setLevel(logging.INFO)
-# root.addHandler(log_handler)
-
 logging.basicConfig(
     format="%(asctime)s [%(lineno)d]%(levelname)9s - %(filename)s - %(message)s",
     datefmt='%Y-%m-%d %H:%M:%S,000',

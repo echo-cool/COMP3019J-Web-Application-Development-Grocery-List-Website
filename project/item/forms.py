@@ -1,11 +1,11 @@
+from flask import url_for
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileRequired, FileAllowed
 from wtforms import StringField, IntegerField, FloatField, SubmitField, FileField
-from wtforms.fields.html5 import URLField
 from wtforms.validators import DataRequired, Length, NumberRange
 
 
-# This form is used when a user add a new item to the site
+# This form is used when a user adds a new item to the site
 class AddNewItem(FlaskForm):
     # userid = StringField("User ID", validators=[DataRequired(), ])
     item_name = StringField("Item Name", validators=[DataRequired(), Length(min=5, max=25)], default="")

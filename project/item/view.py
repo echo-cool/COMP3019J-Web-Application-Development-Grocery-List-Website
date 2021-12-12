@@ -84,7 +84,7 @@ def DeleteItem(item_id: int) -> Response:
     return redirect(url_for("item.ManageItem"))
 
 
-# a shopper need to modify the item
+# this method is used for shoppers to modify their uploaded item
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
 @login_required
 @seller_required
@@ -112,6 +112,8 @@ def ModifyNewItem(item_id: int) -> str:
             item.main_image_url = filename
         item.update()
         flash("Update Success")
+        return redirect(url_for("item.ManageItem"))
+
     flash_errors(form)
     return render_template("item/update.html", item=item, form=form, current_user=get_current_user())
 
@@ -152,6 +154,7 @@ def addNewItem() -> str:
             flash("Save Failed, Check your input !")
             print(e.message)
             db.session.rollback()
+        return redirect(url_for("item.ManageItem"))
     flash_errors(form)
     return render_template("item/add.html", form=form, current_user=get_current_user())
 
