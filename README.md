@@ -79,7 +79,7 @@ URL: http://127.0.0.1:5000
 * **CSRF Protection**
 * **Blueprint** for routing
 * Passwords are **hashed**
-* iframe
+* iframe for product details
 * Admin account
 * Page updation using AJAX
 * Style changed via UI using Javascript
@@ -179,7 +179,7 @@ buyer1 | 123456
 - [x] Allow visitors to click the shop to view all items in this shop
 - [x] Allow visitors to view the **contact page**
 - [x] Allow visitors to register for an account or log in using a valid account
-- [x] Allow visitors to **search** items based on keywords (with **list expanded**)
+- [x] Allow visitors to **search** items based on keywords (with **list expanded using AJAX**)
 
 #### Logged-in Buyer
 
@@ -202,7 +202,7 @@ buyer1 | 123456
 - [x] Allow buyers to view the **contact page**
 - [x] Allow buyers to **set up their personal information** (containing username, avatar and email address)
 - [x] Allow buyers to logout the current account
-- [x] Allow buyers to **search** items based on keywords
+- [x] Allow buyers to **search** items based on keywords (with **list expanded using AJAX**)
 
 #### Sellers
 
@@ -218,7 +218,7 @@ buyer1 | 123456
 - [x] Allow sellers to **set up their personal information** (containing username, avatar and email address)
 - [x] Allow sellers to view the **contact page**
 - [x] Allow sellers to logout the current account
-- [x] Allow sellers to **search** items based on keywords
+- [x] Allow sellers to **search** items based on keywords (with **list expanded using AJAX**)
 
 <!--### To-Do List for MileStone 2-->
 
