@@ -5,6 +5,17 @@
 {% endblock %}
 {% block style %}
     <!-- Link CSS -->
+    <style>
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #mainIframe {
+            margin: 80px;
+            height: 900px;
+        }
+    </style>
     <link rel="stylesheet" href="../../static/css/shopping/product_details.css">
     <link rel="stylesheet" href="../../static/css/shopping/product_details_add.css">
 {% endblock %}
@@ -135,6 +146,9 @@
                 </div>
             </div>
         </div>
+{#        <iframe id="mainIframe" name="mainIframe" src="http://bing.com" frameborder="0"#}
+        {#                scrolling="auto"></iframe>#}
+
         {#    </form>#}
     </div>
 {% endblock %}

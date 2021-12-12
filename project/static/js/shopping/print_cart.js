@@ -8,5 +8,5 @@ $(document).ready(function () {
         $('#print_cart').hide();
         window.print();
         $('#print_cart').show();
-    }, 300);
+    }, 500);
 });
