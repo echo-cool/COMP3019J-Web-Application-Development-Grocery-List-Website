@@ -124,19 +124,22 @@ class RequestFormatter(logging.Formatter):
 # root.addHandler(log_handler)
 
 logging.basicConfig(
-    format="%(asctime)s [%(lineno)d]%(levelname)8s - %(filename)s - %(message)s",
+    format="%(asctime)s [%(lineno)d]%(levelname)9s - %(filename)s - %(message)s",
     datefmt='%Y-%m-%d %H:%M:%S,000',
     level=logging.DEBUG,
     filename='log/app.log',
     filemode='a')
 root = logging.getLogger()
-info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="w")
-debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="w")
-error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="w")
-critical_handler = logging.handlers.RotatingFileHandler('log/critical.log', mode="w")
+info_handler = logging.handlers.RotatingFileHandler('log/info.log', mode="a", maxBytes=10 * 1024 * 1024, backupCount=10)
+debug_handler = logging.handlers.RotatingFileHandler('log/debug.log', mode="a", maxBytes=10 * 1024 * 1024,
+                                                     backupCount=10)
+error_handler = logging.handlers.RotatingFileHandler('log/error.log', mode="a", maxBytes=10 * 1024 * 1024,
+                                                     backupCount=10)
+critical_handler = logging.handlers.RotatingFileHandler('log/critical.log', mode="a", maxBytes=10 * 1024 * 1024,
+                                                        backupCount=10)
 
 formatter = logging.Formatter(
-    '[%(asctime)s] %(message)s'
+    "%(asctime)s [%(lineno)d]%(levelname)9s - %(filename)s - %(message)s"
 )
 info_handler.addFilter(LevelFilter('INFO'))
 info_handler.setFormatter(formatter)
