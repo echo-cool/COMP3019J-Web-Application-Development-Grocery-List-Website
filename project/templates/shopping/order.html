@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block style %}
-
-    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
     <link rel="stylesheet" href="../../static/css/shopping/order.css">
+    <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
+    <link rel="stylesheet" href="../../static/css/admin/view.css">
 {% endblock %}
 
 {#this is the order page containing made orders for sellers and buyers#}
@@ -158,7 +158,7 @@
                         {% if current_user.is_shopper %}
                             {% if order.is_confirmed_delivery or order.is_confirmed_by_shopper %}
                                 <button class="button-default-disabled">
-                                    <a class="order-font">Confirm</a>
+                                    <a class="order-font" >Confirm</a>
                                 </button>
                             {% else %}
                                 <button class="button-default">

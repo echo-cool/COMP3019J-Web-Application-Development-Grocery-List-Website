@@ -21,7 +21,10 @@
             <div class="empty-space1"></div>
 
             <table class="print-table">
-                <div style="background-color: pink;">ss</div>
+                <div class="print-info">
+                    <span><span class="print-info1">Customer:</span> {{ current_user.username }}</span>
+                    <span class="print-info2"><span class="print-info1">Date:</span> {{ time_str }}</span>
+                </div>
                 <thead>
                 <tr>
                     <th>Index</th>
@@ -52,12 +55,28 @@
                             </td>
                             <td>￥{{ item.price }}</td>
                             <td class="sub-add-button">
-                                <input disabled="disabled" type="text" class="number" value="{{ item.count }}">
+                                {{ item.count }}
                             </td>
                             <td>￥{{ item.price * item.count }}</td>
                         </tr>
                     {% endfor %}
                 {% endfor %}
+                <tr>
+                    <td class="index-item-image-box" colspan="5">
+                        Total Price
+                    </td>
+                    <td>
+                        ￥{{ total_price }}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: none"></td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="border: none; margin-top: 30px">
+                        <button id="print_cart">Print</button>
+                    </td>
+                </tr>
                 </tbody>
             </table>
 
@@ -104,8 +123,8 @@
             {#                </tr>#}
             {#                </tbody>#}
             {#            </table>#}
-            <div class="empty-space1"></div>
-            <button id="print_cart">Print</button>
+{#            <div class="empty-space1"></div>#}
+{#            <button id="print_cart">Print</button>#}
 
         </div>
     </div>
