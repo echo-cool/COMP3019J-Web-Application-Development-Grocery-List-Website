@@ -14,340 +14,342 @@
 {#  this is th index / main menu page#}
 
 {% block content %}
-    {#    this is the upper banner of the main page#}
-    <div id="auto">
-        <div class="index-upper">
-            <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
-            <div class="index-search-box">
-                <form action="{{ url_for("index.search") }}" method="GET" name="search">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input class="index-search-text" name="keyword" placeholder="Enter the product name"
-                           value="" id="enter_product_name" onfocus="this.blur();">
-                    <input class="index-search-submit-button" type="submit" value="">
-                    <ul class="search-result-list">
-                    </ul>
-                </form>
-            </div>
-            {#            link to basket#}
-            <div class="my-basket-box">
-                <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
+{#    this is the upper banner of the main page#}
+<div id="auto">
+    <div class="index-upper">
+        <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png" alt="">
+        <div class="index-search-box">
+            <form action="{{ url_for("index.search") }}" method="GET" name="search">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <input class="index-search-text" name="keyword" placeholder="Enter the product name"
+                       value="" id="enter_product_name" onfocus="this.blur();">
+                <input class="index-search-submit-button" type="submit" value="">
+                <ul class="search-result-list">
+                </ul>
+            </form>
+        </div>
+        {#            link to basket#}
+        <div class="my-basket-box">
+            <a class="index-basket-group" href="{{ url_for("cart.shopping_cart") }}">
 
                     <span class="index-basket-icon">
                         <p class="index-basket-text">My Shopping Cart</p>
                     <i class="fas fa-cart-arrow-down"></i>
                 </span>
-                </a>
-            </div>
+            </a>
         </div>
     </div>
-    {#    this is the images displaying areas#}
-    {#    Rotation Chart#}
-    <div class="all">
-        <div class="middle">
-            <div class="index-container">
-                {# hot items recommendation #}
-                <div class="index-product-recommendation-title">
-                    <h1 class="product-recommendation-title-text">Welcome to Online Grocery List</h1>
-                </div>
-                {#                this is where the acutual Rotation Chart is #}
-                <div class="index-item-container-box">
-                    <div class="index-item-container">
-                        <div class="shell">
-                            <ui class="index-banner-images-box">
-                                <li class="index-banner-image"></li>
-                                <li class="index-banner-image"></li>
-                                <li class="index-banner-image"></li>
-                            </ui>
-                            <ui class="index-banner-min-images-box">
-                                <li class="index-banner-min-image"></li>
-                                <li class="index-banner-min-image"></li>
-                                <li class="index-banner-min-image"></li>
-                            </ui>
-                            <div class="index-banner-button">
-                                <div class="index-banner-button-left"></div>
-                                <div class="index-banner-button-right"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+</div>
+{#    this is the images displaying areas#}
+{#    Rotation Chart#}
+<div class="all">
+    <div class="middle">
+        <div class="index-container">
+            {# hot items recommendation #}
+            <div class="index-product-recommendation-title">
+                <h1 class="product-recommendation-title-text">Welcome to Online Grocery List</h1>
             </div>
-
-            <div class="empty-space1"></div>
-
-            {#this is the Product viewing area#}
-            {# Product viewing area#}
-            <div class="index-product-view-title">
-                <h1 class="product-view-title-text">Recommended</h1>
-            </div>
+            {#                this is where the acutual Rotation Chart is #}
             <div class="index-item-container-box">
                 <div class="index-item-container">
-                    {#                if the current user has logged in#}
-                    {% if current_user.is_authenticated %}
-                        {% for item in items %}
-                            <div class="index-item scroll-fade-in" id="index-item2">
-                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
-                                        class="index-item-image-big"
-                                        src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                        value="Item Image"></a>
-                                <div class="index-item-text">
-                                    <p class="index-item-price">￥ {{ item.price }}</p>
-                                    <a class="index-item-name"
-                                       href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
-                                    <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                                    <p class="index-item-description">{{ item.description }}</p>
-                                </div>
-                            </div>
-                        {% endfor %}
-                        {#                        for non-logged-in user#}
-                    {% else %}
-                        {% for item in items %}
-                            <div class="index-item scroll-fade-in" id="index-item1">
-                                <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
-                                                                                              src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                                                              value="Item Image"></a>
-                                <div class="index-item-text">
-                                    <p class="index-item-price">￥ {{ item.price }}</p>
-                                    <a class="index-item-name"
-                                       href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
-                                    <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                                    <p class="index-item-description">{{ item.description }}</p>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-
-
+                    <div class="shell">
+                        <ui class="index-banner-images-box">
+                            <li class="index-banner-image"></li>
+                            <li class="index-banner-image"></li>
+                            <li class="index-banner-image"></li>
+                        </ui>
+                        <ui class="index-banner-min-images-box">
+                            <li class="index-banner-min-image"></li>
+                            <li class="index-banner-min-image"></li>
+                            <li class="index-banner-min-image"></li>
+                        </ui>
+                        <div class="index-banner-button">
+                            <div class="index-banner-button-left"></div>
+                            <div class="index-banner-button-right"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <br>
-            <br>
-
-            {# Shops area#}
-            {# Separate shops based on their sellers#}
-            {# loop through shops in all shops#}
-            {% for shop in shop_sellers %}
-                <div class="index-product-view-title">
-                    <h1 class="product-view-title-text">
-                        <a class="index-shop-name-text scroll-fade-in"
-                           href="{{ url_for("item.show_all_items", userid=shop.id) }}">
-                            Shop Name: {{ shop.username }}
-                        </a>
-                    </h1>
-                </div>
-                {#  container for all items#}
-                <div class="index-item-container-box">
-                    <div class="index-shoes-container">
-                        <div class="index-shoes-box">
-                            <div class="left-big-img">
-                                <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
-                                    <img class="scroll-fade-in larger" width="280" height="370"
-                                         src="../../static/image/shopping/sales.png">
-                                </a>
-                                <div>
-                                    <a href="{{ url_for("item.show_all_items", userid=shop.id) }}">
-                                        &nbsp;&nbsp;&nbsp;<span
-                                            class="button-default">
-                                Click to view more in this shop</span></a>
-                                </div>
-                            </div>
-                            {#  <div class="right-img-area">#}
-                            {#  if the user has logged in, view 3 items of each shop#}
-                            {% if current_user.is_authenticated %}
-                                {% for item in shop_sellers[shop][:3] %}
-                                    <div class="index-item scroll-fade-in">
-                                        <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
-                                                class="index-item-image"
-                                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                value="Item Image"></a>
-                                        <div class="index-item-text">
-                                            <p class="index-item-price">￥ {{ item.price }}</p>
-                                            <a class="index-item-name"
-                                               href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
-                                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                                            <p class="index-item-description">{{ item.description }}</p>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                                {# if the user has not logged in, view 4 items of each shop#}
-                            {% else %}
-                                {% for item in shop_sellers[shop][:3] %}
-                                    <div class="index-item scroll-fade-in">
-                                        <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
-                                                class="index-item-image1"
-                                                src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                                value="Item Image"></a>
-                                        <div class="index-item-text">
-                                            <p class="index-item-price">￥ {{ item.price }}</p>
-                                            <a class="index-item-name"
-                                               href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
-                                            <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
-                                            <p class="index-item-description">{{ item.description }}</p>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
         </div>
-        {#  if the user has logged in #}
-        {% if current_user.is_authenticated %}
-            <div class="right-side-bar">
-                <div class="user-intro">
-                    <div class="avatar">
-                        <a href="{{ url_for("user.info") }}">
-                            <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
-                                 alt="" class="img-avatar">
-                        </a>
-                    </div>
 
-                    <div class="username">
-                        {{ current_user.username }}
-                    </div>
-                    <div class="identity">
-                        {% if current_user.is_shopper %}
-                            Seller
-                        {% else %}
-                            Customer
-                        {% endif %}
-                    </div>
-                    <div class="empty-space1"></div>
-                    <div class="details">
-                        <div>
-                            <a href="{{ url_for("user.info") }}">
-                                <button class="button-default1">
-                                    Personal Details
-                                </button>
+        <div class="empty-space1"></div>
+
+        {#this is the Product viewing area#}
+        {# Product viewing area#}
+        <div class="index-product-view-title">
+            <h1 class="product-view-title-text">Recommended</h1>
+        </div>
+        <div class="index-item-container-box">
+            <div class="index-item-container">
+                {#                if the current user has logged in#}
+                {% if current_user.is_authenticated %}
+                    {% for item in items %}
+                        <div class="index-item scroll-fade-in" id="index-item2">
+                            <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                    class="index-item-image-big"
+                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                    value="Item Image"></a>
+                            <div class="index-item-text">
+                                <p class="index-item-price">￥ {{ item.price }}</p>
+                                <a class="index-item-name"
+                                   href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                <p class="index-item-description">{{ item.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {#                        for non-logged-in user#}
+                {% else %}
+                    {% for item in items %}
+                        <div class="index-item scroll-fade-in" id="index-item1">
+                            <a href="{{ url_for("item.details", itemID=item.id) }}"> <img class="index-item-image"
+                                                                                          src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                                                                          value="Item Image"></a>
+                            <div class="index-item-text">
+                                <p class="index-item-price">￥ {{ item.price }}</p>
+                                <a class="index-item-name"
+                                   href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                <p class="index-item-description">{{ item.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        {# Shops area#}
+        {# Separate shops based on their sellers#}
+        {# loop through shops in all shops#}
+        {% for shop in shop_sellers %}
+            <div class="index-product-view-title">
+                <h1 class="product-view-title-text">
+                    <a class="index-shop-name-text scroll-fade-in"
+                       href="{{ url_for("item.show_all_items", userid=shop.id) }}">
+                        Shop Name: {{ shop.username }}
+                    </a>
+                </h1>
+            </div>
+            {#  container for all items#}
+            <div class="index-item-container-box">
+                <div class="index-shoes-container">
+                    <div class="index-shoes-box">
+                        <div class="left-big-img">
+                            <a href="{{ url_for("item.show_all_items", userid=shop.id) }}" target="_blank">
+                                <img class="scroll-fade-in larger" width="280" height="370"
+                                     src="../../static/image/shopping/sales.png">
                             </a>
+                            <div>
+                                <a href="{{ url_for("item.show_all_items", userid=shop.id) }}">
+                                    &nbsp;&nbsp;&nbsp;<span
+                                        class="button-default">
+                                Click to view more in this shop</span></a>
+                            </div>
                         </div>
-                        <br>
-                        {#                    if the user is a seller#}
-                        {% if current_user.is_shopper %}
-                            <div>
-                                <a href="{{ url_for("user.info") }}">
-                                    <button class="button-default1">
-                                        Orders
-                                    </button>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="{{ url_for("item.show_all_items", userid=current_user.id) }}">
-                                    <button class="button-default1">
-                                        Items
-                                    </button>
-                                </a>
-                            </div>
+                        {#  <div class="right-img-area">#}
+                        {#  if the user has logged in, view 3 items of each shop#}
+                        {% if current_user.is_authenticated %}
+                            {% for item in shop_sellers[shop][:3] %}
+                                <div class="index-item scroll-fade-in">
+                                    <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                            class="index-item-image"
+                                            src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                            value="Item Image"></a>
+                                    <div class="index-item-text">
+                                        <p class="index-item-price">￥ {{ item.price }}</p>
+                                        <a class="index-item-name"
+                                           href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                        <p class="index-item-description">{{ item.description }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            {# if the user has not logged in, view 4 items of each shop#}
                         {% else %}
-                            <div>
-                                <a href="{{ url_for("order.view_order") }}">
-                                    <button class="button-default1">
-                                        Orders
-                                    </button>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="{{ url_for("cart.shopping_cart") }}">
-                                    <button class="button-default1">
-                                        Cart
-                                    </button>
-                                </a>
-                            </div>
+                            {% for item in shop_sellers[shop][:3] %}
+                                <div class="index-item scroll-fade-in">
+                                    <a href="{{ url_for("item.details", itemID=item.id) }}"> <img
+                                            class="index-item-image1"
+                                            src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
+                                            value="Item Image"></a>
+                                    <div class="index-item-text">
+                                        <p class="index-item-price">￥ {{ item.price }}</p>
+                                        <a class="index-item-name"
+                                           href="{{ url_for("item.details", itemID=item.id) }}">{{ item.name }}</a>
+                                        <p class="index-item-inventory">{{ item.inventory }} in warehouse</p>
+                                        <p class="index-item-description">{{ item.description }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
                         {% endif %}
                     </div>
                 </div>
-                <div class="empty-space"></div>
-                {#            side bar to display announcements in the database#}
-                {% for announcement in announcements %}
-                    <div class="announcements">
-                        <div class="announcements-text">
-                            Announcement
-                        </div>
-                        <div>
-                            <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png"
-                                 alt="">
-                        </div>
-                        <div class="text">
-                            {% for text in announcement %}
-                                <span fill-info="{{ text }}">{{ text }}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="empty-space"></div>
-                {% endfor %}
-                {#            sidebar to manage orders for both sellers and buyers#}
-                <div class="manage-my-order">
-                    <a href="{{ url_for("order.view_order") }}">
-                        <div class="announcements-text">
-                            Manage Order
-                        </div>
-                    </a>
-                    <a href="{{ url_for("order.view_order") }}">
-                        <div>
-                            <img class="index-logo-img no-anim-image size"
-                                 src="../../static/image/shopping/order.png"
-                                 alt="">
-                        </div>
-                    </a>
-                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {#  if the user has logged in #}
+    {% if current_user.is_authenticated %}
+        <div class="right-side-bar">
+        <div class="user-intro">
+        <div class="avatar">
+            <a href="{{ url_for("user.info") }}">
+                <img width="100px" height="100px" src="../../{{ current_user.main_image_url }}"
+                     alt="" class="img-avatar">
+            </a>
+        </div>
+
+        <div class="username">
+            {{ current_user.username }}
+        </div>
+        <div class="identity">
+        {% if current_user.username == "buyer1" %}
+            Administrator
+    {% elif current_user.is_shopper %}
+        Seller
+    {% else %}
+        Customer
+    {% endif %}
+    </div>
+    <div class="empty-space1"></div>
+    <div class="details">
+        <div>
+            <a href="{{ url_for("user.info") }}">
+                <button class="button-default1">
+                    Personal Details
+                </button>
+            </a>
+        </div>
+        <br>
+        {#                    if the user is a seller#}
+        {% if current_user.is_shopper %}
+            <div>
+                <a href="{{ url_for("user.info") }}">
+                    <button class="button-default1">
+                        Orders
+                    </button>
+                </a>
+            </div>
+            <div>
+                <a href="{{ url_for("item.show_all_items", userid=current_user.id) }}">
+                    <button class="button-default1">
+                        Items
+                    </button>
+                </a>
             </div>
         {% else %}
-            <div class="right-side-bar">
-                <div class="user-intro">
-                    <div class="avatar">
-                        <a href="{{ url_for("user.info") }}">
-                            <img width="100px" height="100px" src="../../static/image/user_info/default_avatar.jpg"
-                                 alt="" class="img-avatar">
-                        </a>
-                    </div>
-
-                    <div class="username">
-                        Please login
-                    </div>
-                    <div class="identity">
-
-                    </div>
-                    <div class="empty-space1"></div>
-                    <div class="details">
-                        <div>
-                            <a href="{{ url_for("user.info") }}">
-                                <button class="button-default1">
-                                    Personal Details
-                                </button>
-                            </a>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-                <div class="empty-space"></div>
-                {#            side bar to display announcements in the database#}
-                {% for announcement in announcements %}
-                    <div class="announcements">
-                        <div class="announcements-text">
-                            Announcement
-                        </div>
-                        <div>
-                            <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png"
-                                 alt="">
-                        </div>
-                        <div class="text">
-                            {% for text in announcement %}
-                                <span fill-info="{{ text }}">{{ text }}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="empty-space"></div>
-                {% endfor %}
-                {#            sidebar to manage orders for both sellers and buyers#}
-
+            <div>
+                <a href="{{ url_for("order.view_order") }}">
+                    <button class="button-default1">
+                        Orders
+                    </button>
+                </a>
+            </div>
+            <div>
+                <a href="{{ url_for("cart.shopping_cart") }}">
+                    <button class="button-default1">
+                        Cart
+                    </button>
+                </a>
             </div>
         {% endif %}
     </div>
+    </div>
+    <div class="empty-space"></div>
+    {#            side bar to display announcements in the database#}
+    {% for announcement in announcements %}
+        <div class="announcements">
+            <div class="announcements-text">
+                Announcement
+            </div>
+            <div>
+                <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png"
+                     alt="">
+            </div>
+            <div class="text">
+                {% for text in announcement %}
+                    <span fill-info="{{ text }}">{{ text }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="empty-space"></div>
+    {% endfor %}
+    {#            sidebar to manage orders for both sellers and buyers#}
+    <div class="manage-my-order">
+        <a href="{{ url_for("order.view_order") }}">
+            <div class="announcements-text">
+                Manage Order
+            </div>
+        </a>
+        <a href="{{ url_for("order.view_order") }}">
+            <div>
+                <img class="index-logo-img no-anim-image size"
+                     src="../../static/image/shopping/order.png"
+                     alt="">
+            </div>
+        </a>
+    </div>
+    </div>
+    {% else %}
+    <div class="right-side-bar">
+        <div class="user-intro">
+            <div class="avatar">
+                <a href="{{ url_for("user.info") }}">
+                    <img width="100px" height="100px" src="../../static/image/user_info/default_avatar.jpg"
+                         alt="" class="img-avatar">
+                </a>
+            </div>
+
+            <div class="username">
+                Please login
+            </div>
+            <div class="identity">
+
+            </div>
+            <div class="empty-space1"></div>
+            <div class="details">
+                <div>
+                    <a href="{{ url_for("user.info") }}">
+                        <button class="button-default1">
+                            Personal Details
+                        </button>
+                    </a>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="empty-space"></div>
+        {#            side bar to display announcements in the database#}
+        {% for announcement in announcements %}
+            <div class="announcements">
+                <div class="announcements-text">
+                    Announcement
+                </div>
+                <div>
+                    <img class="index-logo-img no-anim-image" src="../../static/image/shopping/img_4.png"
+                         alt="">
+                </div>
+                <div class="text">
+                    {% for text in announcement %}
+                        <span fill-info="{{ text }}">{{ text }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="empty-space"></div>
+        {% endfor %}
+        {#            sidebar to manage orders for both sellers and buyers#}
+
+    </div>
+    {% endif %}
+</div>
 
 
-    {% block jsfoot %}
-        <script type="application/javascript"
-                src="{{ url_for('static',filename='js/shopping/main-page.js') }}"></script>
-    {% endblock %}
+{% block jsfoot %}
+    <script type="application/javascript"
+            src="{{ url_for('static',filename='js/shopping/main-page.js') }}"></script>
+{% endblock %}
 {% endblock %}
