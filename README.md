@@ -319,7 +319,7 @@ criteria: https://share.weiyun.com/fGgz0sD2
 
 * Dark mode
 
-![](misc/dark-mode.gif)
+<!-- ![](misc/dark-mode.gif) -->
  <img src="misc/dark-mode.gif" width = "300px" height = "200px" alt="" align=center/>
 
 * Javascript & AJAX validation
