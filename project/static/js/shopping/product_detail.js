@@ -18,6 +18,8 @@ $(document).ready(function () {
             success: function (data, e) {
                 if ($(data).find(".login-inner_box").length > 0) {
                     location.assign("/login");
+                } else if ($(data).find("#shopping-cart-text-nav").length <= 0) {
+                    location.assign("/cart");
                 } else {
                     // alert("Item added to cart!");
                     var imgtodrag = $("#product-image-file");
