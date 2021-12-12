@@ -24,22 +24,22 @@
                     {#                    item nam#}
                     <tr>
                         <th>{{ form.item_name.label }}</th>
-                        <td>{{ form.item_name(class="number-input") }}</td>
+                        <td>{{ form.item_name(class="number-input", id="item-name-input-text") }}</td>
                     </tr>
                     {#item price#}
                     <tr>
                         <th>{{ form.item_price.label }}</th>
-                        <td>{{ form.item_price(class="number-input") }}</td>
+                        <td>{{ form.item_price(class="number-input", id="item-price-input-text") }}</td>
                     </tr>
                     {#item description#}
                     <tr>
                         <th>{{ form.description.label }}</th>
-                        <td>{{ form.description(class="number-input") }}</td>
+                        <td>{{ form.description(class="number-input", id="item-price-input-description") }}</td>
                     </tr>
                     {#item inventory#}
                     <tr>
                         <th>{{ form.inventory.label }}</th>
-                        <td>{{ form.inventory(class="number-input") }}</td>
+                        <td>{{ form.inventory(class="number-input", id="item-price-input-inventory") }}</td>
                     </tr>
                     <tr>
                         <th>{{ form.main_image_file.label }}</th>
@@ -56,6 +56,50 @@
 
         </div>
     </div>
+
+
+{% endblock %}
+
+{% block jsfoot %}
+    <script>
+        $("#item-name-input-text").on("focus input", function () {
+            const input = $(this);
+            const is_name = input.val();
+            if (is_name.length > 0) {
+                input.removeClass("invalid").addClass("valid");
+            } else {
+                input.removeClass("valid").addClass("invalid");
+            }
+        });
+        $("#item-price-input-text").on("focus input", function () {
+            const input = $(this);
+            const is_price = input.val();
+            if (is_price.length > 0 && is_price.match(/^[0-9\.]*$/)) {
+                input.removeClass("invalid").addClass("valid");
+            } else {
+                input.removeClass("valid").addClass("invalid");
+            }
+        });
+        $("#item-price-input-description").on("focus input", function () {
+            const input = $(this);
+            const is_description = input.val();
+            if (is_description.length > 5) {
+                input.removeClass("invalid").addClass("valid");
+            } else {
+                input.removeClass("valid").addClass("invalid");
+            }
+        });
+        $("#item-price-input-inventory").on("focus input", function () {
+            const input = $(this);
+            const is_inventory = input.val();
+            if (is_inventory.length > 0 && is_inventory.match(/^[0-9]*$/)) {
+                input.removeClass("invalid").addClass("valid");
+            } else {
+                input.removeClass("valid").addClass("invalid");
+            }
+        });
+
+    </script>
 
 
 {% endblock %}
