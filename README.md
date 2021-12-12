@@ -81,6 +81,16 @@ URL: http://127.0.0.1:5000
 * Passwords are **hashed**
 
 ### Roles
+##### Seller / Shop
+This is the kind of user who can **upload** products to sell and confirm orders.
+##### Administrator
+This is the kind of user who can **view** the database and **clear the database** with the empty database still working correctly.
+##### Unregistered Buyer (visitor)
+This is the kind of user who can view the products display in the main page and different shops.
+##### Logged-in Buyer
+This is the **main actor** in our website who can visit and buy products/items, confirm orders and many other functionalities which will be explained in the following sections in detail.
+
+### Implemented Functionalities
 
 #### Seller / Shop
 
@@ -94,58 +104,58 @@ URL: http://127.0.0.1:5000
 #### Administrator
 Our website has prepared a role - **administrator** with the following account and corresponding password. Here are the extra functionalities of the administrator.
 
-1. View the database using this url: http://localhost:5000/admin/view and switching different tables
+1. **View the database** using this url: http://localhost:5000/admin/view
 2. **Clear the database** by clicking "**Clear**" button in the administration page
-3. Database visualization: 
-4. Database visualization: 
-5. Database visualization: 
-6. Database visualization: 
-7. Database visualization: 
+3. Database visualization: items
+4. Database visualization: announcements
+5. Database visualization: shopping cart
+6. Database visualization: roles
+7. Database visualization: users
+8. Database visualization: orders 
 
-Professor or Head TA can use this account to 
+Professor or Head TA can use this account to **view the database** and perform the "**Clear Database**" operation. 
 
+Importantly, our website **only** allow the administrator to clear database and test using **empty/new database**.
 Account | Password
 ---|---
 buyer1 | 123456
 
 
-
 #### Unregistered Buyer (visitor)
 - [x] Allow visitors to navigate the site and view multiple pages.
 - [x] Allow visitors to register or login with **validators** and **style changed**.
-- [x] Allow visitors to **change the "light mode / dark mode"** via UI in the footer
+- [x] Allow visitors to **change the "light mode / dark mode"** via UI in the footer with the **style changed automatically**
 
 #### Logged-in Buyer
 - [x] Allow buyers to **visit** different shops
 - [x] Allow buyers to set up and modify their **personal information**
-- [x] Allow buyers to **put** items into their **basket** with **js** animation
+- [x] Allow buyers to **put** items into their **basket** with **jQuery** animation
 - [x] Allow buyers to **view** their **basket** at all times by clicking the "basket" in the navigation bar
-- [x] Allow buyers to **add** or **remove** items form the **basket** using **AJAX**
-- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets** using **AJAX**
-- [x] Allow buyers to view the **total expenditure** for all items in the basket
+- [x] Allow buyers to **add** or **remove** items form the **basket** using **jQuery and AJAX**
+- [x] Allow buyers to **increase** or **decrease** the **quantity** of the items while looking at their **baskets** using **jQuery and AJAX**
+- [x] Allow buyers to view the **total expenditure** for all items in the basket using **jQuery and AJAX**
 - [x] Allow buyers to view an itemized list of their **shopping bill**, grouped by the shop
 - [x] Allow buyers to **print their desired shopping lists** which they can take for offline buying
 - [x] Allow visitors to **change the "light mode / dark mode"** via UI in the footer
 
-### Implemented Functions for MileStone 1
+### Implemented Functions
 
 #### General Functions:
 
-- [x] Establish all basic databases
-- [x] Identity Detection: detect sellers or buyers from the database
+- [x] Establish all necessary databases
+- [x] Identity Detection: detect sellers, buyers, and the administrator (which is set in advance) from the database
+- [x] Can work with **empty/new database** - presnet UI to remove all records in the database.
 
 #### Not Logged-in Buyer
-
-- [x] Allow visitors to view recommended items on the main page
-- [x] Allow visitors to view at most **four** sample items of each shop on the main page
+- [x] Allow visitors to view recommended items which is **ordered by the total sales** on the main page
+- [x] Allow visitors to view at most three sample items of each shop on the main page
 - [x] Allow visitors to click an item to view its product details and its **total sold number**
 - [x] Allow visitors to click the shop to view all items in this shop
 - [x] Allow visitors to view the **contact page**
 - [x] Allow visitors to register for an account or log in using a valid account
-- [x] Allow visitors to **search** items based on keywords
+- [x] Allow visitors to **search** items based on keywords (with **list expanded**)
 
 #### Logged-in Buyer
-
 - [x] Allow buyers to view recommended items on the main page
 - [x] Allow buyers to view at most **three** sample items of each shop on the main page
 - [x] Allow buyers to click an item to view its **product details** and its **total sold number**
@@ -183,45 +193,41 @@ buyer1 | 123456
 - [x] Allow sellers to logout the current account
 - [x] Allow sellers to **search** items based on keywords
 
-### To-Do List for MileStone 2
+<!--### To-Do List for MileStone 2-->
 
-* Navigation bar
-    * Optimize the navigation bar to better display contents
-        * Allow the user's avatar to be displayed in the navigation bar
-* Index Page
-    * Improve the **sidebar**
-        * Displayed the order status in the sidebar
-        * Display recommended products based on users' preferences in the sidebar
-    * Optimize Page Layout
-        * Add right and left sidebars for information display
-    * Optimize Algorithm
-        * Display **recommended products by users' preferences** (by calculating the word distance between the user's
-          ordered products' titles and the products' titles on sale)
-* Shopping Cart (basket)
-    * Use **JS** to calculate the total price
-    * Use **AJAX** to dynamically change the number of a product in the shopping cart
-* Ordering
-    * Expand the functionality of **refunds** and **order canceling**
-    * Expand the functionality of sellers **uploading the delivery express ID**
-    * Expand the functionality of buyers **commenting an order or item** when confirming delivering
-    * Alert the user when they try to "Confirm Delivered" the order that is not confirmed by the shopper
-* User profile
-    * Expand the functionality of **restoring the password** using email
-* Product details
-    * Expand the functionality of sellers setting up the introduction in the product details page
-    * Expand the **iframe** to the product detail page
+<!--* Navigation bar-->
+<!--    * Optimize the navigation bar to better display contents-->
+<!--        * Allow the user's avatar to be displayed in the navigation bar-->
+<!--* Index Page-->
+<!--    * Improve the **sidebar**-->
+<!--        * Displayed the order status in the sidebar-->
+<!--        * Display recommended products based on users' preferences in the sidebar-->
+<!--    * Optimize Page Layout-->
+<!--        * Add right and left sidebars for information display-->
+<!--    * Optimize Algorithm-->
+<!--        * Display **recommended products by users' preferences** (by calculating the word distance between the user's-->
+<!--          ordered products' titles and the products' titles on sale)-->
+<!--* Shopping Cart (basket)-->
+<!--    * Use **JS** to calculate the total price-->
+<!--    * Use **AJAX** to dynamically change the number of a product in the shopping cart-->
+<!--* Ordering-->
+<!--    * Expand the functionality of **refunds** and **order canceling**-->
+<!--    * Expand the functionality of sellers **uploading the delivery express ID**-->
+<!--    * Expand the functionality of buyers **commenting an order or item** when confirming delivering-->
+<!--    * Alert the user when they try to "Confirm Delivered" the order that is not confirmed by the shopper-->
+<!--* User profile-->
+<!--    * Expand the functionality of **restoring the password** using email-->
+<!--* Product details-->
+<!--    * Expand the functionality of sellers setting up the introduction in the product details page-->
+<!--    * Expand the **iframe** to the product detail page-->
 
 ### User Accounts for Testing
+Here are the accounts for the professor and head TA to test our website:
 
-Seller:
-
-* Username: shop1
-* Password: 123
-
-Buyer:
-
-* Username: buyer1
-* Password: 123
+Role | Account | Password
+---|---|---
+Seller | shop1 | 123456
+Buyer | customer1 | 123456
 
 ### Roles in the system
 
