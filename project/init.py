@@ -88,18 +88,6 @@ class LevelFilter(object):
 if not os.path.exists("log"):
     os.makedirs("log")
 
-
-# logging config
-# logging.basicConfig(
-#                     format='asctime:        %(asctime)s \n'  # 时间
-#                            'filename_line:  %(filename)s_[line:%(lineno)d] \n'  # 文件名_行号
-#                            'level:          %(levelname)s \n'  # log级别
-#                            'message:        %(message)s \n',  # log信息
-#                     datefmt='%a, %d %b %Y %H:%M:%S',
-#                     filename='log/log.log',
-#                     filemode='a')  # 如果模式为'a'，则为续写（不会抹掉之前的log）
-# yyyy-MM-dd HH:mm:ss,SSS
-# HH:mm:ss.SSS
 class RequestFormatter(logging.Formatter):
     def format(self, record):
         record.msg = record.msg.replace("\n", "")
