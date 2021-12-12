@@ -1,0 +1,105 @@
+{#this is a particularly designed base HTML for thr printing wishing list page#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0"/>
+    <meta
+            name="description"
+            content="{% block meta_description %}{% endblock %}"
+    />
+    <meta name="author" content="{% block meta_author %}{% endblock %}"/>
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base/new_navbar.css') }}">
+
+    <script type="application/javascript" src="{{ url_for('static',filename='js/jquery-3.6.0.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/navigation.js') }}"></script>
+
+    {% block script %}
+    {% endblock %}
+    {% block css %}
+    {% endblock %}
+    {% block meta %}
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+    {% block style %}
+    {% endblock %}
+
+    <title>
+        {% block title %}
+            no title
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+
+<div class="background-image">
+    <div class="background-image-loading-container">
+        <div class="g-container">
+            <div class="g-first"></div>
+            <div class="g-ball1"></div>
+            <div class="g-ball2"></div>
+            <div class="g-ball3"></div>
+            <div class="g-ball4"></div>
+            <div class="g-ball5"></div>
+            <div class="g-ball6"></div>
+            <div class="g-ball7"></div>
+        </div>
+    </div>
+</div>
+
+<header>
+    <main role="main">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+            <div class="base-message-box">
+                <div id="message_content">
+                    <a class="base-message-close-icon" title="Close" href="#" onclick="HideMessage()">X</a>
+                    {% for category, message in messages %}
+
+                        {{ message }}
+                        <!-- end .alert -->
+                    {% endfor %}</div>
+            </div>
+            <!-- end row -->
+        {% endif %} {% endwith %}
+    </main>
+
+    {#    no navigation part for the print page#}
+    {% block header %}{% endblock %}
+
+</header>
+{% block body %}
+
+    <div class="content-body">
+    <script>
+        document.getElementsByClassName("content-body")[0].hidden = true;
+    </script>
+    <canvas class="fireworks" width="839" height="393" style="width: 839px; height: 393px;"></canvas>
+    <section id="container">
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    {% block jsfoot %}
+    {% endblock %}
+    <script src="{{ url_for('static',filename='js/base.js') }}"></script>
+
+    {% block footer %}
+        {% include '/base/footer_print.html' %}
+    {% endblock %}
+
+{% endblock %}
+</div>
+</body>
+
+</html>
