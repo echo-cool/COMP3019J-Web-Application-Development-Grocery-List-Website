@@ -313,6 +313,13 @@ Buyer | customer1 | 123456
 * Order Management
     * User can view the orders made in his shop
     * Users can change the status of orders made in their shops
+    
+### Administrator's Functionality
+
+* **Database Visualization**
+    * View all tables in the database
+* **Clear** all records stored in the **database**
+    * Can still work with empty/new database 
 
 ### Team 20 small video
 
@@ -330,19 +337,19 @@ criteria: https://share.weiyun.com/fGgz0sD2
 ![](misc/adaptive-layout.gif)
 ![](misc/adaptive-layout2.gif)
 
-* Dark mode
+* **Switch dark mode**
 
 ![](misc/dark-mode.gif)
 
-* Javascript & **AJAX** validation
+* **Javascript** & **AJAX** **validation**
 
 ![](misc/login-validation.gif)
 
-* Print shopping list
+* **Print** shopping list
 
 ![](misc/print-shoping-list.gif)
 
-* Clear database
+* **Clear database**
 
 ![](misc/clear-database.gif)
 
