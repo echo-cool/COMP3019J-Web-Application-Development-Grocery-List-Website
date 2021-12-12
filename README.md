@@ -273,8 +273,9 @@ Buyer | customer1 | 123456
     2. Can manage products
     3. Can view and manage orders made from his shop
     4. Can confirm orders
-    5. **Cannot view his cart**
-    6. Cannot make orders
+    5. **Cannot view his cart**   
+    6. **Cannot add products to shopping cart**
+    7. Cannot make orders
 
 ### Buyer's Functionality
 
@@ -291,6 +292,7 @@ Buyer | customer1 | 123456
 * Ordering
     * Buyers can make orders from his shopping cart
     * After paying, users can view the order on the order page
+    * Users can change the status of their orders
 * User profile
     * User can change their avatar on the profile page
     * User can change their email on the profile page
@@ -310,6 +312,7 @@ Buyer | customer1 | 123456
     * Sellers can remove products from the system
 * Order Management
     * User can view the orders made in his shop
+    * Users can change the status of orders made in their shops
 
 ### Team 20 small video
 
