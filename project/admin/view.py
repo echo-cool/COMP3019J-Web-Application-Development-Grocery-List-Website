@@ -15,6 +15,8 @@ blueprint = Blueprint("admin", __name__, static_folder="../static")
 @admin_required
 def view_all_tables() -> Response:
     data: FacadeDict = db.metadata.tables
+    # for i in data:
+    #     print(data[i].columns)
     return render_template('admin/view.html', tables=data, current_user=get_current_user())
 
 
@@ -22,13 +24,12 @@ def view_all_tables() -> Response:
 @login_required
 @admin_required
 def view_table_details(table_name: str) -> Response:
+    columns = [i.name for i in db.metadata.tables[table_name].columns]
     data = db.session.query(db.metadata.tables[table_name]).all()
-    print(data)
     size = len(data[0])
     num = len(data)
-    print(size)
     return render_template('admin/data.html', data=data, current_user=get_current_user(), table_name=table_name,
-                           size=size, num=num)
+                           size=size, num=num, columns=columns)
 
 
 @blueprint.route('/admin/del_table/<string:table_name>')
