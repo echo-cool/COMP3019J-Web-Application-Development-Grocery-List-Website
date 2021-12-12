@@ -33,9 +33,47 @@ $(document).ready(function () {
                     );
                 }
             }
-        })
+        });
 
-    })
+    });
+
+
+    $(".index-item-image-big").on("mouseover", function () {
+        console.log($(this))
+        let url = $(this).parent().attr("href");
+        console.log(url);
+        const iframe = $('<iframe id="mainIframe" name="mainIframe" src="' + url + '" frameborder="0" scrolling="no" ></iframe>');
+        iframe.css({
+            "position": "absolute",
+            "width": "1190px",
+            "height": "800px",
+            "z-index": "999999999",
+            "transform": "translate(-58%, -15%) scale(0.2)",
+        });
+        $(this).parent().append(iframe.clone().addClass("index-item-image-clone"));
+    });
+    $(".index-item-image-big").on("mouseleave", function () {
+        $(".index-item-image-clone").remove();
+    });
+
+    $(".index-item-image").on("mouseover", function () {
+        console.log($(this))
+        let url = $(this).parent().attr("href");
+        console.log(url);
+        const iframe = $('<iframe id="mainIframe" name="mainIframe" src="' + url + '" frameborder="0" scrolling="no" ></iframe>');
+        iframe.css({
+            "position": "absolute",
+            "width": "1190px",
+            "height": "800px",
+            "z-index": "999999999",
+            "transform": "translate(-58%, -15%) scale(0.2)",
+        });
+        $(this).parent().append(iframe.clone().addClass("index-item-image-clone"));
+    });
+    $(".index-item-image").on("mouseleave", function () {
+        $(".index-item-image-clone").remove();
+    });
+
 })
 
 function clear_search_result() {

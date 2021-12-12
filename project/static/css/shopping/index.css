@@ -419,6 +419,7 @@
 }
 
 .index-item-text {
+    z-index: -1;
     width: 100%;
 }
 
@@ -430,6 +431,7 @@
     color: mediumpurple;
     font-weight: bold;
     font-size: 20px;
+    z-index: -1;
 
 }
 

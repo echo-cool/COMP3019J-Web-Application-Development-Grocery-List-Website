@@ -65,7 +65,7 @@
         $("#item-name-input-text").on("focus input", function () {
             const input = $(this);
             const is_name = input.val();
-            if (is_name.length > 0) {
+            if (is_name.length > 5) {
                 input.removeClass("invalid").addClass("valid");
             } else {
                 input.removeClass("valid").addClass("invalid");
