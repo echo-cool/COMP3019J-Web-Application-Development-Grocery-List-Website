@@ -1,5 +1,10 @@
 
 
+
+{% block script %}
+    <script type="application/javascript" src="{{ url_for('static',filename='js/jquery-3.6.0.js') }}"></script>
+{% endblock %}
+
 {% block style %}
     <link rel="stylesheet" href="../../static/css/shopping/checkout.css">
     <link rel="stylesheet" href="../../static/css/shopping/shopping_cart.css">
@@ -16,23 +21,23 @@
             <div class="empty-space1"></div>
 
             <table class="print-table">
-            <div style="background-color: pink;">ss</div>
+                <div style="background-color: pink;">ss</div>
                 <thead>
-                    <tr>
-                        <th>Index</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                        <th>Number</th>
-                        <th>Total</th>
-                    </tr>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Number</th>
+                    <th>Total</th>
+                </tr>
                 </thead>
                 <tbody>
                 {% for shop in cart_dict %}
                     <tr id="shopping-cart-seller">
                         <th colspan="7">Shop Name: {{ shop.username }}</th>
                     </tr>
-{#                    for each item of the current shop in your basket#}
+                    {#                    for each item of the current shop in your basket#}
                     {% for item in cart_dict[shop] %}
                         <tr>
                             <td> {{ loop.index }} </td>
@@ -100,7 +105,7 @@
             {#                </tbody>#}
             {#            </table>#}
             <div class="empty-space1"></div>
-            <button><a href="#">Print</a></button>
+            <button id="print_cart">Print</button>
 
         </div>
     </div>
@@ -108,6 +113,6 @@
 {% endblock %}
 
 
-{% block script %}
+{% block jsfoot %}
     <script src="../../static/js/shopping/print_cart.js"></script>
 {% endblock %}
