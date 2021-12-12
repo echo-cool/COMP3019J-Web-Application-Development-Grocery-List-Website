@@ -166,12 +166,15 @@ h3 {
 
 .shopping-cart-big-box .shopping-cart-box-table .sub-add-button {
     /*max-width: 5%;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    /*align-content: center;*/
+    /*justify-items: center;*/
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-items: center;
     padding: 60px;
+    align-content: space-around;
+    justify-content: center;
 }
 
 .shopping-cart-big-box .shopping-cart-box-table .number-margin {

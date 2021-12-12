@@ -18,20 +18,6 @@ from project.utils import get_current_user
 blueprint = Blueprint("index", __name__, static_folder="../static")
 
 
-# res = {}
-# for i in cart:
-#     shop_user_id = i.get_shop_userID()
-#     item_id = i.item_id
-#     item = Item.get_by_id(item_id)
-#     shopper = User.get_by_id(shop_user_id)
-#     item.count = i.count
-#
-#     if shopper in res.keys():
-#         res[shopper].append(item)
-#     else:
-#         res[shopper] = [item]
-#
-#     return render_template("shopping/shopping_cart.html", cart_dict=res)
 # This is the main index page
 @blueprint.route("/", methods=["GET", "POST"])
 def home() -> str:

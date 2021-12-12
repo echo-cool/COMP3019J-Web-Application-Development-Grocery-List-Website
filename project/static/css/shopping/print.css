@@ -1,0 +1,14 @@
+.print-table {
+    border-collapse: collapse;
+
+}
+
+#shopping-cart-box-print {
+    background-color: transparent;
+    padding: 75px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 70%;
+}
