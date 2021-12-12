@@ -12,3 +12,19 @@
     align-items: center;
     min-width: 70%;
 }
+
+.print-info {
+    margin-bottom: 20px;
+}
+
+.print-info1 {
+    font-weight: bold;
+}
+
+.print-info2 {
+   margin-left: 40%;
+}
+
+#print_cart {
+    margin: 0 auto;
+}

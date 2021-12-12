@@ -1,4 +1,5 @@
 from flask import Blueprint, Response
+import datetime
 from flask import (
     Blueprint,
     flash,
@@ -184,5 +185,7 @@ def print_cart() -> str:
         else:
             res[shopper] = [item]
 
+    curr_time = datetime.datetime.now()
+    time_str = curr_time.strftime("%Y-%m-%d")
     return render_template("shopping/print.html", cart_dict=res, total_price=total_price,
-                           cart_length=cart_length, current_user=get_current_user())
+                           cart_length=cart_length, current_user=get_current_user(), time_str=time_str)
