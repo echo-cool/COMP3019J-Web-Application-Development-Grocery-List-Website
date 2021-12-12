@@ -15,58 +15,62 @@ $(document).ready(function () {
                 itemCount: quantity,
                 csrf_token: $("meta[name='csrf-token']").attr("content")
             },
-            success: function (data) {
-                // alert("Item added to cart!");
-                var imgtodrag = $("#product-image-file");
-                var cart = $('#shopping-cart-text-nav');
+            success: function (data, e) {
+                if ($(data).find(".login-inner_box").length > 0) {
+                    location.assign("/login");
+                } else {
+                    // alert("Item added to cart!");
+                    var imgtodrag = $("#product-image-file");
+                    var cart = $('#shopping-cart-text-nav');
 
-                var imgclone = imgtodrag
-                    .clone()
-                    .offset({
-                        top: imgtodrag.offset().top,
-                        left: imgtodrag.offset().left
-                    })
-                    .css({
-                        'opacity': '0.8',
-                        'position': 'absolute',
-                        'height': '150px',
-                        'width': '150px',
-                        'z-index': '100'
-                    })
-                    .appendTo($('body'));
+                    var imgclone = imgtodrag
+                        .clone()
+                        .offset({
+                            top: imgtodrag.offset().top,
+                            left: imgtodrag.offset().left
+                        })
+                        .css({
+                            'opacity': '0.8',
+                            'position': 'absolute',
+                            'height': '150px',
+                            'width': '150px',
+                            'z-index': '100'
+                        })
+                        .appendTo($('body'));
 
-                imgclone.attr("style",
-                    "position:absolute;height:0px;width:0px;z-index:100;top:" + cart.offset().top + "px;left:" + cart.offset().left + "px;");
-                // setInterval(function () {
-                //     console.log(imgclone.attr("style"));
-                // }, 100);
-                // .animate({
-                //     'top': cart.offset().top + 10,
-                //     'left': cart.offset().left + 10,
-                //     'width': 75,
-                //     'height': 75
-                // }, 1000, 'easeInOutExpo');
-                // .animate({
-                //     'top': cart.offset().top + 10,
-                //     'left': cart.offset().left + 10,
-                //     'width': 75,
-                //     'height': 75
-                // }, 1000, 'easeInOutExpo');
+                    imgclone.attr("style",
+                        "position:absolute;height:0px;width:0px;z-index:100;top:" + cart.offset().top + "px;left:" + cart.offset().left + "px;");
+                    // setInterval(function () {
+                    //     console.log(imgclone.attr("style"));
+                    // }, 100);
+                    // .animate({
+                    //     'top': cart.offset().top + 10,
+                    //     'left': cart.offset().left + 10,
+                    //     'width': 75,
+                    //     'height': 75
+                    // }, 1000, 'easeInOutExpo');
+                    // .animate({
+                    //     'top': cart.offset().top + 10,
+                    //     'left': cart.offset().left + 10,
+                    //     'width': 75,
+                    //     'height': 75
+                    // }, 1000, 'easeInOutExpo');
 
-                // imgclone.animate({
-                //     'width': 0,
-                //     'height': 0
-                // }, function () {
-                //     $(this).detach()
-                // });
+                    // imgclone.animate({
+                    //     'width': 0,
+                    //     'height': 0
+                    // }, function () {
+                    //     $(this).detach()
+                    // });
 
-                // setTimeout(function () {
-                //     cart.effect("shake", {
-                //         times: 2
-                //     }, 200);
-                // }, 1500);
+                    // setTimeout(function () {
+                    //     cart.effect("shake", {
+                    //         times: 2
+                    //     }, 200);
+                    // }, 1500);
+                }
             },
-            error: function (){
+            error: function () {
                 location.assign("/login");
             }
         });
