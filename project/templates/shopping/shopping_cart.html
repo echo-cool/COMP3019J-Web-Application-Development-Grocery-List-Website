@@ -102,17 +102,6 @@
                                               style="width: 100px; height: 40px; line-height: 40px">Remove</span>
                                     </div>
                                 </td>
-
-                                {#                                <td>#}
-                                {#                                    <div class="product-action-buttons">#}
-                                {#                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>#}
-                                {#                                        <input type="hidden" name="itemID" value="{{ item.id }}">#}
-                                {#                                        <input id="remove-from-cart-button-{{ item.id }}"#}
-                                {#                                               class="removal-items-cart" type="submit"#}
-                                {#                                               value="Remove from Shopping Cart"#}
-                                {#                                               name="submit">#}
-                                {#                                    </div>#}
-                                {#                                </td>#}
                             </tr>
                         {% endfor %}
                     {% endfor %}
@@ -120,11 +109,20 @@
                         <th colspan="8" class="checkout-total-payment">Total Price: {{ total_price }}</th>
                     </tr>
                     </tbody>
+
+
                 </table>
 
+                <div>
                 <button class="button-default">
                     <a href="{{ url_for("checkout.checkout_confirm") }}" class="check-button">Check Out</a>
                 </button>
+                <button class="button-default">
+                    <a href="{{ url_for("cart.print_cart") }}" class="check-button">Print List</a>
+                </button>
+                </div>
+
+
             {% endif %}
         </div>
     </div>

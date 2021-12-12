@@ -1,4 +1,4 @@
-{% extends "/base/base.html" %}
+{% extends "/base/base_print.html" %}
 
 {% block title %}
     Confirm You Order
@@ -17,51 +17,64 @@
         <div id="shopping-cart-box">
             <p class="shopping-cart-box-head"> Customer </p>
 
-            <h1>Confirm You Order</h1>
+            <h1>Print Wishing List</h1>
             <div class="empty-space1"></div>
-            <table class="shopping-cart-box-table">
-                <thead>
-                <tr>
-                    <th class="index-item-image-box">Name</th>
-                    <th class="index-item-image-box">Image</th>
-                    <th>Price</th>
-                    <th class="number-margin">Number</th>
-                    <th>Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                {#                loop through shop of the shops which have your items in the basket#}
-                {% for shop in cart_dict %}
 
-                    <tr id="shopping-cart-seller">
-                        <th colspan="7">Shop Name: {{ shop.username }}</th>
+            <table class="print-table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Number</th>
                     </tr>
-                    {#                    for each item of the current shop in your basket#}
-                    {% for item in cart_dict[shop] %}
-                        <tr>
-                            <td>
-                                {{ item.name }}
-                            </td>
-                            <td class="index-item-image-box"><a
-                                    href="{{ url_for("item.details", itemID=item.id) }}"><img
-                                    class="index-item-image"
-                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"
-                                    value="Item Image"></a>
-                            </td>
-                            <td>{{ item.price }}</td>
-                            <td class="sub-add-button">
-                                <input disabled="disabled" type="text" class="number" value="{{ item.count }}">
-                            </td>
-                            <td>{{ item.price * item.count }}</td>
-                        </tr>
-                    {% endfor %}
-                {% endfor %}
-                {#calculate the total price#}
-                <tr class="shopping-cart-seller">
-                    <th colspan="7" class="checkout-total-payment">Total Price: {{ total_price }}</th>
-                </tr>
-                </tbody>
+                </thead>
             </table>
+
+{#            <table class="shopping-cart-box-table">#}
+{#                <thead>#}
+{#                <tr>#}
+{#                    <th class="index-item-image-box">Name</th>#}
+{#                    <th class="index-item-image-box">Image</th>#}
+{#                    <th>Price</th>#}
+{#                    <th class="number-margin">Number</th>#}
+{#                    <th>Total</th>#}
+{#                </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+                {#                loop through shop of the shops which have your items in the basket#}
+{#                {% for shop in cart_dict %}#}
+{##}
+{#                    <tr id="shopping-cart-seller">#}
+{#                        <th colspan="7">Shop Name: {{ shop.username }}</th>#}
+{#                    </tr>#}
+                    {#                    for each item of the current shop in your basket#}
+{#                    {% for item in cart_dict[shop] %}#}
+{#                        <tr>#}
+{#                            <td>#}
+{#                                {{ item.name }}#}
+{#                            </td>#}
+{#                            <td class="index-item-image-box"><a#}
+{#                                    href="{{ url_for("item.details", itemID=item.id) }}"><img#}
+{#                                    class="index-item-image"#}
+{#                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
+{#                                    value="Item Image"></a>#}
+{#                            </td>#}
+{#                            <td>{{ item.price }}</td>#}
+{#                            <td class="sub-add-button">#}
+{#                                <input disabled="disabled" type="text" class="number" value="{{ item.count }}">#}
+{#                            </td>#}
+{#                            <td>{{ item.price * item.count }}</td>#}
+{#                        </tr>#}
+{#                    {% endfor %}#}
+{#                {% endfor %}#}
+                {#calculate the total price#}
+{#                <tr class="shopping-cart-seller">#}
+{#                    <th colspan="7" class="checkout-total-payment">Total Price: {{ total_price }}</th>#}
+{#                </tr>#}
+{#                </tbody>#}
+{#            </table>#}
             <div class="empty-space1"></div>
             {#        button for you to confirm checkout and pay#}
             <button class="button-default"><a href="{{ url_for("checkout.checkout_pay") }}" class="check-button">Check
