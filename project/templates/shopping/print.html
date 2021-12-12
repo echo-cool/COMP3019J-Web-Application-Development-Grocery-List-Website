@@ -22,67 +22,72 @@
 
             <table class="print-table">
                 <thead>
-                    <tr>
-                        <th>Index</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                        <th>Number</th>
-                    </tr>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Number</th>
+                </tr>
                 </thead>
             </table>
 
-{#            <table class="shopping-cart-box-table">#}
-{#                <thead>#}
-{#                <tr>#}
-{#                    <th class="index-item-image-box">Name</th>#}
-{#                    <th class="index-item-image-box">Image</th>#}
-{#                    <th>Price</th>#}
-{#                    <th class="number-margin">Number</th>#}
-{#                    <th>Total</th>#}
-{#                </tr>#}
-{#                </thead>#}
-{#                <tbody>#}
-                {#                loop through shop of the shops which have your items in the basket#}
-{#                {% for shop in cart_dict %}#}
-{##}
-{#                    <tr id="shopping-cart-seller">#}
-{#                        <th colspan="7">Shop Name: {{ shop.username }}</th>#}
-{#                    </tr>#}
-                    {#                    for each item of the current shop in your basket#}
-{#                    {% for item in cart_dict[shop] %}#}
-{#                        <tr>#}
-{#                            <td>#}
-{#                                {{ item.name }}#}
-{#                            </td>#}
-{#                            <td class="index-item-image-box"><a#}
-{#                                    href="{{ url_for("item.details", itemID=item.id) }}"><img#}
-{#                                    class="index-item-image"#}
-{#                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
-{#                                    value="Item Image"></a>#}
-{#                            </td>#}
-{#                            <td>{{ item.price }}</td>#}
-{#                            <td class="sub-add-button">#}
-{#                                <input disabled="disabled" type="text" class="number" value="{{ item.count }}">#}
-{#                            </td>#}
-{#                            <td>{{ item.price * item.count }}</td>#}
-{#                        </tr>#}
-{#                    {% endfor %}#}
-{#                {% endfor %}#}
-                {#calculate the total price#}
-{#                <tr class="shopping-cart-seller">#}
-{#                    <th colspan="7" class="checkout-total-payment">Total Price: {{ total_price }}</th>#}
-{#                </tr>#}
-{#                </tbody>#}
-{#            </table>#}
+            {#            <table class="shopping-cart-box-table">#}
+            {#                <thead>#}
+            {#                <tr>#}
+            {#                    <th class="index-item-image-box">Name</th>#}
+            {#                    <th class="index-item-image-box">Image</th>#}
+            {#                    <th>Price</th>#}
+            {#                    <th class="number-margin">Number</th>#}
+            {#                    <th>Total</th>#}
+            {#                </tr>#}
+            {#                </thead>#}
+            {#                <tbody>#}
+            {#                loop through shop of the shops which have your items in the basket#}
+            {#                {% for shop in cart_dict %}#}
+            {##}
+            {#                    <tr id="shopping-cart-seller">#}
+            {#                        <th colspan="7">Shop Name: {{ shop.username }}</th>#}
+            {#                    </tr>#}
+            {#                    for each item of the current shop in your basket#}
+            {#                    {% for item in cart_dict[shop] %}#}
+            {#                        <tr>#}
+            {#                            <td>#}
+            {#                                {{ item.name }}#}
+            {#                            </td>#}
+            {#                            <td class="index-item-image-box"><a#}
+            {#                                    href="{{ url_for("item.details", itemID=item.id) }}"><img#}
+            {#                                    class="index-item-image"#}
+            {#                                    src="{{ url_for('static', filename='uploaded_files/'+item.main_image_url) }}"#}
+            {#                                    value="Item Image"></a>#}
+            {#                            </td>#}
+            {#                            <td>{{ item.price }}</td>#}
+            {#                            <td class="sub-add-button">#}
+            {#                                <input disabled="disabled" type="text" class="number" value="{{ item.count }}">#}
+            {#                            </td>#}
+            {#                            <td>{{ item.price * item.count }}</td>#}
+            {#                        </tr>#}
+            {#                    {% endfor %}#}
+            {#                {% endfor %}#}
+            {#calculate the total price#}
+            {#                <tr class="shopping-cart-seller">#}
+            {#                    <th colspan="7" class="checkout-total-payment">Total Price: {{ total_price }}</th>#}
+            {#                </tr>#}
+            {#                </tbody>#}
+            {#            </table>#}
             <div class="empty-space1"></div>
             {#        button for you to confirm checkout and pay#}
-            <button class="button-default"><a href="{{ url_for("checkout.checkout_pay") }}" class="check-button">Check
-                out And Pay</a>
+            <button class="button-default" id="print_cart">
+                Print
             </button>
 
 
         </div>
     </div>
 
+{% endblock %}
+
+
+{% block script %}
+    <script src="../../static/js/shopping/print_cart.js"></script>
 {% endblock %}
