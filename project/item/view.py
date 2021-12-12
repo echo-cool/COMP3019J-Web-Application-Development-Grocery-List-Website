@@ -112,6 +112,8 @@ def ModifyNewItem(item_id: int) -> str:
             item.main_image_url = filename
         item.update()
         flash("Update Success")
+        return redirect(url_for("item.ManageItem"))
+
     flash_errors(form)
     return render_template("item/update.html", item=item, form=form, current_user=get_current_user())
 
@@ -152,6 +154,7 @@ def addNewItem() -> str:
             flash("Save Failed, Check your input !")
             print(e.message)
             db.session.rollback()
+        return redirect(url_for("item.ManageItem"))
     flash_errors(form)
     return render_template("item/add.html", form=form, current_user=get_current_user())
 
