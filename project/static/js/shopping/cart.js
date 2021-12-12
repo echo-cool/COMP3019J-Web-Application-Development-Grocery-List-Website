@@ -1,6 +1,8 @@
 const csrf_token = $("meta[name=csrf-token]").attr("content");
 
+// set cart item count by item id
 function cart_add(itemID) {
+    //get current inventory
     var item_inventory = Number.parseInt($("#item-inventory-id-" + itemID)[0].textContent);
     var itemCount = Number.parseInt($("#item-quantity-id-" + itemID)[0].value) + 1;
     if (item_inventory - itemCount < 0) {
@@ -16,6 +18,7 @@ function cart_add(itemID) {
         data: {"itemID": itemID, "itemCount": itemCount,},
         headers: {"X-CSRFToken": csrf_token},
         success: function (data) {
+            //if itemCount then remove this row
             if (itemCount <= 0) {
                 $("#item-entry-id-" + itemID)[0].remove();
                 let trs = $(".shopping-cart-box-table tr");

@@ -17,8 +17,10 @@ $(document).ready(function () {
             },
             success: function (data, e) {
                 if ($(data).find(".login-inner_box").length > 0) {
+                    // alert("Please login to add to cart");
                     location.assign("/login");
                 } else if ($(data).find("#shopping-cart-text-nav").length <= 0) {
+                    // Not found cart-text then this user is a seller, who can't add to cart
                     location.assign("/cart");
                 } else {
                     // alert("Item added to cart!");
