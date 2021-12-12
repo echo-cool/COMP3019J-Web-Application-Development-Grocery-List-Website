@@ -22,21 +22,28 @@
                     <thead>
                     <tr>
                         {% for name in tables %}
-                            <th><a href="view/{{ name }}" id="change-to-white">{{ name }}</a></th>
+                            <th style="height: 80px;"><a href="view/{{ name }}" id="change-to-white"
+                                                         style="font-size: 20px; padding: 20px">{{ name }}</a>
+                            </th>
                         {% endfor %}
                     </tr>
                     </thead>
                     {#                loop through shops#}
                     <tbody id="shopping-cart-box-tbody">
                     <tr style="width: 50px">
-                        <td colspan="6">
-                            <div class="dialogue-message-box" style="margin-bottom: 10px">
+                        <td colspan="6" style="padding: 100px">
+                            <div class="dialogue-message-box"
+                                 style="margin-bottom: 10px;display: flex;justify-content: center;align-items: center;">
                                 <div class="btn-back">
-                                    <p>Are you sure to delete that?</p>
-                                    <button class="dialogue-message-yes-button">Yes</button>
+                                    <p>Are you sure to do that?</p>
+                                    <button class="dialogue-message-yes-button" style="background: red">Yes</button>
                                     <button class="dialogue-message-no-button">No</button>
                                 </div>
-                                <span class="message-button-action" style="width: 160px; height: 40px; line-height: 40px">Clear Database</span>
+                                <button class="message-button-action"
+                                        style="font-weight: bold;font-size: 20px;background: red;height: 80px;width: 260px; line-height: 40px">
+                                    Clear
+                                    Database
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -49,16 +56,16 @@
             </div>
         </div>
 
-{#        {% for name in tables %}#}
-{#            <br>#}
-{#            <br>#}
-{#            <a href="view/{{ name }}">{{ name }}</a>#}
-{#            <br>#}
-{#            <hr>#}
-{##}
-{#            <br>#}
-{##}
-{#        {% endfor %}#}
+        {#        {% for name in tables %}#}
+        {#            <br>#}
+        {#            <br>#}
+        {#            <a href="view/{{ name }}">{{ name }}</a>#}
+        {#            <br>#}
+        {#            <hr>#}
+        {##}
+        {#            <br>#}
+        {##}
+        {#        {% endfor %}#}
 
     </div>
 

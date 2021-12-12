@@ -17,12 +17,6 @@
     color: #80c243;
 }
 
-/*Reference*/
-/*the following codes are referenced from this link:*/
-/*no. 42*/
-/*https://pan.baidu.com/s/1XCmR5eGgKZJTYQN08779xw#list/path=%2Fsharelink2789904698-143656889326290%2Fsrc&parentPath=%2Fsharelink2789904698-143656889326290*/
-
-/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);*/
 
 .description {
     margin-top: 50px;
@@ -164,3 +158,11 @@
 .dialogue-message-box[data-direction="left"].is-open {
     transform: rotateY(-180deg);
 }
+
+.shopping-cart-box-table th:hover {
+    background: #03a9f4;
+}
+
+/*.message-button-action:hover {*/
+/*    background: palevioletred;*/
+/*}*/
