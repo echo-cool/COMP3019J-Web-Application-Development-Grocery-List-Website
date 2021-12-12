@@ -189,7 +189,9 @@
                                          style="margin-bottom: 10px;display: flex;justify-content: center;align-items: center;">
                                         <div class="btn-back">
                                             <p>Are you sure to do that?</p>
-                                            <button class="dialogue-message-yes-button" style="background: red">Yes
+                                            <button class="dialogue-message-yes-button" style="background: red"><a
+                                                    href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"
+                                                    class="order-font" onclick="alertConfirmedBySeller()">Confirm</a>
                                             </button>
                                             <button class="dialogue-message-no-button">No</button>
                                         </div>
@@ -198,18 +200,18 @@
                                         </button>
                                     </div>
                                 {% else %}
-                                     <button class="button-default">
-                                         <a href="javascript:;" class="order-font" onclick="alertNotConfirmedBySeller()">Confirm</a>
+                                    <button class="button-default">
+                                        <a href="javascript:;" class="order-font" onclick="alertNotConfirmedBySeller()">Confirm</a>
                                     </button>
                                 {% endif %}
-{#                                <button class="button-default">#}
-{#                                    {% if not order.is_confirmed_by_shopper %}#}
-{#                                        <a href="javascript:;" class="order-font" onclick="alertNotConfirmedBySeller()">Confirm</a>#}
-{#                                    {% else %}#}
-{#                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"#}
-{#                                           class="order-font" onclick="alertConfirmedBySeller()">Confirm</a>#}
-{#                                    {% endif %}#}
-{#                                </button>#}
+                                {#                                <button class="button-default">#}
+                                {#                                    {% if not order.is_confirmed_by_shopper %}#}
+                                {#                                        <a href="javascript:;" class="order-font" onclick="alertNotConfirmedBySeller()">Confirm</a>#}
+                                {#                                    {% else %}#}
+                                {#                                        <a href="{{ url_for("order.buyer_confirm_order", order_id=order_id, shopper_id=order.shopper_id) }}"#}
+                                {#                                           class="order-font" onclick="alertConfirmedBySeller()">Confirm</a>#}
+                                {#                                    {% endif %}#}
+                                {#                                </button>#}
                             {% endif %}
                         {% endif %}
                         </td>

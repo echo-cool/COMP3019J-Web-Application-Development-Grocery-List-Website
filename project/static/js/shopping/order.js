@@ -1,8 +1,8 @@
-function alertNotConfirmedBySeller(){
+function alertNotConfirmedBySeller() {
     alert("Sorry you cannot confirm this order\nbecause it has not been confirmed by the seller!")
 }
 
-function alertConfirmedBySeller(){
+function alertConfirmedBySeller() {
     // alert("That is fine!")
 }
 
@@ -34,28 +34,7 @@ $(".message-button-action-new").on("click", function (e) {
 // click yes
 $(".dialogue-message-yes-button").on("click", function () {
     console.log("yes");
-    if (confirm("This action will clear **ALL** data from the **database**.\n Are you sure you want to continue?")) {
-        let number1 = Math.floor(Math.random() * 10);
-        let number2 = Math.floor(Math.random() * 10);
-        const input_text = prompt("Please enter the result of this calculation\n\n" + number1 + " + " + number2 + "\n", "");
-        if (input_text == (number1 + number2).toString()) {
-            let timestamp = new Date().getTime();
-            $.ajax({
-                url: "/admin/del_all_tables?timestamp=" + timestamp,
-                type: "GET",
-                data: {},
-                success: function (data) {
-                    if (data.status === "success") {
-                        alert("Delete all tables success");
-                        $(this).parent().parent().removeClass('is-open');
-                        location.assign("/");
-                    }
-                }
-            });
-        } else {
-            alert("I don't think you are doing the right thing.\n\n**Please don't do this.**\n\nDatabase was not changed.");
-        }
-    }
+    $(this).parent().parent().removeClass('is-open');
 
 })
 ;
