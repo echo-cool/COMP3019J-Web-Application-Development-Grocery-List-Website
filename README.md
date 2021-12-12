@@ -138,7 +138,7 @@ Professor or Head TA can use this account to **view the database** and perform t
 
 Importantly, our website **only** allow the administrator to clear database and test using **empty/new database**.
 
-Username | Password
+**Admin** Username | Password
 ---|---
 buyer1 | 123456
 
@@ -322,7 +322,7 @@ criteria: https://share.weiyun.com/fGgz0sD2
 
 ![](misc/loading.gif)
 
-* Adaptive image size and adaptive layout
+* **Adaptive** image size and adaptive layout
 
 ![](misc/adaptive-layout.gif)
 ![](misc/adaptive-layout2.gif)
@@ -331,7 +331,7 @@ criteria: https://share.weiyun.com/fGgz0sD2
 
 ![](misc/dark-mode.gif)
 
-* Javascript & AJAX validation
+* Javascript & **AJAX** validation
 
 ![](misc/login-validation.gif)
 
@@ -343,10 +343,10 @@ criteria: https://share.weiyun.com/fGgz0sD2
 
 ![](misc/clear-database.gif)
 
-* Iframe for product details
+* **iFrame** for product details
 
 ![](misc/iframe.gif)
 
-* AJAX search
+* **AJAX** search
 
 ![](misc/ajax-search.gif)
