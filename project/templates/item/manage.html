@@ -91,31 +91,11 @@
                     </tr>
                     </tbody>
                 </table>
-
-
             {% endif %}
         </div>
     </div>
-
 {% endblock %}
 
 {% block jsfoot %}
-    <script>
-        $(document).ready(function () {
-            $("a[id^=remove-item-button-]").click(function () {
-                let item_id = $(this).attr("id").split("-").pop();
-                {#console.log($(this));#}
-                $.ajax({
-                    url: "/item/delete/" + item_id,
-                    type: "GET",
-                    success: function (data) {
-                        $("#manage-items-box-table-data")[0].innerHTML = $(data).find("#manage-items-box-table-data")[0].innerHTML;
-                    }
-
-                });
-
-            });
-        });
-    </script>
-
+    <script src="{{ url_for('static',filename='js/item/manage.js') }}"></script>
 {% endblock %}

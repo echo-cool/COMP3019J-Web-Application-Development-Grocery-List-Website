@@ -84,7 +84,7 @@ def DeleteItem(item_id: int) -> Response:
     return redirect(url_for("item.ManageItem"))
 
 
-# a shopper need to modify the item
+# this method is used for shoppers to modify their uploaded item
 @blueprint.route("/item/modify/<int:item_id>", methods=["POST", "GET"])
 @login_required
 @seller_required
