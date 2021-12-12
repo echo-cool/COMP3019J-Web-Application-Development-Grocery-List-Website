@@ -23,6 +23,10 @@ def info() -> str:
         new_email: str = form.email.data
         new_password: str = form.password.data
         new_main_image = form.image_file.data
+        user_check: User = User.query.filter_by(username=new_username).first()
+        if user_check is not None and user_check.id != user.id:
+            flash("Username already exists !")
+            return redirect(url_for('user.info'))
         # Have a file
         if new_main_image.filename != "":
             filename = str(os.urandom(30).hex()) + "." + new_main_image.filename.split(".")[-1]
