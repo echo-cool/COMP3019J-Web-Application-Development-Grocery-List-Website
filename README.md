@@ -79,12 +79,21 @@ URL: http://127.0.0.1:5000
 * **CSRF Protection**
 * **Blueprint** for routing
 * Passwords are **hashed**
+* iframe
+* Admin account
+* Page updation using AJAX
+* Style changed via UI using Javascript
+* Separated log file
+* Switch "light mode / dark mode"
+* Can work with empty/new database (sellers, who are registered by the admin in the database, can upload products to fill the new empty database)
 
 ### Roles
 
 ##### Seller / Shop
 
-This is the kind of user who can **upload** products to sell and confirm orders.
+This is the kind of user who can **upload** products to sell and confirm orders. 
+
+Sellers can only be registered in the database by admin but cannot be registered publicly.
 
 ##### Administrator
 
@@ -256,8 +265,9 @@ Buyer | customer1 | 123456
     3. Can view his cart
     4. Can make orders
     5. Can view his orders
-    6. Cannot add products to the shopping site
-    7. Cannot manage products of the site
+    6. Can manager the status of his orders   
+    7. Cannot add products to the shopping site
+    8. Cannot manage products of the site
 2. **Seller** (**registered by Admin in the database, not allowed to be created by public register**)
     1. Can add products to the shopping site
     2. Can manage products
