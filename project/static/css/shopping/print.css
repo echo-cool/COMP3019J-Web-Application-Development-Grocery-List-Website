@@ -1,4 +1,5 @@
 .print-table {
+    width: 600px;
     border-collapse: collapse;
 
 }
@@ -22,9 +23,31 @@
 }
 
 .print-info2 {
-   margin-left: 40%;
+    margin-left: 40%;
 }
 
 #print_cart {
     margin: 0 auto;
 }
+
+.index-item-image {
+    height: 30px;
+    width: 30px;
+}
+
+.shopping-cart-big-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+table td, table th {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+/*table td:hover, table th:hover {*/
+/*    border: 2px solid yellowgreen;*/
+/*}*/
