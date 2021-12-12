@@ -336,3 +336,7 @@ criteria: https://share.weiyun.com/fGgz0sD2
 * Iframe for product details
 
 ![](misc/iframe.gif)
+
+* AJAX search
+
+![](misc/ajax-search.gif)
