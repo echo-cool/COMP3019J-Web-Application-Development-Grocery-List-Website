@@ -153,7 +153,7 @@ def addNewItem() -> str:
             print(e.message)
             db.session.rollback()
     flash_errors(form)
-    return render_template("item/add.html", form=form)
+    return render_template("item/add.html", form=form, current_user=get_current_user())
 
 
 # get all user's items

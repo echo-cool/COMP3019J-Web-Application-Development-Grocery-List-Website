@@ -82,6 +82,11 @@
                     Site</a>
                 <ul class="nav-right-bar">
                     {% if current_user.is_authenticated %}
+                        {% if current_user.is_admin %}
+                            <li><a style="color: red" href="{{ url_for("admin.view_all_tables") }}" class="nav-new">Admin</a>
+                            </li>
+                            <li>|</li>
+                        {% endif %}
                         <li><a href="{{ url_for("user.info") }}" class="nav-new">Hello, {{ current_user.username }} </a>
                         </li>
                         <li><a href="{{ url_for("user.info") }}"><img src="../../{{ current_user.main_image_url }}"
