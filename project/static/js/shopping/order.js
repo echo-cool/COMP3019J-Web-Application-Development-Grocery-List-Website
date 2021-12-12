@@ -10,12 +10,15 @@ let btn = document.querySelector('.dialogue-message-box');
 
 $(".message-button-action-new").on("click", function (e) {
 
+    //get x,y corrdinates of the button
     let mx = e.clientX - btn.offsetLeft,
         my = e.clientY - btn.offsetTop;
 
+    //get the button's width and height
     let w = $(this).offsetWidth,
         h = $(this).offsetHeight;
 
+    //get the button's position
     let directions = [
         {id: 'top', x: w / 2, y: 0},
         {id: 'right', x: w, y: h / 2},
@@ -26,7 +29,7 @@ $(".message-button-action-new").on("click", function (e) {
     directions.sort(function (a, b) {
         return distance(mx, my, a.x, a.y) - distance(mx, my, b.x, b.y);
     });
-
+   //The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
     $(this).parent().attr('data-direction', directions.shift().id);
     $(this).parent().addClass('is-open');
 });
@@ -34,6 +37,7 @@ $(".message-button-action-new").on("click", function (e) {
 // click yes
 $(".dialogue-message-yes-button").on("click", function () {
     console.log("yes");
+    //close the dialogue box
     $(this).parent().parent().removeClass('is-open');
 
 })
@@ -46,6 +50,7 @@ $(".dialogue-message-yes-button").on("click", function () {
 // click no
 $(".dialogue-message-no-button").on("click", function () {
     console.log("no");
+    //close the dialogue box
     $(this).parent().parent().removeClass('is-open');
 });
 

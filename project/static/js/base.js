@@ -31,6 +31,7 @@ for (let i = 0; i < counters.length; i++) {
 
 //start timer to add the value to the original value
 var timer = setInterval(() => {
+        //price++ animation for the price
         var counters = $(".anim-counter");
         for (let i = 0; i < counters.length; i++) {
             var number = Number(counters[i].innerText);
@@ -87,6 +88,7 @@ var a_idx = 0;
 // });
 
 $('#chooseImage').on('change', function () {
+    //live update the preview image
     var path_image, fileFormat, src;
     path_image = $(this).val();
     fileFormat = path_image.substring(path_image.lastIndexOf(".")).toLowerCase();
