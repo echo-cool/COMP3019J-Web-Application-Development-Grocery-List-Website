@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  comp3019j-web-application-development-grocery-list-website:
+    image: echocool/comp3019j-web-application-development-grocery-list-website:${VERSION:-latest}
+    container_name: comp3019j-web-application-development-grocery-list-website
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    restart: on-failure
