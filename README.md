@@ -16,12 +16,12 @@ increase/ decrease the quantity of the items while looking at their baskets. It 
 expenditure/cost for all items in the basket. Finally, it should create an itemized list of the user’s shopping bill,
 grouped by the shop.
 
-### Preview this project (Deployed in Heroku)
+### Preview this project
 
 This is a **preview version** of this project, it might contain errors or outdated pages. Please use python to run this
 project locally to see the latest website.
 
-[http://comp3019j-web-dev.herokuapp.com/](http://comp3019j-web-dev.herokuapp.com/)
+[http://comp3019j.demo.yuyangwang.org/](http://comp3019j.demo.yuyangwang.org/)
 
 ### Run this project
 
